@@ -406,6 +406,11 @@ not a proof of novelty.
 3. **One protocol per layer.** Wayland is one protocol; TLS 1.3 §4 is one
    section of one RFC. The optional second security RFC (Noise or RFC 9420
    MLS) that would turn a data point into a comparison has not been run.
+   *[Superseded 2026-08-13, same day: the MLS census was run under the
+   frozen pass-4 instrument — see `census/mls/rfc9420-census.md`. The
+   matched-method comparison it yields (MLS ≈57% vs TLS 80–83%
+   type-eliminable) is reported there and is not yet integrated into this
+   paper's abstract or §4, which still describe three corpora.]*
 4. **Sentence-level extraction.** Compound sentences count once; n = 204 is
    a sentence count, not an obligation count; SHOULD-level text is absent by
    design.

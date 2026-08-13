@@ -49,6 +49,7 @@ that with a DISAGREE bucket) come from.
 | [`census/wayland/`](census/wayland) — declared protocol errors, core + extensions | 172 | **87.6% type-eliminable in shape** (149/170 client-facing; 86.6% on all 172; one protocol — versioned-boundary limit noted in codebook) | reconciled against primary sources at census time; the census-era checkout was not pinned, so the 172-item corpus is preserved as reported numbers, not as a regenerable artifact (the regenerable superset is n=216 and carries no headline) |
 | [`census/tls13/`](census/tls13) — RFC 8446 §4 MUST/SHALL corpus | 204 | **80–83% type-eliminable in shape** (range over three valid raters, 79.9–82.8%; crypto core exactly 6/204, same items in every rater's recorded labels) | closed 2026-08-13 after a repair-and-re-rate loop with pre-registered predictions (passes 3–4); raters are LLM agents; disagreements unresolved by design |
 | `census/tls13/tls13-alert-census.md` — TLS 1.3 alert vocabulary (30-min probe) | 25 | alert vocabulary censors typestate ~2.3× vs the MUST corpus | probe; tally corrected 2026-08-13; superseded by the §4 census for any headline |
+| [`census/mls/`](census/mls) — RFC 9420 §5–§15 MUST/SHALL corpus | 127 | **≈57% type-eliminable in shape** (two raters: 56.7%/57.5% — ~25 points below TLS under the SAME instrument and recipe; ~19% PROCESS) | run 2026-08-13 under the frozen TLS pass-4 instrument, predictions pre-registered and publicly timestamped BEFORE any rater (M1 passed; M2–M4 failed and M5 failed 2 of its 3 clauses — graded against the author's model, per the pre-commitment); disagreements unresolved by design |
 
 **Read the caveats before quoting any number.** Every corpus censors some
 class (rule 7); percentages are never comparable across layers or across
@@ -89,8 +90,13 @@ vendored:
    15 items where two fresh raters
    agree on the same alternative label against the original ratings; that
    error bar is reported, not adjudicated away.
-2. Optional second security RFC (Noise or RFC 9420 MLS) to turn one data
-   point into a comparison.
+2. ~~Optional second security RFC~~ — DONE 2026-08-13: the MLS census
+   (`census/mls/`) turned one data point into a matched-method comparison;
+   the type-eliminable share is NOT a security-protocol constant (TLS
+   80–83% vs MLS ≈57%). Its disagreement residue names a candidate rule 15
+   (capability-compatibility tie-break) for any future instrument version.
+3. A third corpus under the same frozen instrument (e.g., QUIC RFC 9000 or
+   a non-protocol spec) to test whether ≈57% vs 80–83% begins a spectrum.
 
 ## License
 
