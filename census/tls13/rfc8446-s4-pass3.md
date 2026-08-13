@@ -6,9 +6,16 @@ see `rfc8446-s4-pass4.md` — later widened the quoted range to 80–83%.]* The 
 (headline 69.6%, outside the band; C agreed with A on only 82.1% of the 184
 previously-agreed items, against the 90.2% full-corpus A-vs-B baseline), and
 the failure localizes to an **instrument
-transcription error**, not to the codebook-v2 repair rules — but per the
-pre-registration, a pass that lands outside the band is evidence about the
-pass, never a new number.
+transcription error**, not to the codebook-v2 repair rules. The v2
+pre-registered failure clause reads, verbatim: *"A material shift outside
+the band under these rules is evidence the repair is mis-designed, not
+evidence of a new result."* The half that binds the number is honored — no
+new number is taken from this pass. The half that assigns blame is
+**overridden by a post-hoc diagnosis**: the shift traces mechanically to a
+paraphrased NEG definition in the rater prompt (below), not to rules 10–11 —
+a failure mode the pre-registered dichotomy (repair mis-designed vs. new
+result) did not anticipate. That diagnosis is recorded as a
+deviation-with-reason, not as compliance with the clause.
 
 ## What ran
 

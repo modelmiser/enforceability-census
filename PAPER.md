@@ -16,12 +16,13 @@ plus classes forced by cryptographic protocols (CRYPTO-VERIFY,
 NEGOTIATION) — and report the mix. Across three corpora from three
 different settings — an operations-monitoring rule base, a windowing
 protocol, a cryptographic protocol — we find: a monitoring-layer
-corpus (1,155 Prometheus alert rules) is 78% threshold and structurally
-incapable of expressing typestate; Wayland's declared protocol errors are
+corpus (1,155 Prometheus alert rules) is 78% threshold, in a query
+language whose grammar cannot express typestate — its TYPESTATE count of 0
+is a design invariant of PromQL, not a census measurement (§4.1); Wayland's declared protocol errors are
 87.6% type-eliminable in shape (149 of the 170 client-facing errors among
 172 declared; classifier vocabulary fitted to that corpus — §4.2); and the
 normative surface of RFC 8446 §4 (TLS 1.3 handshake,
-204 MUST/SHALL sentences) is **80–83% type-eliminable** (three-rater range),
+204 MUST/SHALL sentences) is **80–83% type-eliminable in shape** (three-rater range),
 with a secret-dependent cryptographic core of **exactly 6/204 (2.9%) — the
 same six sentences in every rater's recorded labels** (one rater's four
 unarchived labels are inferred non-CV; limitation 7). The numbers are the smaller half of the
@@ -30,8 +31,10 @@ classify on the predicate and never the name (a name-based pass produced a
 publishable-looking headline that was retracted the day it was written);
 make the classifier report a DISAGREE bucket so it can catch its own
 violations; pre-register codebook amendments and their predictions before
-each re-rating pass; and let the pre-committed interpretation of failure —
-not the hoped-for number — decide what a failed pass means.
+each re-rating pass; and where the outcome outran what was pre-registered —
+a failure mode the committed dichotomy had not anticipated (pass 3), a
+quoted range the failure clause said would not change (pass 4) — record a
+deviation with its reason rather than argue compliance (§6).
 A four-pass inter-rater study conducted this way — all raters LLM agents,
 the three non-author raters blind to each other, to the tallies, and to the
 authors' expectations — yields a finding we did not plan:
@@ -40,7 +43,11 @@ crisp.** The classes with mechanical discriminators showed zero or
 near-zero rater variance across four passes (CRYPTO-VERIFY and META:
 identical in every rater's recorded labels; THRESHOLD/REVOCABLE: one recorded flip on one
 item by one rater), while every residual disagreement sits on boundaries
-whose rules require judgment.
+whose rules require judgment. (Directional, not a quantitative law: the
+zero-or-near-zero-variance classes total 11 of 204 items, and perfect
+agreement on rare, distinctive items is weaker evidence than the same rate
+on a large class — the confound is stated in §6 and in the codebook's
+graduation record.)
 
 ## 1. The question, and why counting beats arguing
 
@@ -185,7 +192,8 @@ boundaries." A reproducibility caveat unique to this corpus: the census-era
 checkout was never pinned, so the 172-item corpus behind 87.6% is preserved
 as reported numbers rather than as a regenerable artifact — running the
 shipped pipeline today yields the n=216 superset, which carries no headline
-(11.1% unclassified). The TLS and PromQL censuses do not share this gap
+(11.1% unclassified, plus an unresolved 24-item DISAGREE bucket disjoint
+from it). The TLS and PromQL censuses do not share this gap
 (TLS: full corpus shipped with full label maps for raters A, C, and D —
 B's is partial, limitation 7; PromQL: byte-exact reproduction).
 Three bounds on the claim, all from the data: the
@@ -291,7 +299,11 @@ repository was scaffolded from working artifacts on the morning the passes
 ran — the scaffold commit discloses the migration — so the ordering claims
 are witnessed by the in-repo commit sequence and the cited blob hashes,
 with minutes-scale gaps consistent with LLM-agent raters; there is no
-older-timestamped record.)
+older-timestamped record. One more provenance grain: pre-gate commit
+*messages* carry pre-gate wording — one asserts THRESHOLD/REVOCABLE
+transmitted with zero variance, which the files correct to "one recorded
+flip" — and messages cannot be amended without rewriting history, so the
+files, not the messages, are the corrected record.)
 
 - **Codebook v2** (rules 10–11, predictions: gains concentrate in the 20;
   headline stays in 80–82%). **Pass 3 failed its criterion** — headline
@@ -300,9 +312,13 @@ older-timestamped record.)
   intersection") where the codebook says *emptiness* of the intersection;
   the paraphrase annexed decision-rule-1 territory (the census's
   cross-message-consistency rule) and 16 items migrated. The pass
-  is archived invalid ([`rfc8446-s4-pass3.md`](census/tls13/rfc8446-s4-pass3.md));
-  per the pre-registration, an out-of-band pass is evidence about the pass,
-  never a new number.
+  is archived invalid ([`rfc8446-s4-pass3.md`](census/tls13/rfc8446-s4-pass3.md)).
+  The pre-registered failure clause ("evidence the repair is mis-designed,
+  not evidence of a new result") is honored on the number — none is taken
+  from this pass — while its blame assignment (repair mis-designed) is
+  overridden by the post-hoc instrument diagnosis, a failure mode the
+  pre-registered dichotomy did not anticipate; the pass-3 report records
+  this as a deviation-with-reason, not compliance.
 - **Codebook v3** (rules 12–14 + the verbatim rater pack; predictions: NEG
   single digits, 184-item agreement ≥ 90%, headline in 80–82%, rule-10
   pattern reproduces). **Pass 4: 1 of 4 predictions passed**
@@ -311,15 +327,19 @@ older-timestamped record.)
   agreement recovered only to 86.4%, the headline landed at 82.8%, and two
   guard-vs-predicate items flipped between passes. The pre-committed
   interpretation applies: **the codebook is not transmissible by text alone
-  at item granularity, and that verdict — not a new headline — is the
-  result.** The decision not to run a pass 5 was made at close-out (each
-  further rule would be fitted to this corpus's residuals); what was
-  pre-registered is the interpretation just quoted. The quoted range still
-  widens to 80–83% because rater D's *instrument* was valid even though the
-  predictions about D's output failed — excluding a valid rater whose
-  result is inconvenient would be cherry-picking in the other direction,
-  while C stays excluded because C's instrument measured a paraphrase, not
-  the codebook (the full reconciliation is in the pass-4 report).
+  at item granularity.** The decision not to run a pass 5 was made at
+  close-out (each further rule would be fitted to this corpus's residuals);
+  what was pre-registered is the interpretation just quoted. The quoted
+  range widening to 80–83% is a **recorded post-hoc deviation** from the
+  same pre-registration, whose failure clause promised "that verdict, not a
+  new headline": rater D's *instrument* was valid even though the
+  predictions about D's output failed, and excluding a valid rater whose
+  result is inconvenient would be cherry-picking in the other direction —
+  but the pre-registration made no valid-instrument carve-out, so this is
+  an update with a stated reason, not compliance. C stays excluded because
+  C's instrument measured a paraphrase, not the codebook (the full
+  reconciliation, including the pass-3/pass-4 asymmetry this creates, is in
+  the pass-4 report).
 
 What four passes measured:
 
@@ -345,8 +365,11 @@ What four passes measured:
    eliminable family.
 3. **Authorial context leaks into labels, measurably.** 15 items have both
    fresh raters agreeing on the same alternative label against rater A.
-   Those 15 are the census's visible error bar; they remain unadjudicated
-   and are listed in the pass-4 report.
+   (Rater C's participation here survives pass 3's invalidation by the same
+   localization standard used for CV: none of C's labels on the 15 items is
+   NEG, so the paraphrase defect does not touch them — checked against the
+   archived labels.) Those 15 are the census's visible error bar; they
+   remain unadjudicated and are listed in the pass-4 report.
 
 ## 7. Related work
 

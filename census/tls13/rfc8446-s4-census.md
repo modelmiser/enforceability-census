@@ -193,18 +193,24 @@ overfitting.
 
 What this file's headline becomes:
 - **Type-eliminable share: quote as 80–83%** — the range of the three valid
-  raters, endpoints 79.9% (B) to 82.8% (D), with A at 81.9%. **Why this is
-  not the "new headline" the v3 pre-registration forbade:** the
-  pre-registration barred treating a failed pass as *convergence* — minting
-  a converged point estimate from it. It did not, and could not, bar
-  reporting the honest descriptive range over all valid raters; excluding D
-  (a valid-instrument rater) to preserve the old range would be
-  cherry-picking in the other direction. The asymmetry with rater C is
-  principled and stated: C's instrument was defective (a mis-transcribed
-  class definition moved a boundary), so C's *tallies* measure the
-  paraphrase, not the codebook; D's instrument was the codebook verbatim.
-  The transmissibility verdict (the pre-registered interpretation of the
-  prediction failures) stands unchanged alongside the widened range.
+  raters, endpoints 79.9% (B) to 82.8% (D), with A at 81.9%. **Recorded
+  deviation from the v3 pre-registration:** in the pre-registration's own
+  vocabulary ("the headline lands inside 80–82%"), the quoted range IS the
+  headline, and its failure clause promised "that verdict, not a new
+  headline, would be the result." Widening the range to include D is
+  therefore a post-hoc headline update — an update with a stated reason,
+  not compliance with the pre-registered text, which made no
+  valid-instrument carve-out. The reason: excluding D (a valid-instrument
+  rater) to preserve the old range would be cherry-picking in the other
+  direction. The asymmetry with rater C is principled and stated — C's
+  instrument was defective (a mis-transcribed class definition moved a
+  boundary), so C's *tallies* measure the paraphrase, not the codebook,
+  while D's instrument was the codebook verbatim — but the asymmetry it
+  creates in the record is also stated: pass 3's out-of-band number (69.6%,
+  invalid instrument) never touched the range; pass 4's (82.8%, valid
+  instrument) became its endpoint. The transmissibility verdict (the
+  pre-registered interpretation of the prediction failures) stands
+  unchanged alongside the post-hoc range.
 - **Crypto core: exactly 6/204 (2.9%), the same six items in every rater's
   recorded labels across all four passes** (for rater B this is
   archive-exact on the 200 recorded items and an inference for the four

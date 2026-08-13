@@ -483,7 +483,9 @@ interpretable against the text they were taken under. Motivated by the 20-item
 DISAGREE bucket of the RFC 8446 §4 two-rater pass
 (`census/tls13/rfc8446-s4-census.md`), which localizes to two codebook gaps —
 14 items on a guard-vs-predicate boundary, 3 on the UNCLASSIFIED-unverifiable
-boundary.
+boundary *[precision note 2026-08-13: 14 + 3 accounts for 17 of the 20; the
+remaining 3 (items 27, 138, 189) sit outside the two counted clusters — see the
+census's DISAGREE itemization]*.
 
 **Pre-registered before the third rating pass** (this section is committed
 before any third rater sees the corpus). Predictions, stated in advance so the
@@ -599,7 +601,9 @@ their definitions as in `rater-pack.md` (CV: verification requiring secret or
 transcript-derived material, per decision rule 2; NEG: emptiness/compatibility
 of a two-party set intersection, per rule 12).
 
-The gates, stated precisely: **one gate was pre-registered** — the
+The gates, stated precisely (pre-registration ordering here, as everywhere
+in this repo, is witnessed by a same-morning in-repo commit sequence only —
+see the provenance note in PAPER §6): **one gate was pre-registered** — the
 falsifiability check the §4 census wrote down as its caveat 4 — and it
 passed: CV = 0/216, NEG = 0/216 on a regenerated superset corpus; the classes
 pick out nothing in a protocol with no cryptography and no negotiation

@@ -76,7 +76,11 @@ rule 14 now guards against.]*
 
 Running `wayland-classifier.py` on the n=216 superset gives 79.0% eliminable
 (169/214 client-facing; 78.2% on all 216) with an **11.1% UNCLASSIFIED
-bucket** (24/216) (census corpus: 87.6% at 1.2% unclassified). The bucket went from 1.2% to 11.1% (2 → 24 items) because
+bucket** (24/216) and a **24-item DISAGREE bucket** (name-vs-predicate splits,
+disjoint from the 24 UNCLASSIFIED items; rule 9 requires resolving that
+bucket before quoting any ratio, and it is unresolved here — a second,
+independent reason this run carries no headline) (census corpus: 87.6% at
+1.2% unclassified). The UNCLASSIFIED bucket went from 1.2% to 11.1% (2 → 24 items) because
 post-census protocols use vocabulary the classifier was never fitted to. Per the codebook, a run with a
 large unclassified bucket has no headline; we record it as a live
 demonstration of the corpus-fitted-vocabulary caveat that the retraction

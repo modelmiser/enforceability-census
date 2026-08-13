@@ -34,7 +34,11 @@ whose query is a continuous THRESHOLD, or `HighReplicationLag` whose query is a
 STATE equality), plus a **NAME-HINT** signal that suggests a class for rows the
 query classifier left UNCLASSIFIED. The name is never the reported class.
 """
-import re, sys, yaml, json, hashlib
+import re, sys, json, hashlib
+try:
+    import yaml
+except ImportError:
+    sys.exit("This classifier needs PyYAML (pip install pyyaml) to read the rules file.")
 
 STATE_PATTERNS = [
     r'\babsent\s*\(',              # the thing is gone entirely

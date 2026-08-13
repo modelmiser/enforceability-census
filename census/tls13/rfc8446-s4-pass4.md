@@ -11,8 +11,10 @@ measures that); see the paper's limitations for what this population does
 and does not control for.
 *(Format note, 2026-08-13, post-gate: the rater pack's rule lists were later
 re-set from markdown ordered lists to bold headings so rendered numbering
-matches the written rule numbers; content unchanged from the blob cited
-above, which remains the byte-exact pass-4 instrument.)*
+matches the written rule numbers; rule content unchanged from the blob
+cited above, which remains the byte-exact pass-4 instrument — beyond the
+reformat, the only post-blob delta is one parenthetical note on the two
+rule-numbering namespaces.)*
 
 ## Scores
 
@@ -42,15 +44,22 @@ risk of tuning the codebook to a desired number. (What was pre-registered
 is the *interpretation* of prediction failure; the decision not to iterate
 again follows from it but was made at close-out.)
 
-**Reconciliation — why the quoted range still widens to 80–83%.** The
-pre-registration barred minting a *converged headline* from a failed pass.
-It did not bar the descriptive range over valid raters, and D's instrument
-(the verbatim pack) was valid even though the predictions about D's output
-failed. Excluding a valid rater whose result is inconvenient would be
-cherry-picking; excluding C is principled because C's instrument was
-defective (it measured a paraphrase, not the codebook). So: transmissibility
-verdict as pre-registered, range honestly widened to 79.9–82.8% ("80–83%"),
-no point estimate quoted anywhere.
+**Reconciliation — the quoted range widens to 80–83%, as a recorded
+post-hoc deviation.** The v3 pre-registration's failure clause promised
+"that verdict, not a new headline, would be the result," and in its own
+vocabulary ("the headline lands inside 80–82%") the quoted range is the
+headline. Widening it to include D is therefore a post-hoc headline
+update, made for a stated reason — not compliance, since the
+pre-registration made no valid-instrument carve-out. The reason: D's
+instrument (the verbatim pack) was valid even though the predictions about
+D's output failed, and excluding a valid rater whose result is
+inconvenient would be cherry-picking in the other direction; C stays
+excluded because C's instrument was defective (it measured a paraphrase,
+not the codebook). The asymmetry this creates is on the record: pass 3's
+out-of-band 69.6% (invalid instrument) never touched the range; pass 4's
+82.8% (valid instrument) became its endpoint. So: transmissibility verdict
+as pre-registered; range 79.9–82.8% ("80–83%") as post-hoc description; no
+point estimate quoted anywhere.
 
 ## What is now measured (the stable findings)
 
