@@ -1,0 +1,30 @@
+[1] An RTT sample MUST NOT be generated on receiving an ACK frame that does not newly acknowledge at least one ack-eliciting packet.
+[2] min_rtt MUST be set to the latest_rtt on the first RTT sample. min_rtt MUST be set to the lesser of min_rtt and latest_rtt (Section 5.1) on all other samples.
+[3] *  MUST use the lesser of the acknowledgment delay and the peer's max_ack_delay after the handshake is confirmed; and
+[4] *  MUST NOT subtract the acknowledgment delay from the RTT sample if the resulting value is smaller than the min_rtt.
+[5] To avoid declaring packets as lost too early, this time threshold MUST be set to at least the local timer granularity, as indicated by the kGranularity constant.
+[6] A PTO timer expiration event does not indicate packet loss and MUST NOT cause prior unacknowledged packets to be marked as lost.
+[7] The PTO period MUST be at least kGranularity to avoid the timer expiring immediately.
+[8] When ack-eliciting packets in multiple packet number spaces are in flight, the timer MUST be set to the earlier value of the Initial and Handshake packet number spaces.
+[9] An endpoint MUST NOT set its PTO timer for the Application Data packet number space until the handshake is confirmed.
+[10] When a PTO timer expires, the PTO backoff MUST be increased, resulting in the PTO period being set to twice its current value.
+[11] The PTO timer MUST NOT be set if a timer is set for time threshold loss detection; see Section 6.1.2.
+[12] When Initial or Handshake keys are discarded, the PTO and loss detection timers MUST be reset, because discarding keys indicates forward progress and the loss detection timer might have been set for a now- discarded packet number space.
+[13] If no additional data can be sent, the server's PTO timer MUST NOT be armed until datagrams have been received from the client because packets sent on PTO count against the anti-amplification limit.
+[14] That is, the client MUST set the PTO timer if the client has not received an acknowledgment for any of its Handshake packets and the handshake is not confirmed (see Section 4.1.2 of [QUIC-TLS]), even if there are no packets in flight.
+[15] When the PTO fires, the client MUST send a Handshake packet if it has Handshake keys, otherwise it MUST send an Initial packet in a UDP datagram with a payload of at least 1200 bytes.
+[16] When a PTO timer expires, a sender MUST send at least one ack- eliciting packet in the packet number space as a probe.
+[17] All probe packets sent on a PTO MUST be ack-eliciting.
+[18] The sender MUST discard all recovery state associated with those packets and MUST remove them from the count of bytes in flight.
+[19] If a sender uses a different controller than that specified in this document, the chosen controller MUST conform to the congestion control guidelines specified in Section 3.1 of [RFC8085].
+[20] An endpoint MUST NOT send a packet if it would cause bytes_in_flight (see Appendix B.2) to be larger than the congestion window, unless the packet is sent on a PTO timer expiration (see Section 6.2) or when entering recovery (see Section 7.3.2).
+[21] The sender MUST exit slow start and enter a recovery period when a packet is lost or when the ECN-CE count reported by its peer increases.
+[22] On entering a recovery period, a sender MUST set the slow start threshold to half the value of the congestion window when loss is detected.
+[23] The congestion window MUST be set to the reduced value of the slow start threshold before exiting the recovery period.
+[24] A sender in congestion avoidance uses an Additive Increase Multiplicative Decrease (AIMD) approach that MUST limit the increase to the congestion window to at most one maximum datagram size for each congestion window that is acknowledged.
+[25] Endpoints MUST NOT ignore the loss of packets that were sent after the earliest acknowledged packet in a given packet number space.
+[26] Probe packets MUST NOT be blocked by the congestion controller.
+[27] A sender MUST however count these packets as being additionally in flight, since these packets add network load without establishing packet loss.
+[28] These two packets MUST be ack-eliciting, since a receiver is required to acknowledge only ack-eliciting packets within its maximum acknowledgment delay; see Section 13.2 of [QUIC-TRANSPORT].
+[29] When persistent congestion is declared, the sender's congestion window MUST be reduced to the minimum congestion window (kMinimumWindow), similar to a TCP sender's response on an RTO [RFC5681].
+[30] Senders MUST either use pacing or limit such bursts.

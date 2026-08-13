@@ -1,0 +1,69 @@
+[1] If QUIC needs to retransmit that data, it MUST use the same keys even if TLS has already updated to newer keys.
+[2] The server MUST send a HANDSHAKE_DONE frame as soon as the handshake is complete.
+[3] *  If the packet is from a previously installed encryption level, it MUST NOT contain data that extends past the end of previously received data in that flow.
+[4] Implementations MUST treat any violations of this requirement as a connection error of type PROTOCOL_VIOLATION.
+[5] When TLS provides keys for a higher encryption level, if there is data from a previous encryption level that TLS has not consumed, this MUST be treated as a connection error of type PROTOCOL_VIOLATION.
+[6] Clients MUST NOT offer TLS versions older than 1.3.
+[7] An endpoint MUST terminate the connection if a version of TLS older than 1.3 is negotiated.
+[8] A client MUST authenticate the identity of the server.
+[9] A server MUST NOT use post-handshake client authentication (as defined in Section 4.6.2 of [TLS13]) because the multiplexing offered by QUIC prevents clients from correlating the certificate request with the application-level event that triggered it (see [HTTP2-TLS13]).
+[10] More specifically, servers MUST NOT send post- handshake TLS CertificateRequest messages, and clients MUST treat receipt of such messages as a connection error of type PROTOCOL_VIOLATION.
+[11] Servers MUST NOT send the early_data extension with a max_early_data_size field set to any value other than 0xffffffff.
+[12] A client MUST treat receipt of a NewSessionTicket that contains an early_data extension with any other value as a connection error of type PROTOCOL_VIOLATION.
+[13] When rejecting 0-RTT, a server MUST NOT process any 0-RTT packets, even if it could.
+[14] The client therefore MUST reset the state of all streams, including application state bound to those streams.
+[15] As QUIC provides alternative mechanisms for connection termination and the TLS connection is only closed if an error is encountered, a QUIC endpoint MUST treat any alert from TLS as if it were at the "fatal" level.
+[16] If packets from a lower encryption level contain CRYPTO frames, frames that retransmit that data MUST be sent at the same encryption level.
+[17] Though an endpoint might retain older keys, new data MUST be sent at the highest currently available encryption level.
+[18] Thus, a client MUST discard Initial keys when it first sends a Handshake packet and a server MUST discard Initial keys when it first successfully processes a Handshake packet.
+[19] Endpoints MUST NOT send Initial packets after this point.
+[20] An endpoint MUST discard its Handshake keys when the TLS handshake is confirmed (Section 4.1.2).
+[21] After receiving a 1-RTT packet, servers MUST discard 0-RTT keys within a short time; the RECOMMENDED time period is three times the Probe Timeout (PTO, see [QUIC-RECOVERY]).
+[22] Other versions of TLS MUST provide a similar function in order to be used with QUIC.
+[23] The HKDF-Expand-Label function defined in TLS 1.3 MUST be used for Initial packets even where the TLS versions offered do not include TLS 1.3.
+[24] A cipher suite MUST NOT be negotiated unless a header protection scheme is defined for the cipher suite.
+[25] An endpoint MUST NOT reject a ClientHello that offers a cipher suite that it does not support, or it would be impossible to deploy a new cipher suite.
+[26] An endpoint MUST initiate a key update (Section 6) prior to exceeding any limit set for the AEAD that is in use.
+[27] Before a TLS cipher suite can be used with QUIC, a header protection algorithm MUST be specified for the AEAD used with that cipher suite.
+[28] An endpoint MUST discard packets that are not long enough to contain a complete sample.
+[29] Once an endpoint successfully receives a packet with a given packet number, it MUST discard all packets in the same packet number space with higher packet numbers if they cannot be successfully unprotected with either the same key, or -- if there is a key update -- a subsequent packet protection key; see Section 6.
+[30] Similarly, a packet that appears to trigger a key update but cannot be unprotected successfully MUST be discarded.
+[31] A client therefore MUST NOT use 0-RTT for application data unless specifically requested by the application that is in use.
+[32] An application protocol that uses QUIC MUST include a profile that defines acceptable use of 0-RTT; otherwise, 0-RTT can only be used to carry QUIC frames that do not carry application data.
+[33] A server MUST NOT use 0-RTT keys to protect packets; it uses 1-RTT keys to protect acknowledgments of 0-RTT packets.
+[34] A client MUST NOT attempt to decrypt 0-RTT packets it receives and instead MUST discard them.
+[35] Once a client has installed 1-RTT keys, it MUST NOT send any more 0-RTT packets.
+[36] Endpoints in either role MUST NOT decrypt 1-RTT packets from their peer prior to completing the handshake.
+[37] A server MUST NOT process incoming 1-RTT protected packets before the TLS handshake is complete.
+[38] Even if it has 1-RTT secrets, a client MUST NOT process incoming 1-RTT protected packets before the TLS handshake is complete.
+[39] Endpoints MUST NOT send a TLS KeyUpdate message.
+[40] Endpoints MUST treat the receipt of a TLS KeyUpdate message as a connection error of type 0x010a, equivalent to a fatal TLS alert of unexpected_message; see Section 4.8.
+[41] An endpoint MUST NOT initiate a key update prior to having confirmed the handshake (Section 4.1.2).
+[42] An endpoint MUST NOT initiate a subsequent key update unless it has received an acknowledgment for a packet that was sent protected with keys from the current key phase.
+[43] An endpoint MUST retain old keys until it has successfully unprotected a packet sent using the new keys.
+[44] The endpoint MUST update its send keys to the corresponding key phase in response, as described in Section 6.1.
+[45] Sending keys MUST be updated before sending an acknowledgment for the packet that was received with updated keys.
+[46] Endpoints responding to an apparent key update MUST NOT generate a timing side-channel signal that might indicate that the Key Phase bit was invalid (see Section 9.5).
+[47] For this reason, endpoints MUST be able to retain two sets of packet protection keys for receiving packets: the current and the next.
+[48] Packets with higher packet numbers MUST be protected with either the same or newer packet protection keys than packets with lower packet numbers.
+[49] An endpoint that successfully removes protection with old keys when newer keys were used for packets with lower packet numbers MUST treat this as a connection error of type KEY_UPDATE_ERROR.
+[50] Endpoints MUST count the number of encrypted packets for each set of keys.
+[51] If the total number of encrypted packets with the same key exceeds the confidentiality limit for the selected AEAD, the endpoint MUST stop using those keys.
+[52] Endpoints MUST initiate a key update before sending more protected packets than the confidentiality limit for the selected AEAD permits.
+[53] If a key update is not possible or integrity limits are reached, the endpoint MUST stop using the connection and only send stateless resets in response to receiving packets.
+[54] In addition to counting packets sent, endpoints MUST count the number of received packets that fail authentication during the lifetime of a connection.
+[55] If the total number of received packets that fail authentication within the connection, across all keys, exceeds the integrity limit for the selected AEAD, the endpoint MUST immediately close the connection with a connection error of type AEAD_LIMIT_REACHED and not process any more packets.
+[56] Any TLS cipher suite that is specified for use with QUIC MUST define limits on the use of the associated AEAD function that preserves margins for confidentiality and integrity.
+[57] That is, limits MUST be specified for the number of packets that can be authenticated and for the number of packets that can fail authentication.
+[58] Unless another mechanism is used for agreeing on an application protocol, endpoints MUST use ALPN for this purpose.
+[59] When using ALPN, endpoints MUST immediately close a connection (see Section 10.2 of [QUIC-TRANSPORT]) with a no_application_protocol TLS alert (QUIC error code 0x0178; see Section 4.8) if an application protocol is not negotiated.
+[60] While [ALPN] only specifies that servers use this alert, QUIC clients MUST use error 0x0178 to terminate a connection when ALPN negotiation fails.
+[61] Servers MUST select an application protocol compatible with the QUIC version that the client has selected.
+[62] The server MUST treat the inability to select a compatible application protocol as a connection error of type 0x0178 (no_application_protocol).
+[63] Similarly, a client MUST treat the selection of an incompatible application protocol by a server as a connection error of type 0x0178.
+[64] Endpoints MUST send the quic_transport_parameters extension; endpoints that receive ClientHello or EncryptedExtensions messages without the quic_transport_parameters extension MUST close the connection with an error of type 0x016d (equivalent to a fatal TLS missing_extension alert, see Section 4.8).
+[65] Endpoints MUST NOT send this extension in a TLS connection that does not use QUIC (such as the use of TLS with TCP defined in [TLS13]).
+[66] A fatal unsupported_extension alert MUST be sent by an implementation that supports this extension if the extension is received when the transport is not QUIC.
+[67] Clients MUST NOT send the EndOfEarlyData message.
+[68] A server MUST treat receipt of a CRYPTO frame in a 0-RTT packet as a connection error of type PROTOCOL_VIOLATION.
+[69] A client MUST NOT request the use of the TLS 1.3 compatibility mode.
