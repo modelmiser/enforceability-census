@@ -1,4 +1,4 @@
-# RFC 8446 §4 normative-obligation census (the 3-hour version)
+# RFC 8446 §4 normative-obligation census (the 3-hour version — a time-boxed effort tier; the companion "30-minute probe" is the alert census)
 
 2026-08-12 · Companion to `tls13-alert-census.md` (the 30-minute alert probe). Corpus =
 every MUST/MUST NOT/SHALL sentence in RFC 8446 §4 (Handshake Protocol), n=204,
@@ -91,6 +91,12 @@ agreement 184/204 (90.2%); eliminable-vs-not agreement 196/204 (96.1%).
   The condition is history, the checked predicate is a constant; the codebook lacks a
   tie-break for which wins. Both readings are eliminable, so this mass is INTERIOR to
   the headline family — that is why headline agreement is 6 points above raw.
+  *[Scope correction, 2026-08-13 (found at the publish gate): the interior claim
+  holds for the 10 guard items with recorded B labels. It cannot hold for all of
+  [5,54,65,123]: the 196/204 binary figure forces exactly 3 of those four to be
+  cross-family, and item 54's own A-label is PROCESS — outside the eliminable
+  family regardless of B. The 79.9%/96.1% figures are unaffected; the "both
+  readings eliminable" sentence overreached its evidence.]*
 - [51,55,157] A:0 B:U — presence duties whose content ties to unverifiable local
   intent (capability-honesty shading).
 - [27] A:POL B:0; [138] A:3 B:U (uniqueness-over-history vs generation duty);
@@ -109,7 +115,8 @@ repaired; raters C and D have full archived maps.]*
 
 ## Prior-art sweep (3-hour tier)
 
-FSM-*extraction* from RFCs is a mature genre — RFCNLP/attack-synthesis (NDSS'22,
+FSM-*extraction* from RFCs is a mature genre — RFCNLP/attack-synthesis (IEEE
+S&P 2022 *[venue corrected 2026-08-13; originally miscited as NDSS]*,
 arXiv:2202.09470), PROSPER (HotNets'23), FlowFSM, LLM-ensemble extraction for 3GPP
 (arXiv:2510.14348) — and RFC 2119 modality-tagging exists in requirements engineering.
 None of these measure an **enforceability-class mix** of a protocol's obligation set;

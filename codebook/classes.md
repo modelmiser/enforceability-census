@@ -139,7 +139,10 @@ sections above are the original codebook and keep their historical form.
 ## Calibration: measured class ratios
 
 Four corpora, independently authored, different domains, different assertion
-languages. None was written with this taxonomy in mind.
+languages. None was written with this taxonomy in mind. (Corpus numbering
+used in the rules below: corpus 2 = awesome-prometheus-alerts, corpus 3a =
+wayland-protocols declared errors, corpus 3b = smithay `post_error` sites;
+corpus 1 = the mm-lux contract set, private.)
 
 | Corpus | Layer | n | Domain | Typestate | Revocable | Threshold | Uncl. |
 |---|---|---|---|---|---|---|---|
@@ -467,10 +470,13 @@ repair can be judged rather than trusted:
 - Agreement gains should CONCENTRATE in the 20 DISAGREE items; agreement on
   the other 184 should not degrade.
 - Because both readings of the 14 guard-vs-predicate items are interior to the
-  eliminable family (DOMAIN vs TYPESTATE), and resolving the 3 U-boundary
-  items toward wire-observability stays inside the existing two-rater spread,
-  the headline eliminable share should **tighten within the current 80–82%
-  band**, not move outside it. A material shift outside the band under these
+  eliminable family (DOMAIN vs TYPESTATE) *[scope correction 2026-08-13: true
+  for the 10 label-recorded guard items; the 196/204 binary-agreement figure
+  forces 3 of the 4 unarchived items [5,54,65,123] to be cross-family, and
+  A:54 = PROCESS — see the census's Inter-rater section]*, and resolving the 3
+  U-boundary items toward wire-observability stays inside the existing
+  two-rater spread, the headline eliminable share should **tighten within the
+  current 80–82% band**, not move outside it. A material shift outside the band under these
   rules is evidence the repair is mis-designed, not evidence of a new result.
 
 **Rule 10 — Guard-vs-predicate tie-break: classify by the discharging type.** Many
@@ -574,7 +580,8 @@ of a two-party set intersection, per rule 12).
 The gates, stated precisely: **one gate was pre-registered** — the
 falsifiability check the §4 census wrote down as its caveat 4 — and it
 passed: CV = 0/216, NEG = 0/216 on a regenerated superset corpus; the classes
-pick out nothing in a non-cryptographic, non-negotiated protocol
+pick out nothing in a protocol with no cryptography and no negotiation
+surface among its declared errors
 (`census/wayland/cv-neg-falsifiability.md`). The census's other stated
 condition ("graduate after follow-ups 1 and 4 converge") was written before
 the passes ran; the passes did *not* converge (that non-convergence is the

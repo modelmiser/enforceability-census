@@ -101,8 +101,8 @@ transcript-derived material.
 CRYPTO-VERIFY and NEGOTIATION entered as *provisional* classes when the TLS
 alert probe forced them, and graduated on two grounds of different strength,
 stated separately. **One gate was pre-registered**: a falsifiability check —
-the classes predict zero members in a non-cryptographic, non-negotiated
-protocol — confirmed at CV = 0/216 and NEG = 0/216 on a from-source
+the classes predict zero members in a protocol with no cryptography and no
+negotiation surface among its declared errors — confirmed at CV = 0/216 and NEG = 0/216 on a from-source
 regeneration of the Wayland corpus
 ([`census/wayland/cv-neg-falsifiability.md`](census/wayland/cv-neg-falsifiability.md));
 note the check's scan is a vocabulary net whose hits were hand-adjudicated,
@@ -215,7 +215,8 @@ shape** — precisely, the range across three valid raters is 79.9% (B) to
 82.8% (D), with A at 81.9% (§6). The secret-dependent core is **6/204 =
 2.9%, identical items for every rater**. Everything outside the
 type-dischargeable family — CV + REVOCABLE + THRESHOLD + NEG — is ~6%
-(5.9–6.4% across raters).
+(5.9–6.4% across raters; B's endpoint assumes its four unarchived labels
+fall outside these classes).
 
 The granularity prediction from §4.3 is confirmed quantitatively: the alert
 vocabulary shows 20% typestate where the obligation corpus shows 46% — a
@@ -257,9 +258,10 @@ included verbatim because its failure modes generalize:
    error rates.
 3. **A fix is new content and needs the same verification.** The addendum's
    accuracy lens found that the codebook's own `\b`-regex war story had
-   inflated one bug's effect ~4× by crediting it with three corpus-fitted
-   vocabulary expansions — the corrected story is itself a caveat on the
-   87.6% figure.
+   credited one regex bug with four interventions' effect (the bug alone
+   explains 15.2 of the credited 27.9 percentage points; three corpus-fitted
+   vocabulary expansions did the rest) — the corrected story is itself a
+   caveat on the 87.6% figure.
 
 ## 6. The transmissibility study: four passes, and a stop whose interpretation was pre-registered
 
@@ -330,7 +332,7 @@ What four passes measured:
 ## 7. Related work
 
 FSM-*extraction* from RFCs is a mature genre — RFCNLP / attack synthesis
-(NDSS 2022, arXiv:2202.09470), PROSPER (HotNets 2023), FlowFSM, LLM-ensemble
+(IEEE S&P 2022, arXiv:2202.09470), PROSPER (HotNets 2023), FlowFSM, LLM-ensemble
 extraction for 3GPP specs (arXiv:2510.14348) — and RFC 2119 modality tagging
 exists in requirements engineering. These classify by modality or extract
 transitions for fuzzing; none measures an enforceability-class mix of an
