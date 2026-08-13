@@ -448,3 +448,49 @@ repair can be judged rather than trusted:
     Operational form: *could a test harness holding only a packet capture
     ever emit a conformance FAIL for this sentence alone?* If no — U. If
     yes — classify what the FAIL would check.
+
+---
+
+# CODEBOOK v3 AMENDMENTS — 2026-08-13 (after pass 3)
+
+Motivated by the pass-3 failure (`census/tls13/rfc8446-s4-pass3.md`): a
+paraphrased NEGOTIATION definition annexed rule-1 territory and a never-ruled
+DOMAIN/PROCESS boundary drifted. Appended before any pass-4 rater exists.
+
+**Pre-registered pass-4 predictions:** NEG returns to single digits (the 16
+collision items land TYPESTATE); raw agreement with rater A on the 184
+previously-agreed items recovers to ≥ the A-vs-B baseline (90%); the headline
+lands inside 80–82%; the guard-vs-predicate pattern from pass 3
+(constant-whenever-applicable → DOMAIN; history-varying → TYPESTATE)
+reproduces. Any of these failing means the codebook is still not
+transmissible by text alone — that verdict, not a new headline, would be the
+result.
+
+12. **NEGOTIATION discriminator — the predicate is the EXISTENCE of a
+    compatible choice, never the choice itself.** NEG covers obligations on
+    the emptiness/compatibility of a two-party set intersection: abort when
+    offer ∩ config = ∅, proceed only if a mutually supported parameter
+    exists. The moment the sentence constrains a *specific selected value*
+    against what was previously offered ("the server's selected X MUST be
+    one the client offered"), it is cross-message consistency and rule 1
+    already classifies it: TYPESTATE. Litmus: does the predicate mention a
+    chosen value? Then it is not NEG.
+
+13. **DOMAIN vs PROCESS — classify the wire-observable configuration if the
+    sentence obliges one.** "MUST set/encode field F to X" is a predicate on
+    a wire value: DOMAIN (or TYPESTATE via rule 10 if the required value is
+    history-dependent). PROCESS is reserved for sentences obliging a
+    computation or procedure with **no wire-observable predicate of their
+    own** ("derive the secret using HKDF", "iterate in preference order",
+    "validate before using"). POLICY, for the record, is an
+    operator/deployment-discretion duty with no per-instance wire predicate
+    (e.g., "MAY-style profiles a deployment MUST choose among").
+
+14. **The instrument is the codebook, verbatim — never a paraphrase.**
+    Raters receive `codebook/rater-pack.md` byte-identical; each pass report
+    records the pack's git blob hash. Pass 3 is the existence proof for this
+    rule: two raters had agreed at 90.2% partly through shared authorial
+    context, and the first rater who received only a paraphrase diverged
+    along exactly the boundaries the paraphrase moved. A codebook that
+    cannot be transmitted by its text alone is not yet a measurement
+    instrument.
