@@ -13,9 +13,10 @@ classes — those a type system could discharge (DOMAIN, TYPESTATE) and those
 it cannot (THRESHOLD, whose constant is a policy choice with no fact of the
 matter for a type to certify, and REVOCABLE, whose truth needs a clock),
 plus classes forced by cryptographic protocols (CRYPTO-VERIFY,
-NEGOTIATION) — and report the mix. Across five corpora from three
+NEGOTIATION) — and report the mix. Across seven corpora from three
 different settings — an operations-monitoring rule base, a windowing
-protocol, and three cryptographic/transport protocols — we find: a monitoring-layer
+protocol, and the specifications of three cryptographic/transport
+protocols including QUIC's complete three-document family — we find: a monitoring-layer
 corpus (1,155 Prometheus alert rules) is 78% threshold, in a query
 language whose grammar cannot express typestate — its TYPESTATE count of 0
 is a design invariant of PromQL, not a census measurement (§4.1); Wayland's declared protocol errors are
@@ -38,7 +39,20 @@ them at **≈67–69%** (66.9%/69.0%), TYPESTATE its largest class — three
 censused spans, one instrument, results **consistent with a spectrum**
 (≈57% → ≈67–69% → 80–83%) whose positions are explainable, post hoc, by
 what each span states as obligations — not an established mechanism; the
-author's pre-registered directional model of it partly failed (§4.6). The numbers are the smaller half of the
+author's pre-registered directional model of it partly failed (§4.6).
+Completing QUIC's document family (§4.7) put that reading through its
+sharpest available control — one protocol, one working group, the
+document's role varying (rater pairs, spans, and n vary too; §4.7) — and
+the share ranged from **23.3%** (RFC 9002's
+loss-recovery shell, identical in two blind same-family raters — the
+shared-prior caveat of §6 applies) through 54–67% (RFC 9001)
+to ≈67–69% (transport): within one protocol, document role tracks the
+mix. The same completion qualified two things this abstract would
+otherwise overclaim: the "crypto document" is NOT crypto-dense (CV
+1.4%/2.9% — its verification lives in non-normative prose the census
+cannot see, censoring INSIDE a document), and RFC 9001 produced the
+series' first below-band inter-rater agreement (76.8%), concentrated on
+the PROCESS/TYPESTATE key-lifecycle boundary. The numbers are the smaller half of the
 contribution. The larger half is the method that survived its own failures:
 classify on the predicate and never the name (a name-based pass produced a
 publishable-looking headline that was retracted the day it was written);
@@ -349,7 +363,53 @@ capability-compatibility boundary also recurred, smaller (5 items on the
 rule-11 U-boundary). All graded per the pre-committed interpretation:
 wrong guesses about QUIC, licensing nothing.
 
-### 4.7 What does *not* survive across corpora
+### 4.7 The QUIC document family: RFC 9001 (n = 69) and RFC 9002 (n = 30)
+
+Run 2026-08-13, immediately after the transport census, to cash its
+rule-7 disclosure: QUIC's packet protection lives in RFC 9001 and its
+loss recovery in RFC 9002, and a claim about "QUIC" from RFC 9000 alone
+sees neither. Same discipline (corpora frozen and predictions K1–K5,
+R1–R5 pushed publicly before any rater; instrument blob `a08febba…`
+verbatim). Full reports:
+[`census/quic-tls/rfc9001-census.md`](census/quic-tls/rfc9001-census.md),
+[`census/quic-recovery/rfc9002-census.md`](census/quic-recovery/rfc9002-census.md),
+synthesis [`census/quic-family.md`](census/quic-family.md).
+
+**RFC 9001 (the TLS shell): 54–67% eliminable, quoted wide because raw
+agreement was 76.8% — the first census below the pre-registered 78–90%
+transfer band (itself set from TLS's measured 81–90%).** All five
+pre-registered predictions failed, led by the central one: CV was
+predicted at 25–45% ("the crypto document") and measured at **1.4%/2.9%**.
+The document's MUST-sentences state the shell around its cryptography —
+key lifecycle, phase gates, AEAD limits — while verification itself is
+described in non-normative grammar a MUST-sentence census cannot see:
+rule-7 censoring operating *inside* a document, not at its boundary. The
+band break localizes: ten of sixteen disagreements are one boundary
+(author read key-lifecycle duties as internal PROCESS; the blind rater
+read eight as connection-phase TYPESTATE and two as DOMAIN), on the corpus densest in exactly the
+judgment boundary the codebook already knew was soft. The five AEAD-limit
+items, meanwhile, were THRESHOLD item-identical in both raters — the
+rule-3 edge predicted to split here did not (a prediction of disagreement
+falsified by unanimity).
+
+**RFC 9002 (the recovery shell): 23.3% eliminable — the low end of the
+frozen-instrument MUST-corpora — with identical item sets in both raters
+and agreement of 96.7%; ~60% PROCESS.** One protocol deviation, disclosed in the
+report's setup: the first blind rater's labels were seen by the author
+before the author pass had run, so the author pass was abandoned and
+replaced by a second fresh blind rater — this census has two blind
+raters, no author rater, no authorial error bar, and the
+shared-model-prior caveat (limitation 6) applies at full force to its
+high agreement.
+
+**The family synthesis:** within one protocol — era and authorship held
+fixed; rater pairs, spans, and n varying — the eliminable
+share spans 23% → 69% by document role. Pooled across the family, with
+the pooling caveat stated in the synthesis before the number: **≈61–65%
+of QUIC's stated normative surface is type-eliminable in shape**, ~4–6
+points below the transport document's own figure.
+
+### 4.8 What does *not* survive across corpora
 
 An early cross-layer claim — "the class mix is a property of the layer" —
 was **retracted the day it was written** and the retraction is preserved in
@@ -359,10 +419,10 @@ contract *name*; re-read on predicates, the inversion vanished. Both misfilings
 pointed in the direction of the thesis — the diagnostic signature of a
 classifier tuned by its author's expectations. What survives is the
 per-corpus numbers above, each named with its layer and its censoring —
-plus the one cross-corpus artifact built to survive: the TLS–MLS–QUIC
-comparison (§4.5–§4.6), which is admissible precisely because those spans
-were re-run under a single frozen instrument instead of being read across
-methods.
+plus the one cross-corpus artifact built to survive: the frozen-instrument
+comparison set (TLS–MLS–QUIC and QUIC's document family, §4.5–§4.7),
+which is admissible precisely because those spans were rated under a
+single frozen instrument instead of being read across methods.
 
 ## 5. The retraction as method: error-sign analysis
 
@@ -482,9 +542,17 @@ boundary the codebook has no rule for. The second test, on QUIC (§4.6),
 sharpened the picture: agreement again in band (85.1%), CV/META/NEG at
 zero variance — but the THRESHOLD edge reproduced at scale (symmetric
 difference 15) and a new REVOCABLE edge appeared on deadline duties. The
-law survives with its edges now mapped rather than merely suspected — and
-the edges, measured twice, are where the next instrument version's rules
-(candidates 15 and 16) will be written.
+third and fourth tests (§4.7) bounded the story in both directions:
+RFC 9002 agreed at 96.7% (above the band — two blind same-family raters,
+so shared priors and crisp procedure are confounded there), while
+RFC 9001 fell BELOW the band at 76.8% — the first breach, with ten of
+its sixteen disagreements on one already-known judgment boundary
+(PROCESS/TYPESTATE over key lifecycle) that its corpus happens to stress
+harder than any other. The law survives with its edges now mapped rather
+than merely suspected — transfer is a property of how hard the corpus
+leans on the soft boundaries — and the edges are where the next
+instrument version's rules (candidates 15 and 16, plus the key-lifecycle
+and deadline observations) will be written.
 
 ## 7. Related work
 
@@ -518,21 +586,22 @@ not a proof of novelty.
    in shape" claims a discharging type *exists*, not that deploying it is
    practical; the versioned-enum limit shows even DOMAIN has deployment
    bounds.
-3. **One protocol per layer, one span per protocol.** Wayland is one
-   protocol; TLS 1.3 §4, RFC 9420 §5–§15, and RFC 9000 §2–§19 are each
-   one span of one RFC. The MLS census (§4.5) made the security-RFC data
-   point a matched-method pair; the QUIC census (§4.6) added the interior
-   point the pair called for. Three spans support "consistent with a
-   spectrum," not a distribution or a mechanism. The spans also cover
-   their documents unequally: MLS §5–§15 holds 132 of RFC 9420's 144
-   MUST/SHALL-bearing lines (~92%) and QUIC §2–§19 holds 280 of RFC
-   9000's 298 (~94%), while TLS §4 holds 217 of RFC 8446's 330 (~66%) —
+3. **One span per document; five spans under one instrument.** Wayland
+   is one protocol; TLS 1.3 §4, RFC 9420 §5–§15, RFC 9000 §2–§19,
+   RFC 9001 §4–§8, and RFC 9002 §5–§7 are each one span of one RFC. Five
+   frozen-instrument spans (three protocols, one of them a complete
+   document family) support "consistent with a spectrum" and the
+   family-scoped role observation — not a distribution and not a
+   mechanism. The spans cover their documents unequally: MLS ~92%
+   (132/144 MUST/SHALL-bearing lines), QUIC transport ~94% (280/298),
+   RFC 9002 ~97% (33/34), RFC 9001 ~86% (70/81), TLS §4 ~66% (217/330) —
    RFC 8446 states key-schedule and record-layer procedure as MUSTs
-   *outside* the censused span, and QUIC's crypto and recovery live in
-   RFC 9001/9002 entirely outside its document — so every comparison is
-   between censused surfaces, not whole protocols.
+   *outside* its censused span — so every comparison is between censused
+   surfaces, not whole protocols (the QUIC family, taken together, is
+   the one near-whole-protocol view, and its pooled figure carries its
+   own caveat in the synthesis).
 4. **Sentence-level extraction.** Compound sentences count once; n = 204,
-   n = 127, and n = 281 are sentence counts, not obligation counts;
+   127, 281, 69, and 30 are sentence counts, not obligation counts;
    SHOULD-level text is absent by design. The MLS census surfaced this limit's sharpest
    form: one corpus sentence carries an antecedent-less "it", and the
    author-rater resolved it from the RFC source — an instrument
@@ -541,18 +610,23 @@ not a proof of novelty.
    rater could not (event E1) — sentence granularity can sever a
    predicate from the noun it constrains.
 5. **Item-level labels carry a measured error bar** (§6): raw inter-rater
-   agreement 81–90% on TLS (MLS: 85.0% and QUIC: 85.1%, both inside that
-   band), 15 TLS items
+   agreement 81–90% on TLS (MLS: 85.0% and QUIC: 85.1%, inside that band;
+   RFC 9001: 76.8%, BELOW it; RFC 9002: 96.7%, above it — §6 and §4.7
+   carry both stories), 15 TLS items
    with fresh-rater consensus against the original labels, guard-boundary
    judgments that flip between competent raters. Every headline in this paper is quoted at the granularity that
    survives that error bar.
 6. **Rater population.** All raters are LLM agents. Raters B–D (TLS),
-   B′ (MLS), and B″ (QUIC) are fresh instances given only their
-   instrument and the corpus — blind to the other raters, the tallies,
-   and the authors' expectations; raters A (TLS), A′ (MLS), and A″ (QUIC)
-   are the census author and are *not* blind to authorial context (the
-   15-item consensus finding and MLS event E1 are the measured
-   consequences). A human-rater
+   B′ (MLS), B″ (QUIC), B‴ (RFC 9001), and B₁⁗/B₂⁗ (RFC 9002) are fresh
+   instances given only their instrument and the corpus — blind to the
+   other raters, the tallies, and the authors' expectations; raters A
+   (TLS), A′ (MLS), A″ (QUIC), and A‴ (RFC 9001) are the census author
+   and are *not* blind to authorial context (the 15-item consensus
+   finding and MLS event E1 are the measured consequences). RFC 9002 has
+   NO author rater — its intended author pass was abandoned after the
+   author saw the first blind rater's labels (deviation disclosed in its
+   report) — so its two raters are both blind same-family instances and
+   its 96.7% agreement carries the shared-prior caveat undiluted. A human-rater
    replication has not been run, and shared model priors are a residual
    common-cause risk that blindness does not remove.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
@@ -564,35 +638,40 @@ not a proof of novelty.
 
 ## 9. Conclusion
 
-Five corpora, one codebook: a monitoring rule base that is three-quarters
+Seven corpora, one codebook: a monitoring rule base that is three-quarters
 policy thresholds and structurally cannot contain typestate; a windowing
 protocol whose client-facing declared errors are 87.6% type-eliminable in
 shape; a cryptographic handshake whose normative surface is 80–83%
 type-eliminable, with a secret-dependent core of 2.9% that every rater's
 recorded labels agree on item-for-item; a cryptographic group protocol at
-≈57%; and a transport protocol at ≈67–69%, the last two rated under the
-TLS study's frozen instrument (which also supplied TLS's own final
-rater). We still resist summing these into one cross-corpus
-law: the first three corpora were classified by different methods (rule 8
-makes such comparisons artifacts until re-run under one method), and the
-codebook's own retraction records what happened the last time a
-cross-layer pattern was read into this data (§4.7). The TLS–MLS–QUIC
-triple is the one exception — same frozen instrument, same recipe up to
-two disclosed mechanical refinements — and what it licenses is a
-description, not a law: the results are consistent with a spectrum of
-type-eliminable shares, each span's position explainable post hoc by
-*what that span of the specification chooses to state as obligations* —
-not a property of "security protocols" as a kind, and not yet an
-established mechanism (the author's one pre-registered directional model
-of it, QUIC's "nearer TLS", partly failed). Each number stands alone,
-named with its corpus and its censoring. What can be said of the protocol
-corpora separately: Wayland's and TLS's declared obligations are
-dominated by state-machine and format discipline — the kind of thing
-types discharge — with a small, precisely nameable type-resistant
-residue; the MLS span shows that a normative surface which writes its
-procedural hygiene into MUSTs pulls that dominance down to ≈57%; QUIC
-shows a state-machine-dense span holding the middle while its crypto
-lives censored in sibling documents.
+≈57%; a transport protocol at ≈67–69%; and that transport protocol's two
+sibling documents at 54–67% and 23.3% — five spans rated under the TLS
+study's frozen instrument (which also supplied TLS's own final rater).
+We still resist summing these into one cross-corpus law: the first three
+corpora were classified by different methods (rule 8 makes such
+comparisons artifacts until re-run under one method), and the codebook's
+own retraction records what happened the last time a cross-layer pattern
+was read into this data (§4.8). The frozen-instrument set is the one
+exception — same instrument, same recipe up to two disclosed mechanical
+refinements — and what it licenses is a description, not a law: the
+results are consistent with a spectrum of type-eliminable shares, each
+span's position explainable post hoc by *what that span of the
+specification chooses to state as obligations* — not a property of
+"security protocols" as a kind, and not yet an established mechanism
+(the author's pre-registered directional models keep partly failing:
+QUIC's "nearer TLS" missed, and all five predictions about RFC 9001
+failed). The QUIC document family (§4.7) is the reading's sharpest
+support: one protocol, one era, and the share spans 23%→69% with the
+document's role the salient varying factor (rater pairs, spans, and n
+vary too — the synthesis carries the caveat). Each number stands alone, named with its corpus and its
+censoring. What can be said of the protocol corpora separately:
+Wayland's and TLS's declared obligations are dominated by state-machine
+and format discipline — the kind of thing types discharge — with a
+small, precisely nameable type-resistant residue; the MLS span shows
+that a normative surface which writes its procedural hygiene into MUSTs
+pulls that dominance down to ≈57%; QUIC shows a state-machine-dense span
+holding the middle while its crypto and recovery live censored in
+sibling documents whose own shells measure 54–67% and 23.3%.
 
 The method is the other half. Every headline here survived, or was produced
 by, a failure: a retracted cross-layer claim, an invalidated rating pass, a
@@ -619,3 +698,5 @@ crisply, you will re-litigate at runtime.
 | `census/mls/rfc9420-census.md` | the matched-method MLS census: two raters, archived labels, prediction grades, candidate rule 15 |
 | `census/quic/{README.md, rfc9000_s2-19_musts.txt}` | QUIC corpus (n=281, ~94% doc coverage), publicly pre-timestamped predictions Q1–Q5 |
 | `census/quic/rfc9000-census.md` | the QUIC census: two raters, archived labels, prediction grades, rule-16 candidate + deadline-duty edge |
+| `census/quic-tls/`, `census/quic-recovery/` | the family completion: frozen corpora (n=69, n=30), pre-timestamped predictions K1–K5/R1–R5, both census reports with archived labels |
+| `census/quic-family.md` | the three-document synthesis: role tracks the mix 23→69%; pooled ≈61–65% with its caveat |
