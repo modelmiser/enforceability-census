@@ -31,3 +31,51 @@ yet; no rater has seen it.**
   (A conservation-check note: the corpus legitimately contains the
   substring "PARA" — QUIC's `TRANSPORT_PARAMETER_ERROR` — which is
   vocabulary, not a marker leak; the extractor uses no markers.)
+
+## Pre-registered predictions (2026-08-13, committed and PUSHED before any rater exists)
+
+Namespace: **Q1–Q5** (distinct from TLS P1–P4, MLS M1–M5, and codebook rule
+numbers). **Instrument: FROZEN** — the TLS pass-4 rater pack verbatim (blob
+`a08febba22fd2cb117a9be41654a6209e0104e57`), codebook v3. No amendment
+between this commit and completion of the rating passes; candidate rule 15
+(capability-compatibility, from the MLS census) is deliberately NOT
+adopted — if the boundary recurs here, it recurs under the same frozen
+text that measured it there.
+
+**Failure interpretation, pre-committed (same as MLS, and it binds the
+same way):** these predictions grade the author's structural model of
+QUIC, nothing else. A failed prediction licenses NO re-rating, NO rule
+change, NO exclusion of any valid-instrument rater, NO discretion over
+what to quote. The quoted numbers are whatever the valid passes record, as
+a range if raters disagree. This block is append-only; corrections in
+dated brackets.
+
+The predictions:
+
+- **Q1 — the eliminable share lands between the two measured points,
+  nearer TLS: band 68–80%**, strictly above MLS's 57.5% top endpoint.
+  Reason: QUIC's censused span is machinery-dense — stream/connection
+  state machines, flow-control consistency, packet/frame formats — and
+  its procedural mass (loss recovery, congestion control) was moved into
+  RFC 9002, outside this corpus.
+- **Q2 — the crypto core is SMALLER than TLS's: CV ≤ 4% (≤ 11 of 281).**
+  Packet protection and handshake crypto live in RFC 9001; the document
+  boundary censors CV out of this corpus (rule 7 in action, predicted in
+  advance this time).
+- **Q3 — TYPESTATE is the largest single class, band 35–50%.** Stream
+  states, connection lifecycle, flow-control limits that track
+  peer-advertised values (cross-message consistency by decision rule 1),
+  migration ordering.
+- **Q4 — the rule-3 edge measured on MLS recurs on QUIC's spec-fixed
+  constants.** QUIC obliges numeric limits chosen by the SPEC, not the
+  operator and not the framing (the 3× anti-amplification limit, the
+  1,200-byte minimum datagram size). Prediction: the raters split on at
+  least one such item (THRESHOLD symmetric difference ≥ 1, with a
+  spec-fixed constant among the disagreed items). A pass here means the
+  derived-but-not-chosen gap in decision rule 3 is reproducible, not an
+  MLS artifact.
+- **Q5 — transfer holds on the classes Q4 does not implicate: raw
+  agreement 78–90%; META, REVOCABLE, and CV each ≤ 1 item symmetric
+  difference.** (THRESHOLD is deliberately excluded from this clause —
+  Q4 predicts its variance; the MLS lesson about quoting all clauses of a
+  prediction applies to this one in full.)
