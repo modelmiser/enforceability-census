@@ -397,7 +397,12 @@ knows it is guessing. Add rule 8:
    query for PromQL) and on the name (a hypothesis) — and report a **DISAGREE**
    bucket where the two are both confident but differ, plus a name-based hint
    bucket (**NAME-ONLY** when there is no predicate text; **NAME-HINT** when the
-   predicate view is UNCLASSIFIED but the name suggests a class). A non-empty
+   predicate view is UNCLASSIFIED but the name suggests a class). *[2026-08-13:
+   as implemented, each classifier ships one hint bucket, and the Wayland
+   classifier's NAME-ONLY flag fires on "predicate-view UNCLASSIFIED and
+   name-view confident" — including items that do have predicate text; the
+   two-bucket description here is the design sketch, not the shipped
+   behavior. No quoted number depends on the hint buckets.]* A non-empty
    DISAGREE bucket means the name-view and predicate-view of the corpus disagree;
    resolve those by hand before quoting any ratio. This is the check that, had it
    existed, would have caught the retraction below on the first pass —

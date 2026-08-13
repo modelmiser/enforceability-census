@@ -58,7 +58,9 @@ two-rater-era record.]*
 (typestate + domain) — strikingly close to Wayland's 87.6%, in a *cryptographic*
 protocol. The secret-dependent core (CRYPTO-VERIFY) is 2.9% of stated obligations;
 with REVOCABLE and THRESHOLD added, everything types cannot even in principle express
-is ~5%. The handshake is overwhelmingly state-machine and format discipline — which is
+is ~5% *[2026-08-13: written before NEGOTIATION graduated as a non-eliminable
+class; with NEG's 3 items added the figure is 13/204 = 6.4% on rater A — the
+paper quotes ~6% (5.9–6.4% across raters)]*. The handshake is overwhelmingly state-machine and format discipline — which is
 a quantified account of why the state-machine attack family (SMACK/FREAK) was so
 fruitful *[hedged 2026-08-13: consistent with, not by itself an explanation of,
 that family's success — the paper carries the hedged form]*: the attack surface

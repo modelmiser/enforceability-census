@@ -35,7 +35,9 @@ cannot raise:
              is the exact shape of the 2026-08-02 retraction (`leave_orphan`,
              `server_new_id.range`); it never touched the unclassified bucket
              because the name-based classifier placed each item confidently.
-  NAME-ONLY  no usable predicate text, so any class is a guess off the name.
+  NAME-ONLY  predicate-view UNCLASSIFIED while the name-view is confident,
+             so the class is a guess off the name (the item may still carry
+             predicate text the vocabulary did not match).
 A run with a non-empty DISAGREE bucket is telling you the two views of the corpus
 do not agree -- resolve those by hand before quoting any ratio.
 """
@@ -176,7 +178,7 @@ def main(path):
     dis = [r for r in rows if r['disagree']]
     nmo = [r for r in rows if r['name_only']]
     print(f'\n  DISAGREE (name-class != predicate-class, both confident): {len(dis)}')
-    print(f'  NAME-ONLY (no predicate text; name is only a hypothesis):  {len(nmo)}')
+    print(f'  NAME-ONLY (predicate-view unclassified; name is only a hypothesis):  {len(nmo)}')
 
     print('\n=== AUDIT SAMPLE (deterministic by md5) ===')
     rk = sorted(rows, key=lambda r: hashlib.md5(
@@ -198,7 +200,7 @@ def main(path):
     for r in sorted(dis, key=lambda r: r['iface'] + r['name']):
         print(f'  {r["iface"]}.{r["name"]}:  name->{r["cls_name"]}  predicate->{r["cls"]}')
         print(f'      {(r["summary"] or r["desc"])[:100]}')
-    print('\n=== NAME-ONLY — hypothesis, not measurement (no predicate text) ===')
+    print('\n=== NAME-ONLY — hypothesis, not measurement (predicate-view unclassified) ===')
     for r in sorted(nmo, key=lambda r: r['iface'] + r['name']):
         print(f'  {r["iface"]}.{r["name"]}:  name->{r["cls_name"]}')
 
