@@ -171,8 +171,9 @@ the publish gate.]*
 
 *[This section and the calibration table above it are preserved verbatim under
 the retraction banner at the top of this file; see RETRACTION below. The mm-lux
-and smithay rows come from a private codebase and are not reproducible from
-this repository; the wayland-protocols and PromQL rows are.]*
+row comes from a private codebase; the smithay row's analysis is not shipped
+here (smithay itself is public); neither row is reproducible from this
+repository. The wayland-protocols and PromQL rows are.]*
 
 The four corpora do not disagree. They are measuring different altitudes of the
 *same* stack — mm-lux literally monitors Wayland, and cosmic-comp is built on

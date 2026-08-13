@@ -65,7 +65,9 @@ POLICY entered the §4 census with one-clause definitions.
   165). The repaired boundaries behaved; the un-repaired ones leaked.
 - **A provisional class without a numbered discriminator is not yet a
   class.** CRYPTO-VERIFY had one (secret material) and held at exactly 6 items
-  across all three raters. NEGOTIATION's narrow definition lived in prose in a
+  across all three raters *[2026-08-13: exact for A and C; for B, exact on the
+  200 recorded items and an inference for the four unarchived — see the
+  census's provenance note]*. NEGOTIATION's narrow definition lived in prose in a
   different file from the decision rules, survived two raters by shared
   context rather than by text, and dissolved on first contact with a rater who
   had only the text. The class boundary must be a rule (→ codebook rule 12).

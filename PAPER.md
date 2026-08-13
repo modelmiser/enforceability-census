@@ -113,8 +113,10 @@ adjudication of its flagged/ambiguous items and a deterministic hand-audit
 sample — surfaced no secret-material or intersection-emptiness predicates,
 but no full manual re-read of that corpus for CV/NEG shape has been done.
 **The second ground — rater stability (§6) — was articulated at graduation
-time, not pre-registered**: strong for CV (the same six items for every
-rater in four passes), thinner for NEG (2–3 items across valid raters, with
+time, not pre-registered**: strong for CV (the same six items in every
+rater's recorded labels across four passes; one rater's four unarchived
+labels inferred non-CV — limitation 7), thinner for NEG (2–3 items across
+valid raters, with
 its pass-3 blow-up under a paraphrased definition as the cautionary record).
 A class that cannot fail a falsification test is vocabulary, not
 measurement.
@@ -188,8 +190,8 @@ B's is partial, limitation 7; PromQL: byte-exact reproduction).
 Three bounds on the claim, all from the data: the
 versioned-enum limit (§2); the classifier's vocabulary was **fitted to this
 corpus** (the retraction addendum makes reporting that dependency
-mandatory, and the superset run's 79.0%-at-11.1%-unclassified shows the
-sensitivity is real); and declaration is not universal even here — roughly
+mandatory, and the superset run — 79.0% of 214 client-facing (78.2% of all
+216) at 11.1% unclassified — shows the sensitivity is real); and declaration is not universal even here — roughly
 a third of extension files declare no errors (20 of 65 in the regenerable
 superset checkout, experimental included; the census-era count was 20 of 53
 on a checkout not shipped here). A regenerated superset corpus (216 errors, 2026-08-13 HEAD)
