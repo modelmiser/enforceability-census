@@ -41,9 +41,11 @@ labels, or alert words.
 
 ## Decision rules
 
-*(Rules keep their codebook numbers — the numbering is intentionally
-non-sequential. They are set as headings, not a markdown list, so the numbers
-render as written.)*
+*(Two numbering namespaces, intentionally non-sequential: rules 1–4 are the
+§4 census's DECISION rules (see `rfc8446-s4-census.md` — they are distinct
+from the codebook's honesty rules 1–7); rules 10–13 keep their codebook
+numbers. All are set as headings, not a markdown list, so the numbers render
+as written.)*
 
 **Rule 1 — Cross-MESSAGE consistency = TYPESTATE; intra-message cross-field =
 DOMAIN.** "A field of ServerHello MUST equal the corresponding field of

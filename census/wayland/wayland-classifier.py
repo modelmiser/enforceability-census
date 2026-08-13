@@ -23,8 +23,8 @@ Classes declared BEFORE looking at counts:
              protocol text usually does not say which.  Hand-audited.
   UNCLASSIFIED  everything else.  Mandatory.  Never absorbed.
 
-Precedence: RESOURCE, then ordering-TYPESTATE, then REVOCABLE, then THRESHOLD,
-then DOMAIN.  DOMAIN is last because "invalid" is the corpus's most common word
+Precedence: RESOURCE, then ordering-TYPESTATE, then REVOCABLE, then AMBIGUOUS,
+then THRESHOLD, then DOMAIN.  DOMAIN is last because "invalid" is the corpus's most common word
 and would otherwise swallow ordering errors that merely mention an invalid arg.
 
 Rule-8 hardening (2026-08-09): each item is classified TWICE -- on the predicate

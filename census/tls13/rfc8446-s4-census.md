@@ -56,7 +56,10 @@ two-rater-era record.]*
 
 **Headline: 167/204 = 81.9% of §4's normative surface is type-eliminable in shape** *[rater A's single-rater figure — quote the range, not this point; see status line and close-out]*
 (typestate + domain) — strikingly close to Wayland's 87.6%, in a *cryptographic*
-protocol. The secret-dependent core (CRYPTO-VERIFY) is 2.9% of stated obligations;
+protocol *[2026-08-13: cross-METHOD juxtaposition — the Wayland corpus was
+classified by a regex classifier, this one by an LLM rater; per rule 8 these
+are not comparable and this clause is not a finding; the paper's conclusion
+explicitly refuses the comparison]*. The secret-dependent core (CRYPTO-VERIFY) is 2.9% of stated obligations;
 with REVOCABLE and THRESHOLD added, everything types cannot even in principle express
 is ~5% *[2026-08-13: written before NEGOTIATION graduated as a non-eliminable
 class; with NEG's 3 items added the figure is 13/204 = 6.4% on rater A — the
@@ -178,7 +181,7 @@ prediction failure was pre-registered in codebook v3; the no-pass-5 decision
 itself was made at close-out
 (full accounts: `rfc8446-s4-pass3.md`, `rfc8446-s4-pass4.md`). Pass 3 was
 invalidated by an instrument transcription defect (a paraphrased NEG
-definition annexed rule-1 territory) and is archived, not counted. Pass 4,
+definition annexed decision-rule-1 territory) and is archived, not counted. Pass 4,
 under the byte-identical rater pack, healed the NEG boundary (P1 PASS) but
 failed the other three pre-registered predictions — the pre-committed
 interpretation being that **the codebook is not yet transmissible by text

@@ -102,9 +102,10 @@ transcript-derived material.
 CRYPTO-VERIFY and NEGOTIATION entered as *provisional* classes when the TLS
 alert probe forced them, and graduated on two grounds of different strength,
 stated separately. **One gate was pre-registered**: a falsifiability check —
-the classes predict zero members in a protocol with no cryptography and no
-negotiation surface among its declared errors — confirmed at CV = 0/216 and NEG = 0/216 on a from-source
-regeneration of the Wayland corpus
+registered as "CV = 0 and NEG ≈ 0 in the Wayland corpus," with registry
+version-bind named as the one NEG candidate — confirmed at CV = 0/216 and
+NEG = 0/216 on a from-source regeneration of the Wayland corpus, the named
+candidate resolving below the declared-error layer (the check's sharpening)
 ([`census/wayland/cv-neg-falsifiability.md`](census/wayland/cv-neg-falsifiability.md));
 note the check's scan is a vocabulary net whose hits were hand-adjudicated,
 so it bounds false positives tightly and false negatives only weakly: the
@@ -295,7 +296,8 @@ older-timestamped record.)
   69.6% — and the failure localized to an *instrument* defect: the rater
   prompt had **paraphrased** NEGOTIATION ("selected value in the
   intersection") where the codebook says *emptiness* of the intersection;
-  the paraphrase annexed rule-1 territory and 16 items migrated. The pass
+  the paraphrase annexed decision-rule-1 territory (the census's
+  cross-message-consistency rule) and 16 items migrated. The pass
   is archived invalid ([`rfc8446-s4-pass3.md`](census/tls13/rfc8446-s4-pass3.md));
   per the pre-registration, an out-of-band pass is evidence about the pass,
   never a new number.

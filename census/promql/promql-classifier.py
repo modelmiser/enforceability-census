@@ -17,7 +17,9 @@ Discriminator is the SHAPE OF THE PREDICATE, not the alert's wording:
   THRESHOLD  - inequality against a numeric literal: a line somebody drew on a
                continuous quantity.  >, <, >=, <= vs a number.
   TYPESTATE  - an ordering/protocol obligation over one object's history.
-               PromQL cannot express this; expected 0, see the censoring note.
+               STRUCTURALLY 0: classify() has no TYPESTATE detector because
+               PromQL cannot express the class (codebook rule 7); the printed
+               0 is a design invariant, not a corpus measurement.
   UNCLASSIFIED - reported, never absorbed.  If this bucket is large the
                classifier is wrong and the result should not be trusted.
 
