@@ -30,7 +30,7 @@ and **NEGOTIATION** (emptiness of a two-party intersection; never the chosen
 value itself) — were forced by the TLS corpus and **graduated on 2026-08-13**
 on a pre-registered falsifiability check (0 members each in the regenerated
 Wayland corpus — two vocabulary hits, both hand-adjudicated false positives) plus a stability criterion articulated at graduation time
-(CV was item-for-item identical across every rater in four passes; NEG's
+(CV was item-for-item identical in every rater's recorded labels across four passes; NEG's
 evidence is thinner — see the codebook's graduation record).
 
 The codebook carries, in full, a **retraction** of its own first cross-layer

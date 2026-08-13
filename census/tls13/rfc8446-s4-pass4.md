@@ -56,11 +56,12 @@ no point estimate quoted anywhere.
 
 1. **Classes with crisp discriminators transmit best — CV and META
    perfectly.** CV ({120, 125, 126, 178, 179, 180}) and META ({117}) are
-   item-for-item identical across **all four raters**. THRESHOLD
+   item-for-item identical in **all four raters' recorded labels**. THRESHOLD
    ({188, 189}) and REVOCABLE ({112, 133}) are identical across A, C, and D,
    with one recorded exception: rater B read item 189 as REVOCABLE
    (A:THRESHOLD — an ambiguity A flagged at classification time). The crypto
-   core is exactly 6/204 (2.9%), the same six items for every rater. Caveat
+   core is exactly 6/204 (2.9%), the same six items in every rater's
+   recorded labels. Caveat
    on the strength of this evidence: these are small classes (1–6 items);
    perfect agreement on rare, distinctive items is weaker evidence than the
    same rate would be on a 90-item class. Methodological note on citing

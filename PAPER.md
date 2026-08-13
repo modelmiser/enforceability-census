@@ -38,7 +38,7 @@ authors' expectations — yields a finding we did not plan:
 **classes transmit between raters only as well as their discriminators are
 crisp.** The classes with mechanical discriminators showed zero or
 near-zero rater variance across four passes (CRYPTO-VERIFY and META:
-identical for every rater; THRESHOLD/REVOCABLE: one recorded flip on one
+identical in every rater's recorded labels; THRESHOLD/REVOCABLE: one recorded flip on one
 item by one rater), while every residual disagreement sits on boundaries
 whose rules require judgment.
 
@@ -212,7 +212,7 @@ alert-vocabulary percentages under-represent typestate.
 ### 4.4 Cryptographic protocol, obligation granularity: RFC 8446 §4 (n = 204)
 
 Every MUST/MUST NOT/SHALL sentence of the Handshake Protocol section,
-hand-classified on sentence predicate shape
+classified sentence-by-sentence on predicate shape by rater A (an LLM agent; §6)
 ([`census/tls13/rfc8446-s4-census.md`](census/tls13/rfc8446-s4-census.md)).
 Rater A: 94 TYPESTATE (46.1%), 73 DOMAIN (35.8%), 15 PROCESS, 6
 CRYPTO-VERIFY, 6 UNCLASSIFIED-unverifiable, 3 NEGOTIATION, 2 each
@@ -221,7 +221,7 @@ REVOCABLE/THRESHOLD/POLICY, 1 META.
 **Headline: 80–83% of the section's normative surface is type-eliminable in
 shape** — precisely, the range across three valid raters is 79.9% (B) to
 82.8% (D), with A at 81.9% (§6). The secret-dependent core is **6/204 =
-2.9%, identical items for every rater**. Everything outside the
+2.9%, identical items in every rater's recorded labels (limitation 7)**. Everything outside the
 type-dischargeable family — CV + REVOCABLE + THRESHOLD + NEG — is ~6%
 (5.9–6.4% across raters; B's endpoint assumes its four unarchived labels
 fall outside these classes).
@@ -318,7 +318,7 @@ older-timestamped record.)
 What four passes measured:
 
 1. **Discriminator-crispness predicts transmissibility.** CV and META were
-   **item-for-item identical across every rater, including the invalidated
+   **item-for-item identical in every rater's recorded labels, including the invalidated
    pass**; THRESHOLD and REVOCABLE were identical across the other three
    raters with exactly one recorded exception (rater B read one flagged
    item, the 7-day cap, as REVOCABLE rather than THRESHOLD). All residual
@@ -405,8 +405,8 @@ Three corpora, one codebook: a monitoring rule base that is three-quarters
 policy thresholds and structurally cannot contain typestate; a windowing
 protocol whose client-facing declared errors are 87.6% type-eliminable in
 shape; and a cryptographic handshake whose normative surface is 80–83%
-type-eliminable, with a secret-dependent core of 2.9% that every rater
-agrees on item-for-item. We resist summing these into one cross-corpus
+type-eliminable, with a secret-dependent core of 2.9% that every rater's
+recorded labels agree on item-for-item. We resist summing these into one cross-corpus
 law: the three corpora were classified by different methods (rule 8 makes
 such comparisons artifacts until re-run under one method), and the
 codebook's own retraction records what happened the last time a

@@ -161,8 +161,10 @@ the row reads 0% / 21.3% / 78.1% / 0.6%. The Wayland row's per-class figures
 are per-172; the 87.6% headline quoted elsewhere is per-170 client-facing
 (172 − 2 RESOURCE), i.e., 149/170; on n=172 it is 86.6%. The mm-lux row's
 entries (~4 + ~24 + ~76 + 18 ≈ 122) cannot share any single denominator —
-that row's denominator is declared unknown by the addendum below. This is
-exactly the mixed-denominator trap rule 3's spirit warns about, caught at
+that row's denominator is declared unknown by the addendum below. The two
+protocol rows also do not total 100% because the table has no columns for
+the RESOURCE and AMBIGUOUS buckets (on n=172 those hold 1.2% + 2.9%). This
+is exactly the mixed-denominator trap rule 3's spirit warns about, caught at
 the publish gate.]*
 
 ## ⛔ RETRACTED CLAIM — The class mix is a property of the LAYER, not of software
@@ -603,8 +605,9 @@ recorded pass-4 verdict), so the second basis for graduation is a **stability
 criterion articulated at graduation time**, not a pre-registered gate, and it
 reads differently per class:
 
-- **CV:** item-for-item identical — the same six items — across every rater
-  in four passes, including the invalid-instrument pass. The strongest
+- **CV:** item-for-item identical — the same six items — in every rater's
+  recorded labels across four passes, including the invalid-instrument pass
+  (B: inference on its four unarchived labels, as for NEG below). The strongest
   stability evidence in the scheme.
 - **NEG:** thinner. A applied it to 3 items, D (under rule 12) to 2 of the
   same 3; B's *recorded* labels add no NEG beyond A's three (A's three items
@@ -617,7 +620,7 @@ reads differently per class:
 
 Standing observation from the same passes: **classes transmit only as well as
 their discriminators are crisp.** CV and META: zero variance across all four
-raters; THRESHOLD/REVOCABLE: identical across A/C/D with one recorded
+raters' recorded labels; THRESHOLD/REVOCABLE: identical across A/C/D with one recorded
 exception (rater B read item 189, the 7-day cap, as REVOCABLE — an ambiguity
 flagged by A at classification time). The DOMAIN/TYPESTATE/PROCESS
 boundaries, whose rules require judgment ("does the required value vary with

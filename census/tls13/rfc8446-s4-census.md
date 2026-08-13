@@ -2,7 +2,8 @@
 
 2026-08-12 · Companion to `tls13-alert-census.md` (the 30-minute alert probe). Corpus =
 every MUST/MUST NOT/SHALL sentence in RFC 8446 §4 (Handshake Protocol), n=204,
-hand-classified on predicate shape from the sentence's own text (mm-residue rule 8
+classified item-by-item by rater A (an LLM agent — see the paper's §6/limitation 6)
+on predicate shape from the sentence's own text (mm-residue rule 8
 [= rule 8 of `codebook/classes.md` in this repository]).
 **Status: TWO-rater measurement (2026-08-12): blind second rater (fresh agent, labels
 withheld, same codebook) agreed 184/204 = 90.2% raw across the 10-class scheme, and
@@ -163,7 +164,8 @@ Dwyer'99.
       candidate is not a declared error at all (`../../census/wayland/cv-neg-falsifiability.md`).
 - [x] Graduate CRYPTO-VERIFY + NEGOTIATION into `classes.md` with the secret-material
       discriminator, if they survive. — DONE 2026-08-13: both graduated (classes.md
-      "CLASS GRADUATION"); CV was item-for-item identical across every rater.
+      "CLASS GRADUATION"); CV was item-for-item identical in every rater's
+      recorded labels.
 - [ ] Optional: same census on a second security RFC (Noise spec or RFC 9420 MLS) —
       one protocol is one data point.
 
