@@ -13,9 +13,9 @@ classes — those a type system could discharge (DOMAIN, TYPESTATE) and those
 it cannot (THRESHOLD, whose constant is a policy choice with no fact of the
 matter for a type to certify, and REVOCABLE, whose truth needs a clock),
 plus classes forced by cryptographic protocols (CRYPTO-VERIFY,
-NEGOTIATION) — and report the mix. Across three corpora from three
+NEGOTIATION) — and report the mix. Across four corpora from three
 different settings — an operations-monitoring rule base, a windowing
-protocol, a cryptographic protocol — we find: a monitoring-layer
+protocol, and two cryptographic protocols — we find: a monitoring-layer
 corpus (1,155 Prometheus alert rules) is 78% threshold, in a query
 language whose grammar cannot express typestate — its TYPESTATE count of 0
 is a design invariant of PromQL, not a census measurement (§4.1); Wayland's declared protocol errors are
@@ -25,7 +25,14 @@ normative surface of RFC 8446 §4 (TLS 1.3 handshake,
 204 MUST/SHALL sentences) is **80–83% type-eliminable in shape** (three-rater range),
 with a secret-dependent cryptographic core of **exactly 6/204 (2.9%) — the
 same six sentences in every rater's recorded labels** (one rater's four
-unarchived labels are inferred non-CV; limitation 7). The numbers are the smaller half of the
+unarchived labels are inferred non-CV; limitation 7). A fourth census, run
+after this paper's first publish gate under the TLS study's frozen
+instrument, shows the share is **not a security-protocol constant**: the
+core normative surface of RFC 9420 (MLS, §5–§15, 127 MUST/SHALL sentences)
+is **≈57% type-eliminable in shape** (two raters, 56.7%/57.5%) — ~25
+points below TLS under matched method, because the MLS span states as
+MUSTs the procedure and hygiene TLS §4 leaves tacit (~18–19% PROCESS;
+§4.5). The numbers are the smaller half of the
 contribution. The larger half is the method that survived its own failures:
 classify on the predicate and never the name (a name-based pass produced a
 publishable-looking headline that was retracted the day it was written);
@@ -121,7 +128,11 @@ adjudication of its flagged/ambiguous items and a deterministic hand-audit
 sample — surfaced no secret-material or intersection-emptiness predicates,
 but no full manual re-read of that corpus for CV/NEG shape has been done.
 **The second ground — rater stability (§6) — was articulated at graduation
-time, not pre-registered**: strong for CV (the same six items in every
+time, not pre-registered**, and NEG's first out-of-corpus contact promptly
+tested it: the MLS census (§4.5) recorded a 0-vs-5 rater split on
+capability-compatibility duties, exactly the dissolve-on-transmission risk
+the graduation record flagged for a small-membership class (candidate
+rule 15 in the census). Stability is strong for CV (the same six items in every
 rater's recorded labels across four passes; one rater's four unarchived
 labels inferred non-CV — limitation 7), thinner for NEG (2–3 items across
 valid raters, with
@@ -251,16 +262,60 @@ proportion is consistent with, though it does not by itself explain, how
 fruitful the state-machine attack family (SMACK/FREAK) proved against TLS
 implementations.
 
-### 4.5 What does *not* survive across corpora
+### 4.5 Cryptographic group protocol under the frozen instrument: RFC 9420 (MLS, n = 127)
+
+Run 2026-08-13, after this paper's first publish gate, as the
+second-security-RFC follow-up the TLS census left open — and designed to close the
+provenance gap that study disclosed: the corpus (127 MUST/SHALL sentences,
+§5–§15, same extraction recipe with the extractor shipped) and predictions
+M1–M5 were committed **and pushed to the public repository before any
+rater existed**. The instrument is the TLS pass-4 rater pack, verbatim
+(blob `a08febba…`, hash-round-trip verified); one author pass (A′, labels
+on disk before the blind pass returned) and one fresh blind rater (B′).
+Full report: [`census/mls/rfc9420-census.md`](census/mls/rfc9420-census.md).
+
+**Result: ≈57% type-eliminable in shape (A′ 56.7%, B′ 57.5%), raw
+agreement 85.0%, eliminable-vs-not 89.8%.** Because instrument and
+granularity match the TLS census exactly — and the recipe matches up to
+two disclosed mechanical refinements (shipped extractor, within-paragraph
+splitting; census README) — the TLS–MLS pair is this
+repository's one **matched-method comparison** (matched method, not
+matched population: TLS quotes three valid raters, MLS two, one the
+author): the type-eliminable share of a cryptographic protocol's normative
+surface ranges at least from ≈57% to 80–83%. Where the mass went: MLS
+obliges as MUSTs what TLS §4 leaves tacit — key-material deletion,
+GREASE/extensibility processing, key-schedule procedure — putting PROCESS
+at 18.9%/18.1% against 7.4% (TLS rater A) and 9.3% (rater D; B's is not
+item-recomputable, limitation 7). The crypto core is
+larger (CV 8.7%/7.9% vs 2.9%) and the mix is measurably *less*
+state-machine-shaped.
+
+Of the five pre-registered predictions, **only M1 (larger crypto core)
+passed**; M2–M4 failed and M5 failed two of its three clauses — graded, per
+the pre-commitment, against the author's structural model of MLS, with no
+discretion over what to quote. The two instructive residues: THRESHOLD
+split on *derived-but-not-chosen* constants (AEAD usage limits — decision
+rule 3's structural-vs-chosen dichotomy is incomplete there), and NEG went
+0-vs-5 between raters on **capability-compatibility** duties ("joiner MUST
+support the group's extensions"), where rules 11, 1, and 12 each ground a
+different reading (U / TYPESTATE / NEG). That three-way boundary is
+recorded in the census as candidate rule 15 for a *future* instrument
+version — under the frozen one, it stands as the measured edge of the
+transmissibility law (§6).
+
+### 4.6 What does *not* survive across corpora
 
 An early cross-layer claim — "the class mix is a property of the layer" —
 was **retracted the day it was written** and the retraction is preserved in
 full in the codebook. The mm-lux row (a private runtime-monitor codebase
-whose contracts formed a fourth, unshipped corpus) had been classified by
+whose contracts formed an additional, unshipped corpus) had been classified by
 contract *name*; re-read on predicates, the inversion vanished. Both misfilings
 pointed in the direction of the thesis — the diagnostic signature of a
-classifier tuned by its author's expectations. What survives is exactly the
-per-corpus numbers above, each named with its layer and its censoring.
+classifier tuned by its author's expectations. What survives is the
+per-corpus numbers above, each named with its layer and its censoring —
+plus the one cross-corpus artifact built to survive: the TLS–MLS
+comparison (§4.5), which is admissible precisely because it was re-run
+under a single frozen instrument instead of being read across methods.
 
 ## 5. The retraction as method: error-sign analysis
 
@@ -371,6 +426,14 @@ What four passes measured:
    archived labels.) Those 15 are the census's visible error bar; they
    remain unadjudicated and are listed in the pass-4 report.
 
+The law in finding 1 got its first out-of-corpus test later, on MLS
+(§4.5): agreement landed inside the TLS-measured band, META/REVOCABLE
+transferred with zero variance, and CV came within one item (the
+extraction artifact of limitation 4), but two edges surfaced — THRESHOLD
+moved on derived-but-not-chosen constants, and NEG split 0-vs-5 on a
+boundary the codebook has no rule for. The law survives with its edges now mapped
+rather than merely suspected.
+
 ## 7. Related work
 
 FSM-*extraction* from RFCs is a mature genre — RFCNLP / attack synthesis
@@ -403,27 +466,38 @@ not a proof of novelty.
    in shape" claims a discharging type *exists*, not that deploying it is
    practical; the versioned-enum limit shows even DOMAIN has deployment
    bounds.
-3. **One protocol per layer.** Wayland is one protocol; TLS 1.3 §4 is one
-   section of one RFC. The optional second security RFC (Noise or RFC 9420
-   MLS) that would turn a data point into a comparison has not been run.
-   *[Superseded 2026-08-13, same day: the MLS census was run under the
-   frozen pass-4 instrument — see `census/mls/rfc9420-census.md`. The
-   matched-method comparison it yields (MLS ≈57% vs TLS 80–83%
-   type-eliminable) is reported there and is not yet integrated into this
-   paper's abstract or §4, which still describe three corpora.]*
-4. **Sentence-level extraction.** Compound sentences count once; n = 204 is
-   a sentence count, not an obligation count; SHOULD-level text is absent by
-   design.
+3. **One protocol per layer, one section per protocol.** Wayland is one
+   protocol; TLS 1.3 §4 and RFC 9420 §5–§15 are each one span of one RFC.
+   The MLS census (§4.5, run 2026-08-13 after this paper's first publish
+   gate) turns the security-RFC data point into a matched-method pair, but
+   two protocols still support a comparison, not a distribution; whether
+   ≈57%-to-80–83% is a spread or the ends of a spectrum needs a third
+   corpus under the same frozen instrument. The spans also cover their
+   documents unequally: MLS §5–§15 holds 132 of RFC 9420's 144
+   MUST/SHALL-bearing lines (~92%), while TLS §4 holds 217 of RFC 8446's
+   330 (~66%) — RFC 8446 states key-schedule and record-layer procedure
+   as MUSTs *outside* the censused span, so the comparison is between
+   censused surfaces, not whole protocols.
+4. **Sentence-level extraction.** Compound sentences count once; n = 204
+   and n = 127 are sentence counts, not obligation counts; SHOULD-level
+   text is absent by design. The MLS census surfaced this limit's sharpest
+   form: one corpus sentence carries an antecedent-less "it", and the
+   author-rater resolved it from the RFC source — an instrument
+   deviation, since the pack says classify on the sentence's own text,
+   counted against transfer in the census — while the compliant blind
+   rater could not (event E1) — sentence granularity can sever a
+   predicate from the noun it constrains.
 5. **Item-level labels carry a measured error bar** (§6): raw inter-rater
-   agreement 81–90%, 15 items with fresh-rater consensus against the
-   original labels, guard-boundary judgments that flip between competent
-   raters. Every headline in this paper is quoted at the granularity that
+   agreement 81–90% on TLS (MLS: 85.0%, inside that band), 15 TLS items
+   with fresh-rater consensus against the original labels, guard-boundary
+   judgments that flip between competent raters. Every headline in this paper is quoted at the granularity that
    survives that error bar.
-6. **Rater population.** All raters are LLM agents. Raters B–D are fresh
-   instances given only their instrument and the corpus — blind to the
-   other raters, the tallies, and the authors' expectations; rater A is
-   the census author and is *not* blind to authorial context (the 15-item
-   consensus finding is the measured consequence). A human-rater
+6. **Rater population.** All raters are LLM agents. Raters B–D (TLS) and
+   B′ (MLS) are fresh instances given only their instrument and the
+   corpus — blind to the other raters, the tallies, and the authors'
+   expectations; raters A (TLS) and A′ (MLS) are the census author and are
+   *not* blind to authorial context (the 15-item consensus finding and
+   MLS event E1 are the measured consequences). A human-rater
    replication has not been run, and shared model priors are a residual
    common-cause risk that blindness does not remove.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
@@ -435,21 +509,30 @@ not a proof of novelty.
 
 ## 9. Conclusion
 
-Three corpora, one codebook: a monitoring rule base that is three-quarters
+Four corpora, one codebook: a monitoring rule base that is three-quarters
 policy thresholds and structurally cannot contain typestate; a windowing
 protocol whose client-facing declared errors are 87.6% type-eliminable in
-shape; and a cryptographic handshake whose normative surface is 80–83%
+shape; a cryptographic handshake whose normative surface is 80–83%
 type-eliminable, with a secret-dependent core of 2.9% that every rater's
-recorded labels agree on item-for-item. We resist summing these into one cross-corpus
-law: the three corpora were classified by different methods (rule 8 makes
-such comparisons artifacts until re-run under one method), and the
-codebook's own retraction records what happened the last time a
-cross-layer pattern was read into this data (§4.5). Each number stands
-alone, named with its corpus and its censoring. What can be said within
-each protocol corpus separately: the declared obligations are dominated
-by state-machine and format discipline — the kind of thing types
-discharge — and the type-resistant residue is small and precisely
-nameable.
+recorded labels agree on item-for-item; and a cryptographic group protocol
+at ≈57% under the same frozen instrument. We still resist summing these
+into one cross-corpus law: the first three corpora were classified by
+different methods (rule 8 makes such comparisons artifacts until re-run
+under one method), and the codebook's own retraction records what happened
+the last time a cross-layer pattern was read into this data (§4.6). The
+TLS–MLS pair is the one exception — same frozen instrument, same recipe
+up to two disclosed mechanical refinements — and
+what it licenses is a comparison, not a law: the type-eliminable share of
+a censused normative surface is a property of *what that span of the
+specification chooses to state as obligations*, not of "security
+protocols" as a kind. Each
+number stands alone, named with its corpus and its censoring. What can be
+said of the protocol corpora separately: Wayland's and TLS's declared
+obligations are dominated by state-machine and format discipline — the
+kind of thing types discharge — with a small, precisely nameable
+type-resistant residue; the MLS span shows that a normative surface which
+writes its procedural hygiene into MUSTs pulls that dominance down to
+≈57% without changing the residue's character.
 
 The method is the other half. Every headline here survived, or was produced
 by, a failure: a retracted cross-layer claim, an invalidated rating pass, a
@@ -472,3 +555,5 @@ crisply, you will re-litigate at runtime.
 | `census/tls13/tls13-alert-census.md` | 30-minute alert probe (n=25) — forced CV/NEG, granularity warning |
 | `census/tls13/{rfc8446-s4-census.md, rfc8446_s4_musts.txt}` | the n=204 census, corpus, two-rater analysis, close-out |
 | `census/tls13/rfc8446-s4-pass{3,4}.md` | the transmissibility study: failed pass + archived labels, stop verdict |
+| `census/mls/{README.md, rfc9420_s5-15_musts.txt, extract-corpus.py}` | MLS corpus (n=127), shipped extractor, publicly pre-timestamped predictions M1–M5 |
+| `census/mls/rfc9420-census.md` | the matched-method MLS census: two raters, archived labels, prediction grades, candidate rule 15 |

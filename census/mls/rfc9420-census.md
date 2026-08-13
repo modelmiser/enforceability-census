@@ -93,7 +93,9 @@ grading above replace it.)*
    reading and a rule-11/rule-1 reading come apart.
 4. **The DISAGREE bucket is 19 items, unresolved by design:**
    12, 20, 34, 41, 43, 44, 45, 59, 70, 71, 78, 90, 91, 104, 111, 113, 114,
-   115, 126. Clusters: capability-compatibility (6, above);
+   115, 126. Clusters: capability-compatibility (5, above *[corrected 2026-08-13: an
+   earlier revision counted 6 here before item 91 was refiled to the
+   singletons; the cluster is the five B′-NEG items]*);
    delete-key-material as PROCESS vs TYPESTATE (34, 43, 44); randomness
    duties as U vs the checkable length predicate as DOMAIN (41, 59);
    AEAD bounds (20, 126); proposal-list validity as TYPESTATE vs PROCESS
