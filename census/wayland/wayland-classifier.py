@@ -204,4 +204,6 @@ def main(path):
 
     json.dump(rows, open(sys.argv[2], 'w'), indent=1)
 
+if len(sys.argv) != 3:
+    sys.exit('usage: wayland-classifier.py CORPUS.json OUT.json  (CORPUS.json from extract-corpus.py)')
 main(sys.argv[1])

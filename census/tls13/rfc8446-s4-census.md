@@ -2,17 +2,22 @@
 
 2026-08-12 · Companion to `tls13-alert-census.md` (the 30-minute alert probe). Corpus =
 every MUST/MUST NOT/SHALL sentence in RFC 8446 §4 (Handshake Protocol), n=204,
-hand-classified on predicate shape from the sentence's own text (mm-residue rule 8).
+hand-classified on predicate shape from the sentence's own text (mm-residue rule 8
+[= rule 8 of `codebook/classes.md` in this repository]).
 **Status: TWO-rater measurement (2026-08-12): blind second rater (fresh agent, labels
 withheld, same codebook) agreed 184/204 = 90.2% raw across the 10-class scheme, and
 196/204 = 96.1% on the headline eliminable-vs-not distinction; the eliminable share is
 81.9% (rater A) vs 79.9% (rater B).** Disagreements are NOT resolved — see the
-Inter-rater section. Quote the headline as "80–82%".
+Inter-rater section. Quote the headline as "80–82%". *[Superseded 2026-08-13: after
+passes 3–4 (see close-out at the end of this file), quote the headline as **80–83%**
+— the three-valid-rater range 79.9–82.8%. This status line is preserved as the
+two-rater-era record.]*
 
 ## Method
 
 - Extraction: §4 = RFC lines 1317–4282; paragraphs joined, sentences split, filtered on
-  `\bMUST\b|\bSHALL\b` → 204 items (`rfc8446_s4_musts.txt`, regenerable by script).
+  `\bMUST\b|\bSHALL\b` → 204 items (`rfc8446_s4_musts.txt`, regenerable by script
+  *[correction 2026-08-13: by the recipe in this bullet — no extraction script ships]*).
 - Classes: the four from `classes.md` (0 DOMAIN, 1 THRESHOLD, 2 REVOCABLE, 3 TYPESTATE)
   plus the two provisional classes the alert probe forced (CRYPTO-VERIFY, NEGOTIATION),
   plus PROCESS (algorithm/behavior rules that are not boundary predicates), POLICY,
@@ -54,8 +59,8 @@ protocol. The secret-dependent core (CRYPTO-VERIFY) is 2.9% of stated obligation
 with REVOCABLE and THRESHOLD added, everything types cannot even in principle express
 is ~5%. The handshake is overwhelmingly state-machine and format discipline — which is
 a quantified account of why the state-machine attack family (SMACK/FREAK) was so
-fruitful: the attack surface class is 16× the size of the cryptographic one by
-obligation count.
+fruitful: the attack surface class is ~16× (94/6 = 15.7) the size of the
+cryptographic one by obligation count.
 
 ## The granularity prediction, confirmed
 
@@ -91,7 +96,14 @@ agreement 184/204 (90.2%); eliminable-vs-not agreement 196/204 (96.1%).
   rater A at classification time).
 Codebook repair owed before any re-run: a guard-vs-predicate tie-break rule and a
 sharper U-boundary for capability-honesty. Do NOT silently adjudicate these 20 and
-re-quote a single number; the honest headline is the range 80–82%.
+re-quote a single number; the honest headline is the range 80–82%. *[Superseded
+2026-08-13: 80–83% after pass 4 — see close-out.]*
+
+*[Provenance note, 2026-08-13: rater B's full 204-item label map was never archived —
+only the 16 recorded labels above plus the fact of agreement on the other 184. B's
+79.9% and the 96.1% figure are arithmetically consistent with the recorded labels but
+not item-recomputable for [5,54,65,123]. A provenance defect, recorded rather than
+repaired; raters C and D have full archived maps.]*
 
 ## Prior-art sweep (3-hour tier)
 
@@ -108,7 +120,9 @@ Dwyer'99.
 
 1. **Two raters, one codebook, disagreements unresolved.** The blind pass is done
    (90.2%/96.1%, see Inter-rater section); quote the headline as a RANGE (80–82%),
-   never a point, until the codebook repair + re-run converge.
+   never a point, until the codebook repair + re-run converge. *[Superseded
+   2026-08-13: the re-runs did NOT converge — that is the recorded verdict — and the
+   quoting instruction is now the three-valid-rater range **80–83%**; see close-out.]*
 2. **Extraction is sentence-regex.** Compound sentences carrying several obligations
    count once; umbrella sentences ("MUST behave in one of three ways") count once;
    SHOULD-level text is absent by design. n=204 is the sentence count, not the
@@ -120,9 +134,11 @@ Dwyer'99.
    NEG≈0 in the Wayland corpus (no secret material in-protocol; registry version-bind
    is the one NEG candidate). The corpus JSON is not in this directory — regenerate
    from wayland.xml + wayland-protocols and grep before asserting. Do not cite the
-   prediction as a result.
+   prediction as a result. *[Superseded 2026-08-13: check RUN and CONFIRMED, 0/216 +
+   0/216 — `../wayland/cv-neg-falsifiability.md`.]*
 5. `classes.md` deliberately NOT yet updated — provisional classes graduate after
-   follow-ups 1 and 4 converge.
+   follow-ups 1 and 4 converge. *[Superseded 2026-08-13: both classes graduated —
+   see `codebook/classes.md` "CLASS GRADUATION" for the gates actually applied.]*
 
 ## Follow-ups
 
@@ -155,13 +171,26 @@ alone at item granularity**, and further rule-patching would be instrument
 overfitting.
 
 What this file's headline becomes:
-- **Type-eliminable share: quote as 80–83%** (valid raters: A 81.9%, B 79.9%,
-  D 82.8%; caveat 1's "80–82%" is superseded by this wider three-rater range).
-- **Crypto core: exactly 6/204 = 2.9%, zero rater variance** — CV, THRESHOLD,
-  REVOCABLE, and META were item-for-item identical across every rater
-  including the invalid pass. Discriminator-bearing classes transmit
-  perfectly; the residual disagreement mass is interior to the eliminable
-  family (DOMAIN/TYPESTATE/PROCESS boundaries).
+- **Type-eliminable share: quote as 80–83%** — the range of the three valid
+  raters, endpoints 79.9% (B) to 82.8% (D), with A at 81.9%. **Why this is
+  not the "new headline" the v3 pre-registration forbade:** the
+  pre-registration barred treating a failed pass as *convergence* — minting
+  a converged point estimate from it. It did not, and could not, bar
+  reporting the honest descriptive range over all valid raters; excluding D
+  (a valid-instrument rater) to preserve the old range would be
+  cherry-picking in the other direction. The asymmetry with rater C is
+  principled and stated: C's instrument was defective (a mis-transcribed
+  class definition moved a boundary), so C's *tallies* measure the
+  paraphrase, not the codebook; D's instrument was the codebook verbatim.
+  The transmissibility verdict (the pre-registered interpretation of the
+  prediction failures) stands unchanged alongside the widened range.
+- **Crypto core: exactly 6/204 (2.9%), the same six items for every rater
+  in all four passes** — CV and META are the zero-variance classes.
+  THRESHOLD and REVOCABLE are identical across A/C/D with exactly one
+  recorded exception: rater B read item 189 (the 7-day cap) as REVOCABLE
+  where A/C/D read THRESHOLD — an ambiguity rater A had flagged at
+  classification time. The residual disagreement mass is interior to the
+  eliminable family (DOMAIN/TYPESTATE/PROCESS boundaries).
 - 15 items have C = D ≠ A (two fresh raters agreeing on the same alternative
   label): the measured trace of authorial context in rater A's labels. Left
   unadjudicated by design.

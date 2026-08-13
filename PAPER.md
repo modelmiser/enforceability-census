@@ -14,22 +14,26 @@ it cannot even in principle (THRESHOLD, REVOCABLE), plus classes forced by
 cryptographic protocols (CRYPTO-VERIFY, NEGOTIATION) — and report the mix.
 Across three corpora from three different layers we find: a monitoring-layer
 corpus (1,155 Prometheus alert rules) is 78% threshold and structurally
-incapable of expressing typestate; Wayland's declared protocol errors (172)
-are 87.6% type-eliminable in shape; and the normative surface of RFC 8446 §4
-(TLS 1.3 handshake, 204 MUST/SHALL sentences) is **80–83% type-eliminable**
-(three-rater range), with a secret-dependent cryptographic core of **exactly
-2.9%, stable across every rater**. The numbers are the smaller half of the
+incapable of expressing typestate; Wayland's declared protocol errors are
+87.6% type-eliminable in shape (149 of the 170 client-facing errors among
+172 declared); and the normative surface of RFC 8446 §4 (TLS 1.3 handshake,
+204 MUST/SHALL sentences) is **80–83% type-eliminable** (three-rater range),
+with a secret-dependent cryptographic core of **exactly 6/204 (2.9%) — the
+same six sentences for every rater**. The numbers are the smaller half of the
 contribution. The larger half is the method that survived its own failures:
 classify on the predicate and never the name (a name-based pass produced a
 publishable-looking headline that was retracted the day it was written);
 make the classifier report a DISAGREE bucket so it can catch its own
 violations; pre-register codebook amendments and their predictions before
 each re-rating pass; and stop when the pre-registered criterion says stop.
-A four-pass inter-rater study conducted this way yields a finding we did not
-plan: **classes transmit between raters exactly as well as their
-discriminators are crisp** — the classes with mechanical discriminators had
-zero rater variance across four passes, while every residual disagreement
-sits on boundaries whose rules require judgment.
+A four-pass inter-rater study conducted this way — all raters LLM agents,
+blind to each other and to the tallies — yields a finding we did not plan:
+**classes transmit between raters only as well as their discriminators are
+crisp.** The classes with mechanical discriminators showed zero or
+near-zero rater variance across four passes (CRYPTO-VERIFY and META:
+identical for every rater; THRESHOLD/REVOCABLE: one recorded flip on one
+item by one rater), while every residual disagreement sits on boundaries
+whose rules require judgment.
 
 ## 1. The question, and why counting beats arguing
 
@@ -50,10 +54,10 @@ worldview.
 
 The unit of measurement is the **declared obligation**, and this bounds every
 claim in this paper: a corpus of declared obligations cannot see obligations
-never declared (the median internal API declares none — where obligations
-are never declared they resurface downstream as residue nobody can explain),
-and each corpus censors classes its language cannot express (§4.1). We
-report what specifications say, not what software does.
+never declared — and where obligations are never declared they are never
+checked, resurfacing downstream as residue nobody can explain — and each
+corpus censors classes its language cannot express (§4.1). We report what
+specifications say, not what software does.
 
 ## 2. The codebook
 
@@ -89,13 +93,21 @@ transcript-derived material.
 ### 2.1 Graduation discipline
 
 CRYPTO-VERIFY and NEGOTIATION entered as *provisional* classes when the TLS
-alert probe forced them, and graduated only after passing two pre-registered
-gates: a **falsifiability check** — the classes predict zero members in a
-non-cryptographic, non-negotiated protocol, confirmed at CV = 0/216 and
-NEG = 0/216 on a from-source regeneration of the Wayland corpus
-([`census/wayland/cv-neg-falsifiability.md`](census/wayland/cv-neg-falsifiability.md))
-— and **rater stability** (§6). A class that cannot fail a falsification test
-is vocabulary, not measurement.
+alert probe forced them, and graduated on two grounds of different strength,
+stated separately. **One gate was pre-registered**: a falsifiability check —
+the classes predict zero members in a non-cryptographic, non-negotiated
+protocol — confirmed at CV = 0/216 and NEG = 0/216 on a from-source
+regeneration of the Wayland corpus
+([`census/wayland/cv-neg-falsifiability.md`](census/wayland/cv-neg-falsifiability.md));
+note the check's scan is a vocabulary net whose hits were hand-adjudicated,
+so it bounds false positives tightly and false negatives only via the
+earlier fully hand-classified 172-item census surfacing no such predicates.
+**The second ground — rater stability (§6) — was articulated at graduation
+time, not pre-registered**: strong for CV (the same six items for every
+rater in four passes), thinner for NEG (2–3 items across valid raters, with
+its pass-3 blow-up under a paraphrased definition as the cautionary record).
+A class that cannot fail a falsification test is vocabulary, not
+measurement.
 
 ## 3. Method: the honesty rules
 
@@ -137,7 +149,8 @@ adjudicated** into a point estimate.
 
 Every alert rule in the corpus, classified on the query's predicate shape
 ([`census/promql/promql-classifier.py`](census/promql/promql-classifier.py)):
-**902 THRESHOLD / 246 REVOCABLE-state / 7 unclassified** — 78.1% / 21.3% /
+**902 THRESHOLD / 246 REVOCABLE (the classifier's STATE bucket) / 7
+unclassified** — 78.1% / 21.3% /
 0.6% of all 1,155, or 78.6% / 21.4% of the 1,148 classified (state both
 denominators; the two ways of quoting differ by half a point and mixing them
 is exactly the kind of error this project exists to prevent). TYPESTATE is
@@ -148,13 +161,16 @@ predicate-shape census of an alerting corpus.
 
 ### 4.2 Protocol layer: Wayland declared errors (n = 172)
 
-Every declared `<error>` in core `wayland.xml` plus the extension corpus:
-82 TYPESTATE, 67 DOMAIN, 8 THRESHOLD, 6 REVOCABLE, 2 RESOURCE — **87.6% of
-client-facing declared errors are type-eliminable in shape** (149/170). One
-protocol; the number does not generalize to "protocol boundaries." Two
-bounds on the claim, both from the data: the versioned-enum limit (§2), and
-declaration is not universal even here — 20 of 53 extensions declare no
-errors at all. A regenerated superset corpus (216 errors, 2026-08-13 HEAD)
+Every declared `<error>` in core `wayland.xml` plus the extension corpus,
+all seven classifier buckets: 82 TYPESTATE, 67 DOMAIN, 8 THRESHOLD, 6
+REVOCABLE, 2 RESOURCE (server-side failure, not a client obligation), 5
+AMBIGUOUS, 2 UNCLASSIFIED = 172. **87.6% of client-facing declared errors
+are type-eliminable in shape** — 149/170, where 170 = 172 − 2 RESOURCE; on
+all 172 declared errors the figure is 86.6% (both denominators, per our own
+rule). One protocol; the number does not generalize to "protocol
+boundaries." Two bounds on the claim, both from the data: the
+versioned-enum limit (§2), and declaration is not universal even here — 20
+of 53 extensions declare no errors at all. A regenerated superset corpus (216 errors, 2026-08-13 HEAD)
 exists for the falsifiability check; its classifier run carries an 11.1%
 unclassified bucket (post-census protocols, unfitted vocabulary) and
 therefore has **no headline** — recorded as a live demonstration of the
@@ -163,9 +179,11 @@ corpus-fitted-vocabulary caveat.
 ### 4.3 Cryptographic protocol, alert granularity: TLS 1.3 alerts (n = 25)
 
 The 30-minute probe ([`census/tls13/tls13-alert-census.md`](census/tls13/tls13-alert-census.md))
-that forced the scheme to grow: 4-class coverage was only 64%, with the
-uncovered mass internally structured — CRYPTO-VERIFY and NEGOTIATION
-emerged here. It also produced the **granularity warning**: the entire TLS
+that forced the scheme to grow: 4-class coverage was only 60% (15/25; the
+probe's original tally said 64% and was corrected at the publish gate — the
+correction block in the probe file reconciles tally against item table),
+with the uncovered mass internally structured — CRYPTO-VERIFY and
+NEGOTIATION emerged here. It also produced the **granularity warning**: the entire TLS
 state machine compresses into one alert code (`unexpected_message`), so
 alert-vocabulary percentages under-represent typestate.
 
@@ -179,10 +197,11 @@ CRYPTO-VERIFY, 6 UNCLASSIFIED-unverifiable, 3 NEGOTIATION, 2 each
 REVOCABLE/THRESHOLD/POLICY, 1 META.
 
 **Headline: 80–83% of the section's normative surface is type-eliminable in
-shape** (range across three valid raters, §6; A 81.9%, B 79.9%, D 82.8%).
-The secret-dependent core is **6/204 = 2.9%, identical items for every
-rater**. Everything types cannot even in principle express — CV + REVOCABLE
-+ THRESHOLD + NEG — is ~6% (5.9–6.4% across raters).
+shape** — precisely, the range across three valid raters is 79.9% (B) to
+82.8% (D), with A at 81.9% (§6). The secret-dependent core is **6/204 =
+2.9%, identical items for every rater**. Everything types cannot even in
+principle express — CV + REVOCABLE + THRESHOLD + NEG — is ~6% (5.9–6.4%
+across raters).
 
 The granularity prediction from §4.3 is confirmed quantitatively: the alert
 vocabulary shows 20% typestate where the obligation corpus shows 46% — a
@@ -190,9 +209,11 @@ compression factor of ~2.3. **Never compare protocol censuses at different
 error-code granularities.**
 
 Reading: the TLS 1.3 handshake's stated obligations are overwhelmingly state
-machine and format discipline, quantifying why the state-machine attack
-family (SMACK/FREAK) was so fruitful — by obligation count, that attack
-surface class is roughly 16× the size of the cryptographic one.
+machine and format discipline — by obligation count, the state-machine
+surface class is roughly 16× (94/6) the size of the cryptographic one. That
+proportion is consistent with, though it does not by itself explain, how
+fruitful the state-machine attack family (SMACK/FREAK) proved against TLS
+implementations.
 
 ### 4.5 What does *not* survive across corpora
 
@@ -220,16 +241,20 @@ included verbatim because its failure modes generalize:
    expectation-leakage, and checking error *signs* is cheaper than checking
    error rates.
 3. **A fix is new content and needs the same verification.** The addendum's
-   accuracy lens found the celebrated `\b`-regex anecdote had inflated one
-   bug's effect ~4× by crediting it with three corpus-fitted vocabulary
-   expansions — the corrected story is itself a caveat on the 87.6% figure.
+   accuracy lens found that the codebook's own `\b`-regex war story had
+   inflated one bug's effect ~4× by crediting it with three corpus-fitted
+   vocabulary expansions — the corrected story is itself a caveat on the
+   87.6% figure.
 
 ## 6. The transmissibility study: four passes, a pre-registered stop
 
-The §4 census's 20-item DISAGREE bucket (raw two-rater agreement 90.2%,
-eliminable-vs-not 96.1%) localized two codebook gaps. We repaired them under
-pre-registration and re-rated — twice — with every prediction committed to
-git before the rater existed:
+All raters in this study are fresh LLM-agent instances — blind to each
+other, to the tallies, and to the authors' expectations (see limitation 6
+for what that population does and does not control). The §4 census's
+20-item DISAGREE bucket (raw two-rater agreement 90.2%, eliminable-vs-not
+96.1%) localized two codebook gaps. We repaired them under pre-registration
+and re-rated — twice — with every prediction committed to git before the
+rater existed:
 
 - **Codebook v2** (rules 10–11, predictions: gains concentrate in the 20;
   headline stays in 80–82%). **Pass 3 failed its criterion** — headline
@@ -249,23 +274,41 @@ git before the rater existed:
   guard-vs-predicate items flipped between passes. The pre-committed
   interpretation applies: **the codebook is not transmissible by text alone
   at item granularity, and that verdict — not a new headline — is the
-  result.** No pass 5: each further rule would be fitted to this corpus's
-  residuals.
+  result.** The decision not to run a pass 5 was made at close-out (each
+  further rule would be fitted to this corpus's residuals); what was
+  pre-registered is the interpretation just quoted. The quoted range still
+  widens to 80–83% because rater D's *instrument* was valid even though the
+  predictions about D's output failed — excluding a valid rater whose
+  result is inconvenient would be cherry-picking in the other direction,
+  while C stays excluded because C's instrument measured a paraphrase, not
+  the codebook (the full reconciliation is in the pass-4 report).
 
 What four passes measured:
 
-1. **Discriminator-crispness predicts transmissibility.** CV, THRESHOLD,
-   REVOCABLE, and META were **item-for-item identical across every rater,
-   including the invalidated pass**. All residual disagreement lives on
-   judgment boundaries (DOMAIN/TYPESTATE via rule 10's "does the required
-   value vary with history?"; DOMAIN/PROCESS). Inter-rater agreement is a
-   per-class property, predictable from the shape of the rule.
+1. **Discriminator-crispness predicts transmissibility.** CV and META were
+   **item-for-item identical across every rater, including the invalidated
+   pass**; THRESHOLD and REVOCABLE were identical across the other three
+   raters with exactly one recorded exception (rater B read one flagged
+   item, the 7-day cap, as REVOCABLE rather than THRESHOLD). All residual
+   disagreement lives on judgment boundaries (DOMAIN/TYPESTATE via rule
+   10's "does the required value vary with history?"; DOMAIN/PROCESS).
+   Two qualifications: the zero-variance classes are small (1–6 items), so
+   perfect agreement there is weaker evidence than the same rate on a
+   90-item class; and citing the invalidated pass here is principled
+   because its defect was localized (the NEG boundary), leaving concordance
+   on untouched classes evidential. Inter-rater agreement is a per-class
+   property, predictable from the shape of the rule — directionally, not
+   as a quantitative law.
 2. **The headline is robust at claim granularity even where items are
-   not:** eliminable-vs-not agreement 89–96% against raw item agreement
-   80–91% — most disagreement is interior to the eliminable family.
+   not:** across all valid-rater pairs (A–B, A–D, B–D), eliminable-vs-not
+   agreement spans 87–96% against raw item agreement 81–90% (A–B 90.2/96.1,
+   A–D 83.8/89.2, B–D bounded 80.9–82.8 / 86.8–88.7 because four of B's
+   labels were never archived) — most disagreement is interior to the
+   eliminable family.
 3. **Authorial context leaks into labels, measurably.** 15 items have both
    fresh raters agreeing on the same alternative label against rater A.
-   Those 15 are the census's visible error bar; they remain unadjudicated.
+   Those 15 are the census's visible error bar; they remain unadjudicated
+   and are listed in the pass-4 report.
 
 ## 7. Related work
 
@@ -291,8 +334,10 @@ not a proof of novelty.
 
 ## 8. Limitations
 
-1. **Declared obligations only.** Undeclared obligations — the majority, at
-   most boundaries — are invisible here by construction.
+1. **Declared obligations only.** Undeclared obligations are invisible here
+   by construction — and we have not measured what fraction of any
+   boundary's real obligations get declared, so no claim about that
+   fraction appears in this paper.
 2. **Shape-eliminability, not engineering-eliminability.** "Type-eliminable
    in shape" claims a discharging type *exists*, not that deploying it is
    practical; the versioned-enum limit shows even DOMAIN has deployment
@@ -308,10 +353,17 @@ not a proof of novelty.
    original labels, guard-boundary judgments that flip between competent
    raters. Every headline in this paper is quoted at the granularity that
    survives that error bar.
-6. **Rater population.** All raters are LLM agents (blind to each other and
-   to tallies, instrument-isolated); a human-rater replication has not been
-   run, and shared model priors are a residual common-cause risk that
-   blindness does not remove.
+6. **Rater population.** All raters are LLM agents — each a fresh instance
+   given only its instrument and the corpus, blind to the other raters, the
+   tallies, and the authors' expectations. A human-rater replication has
+   not been run, and shared model priors are a residual common-cause risk
+   that blindness does not remove.
+7. **Rater B's full label map was never archived.** Only B's 16 recorded
+   disagreement labels survive (plus agreement on the other 184); B's
+   figures — including the 79.9% floor of the headline range — are
+   arithmetically consistent with the recorded labels but not
+   item-recomputable for four items. A provenance defect, recorded rather
+   than repaired.
 
 ## 9. Conclusion
 
@@ -320,11 +372,12 @@ three-quarters policy thresholds and structurally cannot contain typestate;
 a windowing protocol whose declared errors are 87.6% type-eliminable in
 shape; and a cryptographic handshake whose normative surface is 80–83%
 type-eliminable, with a secret-dependent core of 2.9% that every rater
-agrees on item-for-item. The recurring result is that *where the
-obligations are declared, most of them are state-machine and format
-discipline* — the kind of thing types discharge — and the truly
-type-resistant residue (clocks, thresholds, secrets, negotiation) is small
-and precisely nameable.
+agrees on item-for-item. The recurring result is that *where a protocol
+boundary's obligations are declared, most of them are state-machine and
+format discipline* — the kind of thing types discharge — while at the
+monitoring layer the mix inverts toward thresholds and revoked facts; in
+both cases the truly type-resistant residue is small at the boundary and
+precisely nameable everywhere.
 
 The method is the other half. Every headline here survived, or was produced
 by, a failure: a retracted cross-layer claim, an invalidated rating pass, a

@@ -41,54 +41,65 @@ labels, or alert words.
 
 ## Decision rules
 
-1. **Cross-MESSAGE consistency = TYPESTATE; intra-message cross-field =
-   DOMAIN.** "A field of ServerHello MUST equal the corresponding field of
-   HelloRetryRequest" is TYPESTATE; "key_share ⊆ supported_groups within the
-   same ClientHello" is DOMAIN.
-2. **CV requires secret/transcript material.** MAC/signature/PSK-binder
-   verification = CV. Public arithmetic on one value = DOMAIN.
-3. **Structural bound = DOMAIN; picked policy line = THRESHOLD.** A length
-   cap that derives from record framing is DOMAIN; a chosen limit like "no
-   more than 7 days" is THRESHOLD.
-4. **Sender-side and receiver-side duals of one obligation are both
-   classified** — each sentence is its own item.
-10. **Guard-vs-predicate tie-break — classify by the discharging type.**
-    Many sentences have the form "when/after history H, field F MUST
-    satisfy P". Neither guard nor predicate wins by position; ask what type
-    would discharge the obligation. If a single context-free refinement of
-    F's type satisfies every occurrence of the obligation — the guard only
-    *locates* where the obligation applies, and the required value/set is
-    the same whenever it does — the check is DOMAIN. If the required
-    value/set *varies with history or negotiated state* (same field,
-    different required values depending on what happened before), the
-    discharging type must be state-indexed: TYPESTATE.
-11. **U-boundary — wire-falsifiability.** Classify the strongest obligation
-    a conformance observer of the wire (holding the public transcript,
-    neither endpoint's private state) could falsify. If the sentence
-    obliges an observable configuration (send / don't send / set a field in
-    transcript-establishable circumstances), classify that observable
-    predicate normally, even if the sentence's motivation is honesty about
-    capability or intent. U is reserved for sentences whose ENTIRE
-    normative content is unobservable (truthfulness of an advertisement,
-    randomness or independence of generated values, future willingness).
-    Test: could a harness holding only a packet capture ever emit a
-    conformance FAIL for this sentence alone? No → U. Yes → classify what
-    the FAIL would check.
-12. **NEGOTIATION discriminator — the predicate is the EXISTENCE of a
-    compatible choice, never the choice itself.** NEG covers obligations on
-    the emptiness/compatibility of a two-party set intersection: abort when
-    offer ∩ config = ∅, proceed only if a mutually supported parameter
-    exists. The moment the sentence constrains a *specific selected value*
-    against what was previously offered ("the server's selected X MUST be
-    one the client offered"), it is cross-message consistency and rule 1
-    already classifies it: TYPESTATE. Litmus: does the predicate mention a
-    chosen value? Then it is not NEG.
-13. **DOMAIN vs PROCESS — classify the wire-observable configuration if the
-    sentence obliges one.** "MUST set/encode field F to X" is a predicate
-    on a wire value: DOMAIN (or TYPESTATE via rule 10 if the required value
-    is history-dependent). PROCESS is reserved for sentences obliging a
-    computation or procedure with no wire-observable predicate of their
-    own.
+*(Rules keep their codebook numbers — the numbering is intentionally
+non-sequential. They are set as headings, not a markdown list, so the numbers
+render as written.)*
+
+**Rule 1 — Cross-MESSAGE consistency = TYPESTATE; intra-message cross-field =
+DOMAIN.** "A field of ServerHello MUST equal the corresponding field of
+HelloRetryRequest" is TYPESTATE; "key_share ⊆ supported_groups within the
+same ClientHello" is DOMAIN.
+
+**Rule 2 — CV requires secret/transcript material.** MAC/signature/PSK-binder
+verification = CV. Public arithmetic on one value = DOMAIN.
+
+**Rule 3 — Structural bound = DOMAIN; picked policy line = THRESHOLD.** A length
+cap that derives from record framing is DOMAIN; a chosen limit like "no
+more than 7 days" is THRESHOLD.
+
+**Rule 4 — Sender-side and receiver-side duals of one obligation are both
+classified** — each sentence is its own item.
+
+**Rule 10 — Guard-vs-predicate tie-break: classify by the discharging type.**
+Many sentences have the form "when/after history H, field F MUST
+satisfy P". Neither guard nor predicate wins by position; ask what type
+would discharge the obligation. If a single context-free refinement of
+F's type satisfies every occurrence of the obligation — the guard only
+*locates* where the obligation applies, and the required value/set is
+the same whenever it does — the check is DOMAIN. If the required
+value/set *varies with history or negotiated state* (same field,
+different required values depending on what happened before), the
+discharging type must be state-indexed: TYPESTATE.
+
+**Rule 11 — U-boundary: wire-falsifiability.** Classify the strongest obligation
+a conformance observer of the wire (holding the public transcript,
+neither endpoint's private state) could falsify. If the sentence
+obliges an observable configuration (send / don't send / set a field in
+transcript-establishable circumstances), classify that observable
+predicate normally, even if the sentence's motivation is honesty about
+capability or intent. U is reserved for sentences whose ENTIRE
+normative content is unobservable (truthfulness of an advertisement,
+randomness or independence of generated values, future willingness).
+Test: could a harness holding only a packet capture ever emit a
+conformance FAIL for this sentence alone? No → U. Yes → classify what
+the FAIL would check.
+
+**Rule 12 — NEGOTIATION discriminator: the predicate is the EXISTENCE of a
+compatible choice, never the choice itself.** NEG covers obligations on
+the emptiness/compatibility of a two-party set intersection: abort when
+offer ∩ config = ∅, proceed only if a mutually supported parameter
+exists. The moment the sentence constrains a *specific selected value*
+against what was previously offered ("the server's selected X MUST be
+one the client offered"), it is cross-message consistency and rule 1
+already classifies it: TYPESTATE. Litmus: does the predicate mention a
+chosen value? Then it is not NEG.
+
+**Rule 13 — DOMAIN vs PROCESS: classify the wire-observable configuration if the
+sentence obliges one.** "MUST set/encode field F to X" is a predicate
+on a wire value: DOMAIN (or TYPESTATE via rule 10 if the required value
+is history-dependent). PROCESS is reserved for sentences obliging a
+computation or procedure with no wire-observable predicate of their
+own.
 
 ## Procedure
 

@@ -9,7 +9,7 @@ INSIGHTS/
 __pycache__/
 *.pyc
 
-# Regenerable corpora (fetch/regenerate per census READMEs; do not vendor)
+# Regenerable corpora (see "Regenerating corpora" in the root README; do not vendor)
 census/wayland/corpus*.json
 census/promql/corpus*.json
 census/wayland/classified*.json

@@ -1,5 +1,10 @@
 # TLS 1.3 (RFC 8446 §6.2) error-alert census — 30-minute probe
-2026-08-12 · corpus = the 25 declared error alerts, classified on definitional text (predicate shape), never name (mm-residue rule 8). Classes: 0=DOMAIN, 1=THRESHOLD, 2=REVOCABLE, 3=TYPESTATE, U=unclassified (with shape note).
+2026-08-12 · corpus = the 25 declared error alerts, classified on definitional text (predicate shape), never name (mm-residue rule 8 [= rule 8 of `codebook/classes.md` in this repository]). Classes: 0=DOMAIN, 1=THRESHOLD, 2=REVOCABLE, 3=TYPESTATE, U=unclassified (with shape note).
+
+> ⚠️ **Tally corrected 2026-08-13** — the original Tally block below miscounts
+> its own item table; see "CORRECTION" at the end of this file. Corrected
+> figures: DOMAIN 7, UNCLASSIFIED 10, 4-class coverage **15/25 = 60%**.
+> Original text preserved unchanged below.
 
 | # | alert | definitional predicate (paraphrase of RFC text) | class | note |
 |---|---|---|---|---|
@@ -54,3 +59,23 @@
 - Census the §4 handshake MUST/MUST NOT statements + A.1/A.2 transitions as the typestate-bearing corpus (est. n≈100+).
 - Add CRYPTO-VERIFY and NEGOTIATION as provisional classes; re-run Wayland census to confirm they're empty there (they should be — falsifiable check).
 - Prior-art sweep before ANY external claim: state-machine extraction from RFCs is a known genre (e.g., "Extracting protocol FSMs from RFCs" line of work); the CLASS-MIX census angle is the part that looked novel for PromQL.
+
+## CORRECTION — 2026-08-13 (found at the publish gate; original preserved above)
+
+The Tally block does not reconcile with the item table it summarizes. Recount
+from the table's own class column:
+
+- **DOMAIN = 7**, not 8 (rows #3, 6, 10, 13, 15, 21, 23; the "8" double-counted
+  #20's first clause, which the table's own note counts at #20's row class,
+  TYPESTATE) → 28%.
+- **UNCLASSIFIED = 10**, not 9 (rows #2, 4, 5, 9, 11, 12, 14, 17, 22, 25; the
+  sub-buckets below the tally — 4 CV + 2 NEG + 2 LOCAL-POLICY + 2 catch-all —
+  already sum to 10) → 40%.
+- TYPESTATE 5, REVOCABLE 2, THRESHOLD 1 stand. 7+5+2+1+10 = 25 ✓.
+- **4-class coverage = 15/25 = 60%**, not 16/25 = 64%. The probe's verdict is
+  unchanged in direction (the scheme does not cover a cryptographic corpus
+  without extension) and slightly *strengthened* by the correction.
+- Finding 3's "5 of the 8 DOMAIN alerts are local-set membership" is likewise
+  **4 of 7** (#6 certificate type, #15 version, #21 SNI, #23 PSK identity);
+  trust anchors (#11) sits in UNCLASSIFIED/LOCAL-POLICY, not DOMAIN. The
+  eliminability-echo point stands on 4/7.

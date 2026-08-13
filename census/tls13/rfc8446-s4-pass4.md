@@ -3,7 +3,14 @@
 Fresh blind rater (D), instrument = `codebook/rater-pack.md` **verbatim**
 (git blob `a08febba22fd2cb117a9be41654a6209e0104e57`; md5 of the copy served
 to the rater verified identical), corpus = the same 204 sentences. Scored
-against rater A (full map) and B (184 shared + 16 recorded labels).
+against rater A (full map) and B (184 shared + 16 recorded labels). All
+raters in this study are LLM agents — fresh instances with no access to each
+other, to the tallies, or to the authors' expectations; see the paper's
+limitations for what that population does and does not control for.
+*(Format note, 2026-08-13, post-gate: the rater pack's rule lists were later
+re-set from markdown ordered lists to bold headings so rendered numbering
+matches the written rule numbers; content unchanged from the blob cited
+above, which remains the byte-exact pass-4 instrument.)*
 
 ## Scores
 
@@ -26,17 +33,39 @@ against rater A (full map) and B (184 shared + 16 recorded labels).
 
 Codebook v3 pre-committed the interpretation: *"Any of these failing means
 the codebook is still not transmissible by text alone — that verdict, not a
-new headline, would be the result."* That is the verdict. **No pass 5:**
-each further rule would be fitted to this corpus's residuals — instrument
-overfitting with a growing risk of tuning the codebook to a desired number.
+new headline, would be the result."* That is the verdict. **No pass 5** —
+a disposition decided here, not pre-registered: each further rule would be
+fitted to this corpus's residuals — instrument overfitting with a growing
+risk of tuning the codebook to a desired number. (What was pre-registered
+is the *interpretation* of prediction failure; the decision not to iterate
+again follows from it but was made at close-out.)
+
+**Reconciliation — why the quoted range still widens to 80–83%.** The
+pre-registration barred minting a *converged headline* from a failed pass.
+It did not bar the descriptive range over valid raters, and D's instrument
+(the verbatim pack) was valid even though the predictions about D's output
+failed. Excluding a valid rater whose result is inconvenient would be
+cherry-picking; excluding C is principled because C's instrument was
+defective (it measured a paraphrase, not the codebook). So: transmissibility
+verdict as pre-registered, range honestly widened to 79.9–82.8% ("80–83%"),
+no point estimate quoted anywhere.
 
 ## What is now measured (the stable findings)
 
-1. **Discriminator-bearing classes are perfectly transmissible.** CV
-   ({120, 125, 126, 178, 179, 180}), THRESHOLD ({188, 189}), REVOCABLE
-   ({112, 133}), and META ({117}) are **item-for-item identical across every
-   rater, including the invalid-instrument pass 3**. The crypto core is
-   exactly 6/204 = 2.9%, with zero rater variance.
+1. **Classes with crisp discriminators transmit best — CV and META
+   perfectly.** CV ({120, 125, 126, 178, 179, 180}) and META ({117}) are
+   item-for-item identical across **all four raters**. THRESHOLD
+   ({188, 189}) and REVOCABLE ({112, 133}) are identical across A, C, and D,
+   with one recorded exception: rater B read item 189 as REVOCABLE
+   (A:THRESHOLD — an ambiguity A flagged at classification time). The crypto
+   core is exactly 6/204 (2.9%), the same six items for every rater. Caveat
+   on the strength of this evidence: these are small classes (1–6 items);
+   perfect agreement on rare, distinctive items is weaker evidence than the
+   same rate would be on a 90-item class. Methodological note on citing
+   pass 3 here: an invalid instrument invalidates the *tallies* it was
+   defective about (the NEG boundary and its neighbors); item-level
+   concordance on classes untouched by the defect (CV's six items are
+   nowhere near the NEG boundary) remains evidential.
 2. **The headline is robust at claim granularity.** Valid raters: A 81.9%,
    B 79.9%, D 82.8%. Quote the type-eliminable share of RFC 8446 §4's
    normative surface as **80–83%** (three raters, one codebook lineage,
@@ -52,9 +81,11 @@ overfitting with a growing risk of tuning the codebook to a desired number.
    against A's TYPESTATE).
 4. **Author context leaks into labels — measured, not suspected.** 15 items
    have C = D ≠ A: two independent raters who never saw the census agree on
-   the same alternative label. Those 15 are the census's error bar made
-   visible; they are listed in the scoring output and remain unadjudicated
-   (the census's no-silent-adjudication rule).
+   the same alternative label. The items: 14, 18, 22, 27, 64, 67, 84, 122,
+   123, 134, 141, 147, 156, 184, 191 (seven of them the DOMAIN→PROCESS
+   reading, four TYPESTATE→DOMAIN). They are the census's error bar made
+   visible and remain unadjudicated (the census's no-silent-adjudication
+   rule).
 
 ## Raw labels (rater D, archived verbatim)
 

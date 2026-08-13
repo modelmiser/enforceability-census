@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 """
-Three-way contract classifier, corpus 2: awesome-prometheus-alerts.
+Predicate-shape classifier (four buckets: STATE/THRESHOLD/TYPESTATE/UNCLASSIFIED),
+corpus 2: awesome-prometheus-alerts.
+
+Usage: promql-classifier.py RULES.yml OUT.json
+  RULES.yml = a single YAML file of alert rules (e.g. the merged rules file of
+  a fresh awesome-prometheus-alerts clone); OUT.json = classified rows.
+
+NOTE: the STATE bucket is the codebook's REVOCABLE class (equality/absence on
+a discrete status); the code predates the unified naming.
 
 Discriminator is the SHAPE OF THE PREDICATE, not the alert's wording:
 
@@ -16,7 +24,7 @@ Discriminator is the SHAPE OF THE PREDICATE, not the alert's wording:
 Precedence: STATE is tested before THRESHOLD, because `up == 0` is an equality
 and must not be captured by a generic comparison rule.
 
-Rule-9 hardening (2026-08-09, see references/classes.md): the query is the
+Rule-9 hardening (2026-08-09, see codebook/classes.md): the query is the
 measurement and `classify()` already ignores the alert name (rule 8, good). This
 adds the missing half -- a hypothesis classifier over the NAME -- purely to raise
 a **DISAGREE** signal where the two views of an alert diverge (e.g. `InstanceDown`
@@ -193,4 +201,6 @@ def main(path):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        sys.exit('usage: promql-classifier.py RULES.yml OUT.json')
     main(sys.argv[1])

@@ -20,6 +20,14 @@ be vocabulary, not measurement.
   NEG: `negotiat|version|incompatible|intersect|overlap|agree`.
 - Every hit hand-adjudicated on predicate shape (rule 8) — the regex is the
   net, not the verdict.
+- **Recall limitation, stated:** only regex *hits* were hand-read; the
+  non-hits were not individually re-read for CV/NEG shape, so this scan
+  bounds false positives tightly and false negatives only indirectly — a
+  secret-material or intersection-emptiness predicate phrased without any of
+  the net's vocabulary would escape it. The indirect bound: the fitted
+  n=172 census hand-classified every item on predicate text (before these
+  classes existed) and surfaced no such predicates anywhere in its
+  seven buckets.
 
 ## Result: prediction CONFIRMED, with one sharpening
 

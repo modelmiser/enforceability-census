@@ -44,15 +44,20 @@ outside the eliminable family, this single boundary migration mechanically
 produced most of the headline drop. This is not rater error; the rater
 followed the instrument it was handed.
 
-Second, smaller axis: **DOMAIN → PROCESS drift** (7 items: 14, 18, 64, 84,
-122, 141, 191 — encoding/serialization duties read as procedure rather than
-wire-value predicates). The codebook has never had a DOMAIN/PROCESS boundary
-rule; PROCESS and POLICY entered the §4 census with one-clause definitions.
+Second, smaller axis: **DOMAIN → PROCESS drift** (7 items outside the
+original DISAGREE bucket: 14, 18, 64, 84, 122, 141, 191 — encoding/
+serialization duties read as procedure rather than wire-value predicates;
+counting the two inside the bucket, 55 and 157, the drift is 9 items total).
+The codebook has never had a DOMAIN/PROCESS boundary rule; PROCESS and
+POLICY entered the §4 census with one-clause definitions.
 
 ## What pass 3 does show
 
 - **On the 20 repair-target DISAGREE items, C landed within the previously
-  observed A/B envelope on 14/20**, and the guard-vs-predicate cluster
+  observed A/B envelope on 14/20** *[correction 2026-08-13: 15 of the 17
+  determinable items — B's labels for 5, 54, 123 were never archived, so
+  envelope membership is indeterminable there; the out-of-envelope items are
+  55 and 157]*, and the guard-vs-predicate cluster
   resolved with a clear rule-10 pattern (constant-whenever-applicable fields →
   DOMAIN: 30, 31, 32, 56, 57, 67, 156, 184; history-varying → TYPESTATE: 159,
   165). The repaired boundaries behaved; the un-repaired ones leaked.
