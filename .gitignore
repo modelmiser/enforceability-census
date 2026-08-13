@@ -1,0 +1,14 @@
+# Meta/process files (workspace conventions)
+TODO.md
+DEVLOG.md
+DEVLOG/
+INSIGHTS.md
+INSIGHTS/
+
+# Python
+__pycache__/
+*.pyc
+
+# Regenerable corpora (fetch/regenerate per census READMEs; do not vendor)
+census/wayland/corpus*.json
+census/promql/corpus*.json

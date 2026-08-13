@@ -1,0 +1,390 @@
+# The classes of runtime assertion
+
+> ⛔ **RETRACTED 2026-08-02, same day: "the class mix is a property of the
+> LAYER" is FALSE and the 88%-vs-2% inversion below must not be cited.** Cold
+> review falsified it and the falsification was verified against sources. The
+> mm-lux row was classified by contract NAME, not predicate; re-reading the
+> contract descriptions puts its `wayland.*` subset at **62.5% typestate against
+> the spec's 47.7%** — the monitor has MORE typestate than the spec, and the
+> inversion vanishes on like-for-like comparison. Full account in the
+> **Retraction** section at the end. The four CLASSES remain useful; the
+> cross-layer CLAIM does not.
+>
+> **Revised 2026-08-02 after corpus 3.** This document described three classes.
+> A Wayland corpus — which, unlike a metrics corpus, *can* express protocol
+> obligations — required a fourth (**DOMAIN**).
+
+
+A reliability check exists because *something could be wrong at runtime*. But not
+all runtime checks are the same kind of thing, and the differences decide what
+you can do about them. Three classes, distinguished by **the shape of the
+predicate**, not by the wording of the alert.
+
+---
+
+## Class 1 — THRESHOLD on a continuous quantity
+
+**Shape:** an inequality against a number. `p99 > 250ms`, `cpu_pressure > 1.5`,
+`disk_avail / disk_total < .10`.
+
+**Why it is at runtime:** it has no truth value at all until somebody picks the
+number. There is no fact of the matter about "elevated." The predicate is a
+*policy decision* wearing the costume of an observation.
+
+**What you can do:** nothing at the type layer, ever. This class is not a
+verification target. The engineering questions are different ones — who chose
+the constant, what is the hysteresis, what happens at 1.49, does the threshold
+self-calibrate against a measured reference rather than a literal.
+
+**Sub-class worth tracking: THRESHOLD-dynamic.** The right-hand side is another
+measured quantity rather than a literal (`temp_celsius > temp_max_celsius`,
+`connections >= settings_max_connections`). Same class — a line on a continuous
+scale — but a *better-engineered* one, because the line moves with the system
+instead of rotting in a config file. When auditing, flag literal thresholds that
+have a dynamic counterpart available.
+
+**Related, and deliberately not merged:** this class has the shape of Lamport's
+*Buridan's Principle* — a discrete decision on a continuous-valued input cannot
+be made in bounded time. Whether that is the same obstruction or a rhyme is not
+settled here. See `~/Claude/KEYSTONE.md`, "the boundary below the type layer."
+
+---
+
+## Class 2 — REVOCABLE FACT (the residue)
+
+**Shape:** equality, absence, or supersession on a discrete status.
+`up == 0`, `absent(job)`, `changes(...)`, `observed_generation != metadata_generation`,
+`surface.leave` for an output the surface never entered.
+
+**Why it is at runtime:** the fact was true and became false. Tracking that needs
+an ordering — a clock — and no static structure is a clock. A type, a seal, a
+brand, a session type: each witnesses a fact *at a point*. This is the residue
+named in `~/Claude/KEYSTONE.md`, and the boundary is CALM's monotonicity
+frontier, not ours.
+
+**What you can do:** name the clock. For every check in this class the audit
+should be able to answer *what ordering decides staleness here* — an epoch, a
+generation counter, a lease, a version, a sequence number. A revocable fact with
+no named clock is the actual defect; the alert is only its symptom.
+
+**Recurring sub-shapes:** staleness (a read that was fresh), eviction (a resource
+that was resident), supersession (a generation that was current), revocation (a
+grant that was valid), membership (a set you were in). KEYSTONE explicitly does
+**not** claim these are one object — only that they share a shape.
+
+---
+
+## Class 0 — DOMAIN: a monotone predicate on one value
+
+**Shape:** a check on a single argument, with no reference to history, no clock,
+no threshold. `transform must be one of 8 enum values`. `format is not known`.
+`surface is not an xdg_toplevel`. `fd not seekable`.
+
+**Why it is at runtime:** the boundary is untyped. The wire carries a `uint32`
+and somebody has to check it is one of the eight legal values. Nothing deeper is
+going on.
+
+**What you can do:** this is the **cheapest** class to eliminate — cheaper than
+typestate, because it needs no ordering. A real enum or newtype in the generated
+binding makes the illegal value unrepresentable. No session type required.
+
+**It only appears in corpora that describe a boundary.** Metrics corpora have no
+class 0 at all, because a monitor never validates an argument — by the time a
+number reaches a time series it has already been accepted. Discovering this class
+is what forced the revision to this document; folding it into TYPESTATE would
+have been exactly the absorb-into-the-nearest-bucket error rule 2 warns about.
+
+---
+
+## Class 3 — TYPESTATE across a boundary
+
+**Shape:** an ordering obligation over one object's own history.
+`commit` without a prior `attach`. `commit` without acking the pending
+`configure`. Use-after-close. Double-free.
+
+**Why it is at runtime:** *only* because the enforcing compiler does not own both
+sides of the boundary. The fact is monotone and perfectly typeable in-process —
+Rust typestate, session types, a linear type. It escaped to runtime at a process,
+protocol, FFI, or plugin boundary.
+
+**What you can do:** this is the one class verification actually eliminates. Each
+item here is an unexercised option, not a law of nature. The fix is to push the
+type across the wire: generated protocol bindings with typestate, session types
+on the channel, a capability that cannot be constructed in the wrong order.
+
+**Rare at the monitoring layer, dominant at the protocol layer.** 4/107 and
+0/1155 in metrics corpora; 47% in both Wayland corpora. That gap is the point —
+see below.
+
+---
+
+## Calibration: measured class ratios
+
+Four corpora, independently authored, different domains, different assertion
+languages. None was written with this taxonomy in mind.
+
+| Corpus | Layer | n | Domain | Typestate | Revocable | Threshold | Uncl. |
+|---|---|---|---|---|---|---|---|
+| wayland-protocols (core + 36 ext) | protocol **spec** | 172 | 39.0% | 47.7% | 3.5% | 4.7% | 1.2% |
+| smithay `post_error` sites | protocol **impl** | 66 | 36.4% | 47.0% | 1.5% | 9.1% | 4.5% |
+| `mm-lux` contracts | runtime **monitor** | 107 | — | ~4% | ~24% | ~76% | 18% |
+| `awesome-prometheus-alerts` | ops **monitor** | 1155 | — | 0% | 21.4% | 78.6% | 0.6% |
+
+## The class mix is a property of the LAYER, not of software
+
+The four corpora do not disagree. They are measuring different altitudes of the
+*same* stack — mm-lux literally monitors Wayland, and cosmic-comp is built on
+smithay — and the mix inverts almost perfectly as you climb:
+
+- **At a protocol boundary: 84–88% of declared obligations are eliminable by a
+  type** (domain + typestate). Residue is 1.5–3.5%. Thresholds are 5–9%.
+- **At the monitoring layer: 0–4% is eliminable.** Residue is ~22%, thresholds
+  ~78%, and class 0 does not occur at all.
+
+The mechanism is straightforward once stated: **the eliminable classes are
+consumed where they are caught.** A protocol error kills the client at the
+boundary; it never becomes a metric. Everything that survives to the monitoring
+layer has already been filtered of the things a type could have caught, which is
+why a monitor sees only revocable facts and thresholds. Both measurements are
+correct. Neither generalises to "software."
+
+**So the useful question is not "what fraction of bugs can verification catch?"
+It is "does this boundary have a declared obligation set at all?"** Wayland is
+unusual: 172 errors, specified, versioned, machine-readable. The median internal
+API has zero. Where obligations are never declared they are never checked, and
+they resurface downstream as residue nobody can explain — which reads as
+irreducible complexity but is really an undeclared spec.
+
+### Corollaries worth acting on
+
+- **Class 0 is nearly free and nobody collects it.** 36–39% of Wayland's
+  declared errors are single-argument validation. A generated binding with real
+  enums and newtypes removes them without any ordering machinery.
+- **A spec-vs-impl gap is measurable.** smithay emits 62 of the 172 declared
+  errors — **36% spec coverage** — while matching the spec's *class mix* almost
+  exactly (36.4/47.0 vs 39.0/47.7). Implementations under-enforce uniformly
+  rather than selectively, so coverage is a volume problem, not a priority one.
+- **Don't compare percentages across layers.** Always report the layer.
+
+### Censoring — read this before quoting any typestate number
+
+PromQL cannot express "these events for this object arrived out of order." A
+Prometheus corpus is **structurally incapable** of containing class 3, and its
+`0` is a fact about the query language, not about software. Symmetrically, a
+protocol-error corpus is near-incapable of containing class 1: it has no access
+to continuous quantities, which is why thresholds there are 5–9% rather than
+~78%. **Every corpus censors some class.** Name which one before reporting.
+
+---
+
+## Classifying: precedence and honesty rules
+
+1. **Test class 2 before class 1.** `up == 0` is an equality and must not be
+   swallowed by a generic comparison rule. Revocation first, thresholds second.
+2. **Always keep an UNCLASSIFIED bucket and always report it.** A classifier
+   that cannot say "I don't know" will silently absorb ambiguous items into
+   whichever rule its regex hit first. On the first mm-lux pass an over-greedy
+   regex pulled ~20 D-Bus bus names and unrelated `verify.*` facts into the
+   contract set; the visible unclassified bucket is what caught it.
+3. **Fix the classifier, then report both numbers.** Reading the unclassified
+   bucket will suggest fixes. Apply them — but publish the pre-fix and post-fix
+   ratios side by side. If a fix swings the headline, you tuned to the answer.
+   (On corpus 2, fixes moved 33 items and the ratio moved 0.4 points. That is
+   what robustness looks like.)
+   **Exception, and know which case you are in:** a run with a large
+   unclassified bucket has no headline to swing. Corpus 3a went 29.1% → 1.2%
+   unclassified and its ratios moved 12+ points — that is not tuning, because
+   the 29.1% run was never a measurement. The rule applies to swings from
+   *already-good* coverage. State the pre-fix coverage so a reader can tell.
+6. **Watch `\b` against snake_case.** `_` is a word character, so `\balready\b`
+   does **not** match `already_captured` and `\bunsupported\b` does not match
+   `unsupported_buffer`. On corpus 3a this silently voided nearly every match
+   against the identifier and parked 50 items in unclassified. Normalise `_` to
+   a space before matching. This defect is invisible without the bucket.
+7. **Name the class your corpus censors** before reporting any percentage.
+   Metrics corpora cannot express typestate; protocol corpora cannot express
+   thresholds. There is no uncensored corpus.
+4. **Hand-audit a deterministic sample.** Rank items by a hash of their name and
+   check the first ~12 by hand. Deterministic beats random: it is reproducible
+   across runs and cannot be re-rolled until it looks good.
+5. **Do not report a class-3 count from a corpus that cannot express class 3.**
+
+---
+
+# RETRACTION — 2026-08-02
+
+The "class mix is a property of the layer" claim above was falsified by cold
+review on the day it was written. Recorded here in full because the failure is
+more instructive than the claim was.
+
+## What was wrong
+
+**The mm-lux row was classified by contract NAME, not by predicate.** Re-reading
+each contract's own description string in `active/mm-lux/src/wayland_contract.rs`
+and comparing only the Wayland subset against the Wayland spec — the sole
+like-for-like pairing available:
+
+| | mm-lux `wayland.*` (monitor) | wayland-protocols (spec) |
+|---|---|---|
+| n | 24 | 172 |
+| typestate | **62.5%** | 47.7% |
+| domain | 8.3% | 39.0% |
+| threshold | 16.7% | 4.7% |
+| revocable | 0% | 3.5% |
+
+The monitor carries *more* typestate than the spec. There is no inversion.
+
+Two misfilings drove the original result, **both in the direction of the
+thesis** — the diagnostic signature of a classifier tuned by its author's
+expectations:
+
+- `wayland.surface.leave_orphan` — "leave for an output the surface *never
+  entered*" — filed REVOCABLE while the gloss quoted a history predicate.
+- `wayland.server_new_id.range` — a bounds check on a single value
+  (`wayland_contract.rs:836`) — filed TYPESTATE, in support of a claim that
+  monitors never validate arguments.
+
+## Two further structural errors
+
+**Subject-matter mismatch.** Roughly three-quarters of mm-lux is kernel and
+hardware telemetry — PSI, block-IO percentiles, scheduler latency, thermal,
+cgroup OOM — which has no counterpart in a protocol corpus. "One stack at four
+altitudes" was false for the row carrying the finding: its threshold share
+tracked *what the author felt like instrumenting*, not altitude.
+
+**An unrun counter-corpus.** D-Bus sits at the same altitude, in the same
+desktop stack, and is already monitored by mm-lux. Its ~33 standard error
+constants classify to roughly 36% eliminable, not 88%. One within-layer corpus
+falsifies "the mix is a property of the layer," and it was available the whole
+time.
+
+## What survives
+
+- **Wayland's declared error set is 87.6% eliminable by a type.** A claim about
+  one protocol. It does not generalise to "protocol boundaries."
+- **smithay emits 62 of 172 declared errors (36%) while matching the spec's
+  class mix almost exactly** — under-enforcement is uniform, not selective.
+- **The PromQL predicate-shape census** (n=1155, 78.6% threshold, 0.6%
+  unclassified). A prior-art sweep found nothing comparable in the literature.
+  Methodologically the strongest corpus here and the most defensible result.
+
+## A wrong finding replaced by a better one
+
+"Domain errors are nearly free and nobody collects them" is **false** for
+wayland-rs. `wayland-scanner` already generates real Rust enums; the generated
+type is `WEnum<T> = Value(T) | Unknown(u32)`
+(`wayland-backend/src/protocol.rs:296`), and `Unknown` is deliberate. A
+**versioned, forward-compatible boundary must admit values the current spec
+forbids**, or it breaks against newer peers.
+
+So: domain errors are not fully type-eliminable at a versioned boundary. That is
+a real limit on eliminability, it was found in the data, and it is a better
+finding than the one it replaces because it bounds the thesis instead of
+inflating it.
+
+## Prior art this taxonomy must position against
+
+- **Gao, Bird & Barr, "To Type or Not to Type," ICSE 2017** — the canonical
+  "types catch 15% of bugs" number, which *already states* the survivorship
+  caveat about evaluating against bugs that survived testing and review.
+- **Chillarege et al., Orthogonal Defect Classification, IEEE TSE 1992**, and
+  **Chillarege & Bassin, ODC triggers, 1995** — already own "the observed
+  distribution is a function of the observation point," on the process-phase
+  axis rather than the altitude axis.
+- **Tsipenyuk, Chess & McGraw, "Seven Pernicious Kingdoms," 2005** — Input
+  Validation ≈ domain, API Abuse ≈ typestate, Time and State ≈ revocable. Three
+  of the four classes have a 2005 ancestor at the same joints. Only THRESHOLD
+  appears to be new, because defect taxonomies classify bugs, not monitors.
+- **Dwyer, Avrunin & Corbett, ICSE 1999** — methodological precedent for
+  classifying a specification corpus into a small scheme and reporting the mix.
+
+## The method lesson, corrected
+
+Rule 2 of the honesty rules credits the mandatory unclassified bucket. That
+stands — it caught the `\b`-vs-snake_case defect. But the far more damaging
+error, the one that produced a false headline, **never touched the bucket**: a
+name-based classifier placed every item confidently and reported 76% threshold
+with no distress signal at all.
+
+**A check that fails loudly catches defects. A check that fails silently is
+worse than no check, because it launders a wrong answer into a
+publishable-looking number.** The bucket only protects you where the classifier
+knows it is guessing. Add rule 8:
+
+8. **Classify on the predicate, never the identifier — and when you must use
+   names, treat the result as a hypothesis, not a measurement.** Names encode
+   the author's intent, not the predicate's shape. If two corpora are classified
+   by different methods, they are not comparable, and any finding that depends
+   on comparing them is an artifact until re-run under one method.
+
+9. **Enforce rule 8 with a disagreement bucket, not discipline.** Rule 8 is only
+   a habit until the classifier can catch its own violation. **Both classifiers**
+   (`wayland-classifier.py` and `promql-classifier.py`) now classify each item
+   twice — on the predicate (the measurement: `summary`+`desc` for Wayland, the
+   query for PromQL) and on the name (a hypothesis) — and report a **DISAGREE**
+   bucket where the two are both confident but differ, plus a name-based hint
+   bucket (**NAME-ONLY** when there is no predicate text; **NAME-HINT** when the
+   predicate view is UNCLASSIFIED but the name suggests a class). A non-empty
+   DISAGREE bucket means the name-view and predicate-view of the corpus disagree;
+   resolve those by hand before quoting any ratio. This is the check that, had it
+   existed, would have caught the retraction below on the first pass —
+   `leave_orphan` (name→REVOCABLE, predicate→history) and `server_new_id.range`
+   (name→TYPESTATE, predicate→bounds) both land in DISAGREE. The name-based
+   classifier could not raise it because it placed every item confidently; the
+   fix is a "these two views disagree" signal, not another "I don't know" bucket.
+
+## Addendum — the accuracy lens (same review round)
+
+A fourth lens recomputed every figure from the raw JSON and primary sources. It
+found eight further critical defects. Recorded because together they change the
+verdict from "one claim retracted" to **"the study needs re-running before any
+of it is reportable except two corpora."**
+
+- **`verify.*` are REGISTERED CONTRACTS, and excluding them was the error.**
+  `mm-lux/src/verify_contract.rs` — *"Registers into the existing
+  ContractRegistry, evaluated by the existing 500ms evaluation loop"*, `pub fn
+  register()` at line 431, 20 `register_*` helpers taking
+  `&mut ContractRegistry`. The census dropped 21 of them as regex junk and the
+  blog draft cited the dropping as a methodological success. They are also the
+  claim-vs-ground-truth family — the most residue-relevant class in the repo.
+- **The `\b` anecdote was inflated ~4×.** Reconstructing v1 and applying *only*
+  the underscore normalisation gives 29.7% → 14.5% unclassified, not
+  29.1% → 1.2%. Three further vocabulary expansions — each fitted to the corpus
+  *after reading it* — did the rest. The write-up credited one regex bug with
+  four interventions' effect. **The 48% typestate figure depends on
+  corpus-fitted vocabulary and must be reported as such.**
+- **The showcase obligation pair was a false identification.**
+  `xdg_surface.not_constructed` is a *role* obligation; mm-lux's
+  `commit_without_attach` **explicitly excludes xdg-role surfaces**
+  (`wayland_tracker.rs:2002`, comment: *"role assignment before first attach is
+  normal for xdg_surface initial configure"*). Committing an xdg_surface with no
+  buffer is *required* by xdg-shell. Not one obligation at two altitudes — two
+  different obligations over disjoint populations.
+- **"36% spec coverage" is unmeasured.** The join is one-to-one on error NAME
+  across all interfaces. 27 of 172 names appear in multiple interfaces (`role`
+  ×9); smithay posts `Error::Role` from six distinct interfaces and the join
+  records one row. Counting every declaration gives 101/172 = 58.7%. True figure
+  lies somewhere in 36–59% and the spread is the join's ambiguity. The derived
+  claim "under-enforces uniformly, not selectively" is likewise unsupported.
+- **"1,500 assertions" double-counts.** 62 of smithay's 66 rows *are* rows in
+  the 172, joined and re-classified **from the spec's own summary/desc text** —
+  so corpus 3b never independently read what smithay enforces. Distinct
+  assertions ≈ 1,438.
+- **20 of wayland-protocols' 53 extensions declare no errors at all**, and 3 of
+  the 37 files used are from the `misc`/`experimental` sets, not
+  wayland-protocols. Declaration is not universal even at the exemplar boundary.
+- **The mm-lux denominator is unknown.** 107 includes extraction artifacts
+  (`memory.current`/`memory.high` are cgroup filenames; `psi.cpu`/
+  `system.psi.cpu` are test fixtures). The project's docs say 87 in one place
+  and a live runtime count of 115 in another — 107 may over- *or* under-shoot.
+- **Three "deliberately ambiguous" entries were decided by regex precedence.**
+  `wp_commit_timer_v1.surface_destroyed` and `wp_fifo_v1.surface_destroyed`
+  carry the same meaning as the five held ambiguous but were captured by
+  REVOKE's `no longer` before the AMBIG test ran. The abstention was partly
+  accidental — a defect the unclassified bucket structurally cannot catch.
+
+**What reconciles exactly against primary sources, and is therefore reportable:**
+the Wayland spec census (172 errors / 77 interfaces; 82 typestate, 67 domain, 8
+threshold, 6 revocable; 87.6% eliminable — one protocol) and the PromQL census
+(902 / 246 / 7 of 1155; percentages must be stated on one denominator).
+Everything else requires a re-run.
