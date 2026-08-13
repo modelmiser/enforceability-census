@@ -1,0 +1,127 @@
+[1] It MUST be the same as the signature algorithm specified in the credentials in the leaves of the tree (including the leaf node information in KeyPackages used to add new members).
+[2] The public key encoded in the subjectPublicKeyInfo of the end-entity certificate MUST be identical to the signature_key in the LeafNode containing this credential.
+[3] Whenever a new credential is introduced in the group, it MUST be validated with the AS.
+[4] In cases where a member's credential is being replaced, such as the Update and Commit cases above, the AS MUST also verify that the set of presented identifiers in the new credential is valid as a successor to the set of presented identifiers in the old credential, according to the application's policy.
+[5] However, applications MUST NOT rely on the data in an application_id extension as if it were authenticated by the Authentication Service, and SHOULD gracefully handle cases where the identifier presented is not unique.
+[6] Applications MUST use PrivateMessage to encrypt application messages and SHOULD use PrivateMessage to encode handshake messages, but they MAY transmit handshake messages encoded as PublicMessage objects in cases where it is necessary for the Delivery Service to examine such messages.
+[7] The sender MUST use the private key corresponding to the following signature key depending on the sender's sender_type:
+[8] The content_type of the message MUST be proposal and the proposal_type MUST be a value that is allowed for external senders.
+[9] The content_type of the message MUST be commit.
+[10] The content_type of the message MUST be proposal and the proposal_type of the Proposal MUST be add.
+[11] Recipients of an MLSMessage MUST verify the signature with the key depending on the sender_type of the sender as described above.
+[12] For messages sent by members, it MUST be set to the following value:
+[13] When decoding a PublicMessage into an AuthenticatedContent, the application MUST check membership_tag and MUST check that the FramedContentAuthData is valid.
+[14] The padding field MUST be filled with all zero bytes.
+[15] A receiver MUST verify that there are no non-zero bytes in the padding field, and if this check fails, the enclosing PrivateMessage MUST be rejected as malformed.
+[16] Because the key schedule generates nonces deterministically, a client MUST keep persistent state as to where in the key schedule it is; if this persistent state is lost or corrupted, a client might reuse a generation that has already been used, causing reuse of a key/nonce pair.
+[17] To avoid this situation, the sender of a message MUST generate a fresh random four-byte "reuse guard" value and XOR it with the first four bytes of the nonce from the key schedule before using the nonce for encryption.
+[18] The sender MUST include the reuse guard in the reuse_guard field of the sender data object, so that the recipient of the message can use it to compute the nonce to be used for decryption.
+[19] When decoding a PrivateMessageContent, the application MUST check that the FramedContentAuthData is valid.
+[20] The overall size of the AAD and ciphertext MUST fit within the limits established for the group's AEAD algorithm in [CFRG-AEAD-LIMITS].
+[21] When constructing a SenderData object from a Sender object, the sender MUST verify Sender.sender_type is member and use Sender.leaf_index for SenderData.leaf_index.
+[22] When parsing a SenderData struct as part of message decryption, the recipient MUST verify that the leaf index indicated in the leaf_index field identifies a non-blank node.
+[23] The entries in the unmerged_leaves vector MUST be sorted in increasing order.
+[24] The following proposal and extension types are considered "default" and MUST NOT be listed:
+[25] The client MUST list all values for the respective parameters that it supports.
+[26] The types of any non-default extensions that appear in the extensions field of a LeafNode MUST be included in the extensions field of the capabilities field, and the credential type used in the LeafNode MUST be included in the credentials field of the capabilities field.
+[27] As discussed in Section 13, unknown values in capabilities MUST be ignored, and the creator of a capabilities field SHOULD include some random GREASE values to help ensure that other clients correctly ignore unknown values.
+[28] Applications MUST define a maximum total lifetime that is acceptable for a LeafNode, and reject any LeafNode where the total lifetime is longer than this duration.
+[29] Each modification of LeafNode content MUST be reflected by a change in its signature.
+[30] If the GroupContext has a required_capabilities extension, then the required extensions, proposals, and credential types MUST be listed in the LeafNode's capabilities field.
+[31] -  If the LeafNode appears in a message being sent by the client, e.g., a Proposal or a Commit, then the client MUST verify that the current time is within the range of the lifetime field.
+[32] Since the new leaf node effectively updates an existing leaf node in the group, it MUST adhere to the same restrictions as LeafNodes used in Update proposals (aside from leaf_node_source).
+[33] Any new member (from an Add proposal) added in the same Commit MUST be excluded from this resolution.
+[34] After processing the update, each recipient MUST delete outdated key material, specifically:
+[35] For each UpdatePathNode, the resolution of the corresponding copath node MUST exclude all new leaf nodes added as part of the current Commit.
+[36] The length of the encrypted_path_secret vector MUST be equal to the length of the resolution of the copath node (excluding new leaf nodes), with each ciphertext being the encryption to the respective resolution node.
+[37] For both parent and leaf nodes, the optional node value MUST be absent if the node is blank and present if the node contains a value.
+[38] When joining a group, the new member MUST authenticate that each non- blank parent node P is parent-hash valid.
+[39] When processing a Commit message that includes an UpdatePath, clients MUST recompute the expected value of parent_hash for the committer's new leaf and verify that it matches the parent_hash value in the supplied leaf_node.
+[40] To ensure that existing and new members compute the same PSK input to the key schedule, the Commit and GroupSecrets objects MUST indicate the same set of PSKs, in the same order.
+[41] Each time a client injects a PSK into a group, the psk_nonce of its PreSharedKeyID MUST be set to a fresh random value of length KDF.Nh, where KDF is the KDF for the cipher suite of the group into which the PSK is being injected.
+[42] Each key/nonce pair MUST NOT be used to encrypt more than one message.
+[43] As soon as a group member consumes a value, they MUST immediately delete (all representations of) that value.
+[44] Then, for that member, at least the following values have been consumed and MUST be deleted:
+[45] The value for init_key MUST be a public key for the asymmetric encryption scheme defined by cipher_suite, and it MUST be unique among the set of KeyPackages created by this client.
+[46] Likewise, the leaf_node field MUST be valid for the cipher suite, including both the encryption_key and signature_key fields.
+[47] A KeyPackage object with an invalid signature field MUST be considered malformed.
+[48] If a client receives a KeyPackage carried within an MLSMessage object, then it MUST verify that the version field of the KeyPackage has the same value as the version field of the MLSMessage.
+[49] The field leaf_node.leaf_node_source of the LeafNode in a KeyPackage MUST be set to key_package.
+[50] Extensions included in the extensions or leaf_node.extensions fields MUST be included in the leaf_node.capabilities field.
+[51] As discussed in Section 13, unknown extensions in KeyPackage.extensions MUST be ignored, and the creator of a KeyPackage object SHOULD include some random GREASE extensions to help ensure that other clients correctly ignore unknown extensions.
+[52] To protect against downgrade attacks, the creator MUST use the capabilities information in these KeyPackages to verify that the chosen version and cipher suite is the best option supported by all members.
+[53] To initialize a group, the creator of the group MUST take the following steps:
+[54] *  The version, cipher_suite, group_id, and extensions fields of the GroupContext object in the Welcome message MUST be the same as the corresponding fields in the ReInit proposal.
+[55] The epoch in the Welcome message MUST be 1.
+[56] *  The Welcome message MUST specify a PreSharedKeyID of type resumption with usage reinit, where the group_id field matches the old group and the epoch field indicates the epoch after the Commit covering the ReInit.
+[57] Resumption PSKs with usage reinit MUST NOT be used in other contexts.
+[58] A PreSharedKey proposal with type resumption and usage reinit MUST be considered invalid.
+[59] To avoid key reuse, the psk_nonce included in the PreSharedKeyID object MUST be a randomly sampled nonce of length KDF.Nh.
+[60] A client receiving a Welcome message including a PreSharedKey of type resumption with usage branch MUST verify that the new group reflects a subgroup branched from the referenced group by checking that:
+[61] *  The epoch in the Welcome message MUST be 1.
+[62] *  Each LeafNode in a new subgroup MUST match some LeafNode in the original group.
+[63] Resumption PSKs with usage branch MUST NOT be used in other contexts.
+[64] A PreSharedKey proposal with type resumption and usage branch MUST be considered invalid.
+[65] On receiving a FramedContent containing a Proposal, a client MUST verify the signature inside FramedContentAuthData and that the epoch field of the enclosing FramedContent is equal to the epoch field of the current GroupContext object.
+[66] The psk_nonce MUST be randomly sampled.
+[67] An external proposal MUST be sent as a PublicMessage object, since the sender will not have the keys necessary to construct a PrivateMessage object.
+[68] Messages from external senders containing proposal types other than the above MUST be rejected as malformed.
+[69] New proposal types defined in the future MUST define whether they may be sent by external senders.
+[70] A group member creating a Commit and a group member processing a Commit MUST verify that the list of committed proposals is valid using one of the following procedures, depending on whether the Commit is external or not.
+[71] If the list of proposals is invalid, then the Commit message MUST be rejected as invalid.
+[72] If a Remove proposal is present, then the LeafNode in the path field of the external Commit MUST meet the same criteria as would the LeafNode in an Update for the removed leaf (see Section 12.1.2).
+[73] In particular, the credential in the LeafNode MUST present a set of identifiers that is acceptable to the application for the removed participant.
+[74] The client MUST apply the proposals in the list in the following order:
+[75] The new extensions MUST be used when evaluating other proposals in this list.
+[76] Proposal types defined in the future MUST specify how the above steps are to be adjusted to accommodate the application of proposals of the new type.
+[77] A group member that has observed one or more valid proposals within an epoch MUST send a Commit message before sending application data.
+[78] A sender and a receiver of a Commit MUST verify that the committed list of proposals is valid as specified in Section 12.2.
+[79] By default, the path field of a Commit MUST be populated.
+[80] New proposal types MUST state whether they require a path.
+[81] *  Decide whether to populate the path field: If the path field is required based on the proposals that are in the Commit (see above), then it MUST be populated.
+[82] The order of the psks MUST be the same as the order of PreSharedKey proposals in the proposals vector.
+[83] However, the set of Welcome messages produced in this step MUST cover every new member added in the Commit.
+[84] *  If a ReInit proposal was part of the Commit, the committer MUST create a new group with the parameters specified in the ReInit proposal, and with the same members as the original group.
+[85] The Welcome message MUST include a PreSharedKeyID with the following parameters:
+[86] The leaf_node_source field MUST be set to commit.
+[87] *  If the Commit included a ReInit proposal, the client MUST NOT use the group to send messages anymore.
+[88] Instead, it MUST wait for a Welcome message from the committer meeting the requirements of Section 11.2.
+[89] As discussed in Section 13, unknown extensions in GroupInfo.extensions MUST be ignored, and the creator of a GroupInfo object SHOULD include some random GREASE extensions to help ensure that other clients correctly ignore unknown extensions.
+[90] Extensions in GroupInfo.group_context.extensions, however, MUST be supported by the new joiner.
+[91] New members MUST verify that group_id is unique among the groups they are currently participating in.
+[92] New members also MUST verify the signature using the public key taken from the leaf node of the ratchet tree with leaf index signer.
+[93] If it is sent otherwise (e.g., provided by a caching service on the Delivery Service), then the client MUST download the tree before processing the Welcome.
+[94] The private key MUST be the private key that corresponds to the public key in the node.
+[95] *  External Commits MUST contain a path field (and is therefore a "full" Commit).
+[96] *  The Commit MUST NOT include any proposals by reference, since an external joiner cannot determine the validity of proposals sent within the group.
+[97] *  External Commits MUST be signed by the new member.
+[98] In particular, the signature on the enclosing AuthenticatedContent MUST verify using the public key for the credential in the leaf_node of the path field.
+[99] *  When processing a Commit, both existing and new members MUST use the external init secret as described in Section 8.3.
+[100] *  The sender type for the AuthenticatedContent encapsulating the external Commit MUST be new_member_commit.
+[101] The ratchet_tree vector logically has this number of entries, but the sender MUST NOT include blank nodes after the last non-blank node.
+[102] The receiver MUST check that the last node in ratchet_tree is non- blank, and then extend the tree to the right until it has a length of the form 2^(d+1) - 1, adding the minimum number of blank values possible.
+[103] # Otherwise, the length of the array MUST be odd if len(nodes) % 2 == 0: raise Exception("Malformed node array {}", len(nodes))
+[104] Regardless of how the client obtains the tree, the client MUST verify that the root hash of the ratchet tree matches the tree_hash of the GroupContext before using the tree for MLS operations.
+[105] As discussed in Section 12.4, Proposals with a non-default proposal type MUST NOT be included in a commit unless the proposal type is supported by all the members of the group that will process the Commit.
+[106] For this to work, implementations MUST correctly handle extensible fields:
+[107] *  A client that posts a KeyPackage MUST support all parameters advertised in it.
+[108] *  A client processing a KeyPackage object MUST ignore all unrecognized values in the capabilities field of the LeafNode and all unknown extensions in the extensions and leaf_node.extensions fields.
+[109] *  A client processing a GroupInfo object MUST ignore all unrecognized extensions in the extensions field.
+[110] *  Any field containing a list of extensions MUST NOT have more than one extension of any given type.
+[111] *  A client adding a new member to a group MUST verify that the LeafNode for the new member is compatible with the group's extensions.
+[112] The capabilities field MUST indicate support for each extension in the GroupContext.
+[113] *  A client joining a group MUST verify that it supports every extension in the GroupContext for the group.
+[114] Otherwise, it MUST treat the enclosing GroupInfo message as invalid and not join the group.
+[115] Note that the latter two requirements mean that all MLS GroupContext extensions are mandatory, in the sense that an extension in use by the group MUST be supported by all members of the group.
+[116] GREASE values MUST NOT be sent in the following fields, because an unsupported value in one these fields (including a GREASE value) will cause the enclosing message to be rejected:
+[117] (The value 0xFAFA falls within the private use range.)  These values MUST only appear in the fields listed above, and not, for example, in the proposal_type field of a Proposal.
+[118] Clients MUST NOT implement any special processing rules for how to handle these values when receiving them, since this negates their utility for detecting extensibility failures.
+[119] GREASE values MUST be handled using normal logic for processing unsupported values.
+[120] When comparing lists of capabilities to identify mutually supported capabilities, clients MUST represent their own capabilities with a list containing only the capabilities actually supported, without any GREASE values.
+[121] In other words, lists including GREASE values are only sent to other clients; representations of a client's own capabilities MUST NOT contain GREASE values.
+[122] Applications MUST have an established way to resolve conflicting Commit messages for the same epoch.
+[123] The approach chosen MUST minimize the amount of time that forked or previous group states are kept in memory, and promptly delete them once they're no longer necessary to ensure forward secrecy.
+[124] The generation of Commit messages MUST NOT modify a client's state, since the client doesn't know at that time whether the changes implied by the Commit message will conflict with another Commit or not.
+[125] Similarly, the Welcome message corresponding to a Commit MUST NOT be delivered to a new joiner until it's clear that the Commit has been accepted.
+[126] During each epoch, senders MUST NOT encrypt more data than permitted by the security bounds of the AEAD scheme used [CFRG-AEAD-LIMITS].
+[127] Hence this change MUST be applied before encrypting any new application message.
