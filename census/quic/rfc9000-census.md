@@ -57,7 +57,7 @@ rule change, no exclusion, no quote discretion.
    for a legible reason: it is state-machine-dense (TYPESTATE ~46–47%,
    the largest class — stream states, flow-control-vs-advertised-limits,
    connection-ID lifecycle, migration ordering) but carries real PROCESS
-   mass (11–17%) and a THRESHOLD family TLS §4 lacks (spec-fixed numeric
+   mass (11.4%/17.1% across the two raters) and a THRESHOLD family TLS §4 lacks (spec-fixed numeric
    limits: anti-amplification 3×, 1200-byte minimums, 20-byte caps).
 2. **Document-boundary censoring, predicted and confirmed.** CV = 3/281
    (1.1%), item-identical in both raters — packet protection lives in
