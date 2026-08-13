@@ -224,10 +224,12 @@ REVOCABLE/THRESHOLD/POLICY, 1 META.
 **Headline: 80–83% of the section's normative surface is type-eliminable in
 shape** — precisely, the range across three valid raters is 79.9% (B) to
 82.8% (D), with A at 81.9% (§6). The secret-dependent core is **6/204 =
-2.9%, identical items in every rater's recorded labels (limitation 7)**. Everything outside the
-type-dischargeable family — CV + REVOCABLE + THRESHOLD + NEG — is ~6%
-(5.9–6.4% across raters; B's endpoint assumes its four unarchived labels
-fall outside these classes).
+2.9%, identical items in every rater's recorded labels (limitation 7)**.
+The classes whose predicates types cannot even in principle discharge — CV
++ REVOCABLE + THRESHOLD + NEG — total ~6% (5.9–6.4% across raters; B's
+endpoint assumes its four unarchived labels fall outside these classes).
+The rest of the non-eliminable share is bookkeeping mass (PROCESS, POLICY,
+META, U), not a type-resistance claim.
 
 The granularity prediction from §4.3 is confirmed quantitatively: the alert
 vocabulary shows 20% typestate where the obligation corpus shows 46% — a
@@ -435,7 +437,7 @@ crisply, you will re-litigate at runtime.
 | artifact | contents |
 |---|---|
 | `codebook/classes.md` | taxonomy, honesty rules 1–14, retraction + addendum, v2/v3 amendments, graduation record |
-| `codebook/rater-pack.md` | the verbatim rating instrument (blob hash cited in pass reports) |
+| `codebook/rater-pack.md` | the verbatim rating instrument (pass-4 instrument = blob `a08febba…`; later reformatted for rendering, rule content unchanged) |
 | `census/promql/promql-classifier.py` | n=1155 classifier, rule-9 hardened |
 | `census/wayland/{wayland-classifier.py, extract-corpus.py}` | n=172/216 classifier + from-source corpus regeneration |
 | `census/wayland/cv-neg-falsifiability.md` | the graduation falsifiability check (0/216, 0/216) |

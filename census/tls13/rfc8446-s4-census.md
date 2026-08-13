@@ -23,7 +23,10 @@ two-rater-era record.]*
   plus the two provisional classes the alert probe forced (CRYPTO-VERIFY, NEGOTIATION),
   plus PROCESS (algorithm/behavior rules that are not boundary predicates), POLICY,
   UNCLASSIFIED-unverifiable, META. Provisional classes are NOT yet in `classes.md` —
-  they graduate only after the follow-ups below converge.
+  they graduate only after the follow-ups below converge. *[Superseded 2026-08-13:
+  the re-rating loop did not converge; graduation proceeded on the pre-registered
+  falsifiability gate plus a stability criterion — see `codebook/classes.md`
+  "CLASS GRADUATION".]*
 - Decision rules fixed during the pass (the judgment calls, disclosed):
   1. **Cross-MESSAGE consistency = TYPESTATE; intra-message cross-field = DOMAIN.**
      "ServerHello suite == HelloRetryRequest suite" is 3; "key_share ⊆ supported_groups

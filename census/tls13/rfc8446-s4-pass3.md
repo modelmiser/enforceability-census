@@ -3,8 +3,9 @@
 **Verdict up front: the headline remains the two-rater range 80–82%. Pass 3
 does not update it.** *[As of this report; pass 4 — a valid-instrument pass,
 see `rfc8446-s4-pass4.md` — later widened the quoted range to 80–83%.]* The pass failed its own pre-registered criterion
-(headline 69.6%, outside the band; agreement on the 184 previously-agreed
-items degraded 90.2% → 82.1%), and the failure localizes to an **instrument
+(headline 69.6%, outside the band; C agreed with A on only 82.1% of the 184
+previously-agreed items, against the 90.2% full-corpus A-vs-B baseline), and
+the failure localizes to an **instrument
 transcription error**, not to the codebook-v2 repair rules — but per the
 pre-registration, a pass that lands outside the band is evidence about the
 pass, never a new number.

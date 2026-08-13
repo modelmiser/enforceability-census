@@ -133,7 +133,8 @@ def classify(r):
     # check that, had it existed, would have caught the retraction on pass 1.
     r['disagree'] = (cls_pred != 'UNCLASSIFIED' and cls_name != 'UNCLASSIFIED'
                      and cls_pred != cls_name)
-    # NAME-ONLY: no usable predicate text, so the name guess is a hypothesis,
+    # NAME-ONLY: predicate view unclassified (text may exist but matched no
+    # vocabulary), so the name guess is a hypothesis,
     # not a measurement -- flag it rather than silently reporting it as data.
     r['name_only'] = (cls_pred == 'UNCLASSIFIED' and cls_name != 'UNCLASSIFIED')
     return cls_pred, why
