@@ -22,3 +22,31 @@ predictions registered yet; no rater has seen it.**
   Regenerate: `python3 ../mls/extract-corpus.py rfc9001.txt 337 1982 out.txt`
 - Result: **n = 69** (`rfc9001_s4-8_musts.txt`). Token conservation
   verified: 73 = 73.
+
+## Pre-registered predictions (2026-08-13, committed and PUSHED before any rater exists)
+
+Namespace: **K1–K5**. **Instrument: FROZEN** — the TLS pass-4 pack verbatim
+(blob `a08febba22fd2cb117a9be41654a6209e0104e57`), codebook v3; rule
+candidates 15/16 deliberately NOT adopted. **Failure interpretation,
+pre-committed, same as MLS/QUIC:** predictions grade the author's
+structural model only; failures license NO re-rating, NO rule change, NO
+exclusion, NO quote discretion; quoted numbers are what valid passes
+record, as a range if raters disagree. Append-only; corrections in dated
+brackets.
+
+- **K1 — CV is the largest or second-largest class: band 25–45%.** This is
+  the document the QUIC census's rule-7 disclosure pointed at: packet
+  protection, header protection, Retry integrity, key-update verification.
+- **K2 — the eliminable share is the lowest of the protocol corpora so
+  far measured under this instrument: band 40–60%**, below QUIC's 66.9%
+  bottom endpoint, because CV mass is non-eliminable by definition.
+- **K3 — the rule-3 derived-constant edge appears HERE too:** the AEAD
+  confidentiality/integrity limits (§6) draw at least one
+  THRESHOLD-vs-other rater split (symmetric difference ≥ 1 with an
+  AEAD-limit duty among the disagreed items).
+- **K4 — TYPESTATE is substantial but not dominant: band 20–35%** (key
+  phase ordering, handshake-confirmation gates, key-discard duties).
+- **K5 — transfer holds with CV under load: raw agreement 78–90%, and CV
+  symmetric difference ≤ 2 even as a dominant class** — the secret-material
+  discriminator's hardest test yet (its zero-variance record was earned on
+  1–6-item slivers).
