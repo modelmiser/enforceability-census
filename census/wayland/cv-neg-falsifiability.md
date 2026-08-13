@@ -51,10 +51,19 @@ living below the declaration layer — an instance of the censoring rule
 never declares as errors.
 
 Consequence for graduation: CRYPTO-VERIFY's discriminator (secret material)
-and NEGOTIATION's (mutual-agreement selection) pick out nothing in a
-non-cryptographic, non-negotiated protocol — the classes carve at a real
-joint rather than shadowing vocabulary. Graduation into `codebook/classes.md`
-still awaits the third-pass convergence of the TLS census (the other gate).
+and NEGOTIATION's (the *existence* of a compatible choice — emptiness of the
+two-party intersection, per codebook rule 12, never the selection itself)
+pick out nothing in a non-cryptographic, non-negotiated protocol — the
+classes carve at a real joint rather than shadowing vocabulary. Graduation
+into `codebook/classes.md` still awaits the third-pass convergence of the
+TLS census (the other gate). *[Superseded 2026-08-13, later the same day:
+the passes did NOT converge — that non-convergence is the recorded pass-4
+verdict — and graduation proceeded on this falsifiability result (the one
+pre-registered gate) plus a stability criterion articulated at graduation
+time; see `codebook/classes.md` "CLASS GRADUATION" for the precise
+accounting. The original sentence's "mutual-agreement selection" gloss also
+predates rule 12 and is corrected inline above — an instance of exactly the
+paraphrase drift rule 14 now guards against.]*
 
 ## Incidental observation (NOT a headline — read rule 3's exception)
 

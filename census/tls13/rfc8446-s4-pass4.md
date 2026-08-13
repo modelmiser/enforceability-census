@@ -69,9 +69,10 @@ no point estimate quoted anywhere.
 2. **The headline is robust at claim granularity.** Valid raters: A 81.9%,
    B 79.9%, D 82.8%. Quote the type-eliminable share of RFC 8446 §4's
    normative surface as **80–83%** (three raters, one codebook lineage,
-   disagreements unresolved by design). Eliminable-vs-not agreement is
-   89–96% while raw item agreement is 80–91%: most residual disagreement is
-   *interior* to the eliminable family.
+   disagreements unresolved by design). Across all valid-rater pairs (A–B,
+   A–D, B–D), eliminable-vs-not agreement spans 87–96% while raw item
+   agreement spans 81–90% (B–D bounded, four B labels unarchived): most
+   residual disagreement is *interior* to the eliminable family.
 3. **Item-level transmission has a measured floor.** Under text-only
    transmission the raw agreement floor sits in the mid-80s, and the
    remaining mass localizes to two named boundaries: DOMAIN/PROCESS

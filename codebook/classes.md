@@ -72,7 +72,7 @@ no named clock is the actual defect; the alert is only its symptom.
 
 **Recurring sub-shapes:** staleness (a read that was fresh), eviction (a resource
 that was resident), supersession (a generation that was current), revocation (a
-grant that was valid), membership (a set you were in). KEYSTONE explicitly does
+grant that was valid), membership (a set you were in). We explicitly do
 **not** claim these are one object — only that they share a shape.
 
 ---

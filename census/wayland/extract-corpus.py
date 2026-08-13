@@ -13,7 +13,8 @@ Notes (censoring/provenance — read before quoting a denominator):
 - The 2026-08 census corpus was 172 errors / 77 interfaces from core
   wayland.xml + 36 extension files (3 of them from misc/experimental sets).
   Running this over a full wayland-protocols checkout (stable + staging +
-  experimental) yields a SUPERSET; report n for the corpus you actually ran.
+  unstable + experimental) yields a SUPERSET; report n for the corpus you
+  actually ran.
 - Only enums literally named "error" are collected — that is the protocol's
   own declaration convention for post_error codes.
 """

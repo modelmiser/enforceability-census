@@ -349,7 +349,7 @@ not a proof of novelty.
    a sentence count, not an obligation count; SHOULD-level text is absent by
    design.
 5. **Item-level labels carry a measured error bar** (§6): raw inter-rater
-   agreement 80–91%, 15 items with fresh-rater consensus against the
+   agreement 81–90%, 15 items with fresh-rater consensus against the
    original labels, guard-boundary judgments that flip between competent
    raters. Every headline in this paper is quoted at the granularity that
    survives that error bar.
