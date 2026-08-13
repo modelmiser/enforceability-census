@@ -28,8 +28,8 @@ Two further classes — **CRYPTO-VERIFY** (verification requiring secret or
 transcript material; the discriminator is the secret, not the word "crypto")
 and **NEGOTIATION** (emptiness of a two-party intersection; never the chosen
 value itself) — were forced by the TLS corpus and **graduated on 2026-08-13**
-on a pre-registered falsifiability check (0 hits each in the regenerated
-Wayland corpus) plus a stability criterion articulated at graduation time
+on a pre-registered falsifiability check (0 members each in the regenerated
+Wayland corpus — two vocabulary hits, both hand-adjudicated false positives) plus a stability criterion articulated at graduation time
 (CV was item-for-item identical across every rater in four passes; NEG's
 evidence is thinner — see the codebook's graduation record).
 
@@ -45,7 +45,7 @@ that with a DISAGREE bucket) come from.
 |---|---|---|---|
 | [`census/promql/`](census/promql) — awesome-prometheus-alerts | 1155 | 78.1% THRESHOLD, 21.3% REVOCABLE, 0.6% unclassified (all /1155); 0 TYPESTATE — censored by the query language | reconciled against primary sources; prior-art sweep found no comparable measurement |
 | [`census/wayland/`](census/wayland) — declared protocol errors, core + extensions | 172 | **87.6% type-eliminable** (149/170 client-facing; 86.6% on all 172; one protocol — versioned-boundary limit noted in codebook) | reconciled against primary sources at census time; the census-era checkout was not pinned, so the 172-item corpus is preserved as reported numbers, not as a regenerable artifact (the regenerable superset is n=216 and carries no headline) |
-| [`census/tls13/`](census/tls13) — RFC 8446 §4 MUST/SHALL corpus | 204 | **80–83% type-eliminable** (range over three valid raters, 79.9–82.8%; crypto core exactly 6/204, same items for every rater) | closed 2026-08-13 after a repair-and-re-rate loop with pre-registered predictions (passes 3–4); raters are LLM agents; disagreements unresolved by design |
+| [`census/tls13/`](census/tls13) — RFC 8446 §4 MUST/SHALL corpus | 204 | **80–83% type-eliminable** (range over three valid raters, 79.9–82.8%; crypto core exactly 6/204, same items in every rater's recorded labels) | closed 2026-08-13 after a repair-and-re-rate loop with pre-registered predictions (passes 3–4); raters are LLM agents; disagreements unresolved by design |
 | `census/tls13/tls13-alert-census.md` — TLS 1.3 alert vocabulary (30-min probe) | 25 | alert vocabulary censors typestate ~2.3× vs the MUST corpus | probe; tally corrected 2026-08-13; superseded by the §4 census for any headline |
 
 **Read the caveats before quoting any number.** Every corpus censors some

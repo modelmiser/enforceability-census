@@ -23,7 +23,8 @@ incapable of expressing typestate; Wayland's declared protocol errors are
 normative surface of RFC 8446 §4 (TLS 1.3 handshake,
 204 MUST/SHALL sentences) is **80–83% type-eliminable** (three-rater range),
 with a secret-dependent cryptographic core of **exactly 6/204 (2.9%) — the
-same six sentences for every rater**. The numbers are the smaller half of the
+same six sentences in every rater's recorded labels** (one rater's four
+unarchived labels are inferred non-CV; limitation 7). The numbers are the smaller half of the
 contribution. The larger half is the method that survived its own failures:
 classify on the predicate and never the name (a name-based pass produced a
 publishable-looking headline that was retracted the day it was written);
@@ -182,7 +183,8 @@ checkout was never pinned, so the 172-item corpus behind 87.6% is preserved
 as reported numbers rather than as a regenerable artifact — running the
 shipped pipeline today yields the n=216 superset, which carries no headline
 (11.1% unclassified). The TLS and PromQL censuses do not share this gap
-(full corpus and label maps shipped; byte-exact reproduction, respectively).
+(TLS: full corpus shipped with full label maps for raters A, C, and D —
+B's is partial, limitation 7; PromQL: byte-exact reproduction).
 Three bounds on the claim, all from the data: the
 versioned-enum limit (§2); the classifier's vocabulary was **fitted to this
 corpus** (the retraction addendum makes reporting that dependency
@@ -279,7 +281,12 @@ this rater population does and does not control.) The §4 census's
 20-item DISAGREE bucket (raw two-rater agreement 90.2%, eliminable-vs-not
 96.1%) localized two codebook gaps. We repaired them under pre-registration
 and re-rated — twice — with every prediction committed to git before the
-rater existed:
+rater existed. (Provenance, stated before a reader discovers it: this
+repository was scaffolded from working artifacts on the morning the passes
+ran — the scaffold commit discloses the migration — so the ordering claims
+are witnessed by the in-repo commit sequence and the cited blob hashes,
+with minutes-scale gaps consistent with LLM-agent raters; there is no
+older-timestamped record.)
 
 - **Codebook v2** (rules 10–11, predictions: gains concentrate in the 20;
   headline stays in 80–82%). **Pass 3 failed its criterion** — headline

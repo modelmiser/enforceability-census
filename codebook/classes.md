@@ -55,7 +55,11 @@ settled here.
 
 **Shape:** equality, absence, or supersession on a discrete status.
 `up == 0`, `absent(job)`, `changes(...)`, `observed_generation != metadata_generation`,
-`surface.leave` for an output the surface never entered.
+`surface.leave` for an output the surface never entered *[2026-08-13: this
+last example is the `leave_orphan` misfiling the RETRACTION below names —
+its predicate is a history predicate, shape TYPESTATE, not REVOCABLE; kept
+here bracketed because deleting it would hide the very error the retraction
+documents]*.
 
 **Why it is at runtime:** the fact was true and became false. Tracking that needs
 an ordering — a clock — and no static structure is a clock. A type, a seal, a
@@ -240,6 +244,12 @@ historical: rules keep their numbers from the order they were added.)*
    unclassified and its ratios moved 12+ points — that is not tuning, because
    the 29.1% run was never a measurement. The rule applies to swings from
    *already-good* coverage. State the pre-fix coverage so a reader can tell.
+   *[2026-08-13: the addendum's reconstruction of this anecdote uses a 29.7%
+   v1 baseline (its own re-derivation of the v1 classifier) against this
+   section's contemporaneous 29.1%; the half-point gap is reconstruction
+   noise between two v1 approximations, and the addendum's larger point —
+   the single regex bug explains only 29.7→14.5 of the swing — stands on
+   either baseline.]*
 
 **Rule 6 — Watch `\b` against snake_case.** `_` is a word character, so `\balready\b`
    does **not** match `already_captured` and `\bunsupported\b` does not match
