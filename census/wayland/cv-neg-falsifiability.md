@@ -12,8 +12,9 @@ be vocabulary, not measurement.
 
 - Corpus regenerated from source (`extract-corpus.py`): core `wayland.xml` +
   a full `wayland-protocols` checkout (stable + staging + unstable +
-  experimental), 2026-08-13 HEAD. **n = 216 declared errors / 92 interfaces /
-  46 files** — a superset of the 2026-08 census corpus (172/77/37).
+  experimental), 2026-08-13 HEAD (wayland `ed0b9f17`, wayland-protocols
+  `afb614d5`). **n = 216 declared errors / 92 interfaces / 46 files** — a
+  superset of the 2026-08 census corpus (172/77/37).
 - Scan: vocabulary regexes over `iface.name + summary + desc` —
   CV: `signature|mac|hmac|authenticat|secret|encrypt|decrypt|cipher|key
   exchange|handshake|credential|token`;

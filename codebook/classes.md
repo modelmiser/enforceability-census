@@ -405,7 +405,8 @@ of it is reportable except two corpora."**
   ContractRegistry, evaluated by the existing 500ms evaluation loop"*, `pub fn
   register()` at line 431, 20 `register_*` helpers taking
   `&mut ContractRegistry`. The census dropped 21 of them as regex junk and the
-  blog draft cited the dropping as a methodological success. They are also the
+  blog draft (an unpublished draft, not in this repository) cited the
+  dropping as a methodological success. They are also the
   claim-vs-ground-truth family — the most residue-relevant class in the repo.
 - **The `\b` anecdote was inflated ~4×.** Reconstructing v1 and applying *only*
   the underscore normalisation gives 29.7% → 14.5% unclassified, not
@@ -445,6 +446,9 @@ of it is reportable except two corpora."**
   carry the same meaning as the five held ambiguous but were captured by
   REVOKE's `no longer` before the AMBIG test ran. The abstention was partly
   accidental — a defect the unclassified bucket structurally cannot catch.
+  *[2026-08-13: only these two are identifiable in the regenerable corpus;
+  the third was tied to the unpinned census-era checkout and cannot be
+  named from shipped artifacts.]*
 
 **What reconciles exactly against primary sources, and is therefore reportable:**
 the Wayland spec census (172 errors / 77 interfaces; 82 typestate, 67 domain, 8
@@ -593,11 +597,13 @@ reads differently per class:
   in four passes, including the invalid-instrument pass. The strongest
   stability evidence in the scheme.
 - **NEG:** thinner. A applied it to 3 items, D (under rule 12) to 2 of the
-  same 3; B's NEG set equals A's (its three items are outside the recorded
-  20-item disagreement set); pass 3's blow-up to 23 items under a
-  *paraphrased* definition is the cautionary record that motivated rule 12
-  (and rule 14). NEG graduates on its discriminator plus the falsifiability
-  result, with its small membership noted.
+  same 3; B's *recorded* labels add no NEG beyond A's three (A's three items
+  are outside the recorded 20-item disagreement set, but B's four unarchived
+  labels are not archive-forced non-NEG — the same provenance gap flagged in
+  the census and the paper's limitation 7); pass 3's blow-up to 23 items
+  under a *paraphrased* definition is the cautionary record that motivated
+  rule 12 (and rule 14). NEG graduates on its discriminator plus the
+  falsifiability result, with its small membership noted.
 
 Standing observation from the same passes: **classes transmit only as well as
 their discriminators are crisp.** CV and META: zero variance across all four

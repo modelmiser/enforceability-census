@@ -195,8 +195,11 @@ What this file's headline becomes:
   paraphrase, not the codebook; D's instrument was the codebook verbatim.
   The transmissibility verdict (the pre-registered interpretation of the
   prediction failures) stands unchanged alongside the widened range.
-- **Crypto core: exactly 6/204 (2.9%), the same six items for every rater
-  in all four passes** — CV and META are the zero-variance classes.
+- **Crypto core: exactly 6/204 (2.9%), the same six items in every rater's
+  recorded labels across all four passes** (for rater B this is
+  archive-exact on the 200 recorded items and an inference for the four
+  unarchived ones — none of which is CV-shaped) — CV and META are the
+  zero-variance classes.
   THRESHOLD and REVOCABLE are identical across A/C/D with exactly one
   recorded exception: rater B read item 189 (the 7-day cap) as REVOCABLE
   where A/C/D read THRESHOLD — an ambiguity rater A had flagged at

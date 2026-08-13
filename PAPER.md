@@ -177,7 +177,13 @@ AMBIGUOUS, 2 UNCLASSIFIED = 172. **87.6% of client-facing declared errors
 are type-eliminable in shape** — 149/170, where 170 = 172 − 2 RESOURCE; on
 all 172 declared errors the figure is 86.6% (both denominators, per our own
 rule). One protocol; the number does not generalize to "protocol
-boundaries." Three bounds on the claim, all from the data: the
+boundaries." A reproducibility caveat unique to this corpus: the census-era
+checkout was never pinned, so the 172-item corpus behind 87.6% is preserved
+as reported numbers rather than as a regenerable artifact — running the
+shipped pipeline today yields the n=216 superset, which carries no headline
+(11.1% unclassified). The TLS and PromQL censuses do not share this gap
+(full corpus and label maps shipped; byte-exact reproduction, respectively).
+Three bounds on the claim, all from the data: the
 versioned-enum limit (§2); the classifier's vocabulary was **fitted to this
 corpus** (the retraction addendum makes reporting that dependency
 mandatory, and the superset run's 79.0%-at-11.1%-unclassified shows the
