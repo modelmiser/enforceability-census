@@ -42,7 +42,7 @@ and license nothing — the numbers below are what the raters recorded.
 |---|---|---|
 | M1 | CV share 4–10%, strictly > TLS's 2.9% | **PASS** — A′ 8.7% (11), B′ 7.9% (10) |
 | M2 | NEG 0–4 items | **FAIL** — A′ 0, B′ **5** (the capability-compatibility cluster; see below) |
-| M3 | eliminable 70–85%, shortfall not to PROCESS | **FAIL, decisively** — 56.7%/57.5%, 13.3 and 12.5 points below the floor, and the mass went exactly where the prediction said it wouldn't: PROCESS is 24/23 items (~19%), U 11/5 |
+| M3 | eliminable 70–85%, shortfall not to PROCESS | **FAIL, decisively** — 56.7%/57.5%, 13.3 and 12.5 points below the floor, and the mass went exactly where the prediction said it wouldn't: PROCESS is 24/23 items (18.9%/18.1%), U 11/5 |
 | M4 | REVOCABLE ≥ 2 | **FAIL** — 1 in both raters (the app-chosen lifetime cap classified THRESHOLD by both, leaving only the lifetime-range check) |
 | M5 | THREE clauses, quoted in full: (a) raw agreement 78–90%; (b) CV/META/THRESHOLD/REVOCABLE differ by at most 1 item each; (c) "the judgment boundaries (DOMAIN/TYPESTATE/PROCESS) carry the bulk of disagreement" | **FAIL — 1 of 3 clauses passes.** (a) PASS: 85.0%, in band. (b) FAIL: META and REVOCABLE symmetric difference 0, CV 1, **THRESHOLD 2** (items 20, 126 — the AEAD-limits duties, sitting exactly on decision rule 3's structural-vs-chosen boundary). (c) FAIL under the TLS-era reading of the same sentence (both sides of the disagreement inside the family): only 8 of 19 disagreements are internal to DOMAIN/TYPESTATE/PROCESS (42%); the bulk sits on U/NEG (the capability cluster) plus THRESHOLD and CV. On the weaker at-least-one-side reading it is 16 of 19 — both counts reported; the pre-registration did not fix the reading, so the stricter one governs. |
 
