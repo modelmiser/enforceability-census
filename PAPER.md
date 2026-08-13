@@ -29,9 +29,11 @@ classify on the predicate and never the name (a name-based pass produced a
 publishable-looking headline that was retracted the day it was written);
 make the classifier report a DISAGREE bucket so it can catch its own
 violations; pre-register codebook amendments and their predictions before
-each re-rating pass; and stop when the pre-registered criterion says stop.
+each re-rating pass; and let the pre-committed interpretation of failure —
+not the hoped-for number — decide what a failed pass means.
 A four-pass inter-rater study conducted this way — all raters LLM agents,
-blind to each other and to the tallies — yields a finding we did not plan:
+the three non-author raters blind to each other, to the tallies, and to the
+authors' expectations — yields a finding we did not plan:
 **classes transmit between raters only as well as their discriminators are
 crisp.** The classes with mechanical discriminators showed zero or
 near-zero rater variance across four passes (CRYPTO-VERIFY and META:
@@ -180,9 +182,9 @@ versioned-enum limit (§2); the classifier's vocabulary was **fitted to this
 corpus** (the retraction addendum makes reporting that dependency
 mandatory, and the superset run's 79.0%-at-11.1%-unclassified shows the
 sensitivity is real); and declaration is not universal even here — roughly
-a third of extension files declare no errors (19 of 58 in the regenerable
-superset checkout; the census-era count was 20 of 53 on a checkout not
-shipped here). A regenerated superset corpus (216 errors, 2026-08-13 HEAD)
+a third of extension files declare no errors (20 of 65 in the regenerable
+superset checkout, experimental included; the census-era count was 20 of 53
+on a checkout not shipped here). A regenerated superset corpus (216 errors, 2026-08-13 HEAD)
 exists for the falsifiability check; its classifier run carries an 11.1%
 unclassified bucket (post-census protocols, unfitted vocabulary) and
 therefore has **no headline** — recorded as a live demonstration of the

@@ -80,7 +80,7 @@ vendored:
    whose interpretation was pre-registered; CV/NEG graduated; paper
    drafted and taken through a publish-gate cold round). The measured
    residual: the codebook transmits perfectly where discriminators are
-   crisp, while raw item agreement between fresh raters floors in the
+   crisp, while raw item agreement between raters floors in the
    low-to-mid 80s (D vs A: 83.8%; bounded B–D as low as 80.9%), including
    15 items where two fresh raters
    agree on the same alternative label against the original ratings; that

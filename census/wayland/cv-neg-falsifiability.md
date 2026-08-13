@@ -24,10 +24,12 @@ be vocabulary, not measurement.
   non-hits were not individually re-read for CV/NEG shape, so this scan
   bounds false positives tightly and false negatives only indirectly — a
   secret-material or intersection-emptiness predicate phrased without any of
-  the net's vocabulary would escape it. The indirect bound: the fitted
-  n=172 census hand-classified every item on predicate text (before these
-  classes existed) and surfaced no such predicates anywhere in its
-  seven buckets.
+  the net's vocabulary would escape it. The indirect — and weak — bound: the
+  fitted n=172 census (classifier-labeled on predicate text, with hand
+  adjudication of flagged/ambiguous items and a deterministic hand-audit
+  sample; before these classes existed) surfaced no such predicates in any
+  bucket, but no full manual re-read of that corpus for CV/NEG shape has
+  been done.
 
 ## Result: prediction CONFIRMED, with one sharpening
 

@@ -1,4 +1,4 @@
-# RFC 8446 §4 — fourth rating pass (2026-08-13): 1/4 predictions pass; STOP verdict per pre-registration
+# RFC 8446 §4 — fourth rating pass (2026-08-13): 1/4 predictions pass; stop on the pre-registered interpretation
 
 Fresh blind rater (D), instrument = `codebook/rater-pack.md` **verbatim**
 (git blob `a08febba22fd2cb117a9be41654a6209e0104e57`; md5 of the copy served

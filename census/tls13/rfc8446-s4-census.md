@@ -162,7 +162,9 @@ Dwyer'99.
 
 ## Passes 3–4 close-out (2026-08-13) — headline updated to 80–83%
 
-The repair-and-re-rate loop ran twice and STOPPED by pre-registered criterion
+The repair-and-re-rate loop ran twice and stopped — the interpretation of
+prediction failure was pre-registered in codebook v3; the no-pass-5 decision
+itself was made at close-out
 (full accounts: `rfc8446-s4-pass3.md`, `rfc8446-s4-pass4.md`). Pass 3 was
 invalidated by an instrument transcription defect (a paraphrased NEG
 definition annexed rule-1 territory) and is archived, not counted. Pass 4,

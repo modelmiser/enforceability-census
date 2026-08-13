@@ -430,9 +430,9 @@ of it is reportable except two corpora."**
 - **20 of wayland-protocols' 53 extensions declare no errors at all**, and 3 of
   the 37 files used are from the `misc`/`experimental` sets, not
   wayland-protocols. Declaration is not universal even at the exemplar boundary.
-  *[2026-08-13: on the regenerable superset checkout, the count is 19 of 58
-  extension files; the 20/53 figure is tied to the census-era checkout, which
-  is not shipped.]*
+  *[2026-08-13: on the regenerable superset checkout (experimental included),
+  the count is 20 of 65 extension files; the 20/53 figure is tied to the
+  census-era checkout, which is not shipped.]*
 - **The mm-lux denominator is unknown.** 107 includes extraction artifacts
   (`memory.current`/`memory.high` are cgroup filenames; `psi.cpu`/
   `system.psi.cpu` are test fixtures). The project's docs say 87 in one place
