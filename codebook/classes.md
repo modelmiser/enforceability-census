@@ -388,3 +388,63 @@ the Wayland spec census (172 errors / 77 interfaces; 82 typestate, 67 domain, 8
 threshold, 6 revocable; 87.6% eliminable — one protocol) and the PromQL census
 (902 / 246 / 7 of 1155; percentages must be stated on one denominator).
 Everything else requires a re-run.
+
+---
+
+# CODEBOOK v2 AMENDMENTS — 2026-08-13
+
+**Appended, never edited in place:** ratings taken under v1 must stay
+interpretable against the text they were taken under. Motivated by the 20-item
+DISAGREE bucket of the RFC 8446 §4 two-rater pass
+(`census/tls13/rfc8446-s4-census.md`), which localizes to two codebook gaps —
+14 items on a guard-vs-predicate boundary, 3 on the UNCLASSIFIED-unverifiable
+boundary.
+
+**Pre-registered before the third rating pass** (this section is committed
+before any third rater sees the corpus). Predictions, stated in advance so the
+repair can be judged rather than trusted:
+
+- Agreement gains should CONCENTRATE in the 20 DISAGREE items; agreement on
+  the other 184 should not degrade.
+- Because both readings of the 14 guard-vs-predicate items are interior to the
+  eliminable family (DOMAIN vs TYPESTATE), and resolving the 3 U-boundary
+  items toward wire-observability stays inside the existing two-rater spread,
+  the headline eliminable share should **tighten within the current 80–82%
+  band**, not move outside it. A material shift outside the band under these
+  rules is evidence the repair is mis-designed, not evidence of a new result.
+
+10. **Guard-vs-predicate tie-break — classify by the discharging type.** Many
+    obligations have the form *"when/after history H, field F MUST satisfy
+    P"* — a history guard around a value predicate. Neither the guard nor the
+    predicate wins by syntactic position. Ask instead what type would
+    discharge the obligation:
+    - If a single context-free refinement of F's type satisfies every
+      occurrence of the obligation — the guard only *locates* where the
+      obligation applies, and the required value/set is the same whenever it
+      does — the check is **DOMAIN**.
+    - If the required value/set *varies with history or negotiated state* (the
+      same field must hold different values depending on what happened
+      before), no context-free type can express it; the discharging type must
+      be state-indexed, and the check is **TYPESTATE**.
+    This generalizes the §4 census's decision rule 1 (cross-message
+    consistency = TYPESTATE): "ServerHello suite == the suite offered
+    earlier" varies with history; "legacy_version == 0x0303" does not,
+    however the sentence happens to be guarded.
+
+11. **UNCLASSIFIED-unverifiable boundary — wire-falsifiability.** Classify the
+    strongest obligation that a conformance observer of the wire — holding
+    the public transcript, holding neither endpoint's private state — could
+    falsify:
+    - If the sentence obliges an *observable configuration* (send / don't
+      send / set a field, in circumstances the observer can establish from
+      the transcript), classify that observable predicate in the ordinary
+      classes, even when the sentence's motivation is honesty about
+      capability or intent.
+    - **UNCLASSIFIED-unverifiable is reserved for sentences whose entire
+      normative content is unobservable** — truthfulness of an advertisement,
+      randomness or independence of generated values, willingness to act in
+      the future. Test: delete the unobservable clause; if no checkable
+      obligation remains, the item is U.
+    Operational form: *could a test harness holding only a packet capture
+    ever emit a conformance FAIL for this sentence alone?* If no — U. If
+    yes — classify what the FAIL would check.
