@@ -56,8 +56,9 @@ POLICY entered the §4 census with one-clause definitions.
 
 - **On the 20 repair-target DISAGREE items, C landed within the previously
   observed A/B envelope on 14/20** *[correction 2026-08-13: 15 of the 17
-  determinable items — B's labels for 5, 54, 123 were never archived, so
-  envelope membership is indeterminable there; the out-of-envelope items are
+  determinable items — four B labels (5, 54, 65, 123) were never archived;
+  envelope membership is indeterminable for 5, 54, 123, while 65 remains
+  determinable because C = A there; the out-of-envelope items are
   55 and 157]*, and the guard-vs-predicate cluster
   resolved with a clear rule-10 pattern (constant-whenever-applicable fields →
   DOMAIN: 30, 31, 32, 56, 57, 67, 156, 184; history-varying → TYPESTATE: 159,

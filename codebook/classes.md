@@ -124,6 +124,18 @@ stand; the layer generalization does not.]*
 
 ---
 
+## Classes added after the original four — where their definitions live
+
+**CRYPTO-VERIFY** and **NEGOTIATION** (graduated 2026-08-13) are defined in
+`rater-pack.md` §Classes, with their discriminators as decision rules 2 and
+12; the graduation record at the end of this file states the evidence. The
+bookkeeping classes **PROCESS**, **POLICY**, **META**, and
+**UNCLASSIFIED-unverifiable** are likewise defined in `rater-pack.md`
+§Classes (POLICY also in rule 13; the U-boundary in rule 11). The four
+sections above are the original codebook and keep their historical form.
+
+---
+
 ## Calibration: measured class ratios
 
 Four corpora, independently authored, different domains, different assertion
@@ -140,9 +152,11 @@ languages. None was written with this taxonomy in mind.
 are per-1148 classified while 0.6 is per-1155; on one denominator (all 1155)
 the row reads 0% / 21.3% / 78.1% / 0.6%. The Wayland row's per-class figures
 are per-172; the 87.6% headline quoted elsewhere is per-170 client-facing
-(172 − 2 RESOURCE), i.e., 149/170; on n=172 it is 86.6%. This is exactly the
-mixed-denominator trap rule 3's spirit warns about, caught at the publish
-gate.]*
+(172 − 2 RESOURCE), i.e., 149/170; on n=172 it is 86.6%. The mm-lux row's
+entries (~4 + ~24 + ~76 + 18 ≈ 122) cannot share any single denominator —
+that row's denominator is declared unknown by the addendum below. This is
+exactly the mixed-denominator trap rule 3's spirit warns about, caught at
+the publish gate.]*
 
 ## ⛔ RETRACTED CLAIM — The class mix is a property of the LAYER, not of software
 
@@ -301,8 +315,14 @@ time.
   one protocol. It does not generalise to "protocol boundaries."
 - **smithay emits 62 of 172 declared errors (36%) while matching the spec's
   class mix almost exactly** — under-enforcement is uniform, not selective.
+  *[Superseded by the addendum below, same review round: the 36% is
+  unmeasured (name-join ambiguity; true figure somewhere in 36–59%) and the
+  uniformity claim is unsupported. Kept in this list only because the
+  addendum postdates it; it does NOT survive.]*
 - **The PromQL predicate-shape census** (n=1155, 78.6% threshold, 0.6%
-  unclassified). A prior-art sweep found nothing comparable in the literature.
+  unclassified *[denominators mixed in this bullet: 78.6 is per-1148
+  classified, 0.6 per-1155 — see the denominator note under the calibration
+  table]*). A prior-art sweep found nothing comparable in the literature.
   Methodologically the strongest corpus here and the most defensible result.
 
 ## A wrong finding replaced by a better one
@@ -410,6 +430,9 @@ of it is reportable except two corpora."**
 - **20 of wayland-protocols' 53 extensions declare no errors at all**, and 3 of
   the 37 files used are from the `misc`/`experimental` sets, not
   wayland-protocols. Declaration is not universal even at the exemplar boundary.
+  *[2026-08-13: on the regenerable superset checkout, the count is 19 of 58
+  extension files; the 20/53 figure is tied to the census-era checkout, which
+  is not shipped.]*
 - **The mm-lux denominator is unknown.** 107 includes extraction artifacts
   (`memory.current`/`memory.high` are cgroup filenames; `psi.cpu`/
   `system.psi.cpu` are test fixtures). The project's docs say 87 in one place

@@ -33,7 +33,7 @@ Wayland corpus) plus a stability criterion articulated at graduation time
 (CV was item-for-item identical across every rater in four passes; NEG's
 evidence is thinner — see the codebook's graduation record).
 
-The codebook ends with a full **retraction** of its own first cross-layer
+The codebook carries, in full, a **retraction** of its own first cross-layer
 claim — kept verbatim because the failure (a classifier tuned by its author's
 expectations, caught by error-sign analysis) is the methodological spine of
 this work, and it is where rules 8 and 9 (classify on the predicate, enforce
@@ -50,9 +50,11 @@ that with a DISAGREE bucket) come from.
 
 **Read the caveats before quoting any number.** Every corpus censors some
 class (rule 7); percentages are never comparable across layers or across
-error-code granularities; the TLS headline is a *range* (three raters,
-disagreements unresolved by design — see the pass 3/4 reports for why the
-loop stopped where it did).
+error-code granularities; the Wayland headline depends on classifier
+vocabulary fitted to its corpus (the codebook's retraction addendum makes
+reporting that dependency mandatory); the TLS headline is a *range* (three
+raters, disagreements unresolved by design — see the pass 3/4 reports for
+why the loop stopped where it did).
 
 ## Regenerating corpora
 
@@ -79,7 +81,8 @@ vendored:
    drafted and taken through a publish-gate cold round). The measured
    residual: the codebook transmits perfectly where discriminators are
    crisp, while raw item agreement between fresh raters floors in the
-   mid-80s (D vs A: 83.8%), including 15 items where two fresh raters
+   low-to-mid 80s (D vs A: 83.8%; bounded B–D as low as 80.9%), including
+   15 items where two fresh raters
    agree on the same alternative label against the original ratings; that
    error bar is reported, not adjudicated away.
 2. Optional second security RFC (Noise or RFC 9420 MLS) to turn one data

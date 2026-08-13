@@ -10,13 +10,17 @@ Debates about how much verification "could catch" are usually conducted by
 example. We measure instead: classify every stated runtime obligation in a
 corpus by the **shape of its predicate** into a small set of enforceability
 classes — those a type system could discharge (DOMAIN, TYPESTATE) and those
-it cannot even in principle (THRESHOLD, REVOCABLE), plus classes forced by
-cryptographic protocols (CRYPTO-VERIFY, NEGOTIATION) — and report the mix.
-Across three corpora from three different layers we find: a monitoring-layer
+it cannot (THRESHOLD, whose constant is a policy choice with no fact of the
+matter for a type to certify, and REVOCABLE, whose truth needs a clock),
+plus classes forced by cryptographic protocols (CRYPTO-VERIFY,
+NEGOTIATION) — and report the mix. Across three corpora from three
+different settings — an operations-monitoring rule base, a windowing
+protocol, a cryptographic protocol — we find: a monitoring-layer
 corpus (1,155 Prometheus alert rules) is 78% threshold and structurally
 incapable of expressing typestate; Wayland's declared protocol errors are
 87.6% type-eliminable in shape (149 of the 170 client-facing errors among
-172 declared); and the normative surface of RFC 8446 §4 (TLS 1.3 handshake,
+172 declared; classifier vocabulary fitted to that corpus — §4.2); and the
+normative surface of RFC 8446 §4 (TLS 1.3 handshake,
 204 MUST/SHALL sentences) is **80–83% type-eliminable** (three-rater range),
 with a secret-dependent cryptographic core of **exactly 6/204 (2.9%) — the
 same six sentences for every rater**. The numbers are the smaller half of the
@@ -54,10 +58,10 @@ worldview.
 
 The unit of measurement is the **declared obligation**, and this bounds every
 claim in this paper: a corpus of declared obligations cannot see obligations
-never declared — and where obligations are never declared they are never
-checked, resurfacing downstream as residue nobody can explain — and each
-corpus censors classes its language cannot express (§4.1). We report what
-specifications say, not what software does.
+never declared (which may still be checked ad hoc — but outside any declared
+surface a census can count), and each corpus censors classes its language
+cannot express (§4.1). We report what specifications say, not what software
+does.
 
 ## 2. The codebook
 
@@ -100,8 +104,11 @@ protocol — confirmed at CV = 0/216 and NEG = 0/216 on a from-source
 regeneration of the Wayland corpus
 ([`census/wayland/cv-neg-falsifiability.md`](census/wayland/cv-neg-falsifiability.md));
 note the check's scan is a vocabulary net whose hits were hand-adjudicated,
-so it bounds false positives tightly and false negatives only via the
-earlier fully hand-classified 172-item census surfacing no such predicates.
+so it bounds false positives tightly and false negatives only weakly: the
+fitted 172-item census — classifier-labeled on predicate text, with hand
+adjudication of its flagged/ambiguous items and a deterministic hand-audit
+sample — surfaced no secret-material or intersection-emptiness predicates,
+but no full manual re-read of that corpus for CV/NEG shape has been done.
 **The second ground — rater stability (§6) — was articulated at graduation
 time, not pre-registered**: strong for CV (the same six items for every
 rater in four passes), thinner for NEG (2–3 items across valid raters, with
@@ -168,9 +175,14 @@ AMBIGUOUS, 2 UNCLASSIFIED = 172. **87.6% of client-facing declared errors
 are type-eliminable in shape** — 149/170, where 170 = 172 − 2 RESOURCE; on
 all 172 declared errors the figure is 86.6% (both denominators, per our own
 rule). One protocol; the number does not generalize to "protocol
-boundaries." Two bounds on the claim, both from the data: the
-versioned-enum limit (§2), and declaration is not universal even here — 20
-of 53 extensions declare no errors at all. A regenerated superset corpus (216 errors, 2026-08-13 HEAD)
+boundaries." Three bounds on the claim, all from the data: the
+versioned-enum limit (§2); the classifier's vocabulary was **fitted to this
+corpus** (the retraction addendum makes reporting that dependency
+mandatory, and the superset run's 79.0%-at-11.1%-unclassified shows the
+sensitivity is real); and declaration is not universal even here — roughly
+a third of extension files declare no errors (19 of 58 in the regenerable
+superset checkout; the census-era count was 20 of 53 on a checkout not
+shipped here). A regenerated superset corpus (216 errors, 2026-08-13 HEAD)
 exists for the falsifiability check; its classifier run carries an 11.1%
 unclassified bucket (post-census protocols, unfitted vocabulary) and
 therefore has **no headline** — recorded as a live demonstration of the
@@ -199,9 +211,9 @@ REVOCABLE/THRESHOLD/POLICY, 1 META.
 **Headline: 80–83% of the section's normative surface is type-eliminable in
 shape** — precisely, the range across three valid raters is 79.9% (B) to
 82.8% (D), with A at 81.9% (§6). The secret-dependent core is **6/204 =
-2.9%, identical items for every rater**. Everything types cannot even in
-principle express — CV + REVOCABLE + THRESHOLD + NEG — is ~6% (5.9–6.4%
-across raters).
+2.9%, identical items for every rater**. Everything outside the
+type-dischargeable family — CV + REVOCABLE + THRESHOLD + NEG — is ~6%
+(5.9–6.4% across raters).
 
 The granularity prediction from §4.3 is confirmed quantitatively: the alert
 vocabulary shows 20% typestate where the obligation corpus shows 46% — a
@@ -219,8 +231,9 @@ implementations.
 
 An early cross-layer claim — "the class mix is a property of the layer" —
 was **retracted the day it was written** and the retraction is preserved in
-full in the codebook. The mm-lux monitor row had been classified by contract
-*name*; re-read on predicates, the inversion vanished. Both misfilings
+full in the codebook. The mm-lux row (a private runtime-monitor codebase
+whose contracts formed a fourth, unshipped corpus) had been classified by
+contract *name*; re-read on predicates, the inversion vanished. Both misfilings
 pointed in the direction of the thesis — the diagnostic signature of a
 classifier tuned by its author's expectations. What survives is exactly the
 per-corpus numbers above, each named with its layer and its censoring.
@@ -246,11 +259,13 @@ included verbatim because its failure modes generalize:
    vocabulary expansions — the corrected story is itself a caveat on the
    87.6% figure.
 
-## 6. The transmissibility study: four passes, a pre-registered stop
+## 6. The transmissibility study: four passes, and a stop whose interpretation was pre-registered
 
-All raters in this study are fresh LLM-agent instances — blind to each
-other, to the tallies, and to the authors' expectations (see limitation 6
-for what that population does and does not control). The §4 census's
+Raters B, C, and D are fresh LLM-agent instances — blind to each other, to
+the tallies, and to the authors' expectations. Rater A is the census
+author: an author-rater whose context is by definition not controlled —
+finding 3 below measures exactly that leakage. (See limitation 6 for what
+this rater population does and does not control.) The §4 census's
 20-item DISAGREE bucket (raw two-rater agreement 90.2%, eliminable-vs-not
 96.1%) localized two codebook gaps. We repaired them under pre-registration
 and re-rated — twice — with every prediction committed to git before the
@@ -353,11 +368,13 @@ not a proof of novelty.
    original labels, guard-boundary judgments that flip between competent
    raters. Every headline in this paper is quoted at the granularity that
    survives that error bar.
-6. **Rater population.** All raters are LLM agents — each a fresh instance
-   given only its instrument and the corpus, blind to the other raters, the
-   tallies, and the authors' expectations. A human-rater replication has
-   not been run, and shared model priors are a residual common-cause risk
-   that blindness does not remove.
+6. **Rater population.** All raters are LLM agents. Raters B–D are fresh
+   instances given only their instrument and the corpus — blind to the
+   other raters, the tallies, and the authors' expectations; rater A is
+   the census author and is *not* blind to authorial context (the 15-item
+   consensus finding is the measured consequence). A human-rater
+   replication has not been run, and shared model priors are a residual
+   common-cause risk that blindness does not remove.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
    disagreement labels survive (plus agreement on the other 184); B's
    figures — including the 79.9% floor of the headline range — are
@@ -367,21 +384,25 @@ not a proof of novelty.
 
 ## 9. Conclusion
 
-Three corpora, three layers, one codebook: a monitoring corpus that is
-three-quarters policy thresholds and structurally cannot contain typestate;
-a windowing protocol whose declared errors are 87.6% type-eliminable in
+Three corpora, one codebook: a monitoring rule base that is three-quarters
+policy thresholds and structurally cannot contain typestate; a windowing
+protocol whose client-facing declared errors are 87.6% type-eliminable in
 shape; and a cryptographic handshake whose normative surface is 80–83%
 type-eliminable, with a secret-dependent core of 2.9% that every rater
-agrees on item-for-item. The recurring result is that *where a protocol
-boundary's obligations are declared, most of them are state-machine and
-format discipline* — the kind of thing types discharge — while at the
-monitoring layer the mix inverts toward thresholds and revoked facts; in
-both cases the truly type-resistant residue is small at the boundary and
-precisely nameable everywhere.
+agrees on item-for-item. We resist summing these into one cross-corpus
+law: the three corpora were classified by different methods (rule 8 makes
+such comparisons artifacts until re-run under one method), and the
+codebook's own retraction records what happened the last time a
+cross-layer pattern was read into this data (§4.5). Each number stands
+alone, named with its corpus and its censoring. What can be said within
+each protocol corpus separately: the declared obligations are dominated
+by state-machine and format discipline — the kind of thing types
+discharge — and the type-resistant residue is small and precisely
+nameable.
 
 The method is the other half. Every headline here survived, or was produced
 by, a failure: a retracted cross-layer claim, an invalidated rating pass, a
-repair loop stopped by its own pre-registration. What made those failures
+repair loop halted on its pre-registered interpretation. What made those failures
 productive rather than embarrassing was mechanical: classify on predicates,
 make disagreement loud, commit predictions before evidence, and treat "the
 instrument does not transmit" as a result. A codebook, like a protocol, is

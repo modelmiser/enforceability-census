@@ -53,14 +53,16 @@ two-rater-era record.]*
 | POLICY | 2 | 1.0% | 27,75 |
 | META | 1 | 0.5% | 117 (obligation on future spec authors) |
 
-**Headline: 167/204 = 81.9% of §4's normative surface is type-eliminable in shape**
+**Headline: 167/204 = 81.9% of §4's normative surface is type-eliminable in shape** *[rater A's single-rater figure — quote the range, not this point; see status line and close-out]*
 (typestate + domain) — strikingly close to Wayland's 87.6%, in a *cryptographic*
 protocol. The secret-dependent core (CRYPTO-VERIFY) is 2.9% of stated obligations;
 with REVOCABLE and THRESHOLD added, everything types cannot even in principle express
 is ~5%. The handshake is overwhelmingly state-machine and format discipline — which is
 a quantified account of why the state-machine attack family (SMACK/FREAK) was so
-fruitful: the attack surface class is ~16× (94/6 = 15.7) the size of the
-cryptographic one by obligation count.
+fruitful *[hedged 2026-08-13: consistent with, not by itself an explanation of,
+that family's success — the paper carries the hedged form]*: the attack surface
+class is ~16× (94/6 = 15.7) the size of the cryptographic one by obligation
+count.
 
 ## The granularity prediction, confirmed
 

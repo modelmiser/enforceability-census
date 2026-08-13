@@ -4,9 +4,11 @@ Fresh blind rater (D), instrument = `codebook/rater-pack.md` **verbatim**
 (git blob `a08febba22fd2cb117a9be41654a6209e0104e57`; md5 of the copy served
 to the rater verified identical), corpus = the same 204 sentences. Scored
 against rater A (full map) and B (184 shared + 16 recorded labels). All
-raters in this study are LLM agents — fresh instances with no access to each
-other, to the tallies, or to the authors' expectations; see the paper's
-limitations for what that population does and does not control for.
+raters in this study are LLM agents; B, C, and D are fresh instances with no
+access to each other, to the tallies, or to the authors' expectations, while
+A is the census author (author-rater, context not controlled — finding 4
+measures that); see the paper's limitations for what this population does
+and does not control for.
 *(Format note, 2026-08-13, post-gate: the rater pack's rule lists were later
 re-set from markdown ordered lists to bold headings so rendered numbering
 matches the written rule numbers; content unchanged from the blob cited
@@ -74,7 +76,8 @@ no point estimate quoted anywhere.
    agreement spans 81–90% (B–D bounded, four B labels unarchived): most
    residual disagreement is *interior* to the eliminable family.
 3. **Item-level transmission has a measured floor.** Under text-only
-   transmission the raw agreement floor sits in the mid-80s, and the
+   transmission the raw agreement floor sits in the low-to-mid 80s
+   (D vs A 83.8%; bounded B–D as low as 80.9%), and the
    remaining mass localizes to two named boundaries: DOMAIN/PROCESS
    (encoding duties read as wire-predicate vs procedure — 7 items where C
    and D both read PROCESS against A's DOMAIN) and the rule-10
