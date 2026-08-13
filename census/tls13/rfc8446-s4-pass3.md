@@ -1,7 +1,8 @@
 # RFC 8446 §4 — third rating pass (2026-08-13): INVALID as a codebook-v2 test; diagnostic as an instrument test
 
 **Verdict up front: the headline remains the two-rater range 80–82%. Pass 3
-does not update it.** The pass failed its own pre-registered criterion
+does not update it.** *[As of this report; pass 4 — a valid-instrument pass,
+see `rfc8446-s4-pass4.md` — later widened the quoted range to 80–83%.]* The pass failed its own pre-registered criterion
 (headline 69.6%, outside the band; agreement on the 184 previously-agreed
 items degraded 90.2% → 82.1%), and the failure localizes to an **instrument
 transcription error**, not to the codebook-v2 repair rules — but per the
