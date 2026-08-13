@@ -50,6 +50,7 @@ that with a DISAGREE bucket) come from.
 | [`census/tls13/`](census/tls13) — RFC 8446 §4 MUST/SHALL corpus | 204 | **80–83% type-eliminable in shape** (range over three valid raters, 79.9–82.8%; crypto core exactly 6/204, same items in every rater's recorded labels) | closed 2026-08-13 after a repair-and-re-rate loop with pre-registered predictions (passes 3–4); raters are LLM agents; disagreements unresolved by design |
 | `census/tls13/tls13-alert-census.md` — TLS 1.3 alert vocabulary (30-min probe) | 25 | alert vocabulary censors typestate ~2.3× vs the MUST corpus | probe; tally corrected 2026-08-13; superseded by the §4 census for any headline |
 | [`census/mls/`](census/mls) — RFC 9420 §5–§15 MUST/SHALL corpus | 127 | **≈57% type-eliminable in shape** (two raters: 56.7%/57.5% — ~25 points below TLS under the SAME instrument and recipe; ~18–19% PROCESS) | run 2026-08-13 under the frozen TLS pass-4 instrument, predictions pre-registered and publicly timestamped BEFORE any rater (M1 passed; M2–M4 failed and M5 failed 2 of its 3 clauses — graded against the author's model, per the pre-commitment); disagreements unresolved by design |
+| [`census/quic/`](census/quic) — RFC 9000 §2–§19 MUST/SHALL corpus | 281 | **≈67–69% type-eliminable in shape** (two raters: 66.9%/69.0%; TYPESTATE the largest class at ~46–47%; CV 1.1% — RFC 9001/9002 document boundary censors crypto and recovery) | run 2026-08-13 under the same frozen instrument, predictions publicly pre-timestamped (Q2/Q3/Q4 passed — Q4 confirmed the rule-3 spec-fixed-constant edge with THRESHOLD symdiff 15; Q1 failed marginally, Q5 failed its crisp-class clause on a new REVOCABLE/deadline edge); disagreements unresolved by design |
 
 **Read the caveats before quoting any number.** Every corpus censors some
 class (rule 7); percentages are never comparable across layers or across
@@ -95,8 +96,16 @@ vendored:
    the type-eliminable share is NOT a security-protocol constant (TLS
    80–83% vs MLS ≈57%). Its disagreement residue names a candidate rule 15
    (capability-compatibility tie-break) for any future instrument version.
-3. A third corpus under the same frozen instrument (e.g., QUIC RFC 9000 or
-   a non-protocol spec) to test whether ≈57% vs 80–83% begins a spectrum.
+3. ~~A third corpus under the same frozen instrument~~ — DONE 2026-08-13:
+   the QUIC census (`census/quic/`) lands at ≈67–69%, between MLS and TLS —
+   consistent with a spectrum (57 → 67–69 → 80–83), each span's position
+   explainable by what it states as obligations (a post-hoc reading; see
+   the report's headline caveat). Its residue adds a rule-16
+   candidate (spec-fixed constants, THRESHOLD symdiff 15) and a
+   deadline-duty edge to the rule-15 candidate from MLS.
+4. Paper integration of the QUIC census; then possibly a NON-protocol
+   corpus (e.g., a language spec's runtime obligations) to test the
+   spectrum's far ends.
 
 ## License
 
