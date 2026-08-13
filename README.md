@@ -23,10 +23,13 @@ error:
 | REVOCABLE | a fact that was true and became false | no — needs a clock; this is the residue |
 | THRESHOLD | inequality against a chosen number | no — a policy line, not a fact |
 
-Two further classes are **provisional** (forced by the TLS corpus, not yet
-graduated into the codebook): CRYPTO-VERIFY (verification requiring secret or
-transcript material — the discriminator is the secret, not the word "crypto")
-and NEGOTIATION.
+Two further classes — **CRYPTO-VERIFY** (verification requiring secret or
+transcript material; the discriminator is the secret, not the word "crypto")
+and **NEGOTIATION** (emptiness of a two-party intersection; never the chosen
+value itself) — were forced by the TLS corpus and **graduated on 2026-08-13**
+after passing both gates: a falsifiability check (0 hits each in the
+regenerated Wayland corpus) and rater stability (CV was item-for-item
+identical across every rater in four passes).
 
 The codebook ends with a full **retraction** of its own first cross-layer
 claim — kept verbatim because the failure (a classifier tuned by its author's
@@ -40,13 +43,14 @@ that with a DISAGREE bucket) come from.
 |---|---|---|---|
 | [`census/promql/`](census/promql) — awesome-prometheus-alerts | 1155 | 78.6% THRESHOLD, 0 TYPESTATE (censored by the query language) | reconciled against primary sources; prior-art sweep found no comparable measurement |
 | [`census/wayland/`](census/wayland) — declared protocol errors, core + extensions | 172 | **87.6% type-eliminable** (one protocol; versioned-boundary limit noted in codebook) | reconciled against primary sources |
-| [`census/tls13/`](census/tls13) — RFC 8446 §4 MUST/SHALL corpus | 204 | **80–82% type-eliminable** (two-rater range; crypto core ≈3%) | two-rater, 20-item DISAGREE bucket unresolved; codebook repair + third pass owed |
+| [`census/tls13/`](census/tls13) — RFC 8446 §4 MUST/SHALL corpus | 204 | **80–83% type-eliminable** (three-rater range; crypto core exactly 2.9%, zero rater variance) | closed 2026-08-13 after a pre-registered repair-and-re-rate loop (passes 3–4); disagreements unresolved by design |
 | `census/tls13/tls13-alert-census.md` — TLS 1.3 alert vocabulary (30-min probe) | 30 | alert vocabulary censors typestate ~2.3× vs the MUST corpus | probe; superseded by the §4 census for any headline |
 
 **Read the caveats before quoting any number.** Every corpus censors some
 class (rule 7); percentages are never comparable across layers or across
-error-code granularities; the TLS headline is a *range* until the codebook
-repair converges.
+error-code granularities; the TLS headline is a *range* (three raters,
+disagreements unresolved by design — see the pass 3/4 reports for why the
+loop stopped where it did).
 
 ## Regenerating corpora
 
@@ -61,17 +65,18 @@ vendored:
 - **RFC 8446 §4**: `rfc8446_s4_musts.txt` is checked in (204 sentences,
   regenerable by the extraction recipe in `rfc8446-s4-census.md`).
 
-## Open work (tracked to convergence before any paper claim)
+## Open work
 
-1. Codebook repair: a guard-vs-predicate tie-break rule and a sharper
-   UNCLASSIFIED boundary for capability-honesty duties (the two defects the
-   20-item DISAGREE bucket localizes).
-2. Third blind rating pass over the 204 under the repaired codebook.
-3. Wayland falsifiability check: the provisional classes predict CV=0, NEG≈0
-   in the Wayland corpus — regenerate and grep before asserting.
-4. Graduate CRYPTO-VERIFY + NEGOTIATION into the codebook iff they survive.
-5. Optional second security RFC (Noise or RFC 9420 MLS) to turn one data
+1. ~~Codebook repair~~, ~~re-rating passes~~, ~~Wayland falsifiability
+   check~~, ~~class graduation~~ — all closed 2026-08-13 (codebook v2/v3,
+   passes 3–4 with pre-registered predictions and a pre-registered stop,
+   CV/NEG graduated). The measured residual: the codebook transmits
+   perfectly where discriminators are crisp and loses ~10–15 items of 204 on
+   judgment boundaries; that error bar is reported, not adjudicated away.
+2. Optional second security RFC (Noise or RFC 9420 MLS) to turn one data
    point into a comparison.
+3. PAPER.md — the repo-native paper consolidating codebook + censuses +
+   method, then a publish-gate cold round before the repo goes public.
 
 ## License
 

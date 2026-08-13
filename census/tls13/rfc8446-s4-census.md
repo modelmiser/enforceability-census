@@ -128,10 +128,40 @@ Dwyer'99.
 
 - [x] Blind second-rater pass over the same 204 — DONE 2026-08-12 (90.2% raw,
       96.1% headline; 20-item DISAGREE bucket recorded above, unresolved).
-- [ ] Codebook repair (guard-vs-predicate tie-break; capability-honesty U-boundary),
-      then third blind pass under the repaired codebook.
-- [ ] Wayland CV/NEG falsifiability check (caveat 4).
-- [ ] Graduate CRYPTO-VERIFY + NEGOTIATION into `classes.md` with the secret-material
-      discriminator, if they survive.
+- [x] Codebook repair (guard-vs-predicate tie-break; capability-honesty U-boundary),
+      then third blind pass under the repaired codebook. — DONE 2026-08-13: codebook
+      v2 (rules 10–11) + pass 3 (INVALID — instrument paraphrase defect, see
+      `rfc8446-s4-pass3.md`), codebook v3 (rules 12–14) + pass 4 under the verbatim
+      rater pack (`rfc8446-s4-pass4.md`).
+- [x] Wayland CV/NEG falsifiability check (caveat 4). — DONE 2026-08-13: CONFIRMED,
+      CV=0/216, NEG=0/216 on a regenerated superset corpus; the one predicted NEG
+      candidate is not a declared error at all (`../../census/wayland/cv-neg-falsifiability.md`).
+- [x] Graduate CRYPTO-VERIFY + NEGOTIATION into `classes.md` with the secret-material
+      discriminator, if they survive. — DONE 2026-08-13: both graduated (classes.md
+      "CLASS GRADUATION"); CV was item-for-item identical across every rater.
 - [ ] Optional: same census on a second security RFC (Noise spec or RFC 9420 MLS) —
       one protocol is one data point.
+
+## Passes 3–4 close-out (2026-08-13) — headline updated to 80–83%
+
+The repair-and-re-rate loop ran twice and STOPPED by pre-registered criterion
+(full accounts: `rfc8446-s4-pass3.md`, `rfc8446-s4-pass4.md`). Pass 3 was
+invalidated by an instrument transcription defect (a paraphrased NEG
+definition annexed rule-1 territory) and is archived, not counted. Pass 4,
+under the byte-identical rater pack, healed the NEG boundary (P1 PASS) but
+failed the other three pre-registered predictions — the pre-committed
+interpretation being that **the codebook is not yet transmissible by text
+alone at item granularity**, and further rule-patching would be instrument
+overfitting.
+
+What this file's headline becomes:
+- **Type-eliminable share: quote as 80–83%** (valid raters: A 81.9%, B 79.9%,
+  D 82.8%; caveat 1's "80–82%" is superseded by this wider three-rater range).
+- **Crypto core: exactly 6/204 = 2.9%, zero rater variance** — CV, THRESHOLD,
+  REVOCABLE, and META were item-for-item identical across every rater
+  including the invalid pass. Discriminator-bearing classes transmit
+  perfectly; the residual disagreement mass is interior to the eliminable
+  family (DOMAIN/TYPESTATE/PROCESS boundaries).
+- 15 items have C = D ≠ A (two fresh raters agreeing on the same alternative
+  label): the measured trace of authorial context in rater A's labels. Left
+  unadjudicated by design.

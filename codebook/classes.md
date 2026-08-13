@@ -494,3 +494,28 @@ result.
     along exactly the boundaries the paraphrase moved. A codebook that
     cannot be transmitted by its text alone is not yet a measurement
     instrument.
+
+---
+
+# CLASS GRADUATION — 2026-08-13
+
+**CRYPTO-VERIFY and NEGOTIATION graduate from provisional to full classes**,
+their definitions as in `rater-pack.md` (CV: verification requiring secret or
+transcript-derived material, per decision rule 2; NEG: emptiness/compatibility
+of a two-party set intersection, per rule 12). Both gates passed:
+
+- **Falsifiability (Wayland):** CV = 0/216, NEG = 0/216 on a regenerated
+  superset corpus — the classes pick out nothing in a non-cryptographic,
+  non-negotiated protocol (`census/wayland/cv-neg-falsifiability.md`).
+- **Rater stability (TLS §4):** CV was **item-for-item identical across every
+  rater in four passes** — the best-transmitting class in the entire scheme,
+  because its discriminator (secret material) is crisp. NEG stabilized at 2–3
+  items once rule 12 gave it a discriminator; its pass-3 blow-up to 23 items
+  under a paraphrased definition is the cautionary record (rule 14).
+
+Standing observation from the same passes: **classes transmit exactly as well
+as their discriminators are crisp.** CV/THRESHOLD/REVOCABLE/META: zero
+variance across raters. The DOMAIN/TYPESTATE/PROCESS boundaries, whose rules
+require judgment ("does the required value vary with history?"), carry all
+residual disagreement. A future class proposal should arrive with its
+discriminator or expect to dissolve on first text-only transmission.
