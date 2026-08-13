@@ -50,6 +50,9 @@ that with a DISAGREE bucket) come from.
 | [`census/tls13/`](census/tls13) — RFC 8446 §4 MUST/SHALL corpus | 204 | **80–83% type-eliminable in shape** (range over three valid raters, 79.9–82.8%; crypto core exactly 6/204, same items in every rater's recorded labels) | closed 2026-08-13 after a repair-and-re-rate loop with pre-registered predictions (passes 3–4); raters are LLM agents; disagreements unresolved by design |
 | `census/tls13/tls13-alert-census.md` — TLS 1.3 alert vocabulary (30-min probe) | 25 | alert vocabulary censors typestate ~2.3× vs the MUST corpus | probe; tally corrected 2026-08-13; superseded by the §4 census for any headline |
 | [`census/mls/`](census/mls) — RFC 9420 §5–§15 MUST/SHALL corpus | 127 | **≈57% type-eliminable in shape** (two raters: 56.7%/57.5% — ~25 points below TLS under the SAME instrument and recipe; ~18–19% PROCESS) | run 2026-08-13 under the frozen TLS pass-4 instrument, predictions pre-registered and publicly timestamped BEFORE any rater (M1 passed; M2–M4 failed and M5 failed 2 of its 3 clauses — graded against the author's model, per the pre-commitment); disagreements unresolved by design |
+| [`census/quic-tls/`](census/quic-tls) — RFC 9001 §4–§8 MUST/SHALL corpus | 69 | **54–67% type-eliminable in shape** (quoted wide: 53.6%/66.7% — raw agreement 76.8%, the series' FIRST transfer-band breach, concentrated on PROCESS/TYPESTATE key-lifecycle splits; CV is 1.4%/2.9% — the crypto document's cryptography lives in non-normative grammar) | run 2026-08-13, frozen instrument, predictions publicly pre-timestamped; ALL FIVE K-predictions failed, graded against the author's model per the pre-commitment |
+| [`census/quic-recovery/`](census/quic-recovery) — RFC 9002 §5–§7 MUST/SHALL corpus | 30 | **23.3% type-eliminable in shape** (identical in both raters; ~60% PROCESS) — the lowest of the frozen-instrument MUST-corpora | run 2026-08-13, frozen instrument, predictions publicly pre-timestamped (R1/R2/R4 passed; R3 failed by class disuse, R5 failed above-band); PROTOCOL DEVIATION disclosed: author pass abandoned after exposure to first-rater labels, replaced by a second blind rater |
+| [`census/quic-family.md`](census/quic-family.md) — the three-document synthesis | 380 | within ONE protocol the share spans 23%→69% by document role; pooled family ≈61–65% (caveat in file) | the matched-family control: same protocol, era, authors — only document role varies |
 | [`census/quic/`](census/quic) — RFC 9000 §2–§19 MUST/SHALL corpus | 281 | **≈67–69% type-eliminable in shape** (two raters: 66.9%/69.0%; TYPESTATE the largest class at ~46–47%; CV 1.1% — RFC 9001/9002 document boundary censors crypto and recovery) | run 2026-08-13 under the same frozen instrument, predictions publicly pre-timestamped (Q2/Q3/Q4 passed — Q4 confirmed the rule-3 spec-fixed-constant edge with THRESHOLD symdiff 15; Q1 failed marginally, Q5 failed its crisp-class clause on a new REVOCABLE/deadline edge); disagreements unresolved by design |
 
 **Read the caveats before quoting any number.** Every corpus censors some
@@ -103,9 +106,16 @@ vendored:
    the report's headline caveat). Its residue adds a rule-16
    candidate (spec-fixed constants, THRESHOLD symdiff 15) and a
    deadline-duty edge to the rule-15 candidate from MLS.
-4. Paper integration of the QUIC census; then possibly a NON-protocol
-   corpus (e.g., a language spec's runtime obligations) to test the
-   spectrum's far ends.
+4. ~~Paper integration of the QUIC census~~ — DONE 2026-08-13. Then the
+   QUIC document-family completion (RFC 9001 + 9002) was run the same day:
+   see `census/quic-family.md`. Within one protocol the share spans
+   23%→69% by document role — the strongest evidence yet for the
+   what-the-span-states reading, measured under the matched-family
+   control.
+5. Paper integration of the family completion; possibly a NON-protocol
+   corpus later; instrument v4 (rule candidates 15/16 + the
+   REVOCABLE-deadline and key-lifecycle boundary observations) only as a
+   deliberate, pre-registered version bump.
 
 ## License
 
