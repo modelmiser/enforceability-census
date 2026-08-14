@@ -1,6 +1,6 @@
 # A Census of Enforceability: Measuring What Fraction of Stated Runtime Obligations a Type System Could Discharge
 
-**Repo-native paper · 2026-08-13 · artifact of record: this repository.**
+**Repo-native paper · 2026-08-13, extended 2026-08-14 (v4 series, §6.1) · artifact of record: this repository.**
 No venue submission is planned; the repository, its commit history, and the
 census artifacts it cites are the citable object.
 
@@ -59,7 +59,31 @@ pre-registered degradation model failed — one foreign rater agreed with a
 Claude rater *above* the intra-family agreement ranges, and all six
 core-CV sentences kept their CV label under every rater ever recorded —
 weakening the family-bias half of the rater-monoculture caveat while
-leaving its corpus-shared-prior half untouched (limitation 6). The numbers are the smaller half of the
+leaving its corpus-shared-prior half untouched (limitation 6). The
+instrument itself was then repaired under pre-registration and the
+repair graded (§6.1): a v4 amendment wrote five rules at the series'
+measured edges, with itemized predictions V1–V8 committed before any v4
+rater existed and every v3 number ring-fenced. Eight blind rating
+passes — a same-family and a foreign rater per corpus — graded them
+all: the key-lifecycle repair took RFC 9001, the band-breaking corpus,
+to the series' best cross-family agreement (94.2%, from 76.8%); TLS's
+two v4 raters agreed at 92.2% raw, above every prior pair on that
+corpus; and the amendment's disclosed most counterintuitive prediction
+— flipping decision rule 3's own worked example and emptying TLS's v3
+THRESHOLD class — held in both raters, though a seam example retained
+in the pack names both items' content, so that flip is a comprehension
+result more than a discrimination one (a disclosure gap found at this
+integration's own gate and corrected in the protocol). The author's
+model of the repair's *reach* failed too: the no-regression
+prediction's count-bound half failed in all eight rater-corpus grades
+— partly zero-tolerance arithmetic on zero-spread classes, partly two
+rules moving items beyond their named sets (a repair rule acts on a
+boundary, not an item list) — while its match-rate half passed in all
+eight; two predictions failed on precisely their hardest items; and
+QUIC's agreement declined (84.0% vs 85.1%) — v4's measured cost,
+reported next to its gains. All v4 shares are a new, version-labeled series
+(TLS lands at 81.9%/82.8%, inside the closed v3 band); the v3
+headlines stand unchanged. The numbers are the smaller half of the
 contribution. The larger half is the method that survived its own failures:
 classify on the predicate and never the name (a name-based pass produced a
 publishable-looking headline that was retracted the day it was written);
@@ -194,9 +218,23 @@ The codebook carries numbered rules; the load-bearing ones:
   itself; DOMAIN/PROCESS split on whether a wire-observable configuration is
   obliged.
 - **Rule 14 — the instrument is the codebook, verbatim.** Raters receive
-  [`codebook/rater-pack.md`](codebook/rater-pack.md) byte-identical; each
+  their instrument version's frozen pack byte-identical
+  ([`codebook/rater-pack.md`](codebook/rater-pack.md) for v3); each
   pass report records the pack's git blob hash. §6 is the existence proof
   that a paraphrase of a definition is a different definition.
+- **Rules 15–19** (the v4 amendment — one pre-registered round written
+  after the five frozen-instrument censuses and the foreign replication,
+  graded in §6.1): capability-compatibility duties resolve to
+  transcript-checkable *containment*; spec-fixed bounds on datum
+  quantities are DOMAIN however the constant was chosen; rule 10's
+  "occurrence" is scoped by an in-corpus complement-state test;
+  key-lifecycle duties split packet-class discipline (TYPESTATE) from
+  key-material hygiene (PROCESS); deadline duties are REVOCABLE. The v4
+  instrument is its own verbatim pack
+  ([`codebook/rater-pack-v4.md`](codebook/rater-pack-v4.md)); every
+  pre-v4 number in this repository was measured under v3 or an earlier
+  frozen instrument and stays the quoted number for its corpus — v4
+  results are a separate, version-labeled series (§6.1).
 
 Deterministic self-audits (items ranked by content hash, first ~12
 re-checked) are used within passes; blind re-rating by fresh raters between
@@ -293,7 +331,8 @@ fruitful the state-machine attack family (SMACK/FREAK) proved against TLS
 implementations.
 
 (This corpus was later re-rated blind by two foreign model families under
-the frozen instrument — the cross-family replication, §6.)
+the frozen instrument — the cross-family replication, §6 — and again by
+two blind raters under the repaired v4 instrument, §6.1.)
 
 ### 4.5 Cryptographic group protocol under the frozen instrument: RFC 9420 (MLS, n = 127)
 
@@ -335,7 +374,10 @@ support the group's extensions"), where rules 11, 1, and 12 each ground a
 different reading (U / TYPESTATE / NEG). That three-way boundary is
 recorded in the census as candidate rule 15 for a *future* instrument
 version — under the frozen one, it stands as the measured edge of the
-transmissibility law (§6).
+transmissibility law (§6). (That future version now exists: rule 15 of
+the v4 amendment, whose prediction V1 — the five capability items land
+TYPESTATE, NEG 0 — passed in both v4 raters, vocabulary-steered per the
+pre-pass protocol; §6.1.)
 
 ### 4.6 Transport protocol under the frozen instrument: RFC 9000 (QUIC, n = 281)
 
@@ -372,7 +414,9 @@ inequality ⇒ THRESHOLD, or procedure — a boundary TLS §4 and MLS never
 stressed because they state no liveness deadlines). The MLS
 capability-compatibility boundary also recurred, smaller (5 items on the
 rule-11 U-boundary). All graded per the pre-committed interpretation:
-wrong guesses about QUIC, licensing nothing.
+wrong guesses about QUIC, licensing nothing. (The rule-16 candidate and
+the deadline-duty edge became rules 16 and 19 of the v4 amendment,
+graded in §6.1.)
 
 ### 4.7 The QUIC document family: RFC 9001 (n = 69) and RFC 9002 (n = 30)
 
@@ -401,7 +445,9 @@ read eight as connection-phase TYPESTATE and two as DOMAIN), on the corpus dense
 judgment boundary the codebook already knew was soft. The five AEAD-limit
 items, meanwhile, were THRESHOLD item-identical in both raters — the
 rule-3 edge predicted to split here did not (a prediction of disagreement
-falsified by unanimity).
+falsified by unanimity). (The v4 amendment's rule 18 was written at the
+key-lifecycle boundary; under it, this corpus re-rated at 94.2%
+cross-family agreement — §6.1.)
 
 **RFC 9002 (the recovery shell): 23.3% eliminable — the low end of the
 frozen-instrument MUST-corpora — with identical item sets in both raters
@@ -568,11 +614,11 @@ to appear at claim granularity for either rater, with raw-granularity
 degradation at most mild. Grok agreed with rater D *above* the
 intra-family ranges (91.7% raw / 98.0% eliminable-vs-not); GPT sat at the
 raw floor against D (81.4%) and just below the range against A (80.4%);
-and every item of the CV set drew a CV label from all six raters ever
+and every item of the CV set drew a CV label from all six raters then
 recorded — four Claude-family passes and both foreign families — hit
 exactly by five of the six (rater B's exactness by inference; limitation
-7), while GPT extends its CV class to three additional key-schedule
-sentences (a third family's reading of the same key-lifecycle boundary
+7; both v4 raters later extended the streak, §6.1), while GPT extends
+its CV class to three additional key-schedule sentences (a third family's reading of the same key-lifecycle boundary
 RFC 9001 and MLS stress). Their quotients: 80.9% (inside the Claude band) and 76.5%
 (below it — the gap fully accounted for by GPT's 18-item U habit;
 resolving its 16 non-consensus refusals to D's labels yields 82.4%,
@@ -585,8 +631,126 @@ families that share none of the repairer's training lineage. The law survives wi
 now mapped rather than merely suspected — transfer is a property of how
 hard the corpus leans on the soft boundaries, whichever family reads it —
 and the edges are where the next instrument version's rules (candidates
-15–17, plus the key-lifecycle and deadline observations) will be
-written.
+15–17, plus the key-lifecycle and deadline observations) were then in
+fact written — the v4 amendment, graded next.
+
+### 6.1 The instrument repaired: the v4 amendment and its grades
+
+Every edge the study mapped was written into the instrument on
+2026-08-14. The v4 amendment
+([`codebook/classes.md`](codebook/classes.md), commit `d3d4c2d` —
+appended, never edited in place, per the v2/v3 discipline) adds five
+rules at the five measured boundaries: rule 15
+(capability-compatibility resolves to transcript-checkable containment
+— the MLS three-way split), rule 16 (spec-fixed constants: THRESHOLD
+requires a non-datum quantity — the QUIC/MLS derived-constant edge),
+rule 17 (a complement-state test scoping rule 10's "occurrence" — the
+foreign-consensus residue), rule 18 (key/phase lifecycle: packet-class
+discipline is TYPESTATE, key-material hygiene is PROCESS — the RFC 9001
+band-breaker), and rule 19 (deadline duties are REVOCABLE — the QUIC
+deadline edge). Because the amendment's net predicted direction is
+thesis-friendly, the error-sign lesson (§5) was applied to the
+instrument itself: eight itemized predictions (V1–V8) were
+pre-registered in the same commit, before any v4 pack or rater existed;
+every v3 number was ring-fenced (a v4 result never replaces a v3
+headline — v4 shares are a new, version-labeled series); and the
+amendment states in advance that movement beyond the itemized
+predictions is evidence of instrument mis-design, not a new result. V8
+is the design's tell: it predicts the amendment will flip decision rule
+3's own worked example (TLS item 188 THRESHOLD→DOMAIN, item 189
+THRESHOLD→REVOCABLE), emptying the v3 TLS THRESHOLD class — a
+pre-registered bet against the codebook's own canonical illustration.
+
+One methodological cost is disclosed before each pass rather than
+discovered after: the v4 rules quote real corpus items as worked
+examples, so a prediction about a quoted item is settled by
+construction. The pre-pass protocols
+([`census/v4-tls/README.md`](census/v4-tls/README.md),
+[`census/v4-completion/README.md`](census/v4-completion/README.md))
+therefore name, per prediction, which items the pack settles and which
+carry evidence — a distinction the grades below depend on. (That
+disclosure itself had one omission: the pack's retained rule-16/19 seam
+example names the content of V8's two items. It was found at this
+paper's own publish gate, is corrected in the protocol and the report,
+and V8 below carries the resulting discount.)
+
+Eight blind rating passes ran on 2026-08-14, two per corpus: a fresh
+same-family instance given the pack and corpus as a single file, and
+Grok 4.6 over the replication's cursor-cli transport. The instrument is
+[`codebook/rater-pack-v4.md`](codebook/rater-pack-v4.md) (blob
+`4891605…` — the v3 pack verbatim plus the v4 rules, with one disclosed
+elision), served blind; there were zero protocol events across all
+eight passes. The grades, fixed at `d3d4c2d`: **V1, V3, V5, and V8
+passed in both raters — V1 vocabulary-steered and V8 example-settled,
+discounts recorded; V6 passed in all eight rater-corpus grades (most of
+its items pack-settled); V2, V4, and V7 failed.** Full reports:
+[`census/v4-tls/rfc8446-s4-v4pass.md`](census/v4-tls/rfc8446-s4-v4pass.md),
+[`census/v4-completion/rfc-v4-completion.md`](census/v4-completion/rfc-v4-completion.md).
+
+What the eight passes measured:
+
+1. **The key-lifecycle repair transmits.** V5's predicted 5/4 split of
+   RFC 9001's lifecycle cluster — which sides with *neither* archived
+   v3 rater — reproduced exactly in both families, including all five
+   items the pack does not name. RFC 9001, the corpus that broke the v3
+   agreement band at 76.8%, agreed at **94.2%** cross-family under v4,
+   its between-rater share gap narrowing from 13.1 points to 2.9. (One
+   caveat on the v3→v4 agreement deltas: the v3 pairs for MLS, QUIC,
+   and RFC 9001 each contain the author rater and the v4 pairs do not,
+   so on those corpora instrument version and
+   rater composition change together — V5's item-level reproduction is
+   the part that isolates the rule.) The
+   TLS corpus set its own record: Av4-vs-Xv4 raw 92.2% /
+   eliminable-vs-not 96.1%, a cross-family pair above every v3 pair on
+   that corpus (the repository-wide record remains RFC 9002's 96.7% on
+   its 30-item corpus). MLS rose to 88.2% (v3: 85.0%). And both v4 TLS
+   raters kept the CV class at exactly the same six items — the six CV
+   items have now drawn CV labels from eight TLS raters, exactly six in
+   seven of them (G extends the class by three, §6; B's exactness by
+   inference, limitation 7).
+2. **The rules generalize past their named items — one of the two
+   reasons the no-regression clause failed everywhere.** V7's match-rate clause
+   passed in all eight rater-corpus grades (TLS: 94.2% in each rater
+   against an 83.8% floor; QUIC's same-family rater cleared its floor
+   with zero items to spare). Its count-bound clause failed in all
+   eight — under both readings of its own ambiguous wording, a fork
+   discovered at grading time and recorded, not repaired; zero-spread
+   classes carry zero tolerance, so a single moved item fails them. Two
+   of the failures are the finding: both raters independently moved the
+   five-item sub-bucket {30, 31, 32, 56, 57} — the state-conditioned
+   sub-bucket of TLS's original 14-item guard-vs-predicate DISAGREE
+   mass, rater B's
+   2026-08-12 reading — from DOMAIN to TYPESTATE (rule 17 reaching one
+   sub-bucket past the items the author named), and both moved six
+   un-named QUIC THRESHOLD items to DOMAIN (rule 16 generalizing the
+   same way). A repair rule acts on a boundary, not an item list; the
+   author's named-sets were systematically too narrow; the grades
+   stand, and a v5 owes a per-item-scoped no-regression clause.
+3. **Two predictions failed on precisely their hardest items.** The
+   protocol had disclosed that rule 16's examples settle eight of V2's
+   nine predicted QUIC items; all eight landed as told (evidentially
+   empty), and the sole un-named item — 191, an ignore-duty triggered
+   by a datum bound — landed PROCESS in both raters against the
+   predicted DOMAIN. V4 missed on exactly the item its history flagged:
+   TLS item 67, the one member of its nine whose complement evidence is
+   a response duty rather than a field value — DOMAIN in the
+   same-family rater, TYPESTATE in the foreign one. Both failures grade
+   the rule texts, license nothing, and are recorded as seams for a
+   future version.
+4. **QUIC is v4's measured cost.** Its cross-family agreement (84.0%)
+   sits below the v3 pair (85.1%) — the only corpus where v4 agreement
+   is not the best on record — with churn concentrated on the PROCESS
+   boundary: rule 18's lifecycle vocabulary appears to pull procedure
+   readings beyond key/phase contexts, and the same-family v4 share
+   (63.7%) fell below the v3 band. An instrument version now has its
+   gains and its price as numbers, side by side.
+
+The v4 shares (new series, never mixed with v3): TLS 81.9%/82.8% —
+inside the closed v3 band, one rater at its exact upper endpoint; MLS
+59.1% in both raters; QUIC 63.7%/68.7%; RFC 9001 60.9%/58.0%. The
+spectrum's shape is unchanged. Two items the amendment carved out
+without prediction (QUIC 63 and RFC 9001 item 15) split between the v4
+raters and remain unruled.
 
 ## 7. Related work
 
@@ -646,14 +810,21 @@ not a proof of novelty.
 5. **Item-level labels carry a measured error bar** (§6): raw inter-rater
    agreement 81–90% on TLS (MLS: 85.0% and QUIC: 85.1%, inside that band;
    RFC 9001: 76.8%, BELOW it; RFC 9002: 96.7%, above it — §6 and §4.7
-   carry both stories), 15 TLS items
+   carry both stories; under the repaired v4 instrument the four
+   re-rated spans pair at TLS 92.2%, MLS 88.2%, QUIC 84.0%, RFC 9001
+   94.2% — the error bar moves with the instrument version, though the
+   v4 pairs also swap the author rater for a fresh instance, two
+   variables at once; §6.1), 15 TLS items
    with fresh-rater consensus against the original labels, guard-boundary
    judgments that flip between competent raters. Every headline in this paper is quoted at the granularity that
    survives that error bar.
 6. **Rater population.** All raters are LLM agents. Raters B–D (TLS),
    B′ (MLS), B″ (QUIC), B‴ (RFC 9001), and B₁⁗/B₂⁗ (RFC 9002) are fresh
    same-family instances, and raters G and X (TLS cross-family
-   replication, §6) fresh foreign-family instances, given only their
+   replication, §6) fresh foreign-family instances — as are the v4
+   passes' eight raters (§6.1): per corpus, one fresh same-family
+   instance and one fresh foreign-family (Grok) instance, no author
+   rater among them — given only their
    instrument and the corpus — blind to the
    other raters, the tallies, and the authors' expectations; raters A
    (TLS), A′ (MLS), A″ (QUIC), and A‴ (RFC 9001) are the census author
@@ -675,7 +846,8 @@ not a proof of novelty.
    any LLM replication from any family: a shared reading learned from the
    corpus would reproduce these same agreements. Only a non-LLM rater
    reaches it; the parked human replication is that probe, and it has not
-   been run. Shared priors remain a residual common-cause risk that
+   been run. The v4 passes, LLM raters all, inherit this caveat whole —
+   including their record agreements (§6.1). Shared priors remain a residual common-cause risk that
    blindness does not remove.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
    disagreement labels survive (plus agreement on the other 184); B's
@@ -691,13 +863,20 @@ policy thresholds and structurally cannot contain typestate; a windowing
 protocol whose client-facing declared errors are 87.6% type-eliminable in
 shape; a cryptographic handshake whose normative surface is 80–83%
 type-eliminable, with a secret-dependent core of 2.9% that every
-same-family rater's recorded labels agree on item-for-item (both foreign
-raters kept all six CV; one extends the class by three — §6); a cryptographic group protocol at
+same-family rater's recorded labels agree on item-for-item (all three
+foreign raters ever run kept the six CV items; one extends the class by
+three — §6, §6.1); a cryptographic group protocol at
 ≈57%; a transport protocol at ≈67–69%; and that transport protocol's two
 sibling documents at 54–67% and 23.3% — five spans rated under the TLS
 study's frozen instrument (which also supplied TLS's own final rater),
 and the TLS span additionally re-rated by two foreign model families
-with no systematic degradation in agreement (§6).
+with no systematic degradation in agreement (§6). The instrument's
+measured edges were then repaired as v4 and graded under
+pre-registration (§6.1): the repair transmitted best exactly where its
+new discriminator was crispest (RFC 9001, 76.8% → 94.2% cross-family,
+with limitation 5's rater-composition caveat) and cost agreement where
+its vocabulary overreached (QUIC, 85.1% → 84.0%), with every v3 number
+ring-fenced and the v4 shares a separate, version-labeled series.
 We still resist summing these into one cross-corpus law: the first three
 corpora were classified by different methods (rule 8 makes such
 comparisons artifacts until re-run under one method), and the codebook's
@@ -726,7 +905,10 @@ sibling documents whose own shells measure 54–67% and 23.3%.
 
 The method is the other half. Every headline here survived, or was produced
 by, a failure: a retracted cross-layer claim, an invalidated rating pass, a
-repair loop halted on its pre-registered interpretation. What made those failures
+repair loop halted on its pre-registered interpretation, an amendment
+whose count-bound no-regression clause failed in all eight of its own
+grades — partly zero-tolerance arithmetic, partly rules that repaired
+more than their author predicted. What made those failures
 productive rather than embarrassing was mechanical: classify on predicates,
 make disagreement loud, commit predictions before evidence, and treat "the
 instrument does not transmit" as a result. A codebook, like a protocol, is
@@ -737,8 +919,9 @@ crisply, you will re-litigate at runtime.
 
 | artifact | contents |
 |---|---|
-| `codebook/classes.md` | taxonomy, honesty rules 1–14, retraction + addendum, v2/v3 amendments, graduation record |
-| `codebook/rater-pack.md` | the verbatim rating instrument (pass-4 instrument = blob `a08febba…`; later reformatted for rendering, rule content unchanged) |
+| `codebook/classes.md` | taxonomy, honesty rules 1–19, retraction + addendum, v2/v3/v4 amendments (v4 carries pre-registered predictions V1–V8), graduation record |
+| `codebook/rater-pack.md` | the verbatim v3 rating instrument (pass-4 instrument = blob `a08febba…`; later reformatted for rendering, rule content unchanged) |
+| `codebook/rater-pack-v4.md` | the verbatim v4 rating instrument (blob `4891605…` — v3 pack + rules 15–19, one disclosed elision) |
 | `census/promql/promql-classifier.py` | n=1155 classifier, rule-9 hardened |
 | `census/wayland/{wayland-classifier.py, extract-corpus.py}` | n=172/216 classifier + from-source corpus regeneration |
 | `census/wayland/cv-neg-falsifiability.md` | the graduation falsifiability check (0/216, 0/216) |
@@ -752,3 +935,5 @@ crisply, you will re-litigate at runtime.
 | `census/quic-tls/`, `census/quic-recovery/` | the family completion: frozen corpora (n=69, n=30), pre-timestamped predictions K1–K5/R1–R5, both census reports with archived labels |
 | `census/quic-family.md` | the three-document synthesis: role tracks the mix 23→69%; pooled ≈61–65% with its caveat |
 | `census/foreign/` | cross-family replication of the TLS corpus: pre-timestamped predictions F1–F5, report with both foreign raters' archived labels, candidate rule 17 |
+| `census/v4-tls/` | first pass under instrument v4: pre-pass protocol with worked-example settlements, two blind raters (one per family) over the TLS corpus, archived labels, grades of V4/V6/V7/V8 |
+| `census/v4-completion/` | v4 completion: pre-pass protocol, six blind passes over MLS/QUIC/RFC 9001, archived labels, grades of V1–V3/V5–V7 |
