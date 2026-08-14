@@ -54,6 +54,7 @@ that with a DISAGREE bucket) come from.
 | [`census/quic-recovery/`](census/quic-recovery) — RFC 9002 §5–§7 MUST/SHALL corpus | 30 | **23.3% type-eliminable in shape** (identical in both raters; ~60% PROCESS) — the lowest of the frozen-instrument MUST-corpora | run 2026-08-13, frozen instrument, predictions publicly pre-timestamped (R1/R2/R4 passed; R3 failed by class disuse, R5 failed above-band); PROTOCOL DEVIATION disclosed: author pass abandoned after exposure to first-rater labels, replaced by a second blind rater |
 | [`census/quic-family.md`](census/quic-family.md) — the three-document synthesis | 380 | within ONE protocol the share spans 23%→69% by document role; pooled family ≈61–65% (caveat in file) | the matched-family control: same protocol, era, authors — only document role varies |
 | [`census/quic/`](census/quic) — RFC 9000 §2–§19 MUST/SHALL corpus | 281 | **≈67–69% type-eliminable in shape** (two raters: 66.9%/69.0%; TYPESTATE the largest class at ~46–47%; CV 1.1% — RFC 9001/9002 document boundary censors crypto and recovery) | run 2026-08-13 under the same frozen instrument, predictions publicly pre-timestamped (Q2/Q3/Q4 passed — Q4 confirmed the rule-3 spec-fixed-constant edge with THRESHOLD symdiff 15; Q1 failed marginally, Q5 failed its crisp-class clause on a new REVOCABLE/deadline edge); disagreements unresolved by design |
+| [`census/v4-tls/`](census/v4-tls) — first pass under instrument v4 (TLS §4 re-rated; NOT a new corpus, NEW instrument series) | 204 | v4 shares 81.9%/82.8% (within the closed v3 band; the v3 headline 80–83% stands and is never substituted); Av4-vs-Xv4 raw 92.2% — the corpus's highest, cross-family | run 2026-08-14 under pack blob `4891605…`; grades of the d3d4c2d pre-registration: V8 PASS both (188→DOMAIN, 189→REVOCABLE — decision rule 3's worked example flipped as predicted, TLS v3 THRESHOLD empties), V6 PASS both, V4 FAIL in one rater (item 67), V7 FAIL both — rule 17 reached one sub-bucket ({30,31,32,56,57}) beyond the named items; guard boundary narrowed to 4 still-split items, not resolved |
 | [`census/foreign/`](census/foreign) — cross-family replication of the TLS §4 corpus (NOT a new corpus) | 204 | foreign quotients 76.5% (GPT-5.6 Sol) / 80.9% (Grok 4.6) vs Claude band 79.9–82.8%; Grok-vs-Claude agreement ABOVE the intra-family range (91.7% raw / 98.0% eliminable-vs-not); CV set 6/6 in every rater ever | run 2026-08-13, frozen instrument, predictions publicly pre-timestamped before any foreign rater (F1/F3/F5 passed; F2/F4 failed — F2's predicted degradation failed to appear); attacks the family-bias half of limitation 6 only; the corpus-shared-prior half needs a non-LLM rater |
 
 **Read the caveats before quoting any number.** Every corpus censors some
@@ -119,11 +120,16 @@ vendored:
    weakened, CV family-invariant, and a candidate rule 17 (scope of
    "occurrence" under rule 10) measured from nine items of cross-family
    consensus.
-6. Possibly a NON-protocol corpus later; instrument v4 (rule candidates
-   15/16/17 + the REVOCABLE-deadline and key-lifecycle boundary
-   observations) only as a deliberate, pre-registered version bump; a
+6. ~~Instrument v4 as a deliberate, pre-registered version bump~~ — DONE
+   2026-08-14: rules 15–19 + predictions V1–V8 (`codebook/classes.md`),
+   then the first v4 pass (TLS, `census/v4-tls/`): V8 and V6 passed in
+   both raters, V4 and V7 failed as pre-committed — the failures grade
+   the author's model of rule 17's reach and are the record.
+7. Possibly a NON-protocol corpus later; v4 passes over MLS/QUIC/9001
+   (grading V1/V2/V3/V5 and the rest of V6) as deliberate follow-ons; a
    HUMAN-rater replication remains the only probe that reaches the
-   corpus-shared-prior half of limitation 6.
+   corpus-shared-prior half of limitation 6; a v5 owes finding-6's
+   V7-wording repair before any further no-regression grading.
 
 ## License
 
