@@ -640,3 +640,265 @@ distinctive items is weaker evidence than the same rate on a 90-item class —
 the observation is directional, not a quantitative law. A future class
 proposal should still arrive with its discriminator or expect to dissolve on
 first text-only transmission.
+
+---
+
+# CODEBOOK v4 AMENDMENTS — 2026-08-14 (after the QUIC family and the cross-family replication; NO rating pass has yet run under v4)
+
+**Appended, never edited in place** — the v2/v3 discipline unchanged. Every
+existing number in this repository was measured under v3 (the frozen pass-4
+instrument, blob `a08febba…`) or an earlier frozen instrument or classifier,
+per each report's setup section, and REMAINS the quoted number for its
+corpus.
+v4 exists so that *future* passes rate under a repaired instrument; a v4
+result never replaces a v3 headline, and any cross-version comparison must
+say it is one. The rater pack is NOT updated by this section: a v4 pack is a
+new blob, cut only when a v4 pass is actually commissioned (rule 14 applies
+verbatim to it).
+
+**Motivation — five measured boundaries, each with archived disagreement
+mass.** The census series parked three rule candidates and two boundary
+observations; all five now have item-level evidence in public reports:
+capability-compatibility (MLS: 5 items split three ways, all readings
+rule-grounded), spec-fixed constants (QUIC: THRESHOLD symdiff 15, ten on
+constants the spec fixed; the same edge first seen on MLS's AEAD pair),
+guard-scope under rule 10 (TLS: 9 items of cross-family rater consensus
+against a same-family rater, three of them the residue of the original
+guard-vs-predicate mass rule 10 was written to tie-break), key-lifecycle
+duties (RFC 9001: a 10-item PROCESS/TYPESTATE cluster that broke the
+series' agreement floor; echoed by MLS delete-key items and one foreign
+rater's CV excursion on TLS), and deadline duties (QUIC: REVOCABLE symdiff
+3; RFC 9001 item 21).
+
+**Direction-of-effect disclosure, stated before any v4 rater exists:** rules
+15 and 17 predictably move items INTO the eliminable family; rules 16 and
+18 move some in and some out (rule 16 sends MLS item 126 out against one
+rater, and flips TLS item 188 — decision rule 3's own worked example — in;
+see V8); rule 19 moves items only between non-eliminable classes. A version
+bump whose net predicted effect is
+thesis-friendly is exactly the place this repository's own error-sign
+lesson (§5 of the paper) applies — which is why the predictions below are
+itemized per rule, why the no-regression clause governs, and why v3 numbers
+stay the quoted series. If a v4 pass moves numbers beyond what the itemized
+predictions state, that is evidence of instrument mis-design, not a new
+result.
+
+**Precedence within v4:** apply rule 19 (deadline) before rule 16 (datum
+constants) before rule 18 (lifecycle); rules 15 and 17 are specific-form
+tie-breaks under rules 11/12 and 10 respectively and fire only on their
+named sentence forms.
+
+**Rule 15 — Capability-compatibility tie-break: classify the transcript-checkable
+containment, not the honesty and not the intersection.** Sentences of the
+form "party P MUST support the set S required by the group/peer" admit
+three rule-grounded readings (U via rule 11's capability-honesty; TYPESTATE
+via rule 1's cross-message consistency; NEG via rule 12) — the measured
+MLS three-way split. The tie-break: when P's capability *advertisement* is
+on the transcript (a LeafNode, a ClientHello extension list), the
+obligation's wire-falsifiable content is **containment** — advertised(P) ⊇
+S, with S itself negotiated or group state — which is cross-message
+consistency: **TYPESTATE**. The honesty residue ("P actually supports what
+it advertised") is rule 11's U-residue and is not classified separately
+(delete the unobservable clause; the containment check remains). NEG stays
+reserved, per rule 12, for existence-of-a-compatible-choice duties
+(abort-on-empty-intersection) that constrain no specific party's set
+against a required one.
+
+**Rule 16 — Spec-fixed constants: THRESHOLD requires a non-datum quantity, not
+just a chosen number.** Decision rule 3's dichotomy (framing-derived =
+DOMAIN / operator-chosen = THRESHOLD) is incomplete for constants the spec
+itself fixes. The repair discriminates on the *quantity*, not the
+constant's provenance:
+
+- A bound on a quantity that is a pure function of the datum at hand
+  (a length, a count of elements present, a field's value range) is
+  **DOMAIN**, whoever chose the constant and however arbitrary it is —
+  a context-free refinement type can carry it. (QUIC's 20-byte CID cap,
+  8-byte minimum, at-least-2 parameter floor.)
+- **THRESHOLD requires an inequality on a quantity that is NOT a pure
+  function of the datum** — a rate, a running total across items — OR a
+  constant the spec leaves to deployment discretion. (AEAD *usage*
+  limits: the bounded quantity is a cumulative count of encryptions, not
+  a property of any message.) For age and elapsed-time quantities the
+  ORDER governs, not an exclusion: classifying-rule 1 tests REVOCABLE
+  first, and rule 19 captures any duty to act within a time bound; an
+  age inequality that survives both — a pure policy line on a
+  time-valued metric, carrying no expiry or act-by duty (the class
+  definition's original "maximum age someone picked") — remains
+  THRESHOLD.
+
+Litmus: could the check be re-run on the lone datum in a vacuum and get
+the same answer? Yes → DOMAIN. Needs a counter, a clock, or a knob → not
+DOMAIN. (Time-bounded duties go further, to rule 19.)
+
+**Rule 17 — Scope of "occurrence" under rule 10: the complement-state test.**
+Rule 10's DOMAIN bullet covers guards that merely *locate* ("the required
+value/set is the same whenever it applies"); its TYPESTATE bullet covers
+required values that *vary with negotiated state*. The measured gap: a
+guard on negotiated or prior-message state around a check whose required
+value is fixed *within* the guard. The tie-break is what the spec says in
+the guard's complement:
+
+- If in the complement state the same field carries a **different or
+  sibling requirement** (another type is required, another structure
+  applies, a response duty fires — "X.509v3 *unless explicitly negotiated
+  otherwise*"), then the required value/behavior varies with state across
+  the field's life: **TYPESTATE**. "Every occurrence" in rule 10
+  quantifies over the field's full life, not the guarded subset.
+- If in the complement state the spec imposes **no obligation** on the
+  field (the guard purely locates; silence elsewhere), the check is
+  **DOMAIN** — rule 10's constant-whenever-applicable reading stands,
+  however the sentence is guarded.
+
+Evidence source, fixed for blind transmission: the complement duty must
+be **visible in the censused corpus and on the same field**; otherwise
+the silence branch applies. (A rater holds only the corpus and this
+pack — rule 17 never licenses consulting text outside them, and rule
+10's worked example survives: no in-corpus sentence imposes a
+complement-state requirement on legacy_version's VALUE or STRUCTURE —
+the in-corpus sentences naming that field, items 52/53/60, oblige how a
+reader USES it, not what it must contain, and consumer-use duties are
+not sibling requirements on the field.)
+
+**Rule 18 — Key/phase lifecycle: packet-class discipline is TYPESTATE; key-material
+hygiene is PROCESS.** Sentences that gate a **named packet/message class**
+on a phase event ("MUST NOT process 1-RTT packets before the handshake
+completes", "MUST NOT attempt to decrypt 0-RTT packets and instead MUST
+discard them", "records following a Finished MUST be encrypted under the
+appropriate traffic key") oblige a phase-indexed send/accept/protect
+discipline — the discharging structure is a phase-indexed session/state
+type: **TYPESTATE**. Sentences whose **obliged conduct** concerns only the
+storage of key material or internal state ("MUST delete outdated key
+material", "MUST discard Initial keys when…", "MUST retain old keys
+until…", "MUST reset the state of all streams") have no wire-observable
+predicate of their own: **PROCESS**, per rule 13. The discriminator is
+the gated OBJECT, not the trigger: a phase trigger may name a packet
+class ("…when it first sends a Handshake packet") without changing the
+duty's object; only when the obliged conduct itself is the sending,
+acceptance, processing, or protection of a packet/message class does the
+TYPESTATE branch apply. Selecting *which* key
+protects a message class is phase discipline (TYPESTATE), **not**
+CRYPTO-VERIFY — CV requires verification against secret material, not
+selection among installed keys. (This rule's quoted examples are
+condensed from RFC 9001 items 37, 34, 14, and 18 and RFC 8446 item 181;
+the corpus texts govern.)
+
+**Rule 19 — Deadline duties are REVOCABLE, whatever fixed the number.** A duty to
+act within a time window of an event ("acknowledge within max_ack_delay",
+"send a packet on PTO expiry", "discard 0-RTT keys within a short time;
+the RECOMMENDED time period is three times the Probe Timeout")
+is **REVOCABLE**: the license to defer expires, and no check without a
+clock can discharge it. The bound's provenance — spec-fixed, derived,
+peer-advertised — does not change the clock dependence and never makes
+the duty THRESHOLD (a time-since-event quantity is not a pure function
+of any datum, so rule 16's DOMAIN branch never captures it, and
+classifying-rule 1 already orders REVOCABLE before THRESHOLD). A
+deadline is a stated WINDOW after an event — numeric, derived,
+advertised, or a spec-stated qualitative window carrying a recommended
+numeric ("within a short time; RECOMMENDED…") — while bare ordering
+adverbs ("immediately", "as soon as") that sequence a procedural step
+allow no elapsed time and are not windows. Applied before
+rule 18: a time-bounded key-hygiene duty is REVOCABLE, not PROCESS.
+
+The rule-16/rule-19 seam, stated once: an inequality on a **value
+carried in the datum** — including a duration field such as
+ticket_lifetime ≤ 604800 — is rule-16 territory (DOMAIN when the
+constant is spec-fixed); a duty over **elapsed clock time** — retain,
+cache, or use no longer than T after an event — is rule-19 territory
+(REVOCABLE). The archived TLS pair {188, 189} sits one on each side,
+and both v4 predictions are stated below (V8).
+
+## Pre-registered v4 resolution predictions (committed before any v4 pack or rater exists)
+
+Graded per rule, on the archived v3/foreign disagreement items, when and
+only when a v4 pass is commissioned for the corpus in question. Numbering
+namespace V1–V8.
+
+- **V1 (rule 15, MLS):** items 90, 111, 113, 114, 115 all land TYPESTATE
+  in every v4 rater; the NEG count on these five is 0.
+- **V2 (rule 16, QUIC):** NINE of the report's ten spec-fixed-constant
+  items — {41, 191, 197, 198, 199, 200, 238, 239, 266} — all land
+  DOMAIN; THRESHOLD symdiff on them is 0. Item 63 is carved out with no
+  prediction: its bounded quantity is a running total of buffered CRYPTO
+  data against a limit the endpoint may expand — outside rule 16's
+  DOMAIN branch by the rule's own litmus (a counter, and deployment
+  discretion), even though the Q4 report grouped it by the constant's
+  provenance.
+- **V3 (rule 16, MLS):** the AEAD pair SPLITS across the datum/cumulative
+  line — item 20 (per-message size vs the algorithm's limit: a datum
+  property) lands on the datum side, DOMAIN or TYPESTATE (the limit is
+  suite-indexed, so rule 10's negotiated-state clause may state-index the
+  bound — either label is on the datum side); item 126 (cumulative
+  per-epoch usage) lands THRESHOLD. V3 is graded on the CONTRAST: it
+  fails if both items land on the same side of the datum/cumulative
+  line, whatever the labels; any label outside {DOMAIN, TYPESTATE} for
+  item 20, or any label other than THRESHOLD for item 126, is likewise a
+  V3 failure.
+- **V4 (rule 17, TLS):** the nine cross-family-consensus items {10, 52,
+  67, 129, 130, 139, 152, 159, 165} all land TYPESTATE (each has a
+  stated complement-state sibling requirement or is cross-message under
+  rule 1); item 156 (an unconditional ignore-this-extension conduct duty,
+  where the foreign raters sided WITH the same-family rater D; A's
+  archived label is TYPESTATE) lands DOMAIN. V4 fails if 156 lands
+  anything else, even if the nine resolve.
+- **V5 (rule 18, RFC 9001):** the key-lifecycle cluster SPLITS 5/4 —
+  {13, 34, 36, 37, 38} (packet-class phase discipline) land TYPESTATE;
+  {14, 18, 20, 43} (key-material/state hygiene, no packet class) land
+  PROCESS. (The archived cluster has a tenth member, item 15 — alert
+  fatality — which its report notes rides by label pair, not by subject;
+  it is outside rule 18's scope and carries no prediction.) This sides
+  with NEITHER archived rater wholesale (the report's phrasing:
+  "A‴:PROCESS vs B‴:TYPESTATE-or-DOMAIN"); a v4 pass landing all nine on
+  one side is a failure of rule 18's discriminator, not a vindication of
+  either rater.
+- **V6 (rules 18+19, cross-corpus):** MLS {34, 43, 44} (delete-key-material)
+  land PROCESS; TLS {181, 199, 203} land TYPESTATE with CV count 0 on
+  them; QUIC {69, 163, 164} and RFC 9001 {21} land REVOCABLE.
+- **V7 (no-regression, every v4 pass) — graded, with no discretion, on
+  the item set OUTSIDE those named in V1–V6 and V8 for that corpus:**
+  (a) on that outside set, a v4 rater's per-item label counts as a match
+  when it equals EITHER archived v3 rater's label for that item (for TLS,
+  either of A and D — the two full archived intra-family maps), and the
+  match rate must be no worse than that corpus's own archived v3 raw
+  inter-rater agreement — for TLS, the A-vs-D figure (83.8%), the
+  agreement of the pair whose maps clause (a) uses; (b) restricted to that same outside set, no class's count
+  under the v4 rater may differ from the corresponding v3 rater-pair's
+  counts on that set by more than that pair's own spread on that set.
+  Agreement gains must CONCENTRATE in the named items — the v2
+  amendment's concentration clause, inherited from the v2 amendment.
+- **V8 (rules 16+19, TLS — the flagship pair, disclosed as the
+  amendment's most counterintuitive predicted consequence):** item 188
+  ("Servers MUST NOT use any value greater than 604800 seconds…" — a
+  spec-fixed bound on the ticket_lifetime FIELD value, a datum property)
+  lands DOMAIN, flipping decision rule 3's own worked example; item 189
+  ("Clients MUST NOT cache tickets for longer than 7 days…" — a
+  retention duty over elapsed clock time) lands REVOCABLE — the one
+  THRESHOLD flip recorded among the census's Claude raters (rater B),
+  a reading foreign rater G independently archived as well.
+  Together these predict TLS's v3 THRESHOLD class ({188, 189} exactly)
+  empties under v4. Stated plainly: this moves one more item into the
+  eliminable family on the pair the codebook itself used to define the
+  boundary; if either item lands elsewhere, rule 16 or 19's text failed —
+  and the v3 numbers stand regardless.
+
+**Failure interpretation, pre-committed:** these predictions grade the
+**rule texts written above**, nothing else. A failed prediction means the
+rule's discriminator does not transmit by text — the v3 lesson at v4 — and
+licenses NO re-rating under reworded rules within the same version, NO
+retroactive relabeling of any archived pass, and NO quiet substitution of
+a v4 number for a v3 headline. Predicted headline drift, for the record,
+stated now: a full v4 re-rating would move TLS's eliminable share by at
+most +1.0 point (the nine-cluster flips are interior against D; against
+A/B, item 52 — archived PROCESS — crosses in at +0.5; V8's item 188 adds
++0.5 against every rater), QUIC's UP by up to +3.2 points (nine
+THRESHOLD→DOMAIN; item 63 carved out), MLS's UP by up to +4.7
+(capability five plus item 20, against the rater who read them
+NEG/THRESHOLD) and DOWN by up to −2.4 against a rater who had read the
+three delete-key items TYPESTATE, and RFC 9001's toward
+its B‴ reading on five items only. These envelopes bound the movement
+attributable to the items NAMED in V1–V8; the carved-out items (QUIC 63,
+RFC 9001 15) and outside-set drift within V7's stated tolerance sit
+outside them and are governed by V7 and the carve-out notes, not by this
+paragraph. Movement attributable to the named items beyond these
+envelopes, or in the opposite direction, is instrument mis-design — that
+verdict, not a new headline, would be the result.
