@@ -25,8 +25,8 @@ is a design invariant of PromQL, not a census measurement (§4.1); Wayland's dec
 normative surface of RFC 8446 §4 (TLS 1.3 handshake,
 204 MUST/SHALL sentences) is **80–83% type-eliminable in shape** (three-rater range),
 with a secret-dependent cryptographic core of **exactly 6/204 (2.9%) — the
-same six sentences in every rater's recorded labels** (one rater's four
-unarchived labels are inferred non-CV; limitation 7). A fourth census, run
+same six sentences in every TLS-study rater's recorded labels** (one
+rater's four unarchived labels are inferred non-CV; limitation 7). A fourth census, run
 after this paper's first publish gate under the TLS study's frozen
 instrument, shows the share is **not a security-protocol constant**: the
 core normative surface of RFC 9420 (MLS, §5–§15, 127 MUST/SHALL sentences)
@@ -52,7 +52,14 @@ otherwise overclaim: the "crypto document" is NOT crypto-dense (CV
 1.4%/2.9% — its verification lives in non-normative prose the census
 cannot see, censoring INSIDE a document), and RFC 9001 produced the
 series' first below-band inter-rater agreement (76.8%), concentrated on
-the PROCESS/TYPESTATE key-lifecycle boundary. The numbers are the smaller half of the
+the PROCESS/TYPESTATE key-lifecycle boundary. Finally, a cross-family
+replication (§6) re-rated the TLS corpus blind under the same frozen
+instrument with two foreign frontier model families: the author's
+pre-registered degradation model failed — one foreign rater agreed with a
+Claude rater *above* the intra-family agreement ranges, and all six
+core-CV sentences kept their CV label under every rater ever recorded —
+weakening the family-bias half of the rater-monoculture caveat while
+leaving its corpus-shared-prior half untouched (limitation 6). The numbers are the smaller half of the
 contribution. The larger half is the method that survived its own failures:
 classify on the predicate and never the name (a name-based pass produced a
 publishable-looking headline that was retracted the day it was written);
@@ -265,7 +272,8 @@ REVOCABLE/THRESHOLD/POLICY, 1 META.
 **Headline: 80–83% of the section's normative surface is type-eliminable in
 shape** — precisely, the range across three valid raters is 79.9% (B) to
 82.8% (D), with A at 81.9% (§6). The secret-dependent core is **6/204 =
-2.9%, identical items in every rater's recorded labels (limitation 7)**.
+2.9%, identical items in every rater of this study's recorded labels
+(limitation 7)**.
 The classes whose predicates types cannot even in principle discharge — CV
 + REVOCABLE + THRESHOLD + NEG — total ~6% (5.9–6.4% across raters; B's
 endpoint assumes its four unarchived labels fall outside these classes).
@@ -283,6 +291,9 @@ surface class is roughly 16× (94/6) the size of the cryptographic one. That
 proportion is consistent with, though it does not by itself explain, how
 fruitful the state-machine attack family (SMACK/FREAK) proved against TLS
 implementations.
+
+(This corpus was later re-rated blind by two foreign model families under
+the frozen instrument — the cross-family replication, §6.)
 
 ### 4.5 Cryptographic group protocol under the frozen instrument: RFC 9420 (MLS, n = 127)
 
@@ -548,11 +559,34 @@ so shared priors and crisp procedure are confounded there), while
 RFC 9001 fell BELOW the band at 76.8% — the first breach, with ten of
 its sixteen disagreements on one already-known judgment boundary
 (PROCESS/TYPESTATE over key lifecycle) that its corpus happens to stress
-harder than any other. The law survives with its edges now mapped rather
-than merely suspected — transfer is a property of how hard the corpus
-leans on the soft boundaries — and the edges are where the next
-instrument version's rules (candidates 15 and 16, plus the key-lifecycle
-and deadline observations) will be written.
+harder than any other. The fifth test (`census/foreign/`) varied the
+*rater* instead of the corpus: two foreign frontier model families —
+GPT-5.6 Sol and Grok 4.6, run blind over the TLS corpus under the frozen
+instrument, with predictions pre-registered and publicly pushed before
+either rater existed — and the predicted cross-family degradation failed
+to appear at claim granularity for either rater, with raw-granularity
+degradation at most mild. Grok agreed with rater D *above* the
+intra-family ranges (91.7% raw / 98.0% eliminable-vs-not); GPT sat at the
+raw floor against D (81.4%) and just below the range against A (80.4%);
+and every item of the CV set drew a CV label from all six raters ever
+recorded — four Claude-family passes and both foreign families — hit
+exactly by five of the six (rater B's exactness by inference; limitation
+7), while GPT extends its CV class to three additional key-schedule
+sentences (a third family's reading of the same key-lifecycle boundary
+RFC 9001 and MLS stress). Their quotients: 80.9% (inside the Claude band) and 76.5%
+(below it — the gap fully accounted for by GPT's 18-item U habit;
+resolving its 16 non-consensus refusals to D's labels yields 82.4%,
+inside the band). Twelve items of cross-family consensus against D
+concentrate on two nameable edges; nine of them are checks conditioned on
+negotiated or prior-message state — three from the original
+guard-vs-predicate DISAGREE mass that rule 10 was written to tie-break —
+and are candidate rule 17: the residue of a repair, found by raters from
+families that share none of the repairer's training lineage. The law survives with its edges
+now mapped rather than merely suspected — transfer is a property of how
+hard the corpus leans on the soft boundaries, whichever family reads it —
+and the edges are where the next instrument version's rules (candidates
+15–17, plus the key-lifecycle and deadline observations) will be
+written.
 
 ## 7. Related work
 
@@ -618,7 +652,9 @@ not a proof of novelty.
    survives that error bar.
 6. **Rater population.** All raters are LLM agents. Raters B–D (TLS),
    B′ (MLS), B″ (QUIC), B‴ (RFC 9001), and B₁⁗/B₂⁗ (RFC 9002) are fresh
-   instances given only their instrument and the corpus — blind to the
+   same-family instances, and raters G and X (TLS cross-family
+   replication, §6) fresh foreign-family instances, given only their
+   instrument and the corpus — blind to the
    other raters, the tallies, and the authors' expectations; raters A
    (TLS), A′ (MLS), A″ (QUIC), and A‴ (RFC 9001) are the census author
    and are *not* blind to authorial context (the 15-item consensus
@@ -626,9 +662,21 @@ not a proof of novelty.
    NO author rater — its intended author pass was abandoned after the
    author saw the first blind rater's labels (deviation disclosed in its
    report) — so its two raters are both blind same-family instances and
-   its 96.7% agreement carries the shared-prior caveat undiluted. A human-rater
-   replication has not been run, and shared model priors are a residual
-   common-cause risk that blindness does not remove.
+   its 96.7% agreement carries the shared-prior caveat undiluted. The
+   monoculture risk splits in two, and the halves now differ in status.
+   The *family-bias* half — every rater from one vendor's lineage — was
+   measured and weakened by the cross-family replication
+   (`census/foreign/`, §6): raters G (GPT-5.6 Sol) and X (Grok 4.6),
+   blind under the frozen instrument, landed at 76.5%/80.9% eliminable
+   with agreement that did not systematically degrade (X above the
+   intra-family ranges; G at or just below the raw floor) and every
+   CV-set item keeping its CV label in both. The *corpus-shared-prior* half — every frontier LLM
+   trained on these RFCs and on prose about them — is unaddressable by
+   any LLM replication from any family: a shared reading learned from the
+   corpus would reproduce these same agreements. Only a non-LLM rater
+   reaches it; the parked human replication is that probe, and it has not
+   been run. Shared priors remain a residual common-cause risk that
+   blindness does not remove.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
    disagreement labels survive (plus agreement on the other 184); B's
    figures — including the 79.9% floor of the headline range — are
@@ -642,11 +690,14 @@ Seven corpora, one codebook: a monitoring rule base that is three-quarters
 policy thresholds and structurally cannot contain typestate; a windowing
 protocol whose client-facing declared errors are 87.6% type-eliminable in
 shape; a cryptographic handshake whose normative surface is 80–83%
-type-eliminable, with a secret-dependent core of 2.9% that every rater's
-recorded labels agree on item-for-item; a cryptographic group protocol at
+type-eliminable, with a secret-dependent core of 2.9% that every
+same-family rater's recorded labels agree on item-for-item (both foreign
+raters kept all six CV; one extends the class by three — §6); a cryptographic group protocol at
 ≈57%; a transport protocol at ≈67–69%; and that transport protocol's two
 sibling documents at 54–67% and 23.3% — five spans rated under the TLS
-study's frozen instrument (which also supplied TLS's own final rater).
+study's frozen instrument (which also supplied TLS's own final rater),
+and the TLS span additionally re-rated by two foreign model families
+with no systematic degradation in agreement (§6).
 We still resist summing these into one cross-corpus law: the first three
 corpora were classified by different methods (rule 8 makes such
 comparisons artifacts until re-run under one method), and the codebook's
@@ -700,3 +751,4 @@ crisply, you will re-litigate at runtime.
 | `census/quic/rfc9000-census.md` | the QUIC census: two raters, archived labels, prediction grades, rule-16 candidate + deadline-duty edge |
 | `census/quic-tls/`, `census/quic-recovery/` | the family completion: frozen corpora (n=69, n=30), pre-timestamped predictions K1–K5/R1–R5, both census reports with archived labels |
 | `census/quic-family.md` | the three-document synthesis: role tracks the mix 23→69%; pooled ≈61–65% with its caveat |
+| `census/foreign/` | cross-family replication of the TLS corpus: pre-timestamped predictions F1–F5, report with both foreign raters' archived labels, candidate rule 17 |
