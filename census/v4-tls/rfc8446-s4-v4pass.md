@@ -66,6 +66,18 @@ NO re-rating, NO rewording within v4, and NO change to any v3 number.
    the constant's provenance — and two independent raters, one per
    family, executed that flip from the rule text alone.
 
+   [CORRECTION 2026-08-14, found at the paper-integration publish gate:
+   "from the rule text alone" overstates. The pack's retained
+   rule-16/rule-19 seam paragraph names item 188's field and constant
+   ("a duration field such as ticket_lifetime ≤ 604800" → DOMAIN when
+   spec-fixed) and item 189's duty near-verbatim ("retain, cache, or
+   use no longer than T after an event" → REVOCABLE); the disclosed
+   elision removed only the sentence naming {188, 189} as predictions.
+   V8's pass is therefore closer to a comprehension check (cf. V6's
+   item 181) than a discrimination test. The grade stands; its
+   evidential weight is discounted. The pre-pass protocol carries the
+   matching correction.]
+
 2. **V7(b)'s failure is the pass's central measurement: rule 17's reach
    extends one full sub-bucket beyond the items the author named.** Both
    raters — independently, across families — moved exactly

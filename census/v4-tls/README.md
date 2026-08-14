@@ -57,3 +57,23 @@ class-count drift within the A–D spread on that set), V8 (188 DOMAIN,
 189 REVOCABLE). Predictions are graded per rater. The v3 headline
 (80–83%) stands regardless; a v4 eliminable share is a NEW series, and
 this report will quote it only next to its instrument version.
+
+## CORRECTION — 2026-08-14, post-pass (found at the paper-integration publish gate)
+
+[The "Worked-example settlements, disclosed" bullet above is incomplete:
+it omits V8. The elision removed the seam paragraph's final sentence —
+the one naming {188, 189} and the predictions — but the seam paragraph
+itself remained in the pack, and its retained text names item 188's
+field and constant ("a duration field such as ticket_lifetime ≤ 604800" →
+rule-16 territory, DOMAIN when spec-fixed) and item 189's duty
+near-verbatim ("retain, cache, or use no longer than T after an event" →
+rule-19 territory, REVOCABLE). By this protocol's own standard, V8
+is therefore largely settled by construction — a comprehension check
+like V6's item 181, not a discrimination test. The original wording
+above is preserved; the grades in the companion report are unchanged;
+V8's evidential weight is discounted accordingly (the report carries
+the matching correction at its finding 1). The omission survived the
+pre-pass gate and both rating passes, and was caught only when a fresh
+reviewer at the paper-integration gate read the pack next to the
+corpus — recorded as another instance of this repository's
+flattering-direction defect class.]
