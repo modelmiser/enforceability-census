@@ -99,3 +99,14 @@ family better than across families," which *narrows the scope* of the
 transmissibility claim (and of limitation 6's residual) — it does not touch
 the Claude-measured numbers. If F1 passes, limitation 6's family-bias half is
 weakened; its corpus-shared-prior half stands untouched either way.
+
+---
+
+## Outcome (2026-08-13, appended after rating — the pre-registration above is unmodified)
+
+Both raters ran same-day, single-shot, zero protocol events. Grades: **F1,
+F3, F5 PASS; F2, F4 FAIL** — F2's lower-than-intra-family clause failed for
+both raters (rater X agreed with rater D *above* the intra-family ranges at
+both granularities).
+Full results, findings (including candidate rule 17), and verbatim label
+archives: `rfc8446-s4-foreign.md`.

@@ -54,6 +54,7 @@ that with a DISAGREE bucket) come from.
 | [`census/quic-recovery/`](census/quic-recovery) — RFC 9002 §5–§7 MUST/SHALL corpus | 30 | **23.3% type-eliminable in shape** (identical in both raters; ~60% PROCESS) — the lowest of the frozen-instrument MUST-corpora | run 2026-08-13, frozen instrument, predictions publicly pre-timestamped (R1/R2/R4 passed; R3 failed by class disuse, R5 failed above-band); PROTOCOL DEVIATION disclosed: author pass abandoned after exposure to first-rater labels, replaced by a second blind rater |
 | [`census/quic-family.md`](census/quic-family.md) — the three-document synthesis | 380 | within ONE protocol the share spans 23%→69% by document role; pooled family ≈61–65% (caveat in file) | the matched-family control: same protocol, era, authors — only document role varies |
 | [`census/quic/`](census/quic) — RFC 9000 §2–§19 MUST/SHALL corpus | 281 | **≈67–69% type-eliminable in shape** (two raters: 66.9%/69.0%; TYPESTATE the largest class at ~46–47%; CV 1.1% — RFC 9001/9002 document boundary censors crypto and recovery) | run 2026-08-13 under the same frozen instrument, predictions publicly pre-timestamped (Q2/Q3/Q4 passed — Q4 confirmed the rule-3 spec-fixed-constant edge with THRESHOLD symdiff 15; Q1 failed marginally, Q5 failed its crisp-class clause on a new REVOCABLE/deadline edge); disagreements unresolved by design |
+| [`census/foreign/`](census/foreign) — cross-family replication of the TLS §4 corpus (NOT a new corpus) | 204 | foreign quotients 76.5% (GPT-5.6 Sol) / 80.9% (Grok 4.6) vs Claude band 79.9–82.8%; Grok-vs-Claude agreement ABOVE the intra-family range (91.7% raw / 98.0% eliminable-vs-not); CV set 6/6 in every rater ever | run 2026-08-13, frozen instrument, predictions publicly pre-timestamped before any foreign rater (F1/F3/F5 passed; F2/F4 failed — F2's predicted degradation failed to appear); attacks the family-bias half of limitation 6 only; the corpus-shared-prior half needs a non-LLM rater |
 
 **Read the caveats before quoting any number.** Every corpus censors some
 class (rule 7); percentages are never comparable across layers or across
@@ -112,10 +113,17 @@ vendored:
    23%→69% by document role — the strongest evidence yet for the
    what-the-span-states reading, measured under the matched-family
    control.
-5. Paper integration of the family completion; possibly a NON-protocol
-   corpus later; instrument v4 (rule candidates 15/16 + the
-   REVOCABLE-deadline and key-lifecycle boundary observations) only as a
-   deliberate, pre-registered version bump.
+5. ~~Paper integration of the family completion~~ — DONE 2026-08-13. Then
+   the cross-family replication (`census/foreign/`) re-rated the TLS
+   corpus under two foreign frontier families the same day: family-bias
+   weakened, CV family-invariant, and a candidate rule 17 (scope of
+   "occurrence" under rule 10) measured from nine items of cross-family
+   consensus.
+6. Possibly a NON-protocol corpus later; instrument v4 (rule candidates
+   15/16/17 + the REVOCABLE-deadline and key-lifecycle boundary
+   observations) only as a deliberate, pre-registered version bump; a
+   HUMAN-rater replication remains the only probe that reaches the
+   corpus-shared-prior half of limitation 6.
 
 ## License
 
