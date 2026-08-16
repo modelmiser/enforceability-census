@@ -902,3 +902,353 @@ outside them and are governed by V7 and the carve-out notes, not by this
 paragraph. Movement attributable to the named items beyond these
 envelopes, or in the opposite direction, is instrument mis-design — that
 verdict, not a new headline, would be the result.
+
+---
+
+# CODEBOOK v5 AMENDMENTS — 2026-08-15 (after the full v4 grading series, both format-genre passes, and the QUIC cross-roster replication; NO rating pass has yet run under v5)
+
+**Appended, never edited in place** — the v2/v3/v4 discipline unchanged.
+Every number in this repository was measured under the instrument version
+its report names and REMAINS the quoted number for its corpus and series;
+a v5 result never replaces a v3 headline or a v4-series figure, and any
+cross-version comparison must say it is one. The rater pack is NOT
+updated by this section: a v5 pack is a new blob, cut only when a v5
+pass is actually commissioned (rule 14 applies verbatim to it).
+
+**Motivation — four measured seams with multi-pass evidence, plus two
+measured protocol defects.** Unlike v4 (cut from one census series), v5
+is cut from a grading record: eight v4 prediction grades across four
+corpora, two format-genre passes, and a cross-roster replication. The
+seams, with every archived reading:
+
+- **Reaction sentences** ("when C, MUST abort/close/respond-with-E"):
+  QUIC 63 (close with CRYPTO_BUFFER_EXCEEDED if the buffer is not
+  expanded) has drawn three classes in six readings — PROCESS (A″,
+  Xv4), THRESHOLD (B″, Aq, Av4), TYPESTATE (Xq) — and was
+  carved out of V2 unruled. TLS 67 (abort with missing_extension if the
+  client omitted signature_algorithms) is V4's one failure site:
+  TYPESTATE in A, both v3 foreign raters, and Xv4; DOMAIN in D and Av4.
+  RFC 9001 item 15 (treat any TLS alert as fatal) has drawn three
+  classes in four readings — PROCESS (A‴, Xv4), DOMAIN (B‴), TYPESTATE
+  (Av4) — and was carved out unruled. All three splits are the same
+  undecided question: which clause of a reaction sentence carries the
+  classified predicate.
+- **Nonaction (ignore) duties:** QUIC 191 (ignore an ICMP message
+  claiming the PMTU dropped below the spec floor) is V2's recorded
+  failure — the prediction's only discriminating item. Six readings,
+  never the predicted DOMAIN: PROCESS (A″), THRESHOLD (B″, Aq, Xq),
+  PROCESS (Av4, Xv4). Its in-corpus siblings 192 and 193 (ICMP
+  validation; never raise PMTU from ICMP) read PROCESS unanimously in
+  the four most recent raters. The contrast case, TLS 156 (MUST NOT
+  act upon status_request_v2), settled DOMAIN in five of the six
+  full-archived-map readings (all but A — the six being A, D, both v3
+  foreign raters, and both v4 raters), as V4 predicted; the
+  invalid-instrument pass-3 rater also recorded DOMAIN.
+- **Within-object consistency (the format genre's one soft boundary):**
+  iCal 192–194 (the value-type-of-"DTSTART" cluster) split
+  DOMAIN-vs-TYPESTATE between the same-family and foreign rater under
+  BOTH instrument versions — v4 has no rule at this boundary, and the
+  v4-ical pass confirmed the docket entry live.
+- **The deadline edge and rule 16 need no new rule — recorded as
+  confirmations:** V6 passed all six completion grades plus TLS, and
+  the replication's four-rater table shows the rule-19-shaped boundary
+  real under v3 (four classes across four raters on {69, 163, 164});
+  the replication's item-for-item polarity flip on the eight spec-fixed
+  constants, with the fresh same-family seat THRESHOLD in both rosters,
+  is the strongest evidence yet that rule 16 repairs an instrument
+  defect rather than an old-roster artifact.
+- **Protocol defects, measured:** the V7(b)-style class-count band
+  clause failed in all eight v4 rater-corpus grades with two structural
+  failure modes (zero-spread classes carry zero tolerance; a rule
+  correctly generalizing past its named items — desired behavior —
+  reads as failure) plus a live strict/loose wording fork recorded at
+  grading (`census/v4-tls/`, finding 6, which owes v5 this fix). The
+  match-rate clause design passed in all twelve registered-pass
+  applications (V7(a) ×8 and W4 ×2 under v4 passes; Y6 ×2 under the
+  frozen v3 instrument). Separately, V8's grade was discounted because
+  a pack elision removed a prediction-naming sentence but not the seam
+  text that steered the result — caught only at a later gate.
+
+**What v5 rules on only partly, and what it does not rule on at all —
+so silence is not mistaken for resolution.** (1) The QUIC churn under
+v4 — 16 items of cross-family v4 consensus against both v3 raters,
+nine of them PROCESS-ward ({11, 19, 29, 54, 55, 105, 261, 272}
+TYPESTATE→PROCESS, plus 81 CV→PROCESS), hedged in the completion
+report as rule 18's vocabulary "appearing to pull"; the v4-ical pass
+showed the pull does not travel to a genre without lifecycle content.
+v5 writes no narrowing of rule 18 — but rules 20 and 21 REACH into
+this cluster, and that reach is disclosed rather than left to be
+discovered: item 105 ("close the connection silently" on a no-state
+trigger) is a rule-20 reaction sentence whose trigger is a history
+predicate, so rule 20 licenses TYPESTATE against the v4 PROCESS
+consensus — an eliminable-ward recapture, carried by no prediction
+and bounded per pass by rule 23; items 11, 19, 261, and 272 (ignore
+frames/fields that do not increase a limit) are nonaction duties that
+rule 21 ENGAGES BUT DOES NOT DECIDE — their object is in-grammar
+while their trigger references current negotiated state, which falls
+between branch 1's context-free condition and branch 2's
+foreign-channel condition; they are left undecided by this amendment,
+and the v4 consensus reading (PROCESS) remains licensed. (2) The
+guard-mass residue {65, 123, 184}, still split between the v4 raters
+themselves with no crisp discriminator on offer. (3) The iCal
+{43, 79} pair — four foreign readings show a context-driven split
+with unstable polarity; that is a transport/context observation, not
+a codebook gap. (4) The paper's limitation-5/6 confounds
+(author-presence and roster bundling; corpus-shared training prior) —
+instrument text cannot repair them; a human-rater pass is the only
+probe on the docket.
+
+**Direction-of-effect disclosure, stated before any v5 rater exists —
+named items first, then rule-level reach.** Named items, on the
+convention (stated, not assumed) that movement is counted relative to
+each archived reading a prediction contradicts: the adjudications move
+no prediction-named item INTO the eliminable family except Z3 (RFC 9001 item 15 →
+TYPESTATE: +1 item ≈ +1.4 points on that corpus relative to a rater
+who would otherwise read PROCESS, siding with one archived reading in
+four), and move one item OUT relative to one archived reading — Z1
+(QUIC 63 → THRESHOLD) against Xq's TYPESTATE, −1 item ≈ −0.4 points
+on n = 281. The 191 half of Z4 lands non-eliminable against the
+author's own failed V2 prediction — the thesis-unfriendly direction
+(no archived rater ever read 191 as eliminable). Z2
+(TLS 67) and Z5 (iCal 192–194) are interior to the eliminable family
+in every archived reading. Rule-level reach, per the v4 precedent of
+disclosing direction per rule: rule 20's trigger-classifies convention,
+on a corpus dense in reaction sentences (QUIC), predictably moves
+conduct-read (PROCESS) items toward their triggers' classes, and where
+the trigger is a datum or history predicate that direction is
+eliminable-ward; rule 22's unit definition, on format corpora,
+predictably moves foreign-rater within-object TYPESTATE readings to
+DOMAIN — interior to the eliminable family, but the agreement gain it
+predicts is the instrument-friendly outcome and is named as such.
+Both reaches are bounded per pass by rule 23's registered clauses.
+v5 is an agreement repair, not a share release; share movement in a
+v5 pass beyond these statements is evidence of instrument mis-design,
+not a new result.
+
+**Precedence within v5 — one pipeline.** (i) Rule 19's guard: a
+time-windowed duty is REVOCABLE whatever its trigger. (ii) Rule 18's
+guard: a duty gating a NAMED packet/message class on a phase event is
+rule 18's territory; its worked example stands — RFC 9001's "A client
+MUST NOT attempt to decrypt 0-RTT packets it receives and instead MUST
+discard them." (iii) Rules 20 and 21 then select which clause of a
+reaction or nonaction sentence carries the classified content — rule
+20 for duties whose obliged response EMITS something or terminates
+the session (abort, close, respond-with-error), rule 21 for silent
+suppression (drop, ignore, do not act upon); a silent-suppression duty
+is never rule-20 territory, however its trigger reads. (iv) The
+selected content — and any sentence rules 20 and 21 do not capture —
+classifies under the v4 precedence (rule 19 before rule 16 before rule
+18) and the ordinary rules (decision rules 1 and 10, rules 13 and 17),
+with rule 22 fixing what "the datum" means wherever rules 10 and 16
+use it. Rules 23 and 24 are measurement-protocol rules and classify
+nothing. ("Decision rule 1" here and below is the census decision rule
+— cross-message consistency = TYPESTATE — not the classifying Rule 1
+above; the v4 text used both senses of "rule 1" and this amendment
+does not.)
+
+**Rule 20 — Reaction duties: the trigger's predicate classifies; the prescribed
+reaction is enforcement mechanics.** For sentences of the form "when/if
+C, MUST abort / close / reject / respond with error E" — reaction
+meaning the obliged response emits or terminates, per the pipeline's
+partition:
+
+- If C states a validity, bound, consistency, or history predicate on
+  protocol data, the classified content is C, under the ordinary rules
+  (rule 16 for bounds; decision rules 1/10 for cross-message versus
+  context-free). The reaction's form — which alert, which error code —
+  is enforcement mechanics and never classifies the item. This has
+  been the series' de facto convention since the first TLS pass (the
+  DOMAIN class is built largely of abort-on-invalid sentences); making
+  it explicit adjudicates the QUIC and TLS reaction splits (the third,
+  RFC 9001 item 15, falls to the bare-event branch below): a running
+  total against an expandable limit is rule 16's non-datum quantity
+  (THRESHOLD), however the close-duty is worded; the absence of a
+  required element in a prior flight is cross-message under decision
+  rule 1 (TYPESTATE), however rule 17's evidence-source note reads — a
+  response duty conditioned on prior-message state is decision-rule-1
+  territory directly and never needed rule 17's complement test.
+- If C is a bare message or signal event carrying no predicate of its
+  own (any alert, any close signal) and the reaction is termination or
+  non-continuation of the session, the duty is an event-gated
+  cessation discipline over all subsequent traffic — stated plainly as
+  an EXTENSION of rule 18's TYPESTATE branch to the unnamed universal
+  class, which rule 18's own text ("a named packet/message class")
+  does not reach by itself: **TYPESTATE**. A transcript observer
+  falsifies it by exhibiting post-event traffic beyond the closing
+  exchange the spec itself licenses (a CONNECTION_CLOSE and its
+  draining-period responses; a closure alert). Disclosed limit,
+  recorded at cut time: where the triggering event is locally
+  generated and never appears on the wire (a locally raised alert),
+  the trigger is off-transcript and rule 11's wire-falsifiability test
+  pulls toward PROCESS or U — this branch is the amendment's one
+  textually contested bridge, and Z3, the prediction that rests on it,
+  is weighted accordingly.
+
+**Rule 21 — Nonaction (ignore / do-not-act-upon / silent-discard) duties
+discriminate on the ignored object's arrival channel.** A nonaction
+duty suppresses silently — nothing is emitted and nothing terminates —
+so rule 20 does not apply; and the pipeline's guards (i)–(ii) have
+already claimed time-windowed duties and phase-gated discards. For the
+rest:
+
+- If the ignored object arrives on the protocol's own channel — an
+  element of the message grammar of the censused corpus's protocol
+  stack (an extension, a reserved field, a malformed or too-small
+  packet) — and the handling is fixed and context-free, the duty is
+  part of the receiver's parsing contract; a generated binding that
+  does not surface the element discharges it: **DOMAIN**, per rule
+  10's constant-whenever-applicable reading. Grammar membership is
+  judged by the arrival channel, not the element's validity: an
+  invalid element that arrives on the protocol's own channel is
+  in-grammar. For corpora that specify a composite stack (RFC 9001's
+  QUIC+TLS), any layer of that composite is "the protocol's own."
+- If the ignored object arrives from OUTSIDE the protocol stack the
+  corpus specifies (an ICMP message, an OS signal, out-of-band data),
+  the duty is filtering conduct guarding internal state, with no
+  predicate on the protocol's own transcript: **PROCESS**, per rule
+  13. A numeric bound inside the trigger does not make the filter
+  THRESHOLD — the compared quantity is a pure function of the foreign
+  datum (rule 16's litmus), and the datum is not protocol data. Where
+  the filter protects a floor the spec states elsewhere, that floor
+  classifies at its own corpus items, not here.
+
+An in-grammar nonaction duty whose HANDLING is history-conditioned
+(ignore exactly the frames that do not increase a negotiated limit)
+falls between these branches and is NOT decided by this rule — see the
+partial-ruling disclosure above.
+
+**Rule 22 — The datum's boundary is the designated serialization unit.**
+Wherever rule 10 asks whether a required value is context-free and
+rule 16 whether a quantity is "a pure function of the datum" (rule 17
+inherits rule 10's vocabulary), the datum is a complete unit that is
+serialized and transmitted as one value. Because layered protocols
+nest such units (frame / packet / datagram; handshake message /
+record / flight), the unit is DESIGNATED per corpus — in the pass
+registration for any future corpus (rule 24), and fixed now for the
+measured ones: iCalendar at the transmitted calendar object; TLS 1.3
+at the handshake message; QUIC and MLS at the packet/message their
+framing defines. Then:
+
+- A consistency requirement among parts of ONE designated unit,
+  however many fields or properties it relates and however conditional
+  its wording, is a refinement of the unit's type: **DOMAIN**. Litmus:
+  could a validator holding only this one unit — and neither
+  endpoint's history — check the requirement? Yes → DOMAIN.
+- **TYPESTATE** requires the relation to span the unit and a DIFFERENT
+  unit ordered in time, or negotiated state (decision rules 1/10).
+  Co-transmission does not merge units: two handshake messages of one
+  flight, or two records coalesced by the transport, remain distinct
+  units, so a relation between them stays cross-message (the archived
+  both-rater TYPESTATE reading of TLS's
+  CertificateVerify-to-Certificate compatibility duty is preserved,
+  not flipped).
+- A constraint that relates distinct co-transmitted units with no time
+  ordering and no negotiated state — QUIC's
+  no-coalescing-across-connection-IDs rule — is a constraint on the
+  carrying envelope's composition; the envelope is the datum for that
+  item, and the constraint is DOMAIN-eligible.
+
+This is the within-object shadow of decision rule 1's cross-message
+consistency: the format genre presents as properties-in-one-object
+what protocols present as fields-across-messages, and only the latter
+needs state.
+
+**Rule 23 — No-regression, redesigned: item-scoped departures replace
+class-count bands.** For every v5 pass, the pre-pass protocol registers
+and the report grades:
+
+- (a) unchanged from V7(a): on the outside set (items no prediction
+  names), the per-item match rate against the archived anchor raters
+  (match = equals either anchor's label) must meet or exceed the
+  anchor pair's own archived agreement — the clause design that
+  passed in all twelve registered-pass applications. The anchor pair
+  is NAMED in the registration; the default is the most recent
+  archived full pair under the instrument version nearest to v5, and
+  a registration that departs from the default carries its reason.
+- (b) the count of outside-set items whose v5 label departs from BOTH
+  anchors must not exceed a bound registered per corpus, as an
+  achievable integer count, in that pass's protocol — never computed
+  at grading time, and no greater than the corresponding measured
+  both-anchor departure count from the most recent archived cross-pass
+  comparison for that corpus (absent one, the registration carries a
+  written justification for the number it picks).
+- (c) the full both-anchor departure list and per-class deltas are
+  published with explicit zeros — reported, not graded.
+
+Class-count band clauses are retired for v5-series passes: measured
+FAIL in all eight v4 grades, for structural reasons the grades
+document, with a live strict/loose wording fork. The v4 grades stand
+as recorded; retirement is prospective only.
+
+**Rule 24 — Registration hygiene, codified from measured defects.** Every v5
+pass registration MUST include: a pack-versus-corpus settlement sweep
+(the n-gram procedure of `census/quic-replication/`), archived in the
+protocol; an elision audit with a MECHANICAL downgrade trigger — a
+prediction is downgraded to a comprehension check AT REGISTRATION, not
+at grading, when (a) the served pack shares any ≥4-gram
+(case/punctuation-normalized) with the predicted item's corpus text,
+OR (b) the pack anywhere contains the item's distinctive identifier or
+numeric constant, OR (c) the sweep's reviewer flags a paraphrase — the
+per-prediction hit list is archived in the registration and residual
+judgment resolves toward downgrade (the V8 defect, discounted after
+the fact in both its protocol and its report, met trigger (b) and
+would have been caught at registration); prediction bounds stated inclusively and restated as
+achievable integer counts (the N2 and V7 lessons); and the rater
+models named in advance, a differing serving model being a protocol
+event (practiced since the iCal census; now required).
+
+## Pre-registered v5 resolution predictions (committed before any v5 pack or rater exists)
+
+Graded at the first commissioned v5 pass for the relevant corpus;
+later v5 passes report concordance but do not regrade. Numbering
+namespace Z1–Z7. Settlement disclosure, stated at cut time per rule
+24's own standard, and stronger than V8's: the settling text here is
+the RULE BODY itself — rules 20–22 adjudicate Z1–Z5's items in-text,
+some near-verbatim (the running-total close duty, the
+prior-flight-absence abort, ICMP filtering, alert fatality, the
+DTSTART value-type duty) — so no elision can restore discrimination,
+and all five Z1–Z5 grades are comprehension checks BY CONSTRUCTION:
+they test whether an adjudication transmits, not whether a
+discriminator discriminates. The amendment's discriminating tests are
+Z6, Z7, and rule 23's clauses.
+
+- **Z1 (rule 20, QUIC):** item 63 lands THRESHOLD in every v5 rater
+  (the trigger is a running total against an expandable limit).
+- **Z2 (rule 20 + decision rule 1, TLS):** item 67 lands TYPESTATE in
+  every v5 rater.
+- **Z3 (rule 20 bare-event branch, RFC 9001):** item 15 lands
+  TYPESTATE in every v5 rater — a prediction siding with ONE of four
+  archived readings, resting on the amendment's one textually
+  contested bridge (rule 20's disclosed limit); a Z3 failure grades
+  that bridge first.
+- **Z4 (rule 21, QUIC + TLS — a conjunction of two absolute label
+  claims):** QUIC 191 lands PROCESS AND TLS 156 lands DOMAIN in every
+  v5 rater; Z4 fails if either conjunct fails in any rater.
+- **Z5 (rule 22, iCal):** items 192, 193, and 194 all land DOMAIN in
+  every v5 rater.
+- **Z6 (rules 21/13 stability, QUIC):** items 192 and 193 land PROCESS
+  in every v5 rater. (Unanimous in the four most recent archived
+  raters; partially steered — rule 21's body names ICMP — and still
+  falsifiable rater-by-rater. Item 193 is rule 21's nonaction form;
+  item 192, a positive validation duty, rides rule 13.)
+- **Z7 (rule 20 stability, QUIC — the integer form of "the
+  abort-on-invalid DOMAIN mass does not move"):** of the 49 items both
+  replication raters (Aq and Xq, the most recent archived v3 pair)
+  labeled DOMAIN, at least 42 land DOMAIN in each v5 rater — at most 7
+  disagreements per rater, 7 being the largest of the four archived
+  raters' symmetric disagreement counts with that set (Xv4 7, A″ 3,
+  Av4 2, B″ 0; the v4 pass predates the replication that defines the
+  set, so these are disagreement counts, not observed drift).
+
+**Failure interpretation, pre-committed:** these predictions grade the
+rule texts written above, nothing else. A failed prediction licenses NO
+re-rating under reworded rules within v5, NO retroactive relabeling of
+any archived pass, and NO substitution of a v5 number for any earlier
+series' figure. Predicted headline drift attributable to the named
+items, restated from the direction disclosure: at most +1 eliminable
+item on RFC 9001 (Z3) and at most −1 on QUIC (Z1, relative to a
+TYPESTATE-reading rater); zero elsewhere among prediction-named items
+(item 105's licensed movement is rule-level reach, counted under rule
+23, not here); the rule-level reaches disclosed above are bounded per
+pass by rule 23's registered clauses. Movement beyond these statements is instrument
+mis-design — that verdict, not a new headline, would be the result.
