@@ -510,7 +510,8 @@ before any rater. Full protocol and report:
 frozen-instrument protocol span — with raw agreement 97.3%, the
 highest between any two raters in
 this repository (cross-family, n = 225; the prior record was 96.7% on
-RFC 9002's 30 items; the corpus-shared-prior caveat of limitation 6
+RFC 9002's 30 items; later tied exactly by the corpus's own v4
+re-rating, §6.1; the corpus-shared-prior caveat of limitation 6
 applies at full force to agreement this high, per the census
 report).** The composition carries the reading: DOMAIN
 alone is ~87% of the corpus; TYPESTATE, the largest class of TLS,
@@ -833,7 +834,16 @@ agreement (97.3%, cross-family) — the crisp-discriminator law's
 cheapest extreme, with the shared-prior and rater-model caveats stated
 in §4.8 — while its N4 determinism probe recorded the series' first
 identical-text label split, by the foreign rater across chunk
-contexts.
+contexts. A pre-registered v4 re-rating of the same corpus with the
+same rater models (`census/v4-ical/`) then ran the amendment's null
+test: departures from both archived v3 labels were 1 and 3 in 225,
+THRESHOLD and REVOCABLE stayed exactly zero, and the owed
+PROCESS-churn lists were empty in both directions for both raters —
+rules 16, 19, and 18 are inert where their boundaries do not occur,
+and rule 18's QUIC cost did not travel to a genre without lifecycle
+content. Its pair agreement tied the v3 record at 97.3%; its one
+failed prediction reproduced the v3 foreign rater's identical-text
+split on the same group, polarity reversed.
 
 ## 7. Related work
 
