@@ -521,8 +521,8 @@ only both-rater TYPESTATE item is a delegation-inheritance duty, the
 remnant of ordering. THRESHOLD, REVOCABLE, CV, and NEG are all
 **zero in both raters** (CV = NEG = 0 was the pre-registered
 falsifiability prediction, N3) — and the zero THRESHOLD is itself a
-result: the spec-fixed-constant edge that produced a THRESHOLD
-symmetric difference of 15 on QUIC did not fire at all here — 45
+result: the spec-fixed-constant edge behind ten of QUIC's fifteen-item
+THRESHOLD symmetric difference did not fire at all here — 45
 cardinality duties ("MUST NOT occur more than once") went DOMAIN
 unanimously in both raters (same instrument, different rater models;
 the confound is named in the protocol). Prediction grades, per the

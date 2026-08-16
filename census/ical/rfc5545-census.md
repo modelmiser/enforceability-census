@@ -126,7 +126,13 @@ re-rating, exclusion, rewording, or quote discretion.
    is a MAY-permission, and was adopted here without independent
    recomputation. All 45 are DOMAIN in both raters (as are items 108
    and 211, the two loose-phrase extras), so the unanimity verdict is
-   unchanged.] On
+   unchanged.]
+   [CORRECTION 2026-08-15, found at the v4-ical protocol gate: "spec-fixed
+   constants produced a THRESHOLD symmetric difference of 15" overattributes
+   — per the QUIC census's own Q4, ten of the fifteen sit on spec-fixed
+   constants; the others track peer-advertised numbers and relative-size
+   bounds. The contrast drawn here (that edge fired on QUIC and not on
+   this genre) stands on the ten.] On
    QUIC, spec-fixed constants produced a THRESHOLD symmetric difference
    of 15 under this same v3 instrument; on the format genre the same
    instrument shows none of that wobble — counts and bounds on the
