@@ -141,7 +141,7 @@ vendored:
    measured cost (QUIC) next to its gains.
 9. ~~A NON-protocol corpus~~ — DONE 2026-08-15 (`census/ical/`): RFC
    5545 §3 at 88.0/88.4%, above every protocol span; PAPER integration
-   pending. A HUMAN-rater replication
+   DONE 2026-08-15 (§4.8). A HUMAN-rater replication
    remains the only probe that reaches the corpus-shared-prior half of
    limitation 6; the v5 amendment is now CUT — 2026-08-15,
    `codebook/classes.md` rules 20–24 with pre-registered predictions
@@ -161,8 +161,17 @@ vendored:
    incl. Z3's contested bridge and Z4-overall, while rule 23 caught
    an undisclosed eliminable-ward reach of rule 21 on the format
    genre: iCal failed all four clauses, the pre-committed mis-design
-   verdict; a v6 owes rule 21's branch-1 scope boundary); the v5
-   PAPER integration is pending; the v4-ical null test
+   verdict); the v5 PAPER integration is DONE — 2026-08-16, PAPER.md
+   §6.2 ("The cycle closes"); the v6 amendment is now CUT —
+   2026-08-16, `codebook/classes.md` rule 25 with pre-registered
+   predictions J1–J6 — drawing the boundary the conviction owed
+   (recognition predicates are receiver-relative; branch 1 requires
+   a unit-local trigger), with the mixed-evidence sibling shapes
+   declined and recorded, J4 (iCal 62/150 → DOMAIN, siding with two
+   readings against four) as the contested edge, and integer
+   leakage floors J5/J6 measured against the pre-conviction anchor
+   pairs; NO v6 rating pass has run — it is a deliberate follow-on
+   arc, unqueued; the v4-ical null test
    is DONE (THRESHOLD stayed exactly 0 under v4; rule 18's churn did
    not travel) — the genre-vs-model question (properly genre-vs-roster-bundle) about
    QUIC's wobble is now ANSWERED (`census/quic-replication/`): the
