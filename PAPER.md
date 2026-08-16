@@ -95,8 +95,10 @@ prediction's count-bound half failed in all eight rater-corpus grades
 rules moving items beyond their named sets (a repair rule acts on a
 boundary, not an item list) — while its match-rate half passed in all
 eight; two predictions failed on precisely their hardest items; and
-QUIC's agreement declined (84.0% vs 85.1%) — v4's measured cost,
-reported next to its gains. All v4 shares are a new, version-labeled series
+QUIC's agreement declined (84.0% vs 85.1%) — recorded as v4's
+measured cost, and since decomposed by a registered cross-roster
+replication into a −3.2-point roster effect and a +2.1-point
+instrument recovery on that roster-shape (§6.1). All v4 shares are a new, version-labeled series
 (TLS lands at 81.9%/82.8%, inside the closed v3 band); the v3
 headlines stand unchanged. The numbers are the smaller half of the
 contribution. The larger half is the method that survived its own failures:
@@ -818,7 +820,11 @@ What the eight passes measured:
    boundary: rule 18's lifecycle vocabulary appears to pull procedure
    readings beyond key/phase contexts, and the same-family v4 share
    (63.7%) fell below the v3 band. An instrument version now has its
-   gains and its price as numbers, side by side.
+   gains and its price as numbers, side by side. [Since decomposed:
+   the cross-roster replication below re-measured QUIC under v3 with
+   the new roster-shape at 81.9%, so the 85.1 → 84.0 drop splits into
+   a −3.2-point roster effect and a +2.1-point instrument recovery,
+   with the replication's three caveats.]
 
 The v4 shares (new series, never mixed with v3): TLS 81.9%/82.8% —
 inside the closed v3 band, one rater at its exact upper endpoint; MLS
@@ -844,6 +850,24 @@ and rule 18's QUIC cost did not travel to a genre without lifecycle
 content. Its pair agreement tied the v3 record at 97.3%; its one
 failed prediction reproduced the v3 foreign rater's identical-text
 split on the same group, polarity reversed.
+
+A second registered replication (`census/quic-replication/`) then
+re-rated QUIC under the frozen v3 instrument with the same
+roster(-shape), completing three cells of an instrument × roster grid:
+the THRESHOLD wobble reproduced at symmetric difference 14 (old pair:
+15), with the role-ordered side assignment flipping item-for-item on
+eight of the ten spec-fixed constants and the fresh same-family rater landing
+THRESHOLD in both passes — persistence across a complete roster change
+that marks decision rule 3's gap as an instrument defect, the
+strongest evidence yet for rule 16's repair target. Its one failed
+prediction fell low (pair agreement 81.9%, the worst measured cell),
+which decomposes the v3-old → v4-new drop (85.1% → 84.0%) into a
+−3.2-point roster effect and a +2.1-point instrument recovery — v4's
+QUIC "cost" (finding 4 above) reframed, under the replication's three
+caveats (an unrecorded v4 same-family model name; a roster bundle of
+era, composition, and author-presence; single-cell stochasticity) and
+with its error-sign stated in the report: the reframe exists only
+because the pass's sole failed prediction failed low.
 
 ## 7. Related work
 
@@ -984,8 +1008,10 @@ with no systematic degradation in agreement (§6). The instrument's
 measured edges were then repaired as v4 and graded under
 pre-registration (§6.1): the repair transmitted best exactly where its
 new discriminator was crispest (RFC 9001, 76.8% → 94.2% cross-family,
-with limitation 5's rater-composition caveat) and cost agreement where
-its vocabulary overreached (QUIC, 85.1% → 84.0%), with every v3 number
+with limitation 5's rater-composition caveat) and appeared to cost agreement where
+its vocabulary overreached (QUIC, 85.1% → 84.0% — since decomposed
+into a roster effect and an instrument recovery, §6.1), with every v3
+number
 ring-fenced and the v4 shares a separate, version-labeled series.
 We still resist summing these into one cross-corpus law: the first three
 corpora were classified by different methods (rule 8 makes such

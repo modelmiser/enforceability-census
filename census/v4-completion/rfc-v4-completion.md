@@ -108,6 +108,15 @@ NO rewording within v4, and NO change to any v3 number.
    there were no net gains. Recorded as v4's measured cost, alongside
    its measured gains (findings 1 and 5).
 
+   [POINTER 2026-08-15: a later registered cross-roster replication
+   (`census/quic-replication/`) measured QUIC under v3 with this
+   pass's roster-shape at 81.9% raw — below this pass's 84.0% — so
+   the 85.1→84.0 comparison above bundles a roster change with the
+   instrument change; on the roster-shape assumption the instrument
+   term is a +2.1-point recovery, not a cost. This report's numbers
+   and grades are unchanged; see the replication's report for the
+   decomposition and its caveats.]
+
 5. **Across the completion, cross-family consensus against BOTH v3
    raters is rare outside QUIC — on the V7 outside sets**: 2 items on
    MLS (17: U→PROCESS; 42: TYPESTATE→THRESHOLD), 1 on RFC 9001 (33:
