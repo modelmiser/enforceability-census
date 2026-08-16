@@ -82,7 +82,8 @@ measured edges, with itemized predictions V1–V8 committed before any v4
 rater existed and every v3 number ring-fenced. Eight blind rating
 passes — a same-family and a foreign rater per corpus — graded them
 all: the key-lifecycle repair took RFC 9001, the band-breaking corpus,
-to the series' best cross-family agreement (94.2%, from 76.8%); TLS's
+to what was then the series' best cross-family agreement (94.2%, from
+76.8%; the same corpus's v5 pair later reached 95.7%, §6.2); TLS's
 two v4 raters agreed at 92.2% raw, above every prior pair on that
 corpus; and the amendment's disclosed most counterintuitive prediction
 — flipping decision rule 3's own worked example and emptying TLS's v3
