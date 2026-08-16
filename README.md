@@ -191,7 +191,8 @@ vendored:
    identification survives obfuscation (95/98%) and so does every
    graded label — measured proof that only a non-LLM rater reaches
    limitation 6's shared-prior confound; its one-paragraph paper
-   touch (limitation 6) is pending; the v4-ical null test
+   touch is DONE (2026-08-16 — limitation 6 now carries the
+   measurement and the appendix its row); the v4-ical null test
    is DONE (THRESHOLD stayed exactly 0 under v4; rule 18's churn did
    not travel) — the genre-vs-model question (properly genre-vs-roster-bundle) about
    QUIC's wobble is now ANSWERED (`census/quic-replication/`): the
