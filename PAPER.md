@@ -1,7 +1,7 @@
 # A Census of Enforceability: Measuring What Fraction of Stated Runtime Obligations a Type System Could Discharge
 
 **Repo-native paper · 2026-08-13, extended 2026-08-14 (v4 series, §6.1), 2026-08-15 (the
-non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3) · artifact of record: this repository.**
+non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obfuscation probe, limitation 6) · artifact of record: this repository.**
 No venue submission is planned; the repository, its commit history, and the
 census artifacts it cites are the citable object.
 
@@ -1206,13 +1206,37 @@ not a proof of novelty.
    CV-set item keeping its CV label in both. The *corpus-shared-prior* half — every frontier LLM
    trained on these RFCs and on prose about them — is unaddressable by
    any LLM replication from any family: a shared reading learned from the
-   corpus would reproduce these same agreements. Only a non-LLM rater
-   reaches it; the parked human replication is that probe, and it has not
-   been run. The v4, iCalendar, and v5 passes, LLM raters all, inherit
+   corpus would reproduce these same agreements. That unaddressability
+   is now measured rather than argued: a registered obfuscation probe
+   (`census/obfuscation/` — a probe of this caveat's memorization
+   component, not a census; its
+   numbers join no series) reversibly nonce-substituted the iCalendar
+   corpus's memorizable identity — 90 tokens (the scheduling-domain
+   nouns among them) and both extension stems — and its pre-committed
+   manipulation check
+   FAILED in both arms: fresh agents identified RFC 5545 from what
+   obfuscation left (among it the content-line grammar, the recurrence
+   architecture, the constraint shapes, the leap-second and escaping
+   rules, and the retained sibling-citation set) at 95% and 98% stated
+   confidence. By the registration's own downgrade clause that
+   identification re-admits memorized readings for the graded cells
+   that followed — both blind raters under the frozen v6 pack matched
+   the v6 pair's original-corpus labels at 224/225 each and paired at
+   222/225, so identifier removal cost approximately nothing, but
+   under an
+   identified corpus that stability cannot be credited to shape
+   alone. The probe's measured lesson is this caveat's: a
+   specification's identity survives lexical obfuscation in its
+   structure and disclosed residuals, so no LLM-side design isolates
+   the memorization
+   channel. Only a non-LLM rater
+   reaches it; the parked human replication is that non-LLM probe —
+   its sole-route status now measured rather than argued — and it has
+   not been run. The v4, iCalendar, and v5 passes, LLM raters all, inherit
    this caveat whole — including their record agreements (§6.1, §4.8,
    §6.2), and the v6 pass (§6.3) inherits it at full force: the
-   higher the agreement, the harder this caveat bites, and the 98.7%
-   record pair carries it undiluted. Shared priors remain a residual
+   higher the agreement, the harder this caveat bites, and the v6
+   pair's 98.7% record carries it undiluted. Shared priors remain a residual
    common-cause risk that blindness does not remove.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
    disagreement labels survive (plus agreement on the other 184); B's
@@ -1339,3 +1363,4 @@ crisply, you will re-litigate at runtime.
 | `census/v5-completion/` | v5 completion over TLS/RFC 9001/iCal: registration with the three-way steer taxonomy, six blind passes, archived labels, grades of Z2/Z3/Z5/Z4-overall and the iCalendar mis-design verdict |
 | `codebook/rater-pack-v6.md` | the verbatim v6 rating instrument (blob `f4f9e0b…` — v5 pack + rule 25, seven disclosed elisions) |
 | `census/v6-pass/` | first v6 pass over iCal/TLS/QUIC: registration with the verbatim trigger-(c) ruling and the zero-departure iCalendar bound, six blind passes, archived labels, grades of J1–J6 and rule 23 per corpus — the zero-departure conviction-corpus sheet, the 98.7% record pair, and the two standing failures |
+| `census/obfuscation/` | registered probe of limitation 6's memorization component: seeded reversible obfuscation of the iCalendar corpus (shipped script + full map), two-arm manipulation check FAILED — RFC 5545 identified at 95/98% from what obfuscation left — clauses O2–O4 with both raters' archived labels — the measurement behind limitation 6's only-a-non-LLM-rater sentence |
