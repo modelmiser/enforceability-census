@@ -184,7 +184,8 @@ vendored:
    (guard-bucket + declined-item churn; the FAIL stands as graded);
    v7 docket (deliberate, unqueued): the 150 precision-trigger
    wording, and the mode-conditioned pair's consistent PROCESS-ward
-   reversion (TLS 64, QUIC 232); v6 paper integration pending; the v4-ical null test
+   reversion (TLS 64, QUIC 232); the v6 PAPER integration is DONE —
+   2026-08-16, PAPER.md §6.3 ("The verdict answered"); the v4-ical null test
    is DONE (THRESHOLD stayed exactly 0 under v4; rule 18's churn did
    not travel) — the genre-vs-model question (properly genre-vs-roster-bundle) about
    QUIC's wobble is now ANSWERED (`census/quic-replication/`): the
