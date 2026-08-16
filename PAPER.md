@@ -1,6 +1,6 @@
 # A Census of Enforceability: Measuring What Fraction of Stated Runtime Obligations a Type System Could Discharge
 
-**Repo-native paper · 2026-08-13, extended 2026-08-14 (v4 series, §6.1) · artifact of record: this repository.**
+**Repo-native paper · 2026-08-13, extended 2026-08-14 (v4 series, §6.1) and 2026-08-15 (the non-protocol corpus, §4.8) · artifact of record: this repository.**
 No venue submission is planned; the repository, its commit history, and the
 census artifacts it cites are the citable object.
 
@@ -13,10 +13,11 @@ classes — those a type system could discharge (DOMAIN, TYPESTATE) and those
 it cannot (THRESHOLD, whose constant is a policy choice with no fact of the
 matter for a type to certify, and REVOCABLE, whose truth needs a clock),
 plus classes forced by cryptographic protocols (CRYPTO-VERIFY,
-NEGOTIATION) — and report the mix. Across seven corpora from three
+NEGOTIATION) — and report the mix. Across eight corpora from four
 different settings — an operations-monitoring rule base, a windowing
-protocol, and the specifications of three cryptographic/transport
-protocols including QUIC's complete three-document family — we find: a monitoring-layer
+protocol, the specifications of three cryptographic/transport
+protocols including QUIC's complete three-document family, and a
+calendar data format — we find: a monitoring-layer
 corpus (1,155 Prometheus alert rules) is 78% threshold, in a query
 language whose grammar cannot express typestate — its TYPESTATE count of 0
 is a design invariant of PromQL, not a census measurement (§4.1); Wayland's declared protocol errors are
@@ -52,7 +53,21 @@ otherwise overclaim: the "crypto document" is NOT crypto-dense (CV
 1.4%/2.9% — its verification lives in non-normative prose the census
 cannot see, censoring INSIDE a document), and RFC 9001 produced the
 series' first below-band inter-rater agreement (76.8%), concentrated on
-the PROCESS/TYPESTATE key-lifecycle boundary. Finally, a cross-family
+the PROCESS/TYPESTATE key-lifecycle boundary. An eighth census (§4.8,
+run last, under the same frozen instrument — the first census to
+pre-register its full rater roster, same-family model name included)
+took the frozen-instrument series outside the protocol
+genre: the core object specification of RFC 5545 (iCalendar, 225
+MUST/SHALL sentences) is **88.0%/88.4% type-eliminable in shape** —
+above every frozen-instrument protocol span — with DOMAIN alone ~87%
+of the corpus,
+TYPESTATE (the largest class of the TLS, QUIC, and RFC 9001 spans)
+collapsed to 1
+and 4 items, and cross-family raw agreement of 97.3%, the repository's
+highest; the author's pre-registered band missed the foreign rater by
+exactly one item, and the genre's censoring (a sibling scheduling
+protocol; obligations stated as grammar rather than MUSTs) is
+pre-registered in the census. A cross-family
 replication (§6) re-rated the TLS corpus blind under the same frozen
 instrument with two foreign frontier model families: the author's
 pre-registered degradation model failed — one foreign rater agreed with a
@@ -466,7 +481,62 @@ the pooling caveat stated in the synthesis before the number: **≈61–65%
 of QUIC's stated normative surface is type-eliminable in shape**, ~4–6
 points below the transport document's own figure.
 
-### 4.8 What does *not* survive across corpora
+### 4.8 A data format under the frozen instrument: RFC 5545 (iCalendar, n = 225)
+
+Run 2026-08-15, after the v4 cycle of §6.1, as the frozen-instrument
+series' first
+NON-protocol corpus — every prior span is protocol or monitoring prose,
+so the spectrum reading had never been tested across a genre change.
+Selection was by pre-fixed criteria (non-protocol; standards-track
+RFC 2119 genre; largest normative surface) over eight counted RFC
+candidates plus a ninth counted-and-excluded non-RFC draft, and the counting itself produced a finding: **data-format
+RFCs are normatively thin** — URI syntax (RFC 3986) contains literally
+zero MUST/SHALL lines; format documents state their obligations as
+grammar a MUST census cannot see. RFC 5545 is the usable outlier
+because it writes obligations *into* its grammar as ABNF comments, and
+its corpus needed three disclosed mechanical recipe refinements
+(depagination of a pre-2019 RFC; an ABNF-comment paragraph stream; and
+exclusion of example data, after the pre-push gate found a sample
+calendar entry whose free text — "Phoenix design team MUST attend this
+meeting" — had been extracted as a classifiable obligation). The full
+rater roster was pre-registered — same-family model name included, a
+first for the series (a fresh same-family
+instance and Grok 4.6; no author rater) — and predictions N1–N6 pushed
+before any rater. Full protocol and report:
+[`census/ical/`](census/ical/README.md),
+[`census/ical/rfc5545-census.md`](census/ical/rfc5545-census.md).
+
+**Result: 88.0%/88.4% type-eliminable in shape — above every
+frozen-instrument protocol span — with raw agreement 97.3%, the
+highest between any two raters in
+this repository (cross-family, n = 225; the prior record was 96.7% on
+RFC 9002's 30 items; the corpus-shared-prior caveat of limitation 6
+applies at full force to agreement this high, per the census
+report).** The composition carries the reading: DOMAIN
+alone is ~87% of the corpus; TYPESTATE, the largest class of TLS,
+QUIC, and RFC 9001, collapses to 1 (same-family) and 4 (foreign)
+items — this span states no counterparty duties, part genre and part
+document boundary (its scheduling counterpart lives in iTIP), and the
+only both-rater TYPESTATE item is a delegation-inheritance duty, the
+remnant of ordering. THRESHOLD, REVOCABLE, CV, and NEG are all
+**zero in both raters** (CV = NEG = 0 was the pre-registered
+falsifiability prediction, N3) — and the zero THRESHOLD is itself a
+result: the spec-fixed-constant edge that produced a THRESHOLD
+symmetric difference of 15 on QUIC did not fire at all here — 45
+cardinality duties ("MUST NOT occur more than once") went DOMAIN
+unanimously in both raters (same instrument, different rater models;
+the confound is named in the protocol). Prediction grades, per the
+frozen wording: N1/N3/N5/N6 passed in both raters; **N2 failed in the
+foreign rater by exactly one item** (88.4% against an inclusive
+[72%, 88%] band, while the same-family rater landed exactly on the
+endpoint); **N4 — a determinism probe over 14 groups of
+verbatim-duplicate texts — failed in the foreign rater** with one
+identical-text pair split across chunk contexts (the same-family rater
+was 14/14 deterministic). Two censoring caveats are pre-registered and
+bound the genre claim: the scheduling protocol (iTIP) is a separate
+document, and grammar-stated obligations are invisible to this census.
+
+### 4.9 What does *not* survive across corpora
 
 An early cross-layer claim — "the class mix is a property of the layer" —
 was **retracted the day it was written** and the retraction is preserved in
@@ -477,9 +547,12 @@ pointed in the direction of the thesis — the diagnostic signature of a
 classifier tuned by its author's expectations. What survives is the
 per-corpus numbers above, each named with its layer and its censoring —
 plus the one cross-corpus artifact built to survive: the frozen-instrument
-comparison set (TLS–MLS–QUIC and QUIC's document family, §4.5–§4.7),
+comparison set (TLS–MLS–QUIC, QUIC's document family, and the
+iCalendar corpus, §4.4–§4.8),
 which is admissible precisely because those spans were rated under a
-single frozen instrument instead of being read across methods.
+single frozen instrument instead of being read across methods (with
+the iCalendar point rater-model-unmatched to the rest, per its
+protocol).
 
 ## 5. The retraction as method: error-sign analysis
 
@@ -702,8 +775,9 @@ What the eight passes measured:
    the part that isolates the rule.) The
    TLS corpus set its own record: Av4-vs-Xv4 raw 92.2% /
    eliminable-vs-not 96.1%, a cross-family pair above every v3 pair on
-   that corpus (the repository-wide record remains RFC 9002's 96.7% on
-   its 30-item corpus). MLS rose to 88.2% (v3: 85.0%). And both v4 TLS
+   that corpus (RFC 9002's 96.7% on its 30-item corpus was then the
+   repository-wide record — since surpassed by the iCalendar pair's
+   97.3%, §4.8). MLS rose to 88.2% (v3: 85.0%). And both v4 TLS
    raters kept the CV class at exactly the same six items — the six CV
    items have now drawn CV labels from eight TLS raters, exactly six in
    seven of them (G extends the class by three, §6; B's exactness by
@@ -752,6 +826,15 @@ spectrum's shape is unchanged. Two items the amendment carved out
 without prediction (QUIC 63 and RFC 9001 item 15) split between the v4
 raters and remain unruled.
 
+One later data point joins the transmissibility record: the iCalendar
+census (§4.8), run after this cycle under the frozen v3 instrument,
+paired an ~87%-DOMAIN corpus with the repository's highest raw
+agreement (97.3%, cross-family) — the crisp-discriminator law's
+cheapest extreme, with the shared-prior and rater-model caveats stated
+in §4.8 — while its N4 determinism probe recorded the series' first
+identical-text label split, by the foreign rater across chunk
+contexts.
+
 ## 7. Related work
 
 FSM-*extraction* from RFCs is a mature genre — RFCNLP / attack synthesis
@@ -784,23 +867,30 @@ not a proof of novelty.
    in shape" claims a discharging type *exists*, not that deploying it is
    practical; the versioned-enum limit shows even DOMAIN has deployment
    bounds.
-3. **One span per document; five spans under one instrument.** Wayland
+3. **One span per document; six spans under one instrument.** Wayland
    is one protocol; TLS 1.3 §4, RFC 9420 §5–§15, RFC 9000 §2–§19,
-   RFC 9001 §4–§8, and RFC 9002 §5–§7 are each one span of one RFC. Five
-   frozen-instrument spans (three protocols, one of them a complete
-   document family) support "consistent with a spectrum" and the
+   RFC 9001 §4–§8, RFC 9002 §5–§7, and RFC 5545 §3 are each one span of
+   one RFC. Six
+   frozen-instrument spans (three protocols — one a complete
+   document family — and a data format) support "consistent with a
+   spectrum" and the
    family-scoped role observation — not a distribution and not a
    mechanism. The spans cover their documents unequally: MLS ~92%
    (132/144 MUST/SHALL-bearing lines), QUIC transport ~94% (280/298),
-   RFC 9002 ~97% (33/34), RFC 9001 ~86% (70/81), TLS §4 ~66% (217/330) —
+   RFC 9002 ~97% (33/34), RFC 9001 ~86% (70/81), iCalendar §3 ~95%
+   (233/246), TLS §4 ~66% (217/330) —
    RFC 8446 states key-schedule and record-layer procedure as MUSTs
    *outside* its censused span — so every comparison is between censused
    surfaces, not whole protocols (the QUIC family, taken together, is
    the one near-whole-protocol view, and its pooled figure carries its
    own caveat in the synthesis).
 4. **Sentence-level extraction.** Compound sentences count once; n = 204,
-   127, 281, 69, and 30 are sentence counts, not obligation counts;
-   SHOULD-level text is absent by design. The MLS census surfaced this limit's sharpest
+   127, 281, 69, 30, and 225 are sentence counts, not obligation counts;
+   SHOULD-level text is absent by design. The iCalendar corpus adds the
+   inverse defect: 14 sentence texts recur verbatim (48 surplus items)
+   with different referents, so identical-text items carry distinct
+   obligations — both arithmetics (per-item and unique-text) are quoted
+   in that census. The MLS census surfaced this limit's sharpest
    form: one corpus sentence carries an antecedent-less "it", and the
    author-rater resolved it from the RFC source — an instrument
    deviation, since the pack says classify on the sentence's own text,
@@ -814,7 +904,8 @@ not a proof of novelty.
    re-rated spans pair at TLS 92.2%, MLS 88.2%, QUIC 84.0%, RFC 9001
    94.2% — the error bar moves with the instrument version, though the
    v4 pairs also swap the author rater for a fresh instance, two
-   variables at once; §6.1), 15 TLS items
+   variables at once; §6.1; the iCalendar pair, v3 instrument with
+   later rater models, sits at 97.3% — §4.8), 15 TLS items
    with fresh-rater consensus against the original labels, guard-boundary
    judgments that flip between competent raters. Every headline in this paper is quoted at the granularity that
    survives that error bar.
@@ -829,7 +920,13 @@ not a proof of novelty.
    other raters, the tallies, and the authors' expectations; raters A
    (TLS), A′ (MLS), A″ (QUIC), and A‴ (RFC 9001) are the census author
    and are *not* blind to authorial context (the 15-item consensus
-   finding and MLS event E1 are the measured consequences). RFC 9002 has
+   finding and MLS event E1 are the measured consequences). The
+   iCalendar census (§4.8) has no author rater — a fresh same-family
+   rater Ai and a foreign rater Xi, and it is the first census to
+   pre-register its full rater roster including the same-family model
+   name (earlier protocols pre-named only the foreign models), making
+   the rater-model confound on cross-census comparisons explicit rather
+   than silent. RFC 9002 has
    NO author rater — its intended author pass was abandoned after the
    author saw the first blind rater's labels (deviation disclosed in its
    report) — so its two raters are both blind same-family instances and
@@ -846,8 +943,8 @@ not a proof of novelty.
    any LLM replication from any family: a shared reading learned from the
    corpus would reproduce these same agreements. Only a non-LLM rater
    reaches it; the parked human replication is that probe, and it has not
-   been run. The v4 passes, LLM raters all, inherit this caveat whole —
-   including their record agreements (§6.1). Shared priors remain a residual common-cause risk that
+   been run. The v4 and iCalendar passes, LLM raters all, inherit this
+   caveat whole — including their record agreements (§6.1, §4.8). Shared priors remain a residual common-cause risk that
    blindness does not remove.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
    disagreement labels survive (plus agreement on the other 184); B's
@@ -858,16 +955,19 @@ not a proof of novelty.
 
 ## 9. Conclusion
 
-Seven corpora, one codebook: a monitoring rule base that is three-quarters
+Eight corpora, one codebook: a monitoring rule base that is three-quarters
 policy thresholds and structurally cannot contain typestate; a windowing
 protocol whose client-facing declared errors are 87.6% type-eliminable in
 shape; a cryptographic handshake whose normative surface is 80–83%
 type-eliminable, with a secret-dependent core of 2.9% that every
 same-family rater's recorded labels agree on item-for-item (all three
-foreign raters ever run kept the six CV items; one extends the class by
+foreign raters ever run on that corpus kept the six CV items; one
+extends the class by
 three — §6, §6.1); a cryptographic group protocol at
-≈57%; a transport protocol at ≈67–69%; and that transport protocol's two
-sibling documents at 54–67% and 23.3% — five spans rated under the TLS
+≈57%; a transport protocol at ≈67–69%; that transport protocol's two
+sibling documents at 54–67% and 23.3%; and a calendar data format at
+88.0–88.4% — above every frozen-instrument protocol span, its
+ordering class all but empty (§4.8) — six spans rated under the TLS
 study's frozen instrument (which also supplied TLS's own final rater),
 and the TLS span additionally re-rated by two foreign model families
 with no systematic degradation in agreement (§6). The instrument's
@@ -881,16 +981,19 @@ We still resist summing these into one cross-corpus law: the first three
 corpora were classified by different methods (rule 8 makes such
 comparisons artifacts until re-run under one method), and the codebook's
 own retraction records what happened the last time a cross-layer pattern
-was read into this data (§4.8). The frozen-instrument set is the one
-exception — same instrument, same recipe up to two disclosed mechanical
-refinements — and what it licenses is a description, not a law: the
+was read into this data (§4.9). The frozen-instrument set is the one
+exception — same instrument, same recipe up to disclosed mechanical
+refinements (two shared by the protocol spans; three genre-specific
+ones for the paginated data-format corpus, §4.8) — and what it
+licenses is a description, not a law: the
 results are consistent with a spectrum of type-eliminable shares, each
 span's position explainable post hoc by *what that span of the
 specification chooses to state as obligations* — not a property of
 "security protocols" as a kind, and not yet an established mechanism
 (the author's pre-registered directional models keep partly failing:
-QUIC's "nearer TLS" missed, and all five predictions about RFC 9001
-failed). The QUIC document family (§4.7) is the reading's sharpest
+QUIC's "nearer TLS" missed, all five predictions about RFC 9001
+failed, and the iCalendar band missed the foreign rater by one item —
+§4.8). The QUIC document family (§4.7) is the reading's sharpest
 support: one protocol, one era, and the share spans 23%→69% with the
 document's role the salient varying factor (rater pairs, spans, and n
 vary too — the synthesis carries the caveat). Each number stands alone, named with its corpus and its
@@ -901,7 +1004,13 @@ small, precisely nameable type-resistant residue; the MLS span shows
 that a normative surface which writes its procedural hygiene into MUSTs
 pulls that dominance down to ≈57%; QUIC shows a state-machine-dense span
 holding the middle while its crypto and recovery live censored in
-sibling documents whose own shells measure 54–67% and 23.3%.
+sibling documents whose own shells measure 54–67% and 23.3%. And the
+one non-protocol span shows what a span with no stated counterparty
+duties looks like — part genre, part document boundary, per its census:
+ordering obligations all but vanish, and the mix is ~87% single-value
+format discipline — with the genre's own censoring (grammar-stated
+obligations, a sibling scheduling protocol) pre-registered beside the
+number (§4.8).
 
 The method is the other half. Every headline here survived, or was produced
 by, a failure: a retracted cross-layer claim, an invalidated rating pass, a
@@ -935,5 +1044,6 @@ crisply, you will re-litigate at runtime.
 | `census/quic-tls/`, `census/quic-recovery/` | the family completion: frozen corpora (n=69, n=30), pre-timestamped predictions K1–K5/R1–R5, both census reports with archived labels |
 | `census/quic-family.md` | the three-document synthesis: role tracks the mix 23→69%; pooled ≈61–65% with its caveat |
 | `census/foreign/` | cross-family replication of the TLS corpus: pre-timestamped predictions F1–F5, report with both foreign raters' archived labels, candidate rule 17 |
+| `census/ical/` | the non-protocol corpus (RFC 5545 §3, n=225): pre-registration with nine-candidate selection table, three genre refinements + shipped depaginator/extractor, frozen corpus, pre-timestamped predictions N1–N6 with pre-registered rater models, census report with both raters' archived labels |
 | `census/v4-tls/` | first pass under instrument v4: pre-pass protocol with worked-example settlements, two blind raters (one per family) over the TLS corpus, archived labels, grades of V4/V6/V7/V8 |
 | `census/v4-completion/` | v4 completion: pre-pass protocol, six blind passes over MLS/QUIC/RFC 9001, archived labels, grades of V1–V3/V5–V7 |
