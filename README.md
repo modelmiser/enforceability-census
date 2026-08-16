@@ -7,7 +7,7 @@ system have discharged?** This repository measures that question — the
 > **The paper: [PAPER.md](PAPER.md)** — the repo-native consolidation of the
 > codebook, the censuses, and the inter-rater studies. This repository
 > is the artifact of record; no venue submission is planned. The censuses were
-> run 2026-08-02 → 2026-08-14 as working artifacts and are preserved here with
+> run 2026-08-02 → 2026-08-15 as working artifacts and are preserved here with
 > their corrections in place; numbers are quoted with their caveats or not at
 > all.
 
@@ -54,6 +54,7 @@ that with a DISAGREE bucket) come from.
 | [`census/quic-recovery/`](census/quic-recovery) — RFC 9002 §5–§7 MUST/SHALL corpus | 30 | **23.3% type-eliminable in shape** (identical in both raters; ~60% PROCESS) — the lowest of the frozen-instrument MUST-corpora | run 2026-08-13, frozen instrument, predictions publicly pre-timestamped (R1/R2/R4 passed; R3 failed by class disuse, R5 failed above-band); PROTOCOL DEVIATION disclosed: author pass abandoned after exposure to first-rater labels, replaced by a second blind rater |
 | [`census/quic-family.md`](census/quic-family.md) — the three-document synthesis | 380 | within ONE protocol the share spans 23%→69% by document role; pooled family ≈61–65% (caveat in file) | the matched-family control: same protocol, era, authors — only document role varies |
 | [`census/quic/`](census/quic) — RFC 9000 §2–§19 MUST/SHALL corpus | 281 | **≈67–69% type-eliminable in shape** (two raters: 66.9%/69.0%; TYPESTATE the largest class at ~46–47%; CV 1.1% — RFC 9001/9002 document boundary censors crypto and recovery) | run 2026-08-13 under the same frozen instrument, predictions publicly pre-timestamped (Q2/Q3/Q4 passed — Q4 confirmed the rule-3 spec-fixed-constant edge with THRESHOLD symdiff 15; Q1 failed marginally, Q5 failed its crisp-class clause on a new REVOCABLE/deadline edge); disagreements unresolved by design |
+| [`census/ical/`](census/ical) — RFC 5545 (iCalendar) §3, the first NON-protocol corpus (data format; frozen v3 instrument) | 225 | **88.0% / 88.4% type-eliminable in shape** (two blind raters, one per family; unique-text secondary figure 85.9% / 85.9–86.4%); DOMAIN ~87% of the corpus, TYPESTATE collapses to 1/4 items, THRESHOLD/REVOCABLE/CV/NEG all 0/0; raw agreement **97.3%** — the repo's highest, cross-family | run 2026-08-15, predictions N1–N6 publicly pre-timestamped (`7b07de3`) before any rater; N1/N3/N5/N6 PASS both, N2 PASS Ai (exactly at the inclusive endpoint) / FAIL Xi (one item above), N4 PASS Ai / FAIL Xi (one cross-chunk split — the pre-stated cross-context mode, in a group the protocol did not name); three disclosed recipe refinements for the paginated data-format genre incl. example-data exclusion (the "Phoenix" MUST); the iTIP scheduling protocol (RFC 5546) is boundary-censored out, and grammar-stated obligations are invisible to a MUST census — both pre-registered |
 | [`census/v4-tls/`](census/v4-tls) — first pass under instrument v4 (TLS §4 re-rated; NOT a new corpus, NEW instrument series) | 204 | v4 shares 81.9%/82.8% (within the closed v3 band; the v3 headline 80–83% stands and is never substituted); Av4-vs-Xv4 raw 92.2% — the corpus's highest, cross-family | run 2026-08-14 under pack blob `4891605…`; grades of the d3d4c2d pre-registration: V8 PASS both (188→DOMAIN, 189→REVOCABLE — decision rule 3's worked example flipped as predicted, TLS v3 THRESHOLD empties; example-settled by a retained seam example, weight discounted — see the protocol's correction), V6 PASS both, V4 FAIL in one rater (item 67), V7 FAIL both — rule 17 reached one sub-bucket ({30,31,32,56,57}) beyond the named items; guard boundary narrowed to 4 still-split items, not resolved |
 | [`census/v4-completion/`](census/v4-completion) — v4 passes over MLS/QUIC/9001 (NOT new corpora, v4 instrument series) | 477 | v4 shares: MLS 59.1%/59.1%, QUIC 63.7%/68.7%, 9001 60.9%/58.0% (v3 headlines stand); agreement MLS 88.2% (v3: 85.0), 9001 **94.2%** (v3: 76.8 — the band-breaker now agrees best), QUIC 84.0% (v3: 85.1 — the honest negative) | run 2026-08-14, six blind passes (fresh Claude + Grok per corpus), zero events; grades: V1/V3/V5 PASS both raters (V5's neither-rater 5/4 split exact in both families), V6 PASS (example-settled, discounted), V2 FAIL both on item 191 — the sole discriminating item, V7(a) 6/6 PASS, V7(b) 6/6 FAIL (rule 16 generalized past its named items: six THRESHOLD→DOMAIN; count-bound clause mis-designed — v5 owes redesign) |
 | [`census/foreign/`](census/foreign) — cross-family replication of the TLS §4 corpus (NOT a new corpus) | 204 | foreign quotients 76.5% (GPT-5.6 Sol) / 80.9% (Grok 4.6) vs Claude band 79.9–82.8%; Grok-vs-Claude agreement ABOVE the intra-family range (91.7% raw / 98.0% eliminable-vs-not); CV set 6/6 in every rater ever | run 2026-08-13, frozen instrument, predictions publicly pre-timestamped before any foreign rater (F1/F3/F5 passed; F2/F4 failed — F2's predicted degradation failed to appear); attacks the family-bias half of limitation 6 only; the corpus-shared-prior half needs a non-LLM rater |
@@ -134,11 +135,17 @@ vendored:
 8. ~~Paper integration of the v4 series~~ — DONE 2026-08-14: PAPER.md
    §6.1 carries the amendment, all eight prediction grades, and v4's
    measured cost (QUIC) next to its gains.
-9. Possibly a NON-protocol corpus later; a HUMAN-rater replication
+9. ~~A NON-protocol corpus~~ — DONE 2026-08-15 (`census/ical/`): RFC
+   5545 §3 at 88.0/88.4%, above every protocol span; PAPER integration
+   pending. A HUMAN-rater replication
    remains the only probe that reaches the corpus-shared-prior half of
    limitation 6; a v5 (deliberate, unqueued) owes: the V7 count-bound
    redesign, the ignore-duty seam (QUIC 191), the rule-17 response-duty
-   seam (TLS 67), and the carved-out pair (QUIC 63, RFC 9001 item 15).
+   seam (TLS 67), the carved-out pair (QUIC 63, RFC 9001 item 15), and
+   a look at the format genre's one soft boundary (within-object
+   cross-property consistency, iCal items 192–194); a v4 replication of
+   the iCal corpus could separate genre from rule repair on the
+   THRESHOLD non-wobble (iCal finding 5).
 
 ## License
 
