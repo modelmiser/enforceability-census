@@ -1252,3 +1252,272 @@ TYPESTATE-reading rater); zero elsewhere among prediction-named items
 23, not here); the rule-level reaches disclosed above are bounded per
 pass by rule 23's registered clauses. Movement beyond these statements is instrument
 mis-design — that verdict, not a new headline, would be the result.
+
+---
+
+# CODEBOOK v6 AMENDMENTS — 2026-08-16 (cut from the v5 completion's pre-committed mis-design verdict; NO rating pass has yet run under v6)
+
+**Appended, never edited in place** — the v2/v3/v4/v5 discipline
+unchanged. Every number in this repository was measured under the
+instrument version its report names and REMAINS the quoted number for
+its corpus and series; a v6 result never replaces any earlier series'
+figure, and any cross-version comparison must say it is one. The rater
+pack is NOT updated by this section: a v6 pack is a new blob, cut only
+when a v6 pass is actually commissioned (rule 14 applies verbatim to
+it, and rule 24 governs its registration).
+
+**Motivation — one measured seam, and the first amendment cut from an
+upheld pre-committed instrument-mis-design verdict on the classifying
+rules themselves.** The v5 completion's rule-23 clauses failed on
+iCalendar in both raters and both clauses (matches 211 and 215 against
+a floor of 219; departures 11 and 7 against a registered bound of 1),
+and the completion report identified the mechanism: rule 21's first
+branch generalizing past its named items onto unknown-value tolerance
+duties (`census/v5-completion/`, finding 2). Under the v5 direction
+disclosure's own terms that movement was undisclosed reach — the
+pre-committed verdict was instrument mis-design on the format genre.
+This amendment is the repair that verdict owes. It is the series'
+third rule-generalizes-past-named-items instance (rule 16 in the v4
+completion, rule 17 in the v4 TLS pass, rule 21 here), and this one
+was caught by the item-scoped tolerances (rule 23) that the first two
+overreaches taught the instrument to register.
+
+**The archived readings, re-verified from the label archives for this
+cut.** The drifted family is recognition-predicated tolerance duties —
+"MUST ignore / accept / treat-as-a-default X that the receiver does
+not recognize or support":
+
+- **iCalendar, nine recognition items** {13, 16, 22, 25, 27, 28, 91,
+  146, 210}: PROCESS in ALL FOUR archived pre-v5 raters (Ai, Xi,
+  Av4i, Xv4i — 36 of 36 readings), DOMAIN in Av5 on all nine, DOMAIN
+  in Xv5 on {13, 91, 146, 210} and PROCESS on {16, 22, 25, 27, 28} —
+  a split WITHIN one sentence form (146 is the same
+  "treat-unrecognized-as-a-named-default" form as the five it split
+  from) that follows chunk geometry, not text. A tenth family member,
+  iCal 37 (preserve unrecognized values without parsing them), is
+  PROCESS in all six archived raters including both v5 raters — the
+  reading rule 25 codifies, already unanimous.
+- **iCalendar, two adjacent items the conviction's core also
+  carried** — 62 (ignore RECUR rule parts that violate a stated
+  requirement) and 150 (accept values of a stated precision): PROCESS
+  in the same four pre-v5 raters (8 of 8), DOMAIN in both v5 raters.
+  These two are NOT recognition-predicated — see rule 25's boundary,
+  which runs between them and the nine above.
+- **TLS, five recognition items** {14, 18, 84, 141, 191}
+  (unrecognized extensions, cipher suites, certificate-extension
+  OIDs): PROCESS in both v4 anchors and in D, G, and X (25 of 25
+  readings); DOMAIN in rater A's five archived v3 readings, and
+  rater B's agreement on all five is mechanically derivable from the
+  pass-2 archive (none of the five is among its 20 DISAGREE items) —
+  the recognition-DOMAIN reading has blind first-pass precedents in
+  both TLS raters, as it has in QUIC's B″ below; DOMAIN in both v5
+  raters, the drift behind TLS's one-item 23(b) failure. Item 64 (a
+  mode-conditioned ignore) drifted with them (anchors split
+  PROCESS/TYPESTATE; v5 DOMAIN-torn/DOMAIN) but is a different
+  trigger kind, left undecided below, as are two more TLS siblings:
+  60 (a designated-field value-ignore — PROCESS in all eight
+  archived full maps, both v5 raters included) and 54 (a compound
+  sentence whose subordinate clause ignores unknown versions —
+  TYPESTATE in seven of eight, PROCESS in rater A). The contrast
+  case TLS 156 (MUST NOT act upon a spec-named extension) is DOMAIN
+  in Av4, Xv4, Av5, Xv5, D, G, and X, and was Z4's passed conjunct —
+  rule 25 preserves it.
+- **QUIC, one recognition item and five siblings this rule declines.**
+  Item 61 ("transport parameters that it does not support") has the
+  eight-reading history DOMAIN (B″, Aq, Aq5, Xq5), PROCESS (A″, Xq,
+  Av4, Xv4) — 4-vs-4 across the full archive, measured inside the
+  v5-quic pass's bounds (departures 18 and 32 against 36), so
+  recorded there, convicted nowhere. Items 203, 214, and 232 carry
+  the identical eight-reading history but different trigger kinds
+  (spec-designated-field value-ignores; a mode-conditioned ignore) —
+  the designated-field evidence is mixed 4-vs-4, against TLS 60's
+  unanimous PROCESS on the same shape. Item 269
+  (a same-frame-retransmission tolerance) reads TYPESTATE in five of
+  eight (B″, Aq, Xq, Aq5, Xq5) against PROCESS (A″, Av4, Xv4); item
+  32's conjoined trigger has drawn four classes in eight readings
+  (DOMAIN in A″, B″, Av4, Aq5, Xq5; TYPESTATE Xv4; NEG Aq;
+  THRESHOLD Xq). All five siblings are declined below.
+
+**The mechanism.** Rule 21's first branch classifies in-grammar,
+fixed-handling nonaction duties DOMAIN, its example list includes "an
+extension", and its licensing sentence — a generated binding that
+does not surface the element discharges it — reads naturally onto
+"ignore unrecognized extensions". The boundary the v5 text failed to
+draw is in the TRIGGER: what selects the suppressed element. Validity,
+malformedness, a stated bound — these are decidable from the unit and
+the spec alone. "Unrecognized" is not: it is a predicate on the
+receiver's capability set, which differs across compliant receivers
+and is deliberately open (registry extension points, experimental
+names, future versions).
+
+**Rule 25 — Rule 21's first branch requires a unit-local trigger;
+recognition predicates are receiver-relative.** A nonaction duty
+enters rule 21's first branch (parsing contract, DOMAIN) only when
+the predicate selecting WHAT is suppressed is a pure function of the
+designated serialization unit (rule 22) plus the spec's own fixed
+text — decidable by a validator holding only those two things.
+Grammar-invalidity, malformedness, a stated bound, a spec-named
+element's identity (the shape of Z4's settled TLS conjunct): the
+trigger is unit-local and branch 1 stands, as rule 21 wrote it. A
+predicate on the receiver's capability set — an element the receiver
+does not recognize, support, implement, or (a fortiori) does not
+wish to use, whatever the mandated disposition (ignore, skip,
+process the rest, fall back to a named default value): decidable by
+NO unit-local validator; the duty is forward-compatibility conduct
+guarding no transcript predicate — **PROCESS**, per rule 13. The
+generated-binding argument does not transfer to this case: a
+catch-all constructor discharges "unrecognized" only relative to ONE
+receiver's known set, so what it discharges is each implementation's
+conduct toward an open set, not a property of the datum. This is
+rule 16's locality litmus ("a pure function of the datum") applied
+to the suppression trigger, with rule 22 fixing the datum. Where
+rule 21's example list and this rule disagree, this rule governs:
+"an extension" is branch-1 territory when the spec identifies it
+(prohibited here, unused there) and NOT when the receiver's
+non-recognition selects it.
+
+Two scope walls, stated in the rule because the vocabulary invites
+crossing them. (1) Rule 25 narrows rule 21 ONLY: recognition
+vocabulary inside a REACTION sentence stays rule 20's territory,
+where a spec that mandates treating an unknown element as an ERROR
+has thereby CLOSED the element space — "unknown" there is
+grammar-invalidity, unit-local, and rule 20's abort-on-invalid
+convention is untouched (the tolerate-and-proceed disposition marks
+an open set; the treat-as-error disposition marks a closed one).
+(2) Rule 25 decides single-predicate capability triggers only. It
+does NOT decide: mode- and state-conditioned suppression (a
+stateless operating mode, a disabled feature — TLS 64, QUIC 232);
+history-conditioned suppression (the v5 partial ruling on QUIC {11,
+19, 261, 272} stands unchanged, and QUIC 269, a
+same-frame-retransmission tolerance, joins it);
+spec-designated-field VALUE-ignores (QUIC 203 and 214; TLS 60 —
+mixed archived evidence, recorded in the motivation above, no crisp
+discriminator on offer); triggers CONJOINING a unit-local predicate
+with a capability predicate (QUIC 32); and subordinate ignore
+clauses inside compound sentences whose classified content the
+pipeline assigns elsewhere (TLS 54). For every duty in this list,
+every archived reading remains licensed; a v6 pass reports their
+labels but no J prediction grades them, and they remain ORDINARY
+outside-set items for rule 23 — flips there consume the registered
+departure budget exactly as the undecided quartet's flips did in
+the v5-quic pass. Because this rule names these items without
+predicting them, every v6 registration owes a steer ledger for the
+full list (the v5-quic finding-5 duty), and the pack-cut elision
+audit weighs each naming against rule 24's triggers.
+
+**What v6 does not rule on at all.** (1) The remaining v5-pass
+departure items outside the tolerance family and the declined list:
+TLS 164 (the one shared TLS departure outside both) and the
+single-rater singles on all three corpora, iCal 116 among them;
+QUIC's residual consensus items {96, 109, 146, 152} and its
+shared-but-split pair {87, 144} — ordinary rules, bounded per pass
+by rule 23. iCal 69
+(ignore computed recurrence instances that fall on invalid dates) is
+recorded as a measured NON-engagement: PROCESS in all six archived
+raters including both v5 raters, consistent with rule 21 never
+engaging objects that are computed locally rather than arriving —
+rule 25 makes no claim there and predicts nothing. (2) The
+guard-mass residue {65, 123, 184} — unchanged, still split. (3) The
+limitation-5/6 confounds — instrument text cannot repair them; the
+human-rater pass remains the only probe on the docket.
+
+**Direction-of-effect disclosure, stated before any v6 rater exists —
+named items first, then rule-level reach (the movement convention is
+v5's: movement counted relative to each archived reading a
+prediction contradicts).** Named items, out of the eliminable
+family: J1 moves five TLS items against rater A's archived readings
+(and rater B's derivable ones) and against both v5 readings (≈ −2.5
+points on n = 204 relative to each); J2 moves nine iCal items against Av5's readings (≈ −4.0 on
+n = 225) and four against Xv5's (≈ −1.8); J3 moves one QUIC item
+against B″'s, Aq's, and both v5 readings (≈ −0.4 on n = 281
+relative to each). All three move NOTHING relative to the v4
+anchors, nor to any other archived rater who read the named items
+PROCESS (D, G, and X on TLS; Ai and Xi on iCal; A″ and Xq on
+QUIC). Named items, into the eliminable
+family: J4 moves two iCal items against all four pre-v5 archived
+readings (≈ +0.9) — and that is the amendment's ONLY licensed
+movement into the eliminable family on any corpus: no prediction
+moves any TLS or QUIC item eliminable-ward relative to any archived
+reading. Rule-level reach, per the v5 precedent of disclosing
+direction per rule: rule 25's recognition branch, on corpora this
+cut did not re-examine item-by-item (MLS, RFC 9001, RFC 9002,
+Wayland), moves recognition-predicated nonaction duties to PROCESS
+wherever raters find them — the out-of-eliminable direction — and
+on the examined corpora its known unnamed engagement candidates are
+the declined TLS 54 clause and QUIC 32 conjunction, where a rater
+who engages the recognition vocabulary despite the scope walls
+would move TYPESTATE- or DOMAIN-read items out of the eliminable
+family (≈ −0.5 and −0.4 respectively); all such movement is bounded
+per pass by rule 23's registered clauses. v6 licenses no
+eliminable-ward rule-level reach anywhere. Share movement in a v6
+pass beyond these statements is evidence of instrument mis-design,
+not a new result. Rules 23 and 24 govern every v6 pass registration
+verbatim (rule 23's anchor default resolving, for v6, to the most
+recent archived full pair — the v5-series raters).
+
+## Pre-registered v6 resolution predictions (committed before any v6 pack or rater exists)
+
+Graded at the first commissioned v6 pass for the relevant corpus;
+later v6 passes report concordance but do not regrade. Numbering
+namespace J1–J6. Settlement disclosure at cut time, per rule 24's
+standard: rule 25's body necessarily carries the recognition
+vocabulary its boundary is made of, so J1, J2, and J3 are
+comprehension checks BY CONSTRUCTION — they test whether the
+adjudication transmits. J4 predicts AGAINST the archived majority on
+items whose distinctive text rule 25's body avoids by design (a
+cut-time normalized-4-gram check of the rule body against both
+items' corpus texts found no hit); its discriminating status is
+PENDING rule 24's registration audit, with one candidate pre-flagged
+here: "a stated bound" abuts item 150's precision trigger, and if
+the audit's paraphrase judgment fires, J4 downgrades to a
+comprehension check at registration and the amendment's
+discriminating load falls entirely to J5, J6, and rule 23's clauses.
+J4 is also the amendment's contested edge: it sides with two
+readings against four.
+
+- **J1 (rule 25, TLS):** items 14, 18, 84, 141, and 191 land PROCESS
+  in every v6 rater.
+- **J2 (rule 25, iCal):** items 13, 16, 22, 25, 27, 28, 91, 146, and
+  210 land PROCESS in every v6 rater.
+- **J3 (rule 25, QUIC):** item 61 lands PROCESS in every v6 rater.
+- **J4 (rule 25 unit-local side, iCal — the contested edge):** items
+  62 and 150 land DOMAIN in every v6 rater — a prediction siding
+  with the two v5 readings against all four archived pre-v5 raters;
+  a J4 failure grades the unit-local half of rule 25's boundary
+  first.
+- **J5 (iCal DOMAIN-mass stability — leakage, integer form):** of
+  the 194 items both v4-ical anchors (Av4i, Xv4i) labeled DOMAIN —
+  a set containing no rule-25-named item, enumerated mechanically
+  from the archives at registration — at least 193 land DOMAIN in
+  each v6 rater. The bound of 1 is the largest measured count of set
+  items labeled other than DOMAIN (the quantity Z7's bound used)
+  among the four archived non-anchor raters with full iCal maps
+  (Ai 1, Xi 1, Av5 0, Xv5 1). A torn label counts by its base label,
+  the archives' standing convention.
+- **J6 (TLS DOMAIN-mass stability — leakage, integer form):** of the
+  56 items both v4 TLS anchors (Av4, Xv4) labeled DOMAIN — likewise
+  free of rule-25-named items, enumerated at registration — at least
+  53 land DOMAIN in each v6 rater. The bound of 3 is the largest
+  measured count of set items labeled other than DOMAIN among the
+  six archived non-anchor raters with full TLS maps (A 3, D 1, G 2,
+  X 1, Av5 2, Xv5 2); the invalid-instrument pass-3 rater C is
+  excluded per its report's status, and its count (2) would not
+  change the bound. A's three are {27, 156, 188} — 156, the item
+  rule 25 preserves, among them; recorded here so the coincidence
+  is on the register. Both stability sets are measured against the
+  LAST PRE-CONVICTION pairs (the v4 anchors) rather than rule 23's
+  default v5 pairs, deliberately: the v5-iCal pair carries the
+  convicted drift itself, and a leakage floor anchored to the
+  drifted pair would launder the defect it exists to catch — the
+  registration inherits this reason.
+
+**Failure interpretation, pre-committed:** these predictions grade
+rule 25's text and the author's model of its reach, nothing else. A
+failed prediction licenses NO re-rating under reworded rules within
+v6, NO retroactive relabeling of any archived pass, and NO
+substitution of a v6 number for any earlier series' figure. Predicted
+headline drift attributable to the named items is restated in the
+direction disclosure above; J5 and J6 bound the leakage the
+adjudications must not cause; everything else is rule 23's per-pass
+territory. Movement beyond these statements is instrument mis-design
+— that verdict, not a new headline, would again be the result.
