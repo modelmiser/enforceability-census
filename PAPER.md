@@ -1,7 +1,7 @@
 # A Census of Enforceability: Measuring What Fraction of Stated Runtime Obligations a Type System Could Discharge
 
 **Repo-native paper · 2026-08-13, extended 2026-08-14 (v4 series, §6.1), 2026-08-15 (the
-non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2) · artifact of record: this repository.**
+non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3) · artifact of record: this repository.**
 No venue submission is planned; the repository, its commit history, and the
 census artifacts it cites are the citable object.
 
@@ -64,8 +64,8 @@ above every frozen-instrument protocol span — with DOMAIN alone ~87%
 of the corpus,
 TYPESTATE (the largest class of the TLS, QUIC, and RFC 9001 spans)
 collapsed to 1
-and 4 items, and cross-family raw agreement of 97.3%, the repository's
-highest; the author's pre-registered band missed the foreign rater by
+and 4 items, and cross-family raw agreement of 97.3%, then the repository's
+highest (its own v6 pair later reached 98.7%, §6.3); the author's pre-registered band missed the foreign rater by
 exactly one item, and the genre's censoring (a sibling scheduling
 protocol; obligations stated as grammar rather than MUSTs) is
 pre-registered in the census. A cross-family
@@ -113,7 +113,20 @@ undisclosed reach on the format corpus (both raters, both clauses —
 the pre-committed instrument-mis-design verdict, with the v5
 iCalendar shares quoted only as that defect's size), reversed the v4
 churn it had named undecided, and set three of four corpus
-pair-agreement records; v5 shares are a third separate series. The numbers are the smaller half of the
+pair-agreement records; v5 shares are a third separate series. The
+verdict was then answered (§6.3): a v6 amendment cut from the
+conviction wrote one rule at the convicted boundary — recognition
+predicates are receiver-relative; a suppression trigger must be a
+pure function of the serialization unit — declined every
+mixed-evidence sibling shape, and registered its first pass with the
+series' harshest tolerance: on the convicted corpus, a no-regression
+budget of ZERO departures. The corpus passed every clause in both
+raters at exactly that bound, its shares reverted to the
+pre-conviction band, and its rater pair set the repository's
+raw-agreement record (98.7%) — while one pre-downgraded adjudication
+half failed to transmit in both raters and the TLS cell failed its
+no-regression clauses in the foreign seat, both standing as graded;
+v6 shares are a fourth separate series. The numbers are the smaller half of the
 contribution. The larger half is the method that survived its own failures:
 classify on the predicate and never the name (a name-based pass produced a
 publishable-looking headline that was retracted the day it was written);
@@ -522,9 +535,10 @@ before any rater. Full protocol and report:
 [`census/ical/rfc5545-census.md`](census/ical/rfc5545-census.md).
 
 **Result: 88.0%/88.4% type-eliminable in shape — above every
-frozen-instrument protocol span — with raw agreement 97.3%, the
+frozen-instrument protocol span — with raw agreement 97.3%, then the
 highest between any two raters in
-this repository (cross-family, n = 225; the prior record was 96.7% on
+this repository [since surpassed by the same corpus's v6 pair at
+98.7% — §6.3] (cross-family, n = 225; the prior record was 96.7% on
 RFC 9002's 30 items; later tied exactly by the corpus's own v4
 re-rating, §6.1; the corpus-shared-prior caveat of limitation 6
 applies at full force to agreement this high, per the census
@@ -793,11 +807,11 @@ What the eight passes measured:
    eliminable-vs-not 96.1%, a cross-family pair above every v3 pair on
    that corpus (since surpassed by the corpus's v5 pair at 93.6%, §6.2) (RFC 9002's 96.7% on its 30-item corpus was then the
    repository-wide record — since surpassed by the iCalendar pair's
-   97.3%, §4.8). MLS rose to 88.2% (v3: 85.0%). And both v4 TLS
+   97.3%, §4.8, and again by its v6 pair's 98.7%, §6.3). MLS rose to 88.2% (v3: 85.0%). And both v4 TLS
    raters kept the CV class at exactly the same six items — the six CV
-   items have now drawn CV labels from ten TLS raters, exactly six in
-   eight of them (G extends the class by three, §6; the v5 same-family
-   rater by one, torn, §6.2; B's exactness by
+   items have now drawn CV labels from twelve TLS raters, exactly six in
+   ten of them (G extends the class by three, §6; the v5 same-family
+   rater by one, torn, §6.2; both v6 raters exactly six, §6.3; B's exactness by
    inference, limitation 7).
 2. **The rules generalize past their named items — one of the two
    reasons the no-regression clause failed everywhere.** V7's match-rate clause
@@ -831,9 +845,10 @@ What the eight passes measured:
    future version.
 4. **QUIC is v4's measured cost.** Its cross-family agreement (84.0%)
    sits below the v3 pair (85.1%) — then the only corpus where v4
-   agreement was not the best on record (after v5, the v4 pair leads
+   agreement was not the best on record (after v5, the v4 pair led
    only on iCalendar, where it ties the v3 record at 97.3%; §6.2's
-   pairs lead on the other three corpora) — with churn concentrated on the PROCESS
+   pairs lead TLS, QUIC, and RFC 9001, and after v6 the iCalendar
+   lead passed to the v6 pair at 98.7% — §6.3) — with churn concentrated on the PROCESS
    boundary: rule 18's lifecycle vocabulary appears to pull procedure
    readings beyond key/phase contexts, and the same-family v4 share
    (63.7%) fell below the v3 band. An instrument version now has its
@@ -853,8 +868,9 @@ raters and remained unruled under v4 [since adjudicated by v5's rule
 
 One later data point joins the transmissibility record: the iCalendar
 census (§4.8), run after this cycle under the frozen v3 instrument,
-paired an ~87%-DOMAIN corpus with the repository's highest raw
-agreement (97.3%, cross-family) — the crisp-discriminator law's
+paired an ~87%-DOMAIN corpus with what was then the repository's
+highest raw agreement (97.3%, cross-family; the corpus's v6 pair
+later reached 98.7% — §6.3) — the crisp-discriminator law's
 cheapest extreme, with the shared-prior and rater-model caveats stated
 in §4.8 — while its N4 determinism probe recorded the series' first
 identical-text label split, by the foreign rater across chunk
@@ -958,15 +974,16 @@ results carry the section's weight:
    22 and not for rule 21. The v5-iCal shares (93.8%/91.1%, against
    88–89% in both earlier series) are quoted *only* as the size of
    that defect; the v3 and v4 iCalendar headlines stand, and a v6
-   owes rule 21's branch-1 scope boundary.
+   owes rule 21's branch-1 scope boundary (delivered — §6.3).
 3. **On the corpora where the disturbance was absent or marginal,
    agreement kept rising.**
    RFC 9001 was the completion's cleanest cell — both raters cleared
    the previously uncleared floor, the v4 amendment's signature 5/4
    lifecycle split held item-for-item in all four v4/v5-era raters,
    and the pair set the corpus record at 95.7%; TLS's v5 pair set
-   its corpus record at 93.6%. iCalendar's 97.3% record stands (the
-   v5 pair, drifting from the anchors together, agreed at 96.9%).
+   its corpus record at 93.6%. iCalendar's 97.3% record stood (the
+   v5 pair, drifting from the anchors together, agreed at 96.9%; the
+   v6 pair has since taken the record to 98.7% — §6.3).
 
 The v5 shares (a third version-labeled series, never mixed with the
 others): QUIC 67.3%/66.5%; TLS 84.8%/84.3% — above the closed v3
@@ -978,6 +995,101 @@ formulation from this cycle: a versioned instrument does not just
 transmit better as its discriminators sharpen — properly
 pre-registered, it can catch its own author's next error, in public,
 with the verdict written before the evidence — as it did here.
+
+### 6.3 The verdict answered: the v6 amendment and its first pass
+
+The v6 amendment (2026-08-16, rule 25 with pre-registered predictions
+J1–J6) is the first in the series cut from an *upheld* pre-committed
+instrument-mis-design verdict on the classifying rules themselves.
+Its one rule draws the boundary the conviction demanded by applying
+rule 16's existing locality litmus to the suppression trigger: rule
+21's first branch requires a predicate that is a pure function of the
+designated serialization unit, and a predicate on the receiver's
+capability set — an element it "does not recognize" or support, from
+a deliberately open space — is decidable by no unit-local validator
+and classifies as conduct. The rule deliberately sides with neither
+rater cohort (the drifted recognition family reverts to the archived
+consensus, while the validity- and precision-triggered pair the
+conviction's core also carried is predicted to STAY with the v5
+readings against all four pre-v5 raters), and it *declines* every
+sibling shape whose archived evidence is mixed — mode- and
+state-conditioned, history-conditioned, designated-field,
+conjoined-trigger, and compound-sentence duties — recording their
+archived histories rather than ruling on them. Its own gate caught
+the series' author-friendly omission class twice more in the
+amendment's draft: QUIC histories quoted over six readings where the
+archive holds eight, and a first-pass precedent undercounted ("one
+archived precedent" where a second is derivable from the pass-2
+archive) — both leaning the author's way.
+
+The first v6 pass (`census/v6-pass/`; iCalendar, TLS, and QUIC — the
+three corpora rule 25 touches — six blind passes, zero protocol
+events) hardened the registration machinery again before any rater
+ran: the settlement audit's paraphrase judgment was exercised by the
+registration's own cold reviewer and recorded verbatim (J4, the
+amendment's contested edge, was DOWNGRADED to a comprehension check
+— each candidate phrase in the served rule maps to exactly one live
+corpus item); the no-regression outside sets exclude the stability
+predictions' enumerated items, per the v5-quic precedent; and the
+convicted corpus was registered at the series' harshest tolerance —
+a both-anchor departure budget of ZERO, an achieved, measured count.
+Three results carry the section:
+
+1. **The repair holds exactly where the instrument was convicted.**
+   iCalendar passed all four rule-23 clauses in both raters at the
+   zero bound — no outside-set item moved from both anchors in
+   either family — every recognition item reverted to PROCESS
+   (J1/J2/J3 passed in all six rater-corpus readings), both shares
+   landed at 88.9%, inside the pre-conviction anchor band, and the
+   pair's raw agreement of **98.7% is the repository's record**
+   (prior: the same corpus's 97.3%; at eliminable-vs-not granularity
+   the corpus's own v3 pair remains higher, and RFC 9002's 100%
+   record stands). The J5 stability floor passed at its exact edge in
+   both raters, on different single items; the TLS floor passed with
+   room, one rater perfect.
+2. **One adjudication failed to transmit, in both raters — and it
+   maps a boundary sharper than the rule that drew it.** J4's
+   validity half held (item 62: DOMAIN in all four v5/v6-era
+   readings, after four pre-v5 PROCESS), but its precision half
+   failed (item 150: PROCESS in both v6 raters, six of its eight
+   readings ever) — raters transmit grammar-validity as parsing
+   contract and refuse precision-acceptance, even served text
+   claiming both. The registration's downgrade of J4 was thereby
+   vindicated and its stated premise falsified at once: the ruling
+   held that the served text *settles* the item, and the item
+   declined to be settled. Registration-time rulings about what an
+   instrument's text settles are themselves falsifiable predictions;
+   this pass graded one. A v7 owes the precision-trigger wording.
+3. **The no-regression machinery convicted the author again — this
+   time on calibration, in the thesis-unfriendly direction.** The
+   TLS cell failed both clauses in the foreign rater (match 132
+   against a floor of 134; 11 departures against a budget of 6 that
+   the same-family rater passed exactly at the edge). The mechanism
+   is not rule 25's: the departure mass sits on the
+   guard-vs-predicate sub-bucket (flipping to the census author
+   rater A's own archived v3 reading), on a declined mode-conditioned
+   item, and on long-soft preparedness/alert items — two of eleven
+   eliminable-ward — while the rater's DOMAIN stability set was
+   perfect (56/56). What the FAIL convicts, per the pre-committed
+   interpretation, is the author's registered model of cross-family
+   churn; it stands as graded.
+
+The steer ledger settled with one finding the v7 docket inherits: the
+two mode-conditioned duties (TLS 64, QUIC 232) reverted PROCESS-ward
+in all four v6 readings — consistent, cross-family movement on
+exactly the shape rule 25 declined, budget-charged as registered. The
+QUIC churn quartet and its history-conditioned sibling held TYPESTATE
+in four consecutive raters — a second consecutive rater pair. The v6 shares (a fourth
+version-labeled series, never mixed): iCalendar 88.9%/88.9%, TLS
+81.4%/81.9% — inside the closed v3 band — QUIC 65.1%/65.1%. Every v6
+share sits at or below its v5 counterpart; the error-sign sheet's one
+conviction points against the thesis. The cycle statement §6.2 closed
+now has its next turn: the amendment an upheld verdict demanded was
+cut, pre-registered, and graded — and the corpus that convicted the
+instrument returned its cleanest sheet in the series, at the
+strictest tolerance the series has ever registered, while the same
+machinery kept enough teeth to convict the author's calibration one
+corpus over.
 
 ## 7. Related work
 
@@ -1051,6 +1163,8 @@ not a proof of novelty.
    variables at once; §6.1; the iCalendar pair, v3 instrument with
    later rater models, sits at 97.3% — §4.8; the v5-series pairs at
    QUIC 89.7%, TLS 93.6%, RFC 9001 95.7%, iCalendar 96.9% — §6.2;
+   the v6-series pairs at iCalendar 98.7%, TLS 93.1%, QUIC 89.3% —
+   §6.3;
    the two-variables caveat against the v3 pairs applies except on
    iCalendar, whose v3 pair already used these rater models), 15 TLS items
    with fresh-rater consensus against the original labels, guard-boundary
@@ -1076,7 +1190,8 @@ not a proof of novelty.
    than silent; the v5 passes' eight raters (§6.2) — per corpus one
    fresh same-family instance and one foreign instance, no author
    rater — continue that discipline, which v5's rule 24 makes
-   mandatory for every future registration. RFC 9002 has
+   mandatory for every future registration, as do the v6 pass's six
+   raters (§6.3). RFC 9002 has
    NO author rater — its intended author pass was abandoned after the
    author saw the first blind rater's labels (deviation disclosed in its
    report) — so its two raters are both blind same-family instances and
@@ -1095,8 +1210,10 @@ not a proof of novelty.
    reaches it; the parked human replication is that probe, and it has not
    been run. The v4, iCalendar, and v5 passes, LLM raters all, inherit
    this caveat whole — including their record agreements (§6.1, §4.8,
-   §6.2). Shared priors remain a residual common-cause risk that
-   blindness does not remove.
+   §6.2), and the v6 pass (§6.3) inherits it at full force: the
+   higher the agreement, the harder this caveat bites, and the 98.7%
+   record pair carries it undiluted. Shared priors remain a residual
+   common-cause risk that blindness does not remove.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
    disagreement labels survive (plus agreement on the other 184); B's
    figures — including the 79.9% floor of the headline range — are
@@ -1111,10 +1228,10 @@ policy thresholds and structurally cannot contain typestate; a windowing
 protocol whose client-facing declared errors are 87.6% type-eliminable in
 shape; a cryptographic handshake whose normative surface is 80–83%
 type-eliminable, with a secret-dependent core of 2.9% that every
-same-family rater's recorded labels agree on item-for-item (all four
+same-family rater's recorded labels agree on item-for-item (all five
 foreign raters ever run on that corpus kept the six CV items; one
 extends the class by three, and the v5 same-family rater by one,
-torn — §6, §6.1, §6.2); a cryptographic group protocol at
+torn; both v6 raters kept exactly the six — §6, §6.1, §6.2, §6.3); a cryptographic group protocol at
 ≈57%; a transport protocol at ≈67–69%; that transport protocol's two
 sibling documents at 54–67% and 23.3%; and a calendar data format at
 88.0–88.4% — above every frozen-instrument protocol span, its
@@ -1137,7 +1254,14 @@ verdict, delivered by the instrument against its author (§6.2) — and
 reversed the v4 churn it had explicitly declined to decide (the
 reversal consistent-with, not established — §6.2): the loop a
 versioned instrument exists to close, closed twice in one release,
-once in each direction.
+once in each direction. The v6 amendment cut from that verdict then
+answered it (§6.3): the convicted corpus passed every registered
+clause at a zero-departure budget with the repository's record
+agreement, one adjudication half failed to transmit in both raters —
+mapping a validity-versus-precision boundary sharper than the rule
+that drew it — and the no-regression machinery convicted the
+author's churn calibration on a neighboring corpus; the loop's third
+full turn, each closed by machinery written before its evidence.
 We still resist summing these into one cross-corpus law: the first three
 corpora were classified by different methods (rule 8 makes such
 comparisons artifacts until re-run under one method), and the codebook's
@@ -1189,7 +1313,7 @@ crisply, you will re-litigate at runtime.
 
 | artifact | contents |
 |---|---|
-| `codebook/classes.md` | taxonomy, honesty rules 1–24, retraction + addendum, v2/v3/v4/v5 amendments (v4 carries pre-registered predictions V1–V8; v5 carries Z1–Z7), graduation record |
+| `codebook/classes.md` | taxonomy, honesty rules 1–25, retraction + addendum, v2/v3/v4/v5/v6 amendments (v4 carries pre-registered predictions V1–V8; v5 carries Z1–Z7; v6 carries J1–J6), graduation record |
 | `codebook/rater-pack.md` | the verbatim v3 rating instrument (pass-4 instrument = blob `a08febba…`; later reformatted for rendering, rule content unchanged) |
 | `codebook/rater-pack-v4.md` | the verbatim v4 rating instrument (blob `4891605…` — v3 pack + rules 15–19, one disclosed elision) |
 | `census/promql/promql-classifier.py` | n=1155 classifier, rule-9 hardened |
@@ -1213,3 +1337,5 @@ crisply, you will re-litigate at runtime.
 | `census/quic-replication/` | QUIC under v3 with the new roster-shape: protocol Y1–Y6, archived labels, the four-rater boundary table, the instrument×roster grid decomposition |
 | `census/v5-quic/` | first v5 pass: registration with mechanical rule-24 audits and rule-23 floors of measured failability, two blind raters, archived labels, grades of Z1/Z4-QUIC/Z6/Z7 |
 | `census/v5-completion/` | v5 completion over TLS/RFC 9001/iCal: registration with the three-way steer taxonomy, six blind passes, archived labels, grades of Z2/Z3/Z5/Z4-overall and the iCalendar mis-design verdict |
+| `codebook/rater-pack-v6.md` | the verbatim v6 rating instrument (blob `f4f9e0b…` — v5 pack + rule 25, seven disclosed elisions) |
+| `census/v6-pass/` | first v6 pass over iCal/TLS/QUIC: registration with the verbatim trigger-(c) ruling and the zero-departure iCalendar bound, six blind passes, archived labels, grades of J1–J6 and rule 23 per corpus — the zero-departure conviction-corpus sheet, the 98.7% record pair, and the two standing failures |
