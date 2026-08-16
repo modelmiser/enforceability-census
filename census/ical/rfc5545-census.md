@@ -118,7 +118,15 @@ re-rating, exclusion, rewording, or quote discretion.
 5. **THRESHOLD is zero in both raters — the spec-fixed-constant edge
    did not fire.** The 46 cardinality items ("MUST NOT occur more than
    once") went DOMAIN unanimously in both raters, and even the 255-octet
-   persistence floor (item 203) drew PROCESS/POLICY, not THRESHOLD. On
+   persistence floor (item 203) drew PROCESS/POLICY, not THRESHOLD.
+   [CORRECTION 2026-08-15, found at the paper-integration gate: the
+   count is 45, not 46 — items containing the literal duty "MUST NOT
+   occur more than once" number 45; the 46 came from a gate reviewer's
+   looser phrase count that included item 108, whose "more than once"
+   is a MAY-permission, and was adopted here without independent
+   recomputation. All 45 are DOMAIN in both raters (as are items 108
+   and 211, the two loose-phrase extras), so the unanimity verdict is
+   unchanged.] On
    QUIC, spec-fixed constants produced a THRESHOLD symmetric difference
    of 15 under this same v3 instrument; on the format genre the same
    instrument shows none of that wobble — counts and bounds on the
