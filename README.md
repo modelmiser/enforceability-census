@@ -141,13 +141,20 @@ vendored:
    5545 §3 at 88.0/88.4%, above every protocol span; PAPER integration
    pending. A HUMAN-rater replication
    remains the only probe that reaches the corpus-shared-prior half of
-   limitation 6; a v5 (deliberate, unqueued) owes: the V7 count-bound
-   redesign, the ignore-duty seam (QUIC 191), the rule-17 response-duty
-   seam (TLS 67), the carved-out pair (QUIC 63, RFC 9001 item 15), and
-   a look at the format genre's one soft boundary (within-object
-   cross-property consistency, iCal items 192–194 — CONFIRMED live by
-   the v4-ical pass: the cluster reproduced its split identically under
-   both instrument versions, `census/v4-ical/`); the v4-ical null test
+   limitation 6; the v5 amendment is now CUT — 2026-08-15,
+   `codebook/classes.md` rules 20–24 with pre-registered predictions
+   Z1–Z7 — covering everything the docket owed: the V7 count-bound
+   redesign (rule 23), the ignore-duty seam (rule 21; QUIC 191), the
+   response-duty seam (rule 20; TLS 67), the carved-out pair
+   adjudicated (rule 20; QUIC 63 → THRESHOLD, RFC 9001 item 15 →
+   TYPESTATE on the amendment's one disclosed contested bridge), the
+   within-object boundary (rule 22; iCal 192–194 — CONFIRMED live by
+   the v4-ical pass, `census/v4-ical/`), and registration hygiene
+   codified (rule 24); NO v5 pass has run — commissioning one is a
+   deliberate, unqueued decision, and the amendment discloses that
+   Z1–Z5 are comprehension checks by construction (the rule bodies
+   adjudicate their own items), with Z6/Z7 and rule 23 carrying the
+   discriminating tests; the v4-ical null test
    is DONE (THRESHOLD stayed exactly 0 under v4; rule 18's churn did
    not travel) — the genre-vs-model question (properly genre-vs-roster-bundle) about
    QUIC's wobble is now ANSWERED (`census/quic-replication/`): the
