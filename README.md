@@ -215,6 +215,15 @@ vendored:
    granularities; 71/72 exact, all 22 named exceptions realized with
    zero unnamed, QUIC 58's predicted-EMPTY outcome realized, a second
    FAILS record refuted at the gate; PAPER §6.7 integrated); the
+   BINARY HUMAN PASS HL1 is REGISTERED (2026-08-17,
+   `census/human-locality/` — a single checkability question over the
+   23 witnessed iCalendar items, graded against the locality2 witness
+   artifacts with a runtime drift check, floors measured against
+   degenerate strategies (each refused by a registered clause), the
+   exception-trio prediction HL1c with both interpretations
+   pre-committed; sibling of H1, not a substitute —
+   awaiting a recruited non-author human, a DIFFERENT person from
+   H1's seat, ~30 minutes); the
    v4-ical null test
    is DONE (THRESHOLD stayed exactly 0 under v4; rule 18's churn did
    not travel) — the genre-vs-model question (properly genre-vs-roster-bundle) about
