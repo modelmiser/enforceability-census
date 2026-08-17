@@ -1,7 +1,7 @@
 # A Census of Enforceability: Measuring What Fraction of Stated Runtime Obligations a Type System Could Discharge
 
 **Repo-native paper · 2026-08-13, extended 2026-08-14 (v4 series, §6.1), 2026-08-15 (the
-non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obfuscation probe, limitation 6; second cross-family replication, §6.4; v7 series, §6.5; locality study, §6.6) · artifact of record: this repository.**
+non-protocol corpus, §4.8), 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obfuscation probe, limitation 6; second cross-family replication, §6.4; v7 series, §6.5; locality study, §6.6), and 2026-08-17 (second locality passes, §6.7) · artifact of record: this repository.**
 No venue submission is planned; the repository, its commit history, and the
 census artifacts it cites are the citable object.
 
@@ -95,7 +95,15 @@ granularities — everywhere except four pre-named exceptions; the
 contested mass split into vocabulary fights and genuine ambiguities;
 and the study's reader-challenge mechanism fired on its first
 outing, the gate's reviewer refuting a recorded impossibility
-claim by constructing the pair it denied. The
+claim by constructing the pair it denied. Second locality passes
+(§6.7) then generalized the criterion to the iCalendar and QUIC
+archives: the correspondence held with class-shaped, pre-named
+divergence — QUIC's conn-carried THRESHOLD family is
+connection-local yet sits off the headline's eliminable side, its
+cross-connection 0-RTT state is eliminable-voted yet no
+within-connection witness stands, and a second recorded
+impossibility claim fell at the gate to a reviewer-constructed
+witness. The
 instrument itself was then repaired under pre-registration and the
 repair graded (§6.1): a v4 amendment wrote five rules at the series'
 measured edges, with itemized predictions V1–V8 committed before any v4
@@ -1289,6 +1297,70 @@ reader-challenge mechanism the registration names firing on its first
 outing and withdrawing the record in place. The study's numbers join no census series; its bearing on the
 shared-prior caveat is stated in limitation 6.
 
+### 6.7 The criterion generalizes: second locality passes over iCalendar and QUIC
+
+One corpus is one point, so a second registration
+(`census/locality2/`) ran the same criterion — same witness forms,
+same lemma, granularities instantiated per genre (one content line /
+one iCalendar object; one UDP datagram / one connection) — over the
+two remaining boundary masses: 23 iCalendar items from all ten
+archived maps (the corpus's entire 14-item multi-rater dissent mass,
+plus a hash-selected stable sample) and 49 QUIC items from all twelve
+(the 31 most-contested items with the dropped tiers enumerated, plus
+a stable sample), with the item sets, per-item predictions,
+per-family correspondence floors, and grader frozen before
+construction. Every clause passed; 71 of 72 item outcomes matched
+their registered predictions exactly; and the registration's central
+structural bet — that where the formal property and the archive's
+eliminable-vote boundary diverge, they diverge along nameable,
+class-shaped families rather than item noise — realized all 22
+pre-named exceptions with zero unnamed, which across the three
+corpora now stands at 26 pre-named divergences, none unnamed, over
+116 witnessed items.
+
+The QUIC bend is systematic in both directions and both directions
+are now witnessed. The headline boundary UNDERCOUNTS locality on the
+THRESHOLD family with connection-carried quantities and bounds —
+sixteen items: the thirteen-item limit cluster, QUIC's largest
+disagreement cluster, era-split at rule 16's v4 arrival (all four
+v3-era raters TYPESTATE throughout; seven of eight later raters
+THRESHOLD on twelve of the thirteen), plus three THRESHOLD-unanimous
+stable samples — so the cluster's THRESHOLD-vs-TYPESTATE fight is a
+vocabulary fight over a one-rung check the eliminable line cannot
+see. And it OVERCOUNTS on state
+that crosses the connection: item 58, TYPESTATE-unanimous across all
+twelve raters, came out with an EMPTY witnessed outcome — the
+registration's boldest single prediction — because "the remembered
+values of the parameters" live in a prior connection, where the
+census's transcript unit tops out; 0-RTT parameter consistency is
+exactly the state a resumption-aware type discipline could carry and
+a per-connection transcript cannot witness. On the format side, the
+iCalendar DOMAIN monolith split into line-local and object-only
+checks, and its three exceptions {62, 77, 79} are all one shape —
+datum-local TRIGGER, conduct- or world-guarded COMPLIANCE — the
+structure rule 25 turned into its litmus, carried here by shipped
+pairs instead of votes. A designed control sharpened the point:
+items 43 and 79 are byte-identical corpus sentences whose
+eliminable-vote counts straddle the majority line, so the
+correspondence mismatch had to land on exactly one of them, and it
+landed where registered — the archive's headline boundary carries
+position noise that no sentence-level semantic property can track.
+The per-era breakdown adds a third geometry: the iCalendar
+ignore/accept conduct quintet's DOMAIN votes ({13, 91, 146, 150,
+210}) are exactly the two raters of the convicted v5 instrument —
+the criterion sides with the other eight against precisely the
+mis-designed era — while exception item 62's DOMAIN votes survived
+the repair (v5, v6, and v7 alike), making it a standing boundary,
+not an instrument artifact; and item 185's dissent splits by SEAT
+(all four X-seat raters of the v4-through-v7 eras against every
+Claude-family seat plus Xi), where the criterion's answer is that
+both seats hold one rung each of a genuinely two-rung sentence. The
+challenge interface fired again: the gate's reviewer refuted the
+author's recorded impossibility claim for item 235 by constructing
+the packet-level validator it denied — the second refuted FAILS
+record in as many studies, both pre-push, and the sole exact-sheet
+miss. These passes' numbers join no census series.
+
 ## 7. Related work
 
 FSM-*extraction* from RFCs is a mature genre — RFCNLP / attack synthesis
@@ -1458,8 +1530,13 @@ not a proof of novelty.
    were constructed by the census author with the archive in view, and
    a prior shared at the level of the property itself — author and
    raters trained on the same semantics conventions — is not excluded.
-   The correspondence narrows this caveat from a new side; only the
-   human pass closes any part of it.
+   The second passes (§6.7, `census/locality2/`) widen that evidence
+   without changing its ceiling: the same class-shaped exception
+   pattern reproduced in two unrelated genres under per-genre
+   granularities, which a merely lexical prior has still less reason
+   to produce — but the author-constructed caveat applies to them
+   identically. The correspondence narrows this caveat from a new
+   side; only the human pass closes any part of it.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
    disagreement labels survive (plus agreement on the other 184); B's
    figures — including the 79.9% floor of the headline range — are
@@ -1600,3 +1677,4 @@ crisply, you will re-litigate at runtime.
 | `codebook/rater-pack-v7.md` | the verbatim v7 rating instrument (blob `a6f4321…` — v6 pack + rules 26–27, three disclosed elisions) |
 | `census/v7-pass/` | first v7 pass over iCal/TLS/QUIC: registration with the fired L2 downgrade and the re-derived zero bound, shipped scorer with 24-cell KAT, six blind passes, archived labels, grades of L1–L7 and rule 23 per corpus — both adjudications transmit, TLS's first fully clean sheet, and the three calibration convictions |
 | `census/locality/` | the locality study (§6.6): pre-registered formalization of rule 16's litmus as datum-locality at message/transcript granularity, the distinguishing-pair lemma, a 14-map agreement profiler with 19 known-answer tests, grader shipped before construction, 56 witness artifacts + 17 recorded construction failures — the four named exceptions realized exactly, two prediction failures of one shape, one FAILS record refuted and withdrawn at the gate |
+| `census/locality2/` | the second locality passes (§6.7): one registration over both remaining archives (iCalendar 23 items from ten maps, QUIC 49 from twelve; 37 known-answer tests), per-genre granularities (prop/object, pkt/conn), per-family correspondence floors, FAILS coverage enforced by the frozen grader, 77 witness artifacts + 24 standing construction-failure records — 71/72 exact outcomes, all 22 pre-named exceptions realized with zero unnamed, the predicted-EMPTY outcome for QUIC 58 realized, and a second FAILS record (235-pkt) refuted at the gate by a reviewer-constructed validator, withdrawn in place |
