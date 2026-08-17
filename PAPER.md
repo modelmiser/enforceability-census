@@ -1,7 +1,7 @@
 # A Census of Enforceability: Measuring What Fraction of Stated Runtime Obligations a Type System Could Discharge
 
 **Repo-native paper · 2026-08-13, extended 2026-08-14 (v4 series, §6.1), 2026-08-15 (the
-non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obfuscation probe, limitation 6; second cross-family replication, §6.4; v7 series, §6.5) · artifact of record: this repository.**
+non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obfuscation probe, limitation 6; second cross-family replication, §6.4; v7 series, §6.5; locality study, §6.6) · artifact of record: this repository.**
 No venue submission is planned; the repository, its commit history, and the
 census artifacts it cites are the citable object.
 
@@ -86,7 +86,16 @@ v7 amendment then settled the v6 pass's two docket edges (§6.5) —
 both adjudications transmitted in both families, TLS posted the
 series' first fully clean no-regression sheet — while the leakage
 and churn tripwires convicted the author's calibration for a second
-consecutive release, on items no rule version has claimed. The
+consecutive release, on items no rule version has claimed. A
+locality study (§6.6) then formalized the boundary the raters keep
+agreeing on: over a registered 44-item set drawn from all fourteen
+archived TLS label maps, the agreement boundary coincided with a
+constructively witnessed semantic property — datum-locality at two
+granularities — everywhere except four pre-named exceptions; the
+contested mass split into vocabulary fights and genuine ambiguities;
+and the study's reader-challenge mechanism fired on its first
+outing, the gate's reviewer refuting a recorded impossibility
+claim by constructing the pair it denied. The
 instrument itself was then repaired under pre-registration and the
 repair graded (§6.1): a v4 amendment wrote five rules at the series'
 measured edges, with itemized predictions V1–V8 committed before any v4
@@ -1225,6 +1234,61 @@ residual drift lives where it has always lived — on U-boundary,
 class-boundary, and
 history-conditioned shapes no instrument version has claimed.
 
+### 6.6 The boundary formalized: a locality study over the archive
+
+Finding 1 of the four-pass study said inter-rater agreement is a
+per-class property predictable from the rule's shape — directionally,
+not as a quantitative law. A locality study (`census/locality/`) made
+the direction formal and tested it against the archive with no new
+raters. Rule 16's litmus ("could the check be re-run on the lone datum
+in a vacuum and get the same answer?") becomes a semantic property: a reading of an obligation
+is *datum-local at a granularity* — one handshake message, or one
+connection's transcript, matching the census's own two reporting
+levels — and the
+property is established constructively rather than by judgment:
+locality by shipping an executable validator over the modeled datum,
+non-locality by shipping a distinguishing pair (one datum, two
+spec-admissible contexts, opposite compliance verdicts — a proof,
+since any datum-local predicate is constant across the pair). The
+registration froze a 44-item set derived mechanically from all
+fourteen archived TLS label maps (the 27 items where at least four of
+fourteen raters dissent from the modal label, plus a hash-selected
+stable sample), seven predictions with floors, and the grader itself,
+before any witness existed. The witnesses were then constructed by
+the census author, archive-aware — so the graded sheet measures the
+internal consistency of one semantic model, and the checkable product
+is the artifacts, not the pass-rate.
+
+Every clause passed; the informative cells are the exceptions and the
+deviations. The headline correspondence — "some local rung witnessed"
+coincides with "eliminable classes hold the vote majority" — held on
+every item except the four the registration named in advance (75,
+111, 164, 188: real local components under non-eliminable-majority
+labels, a secrets-bound constraint under an eliminable one, a
+provenance fight over a message-local check). The contested mass
+split into two kinds the class vocabulary cannot distinguish:
+one-rung vocabulary fights (the downgrade-sentinel family, where the
+"negotiated version" guard is encoded in the ServerHello itself, so
+DOMAIN and TYPESTATE voters were labeling the same information) and
+genuine two-rung ambiguities (guards living in another message).
+CRYPTO-VERIFY — its core items unanimous across all seventeen
+raters — split three ways under the lens: signature verification is
+transcript-computable (the verification key is in the Certificate
+message), Finished verification under (EC)DHE is
+information-determined by the transcript but not efficiently
+computable from it, and PSK-keyed checks are not even
+information-local — decision rule 2's "the secret is the
+discriminator," now with witnesses attached. Two registered
+single-rung predictions failed, both the same shape — the sentence
+hides a context dependency ("compatible," decidable only against the
+ticket's issuing connection; "which also support TLS 1.2") — and one
+failure arrived as a refutation: the gate's cold reviewer constructed
+the distinguishing pair the author's recorded FAILS entry claimed
+could not exist — before any witness was pushed — the
+reader-challenge mechanism the registration names firing on its first
+outing and withdrawing the record in place. The study's numbers join no census series; its bearing on the
+shared-prior caveat is stated in limitation 6.
+
 ## 7. Related work
 
 FSM-*extraction* from RFCs is a mature genre — RFCNLP / attack synthesis
@@ -1381,7 +1445,21 @@ not a proof of novelty.
    §6.2), and the v6 pass (§6.3) inherits it at full force: the
    higher the agreement, the harder this caveat bites, and the v6
    pair's 98.7% record carries it undiluted. Shared priors remain a residual
-   common-cause risk that blindness does not remove.
+   common-cause risk that blindness does not remove. One study bears
+   on this caveat from a third direction (§6.6, `census/locality/`):
+   over a registered 44-item set, the archive's agreement boundary
+   coincided — with four pre-named exceptions — with an independently
+   checkable semantic property (datum-locality, established by
+   executable witnesses and distinguishing pairs rather than by rater
+   judgment). A prior shared only as corpus memorization would have no
+   particular reason to align with witness-constructibility, so the
+   measured correspondence is evidence that the agreement tracks a
+   semantic joint in the specification language; but the witnesses
+   were constructed by the census author with the archive in view, and
+   a prior shared at the level of the property itself — author and
+   raters trained on the same semantics conventions — is not excluded.
+   The correspondence narrows this caveat from a new side; only the
+   human pass closes any part of it.
 7. **Rater B's full label map was never archived.** Only B's 16 recorded
    disagreement labels survive (plus agreement on the other 184); B's
    figures — including the 79.9% floor of the headline range — are
@@ -1521,3 +1599,4 @@ crisply, you will re-litigate at runtime.
 | `census/foreign2/` | second cross-family replication of the TLS corpus (three new families: Gemini 3.1 Pro, Kimi K3, GLM 5.2): registration F6–F10 with mutant-exhibited fail branches, shipped scorer, three blind passes with archived labels — F6–F9 pass ×3, F10's informative failure (the rule-17 cluster is seat-dependent; the Claude anchor is its own family's outlier) |
 | `codebook/rater-pack-v7.md` | the verbatim v7 rating instrument (blob `a6f4321…` — v6 pack + rules 26–27, three disclosed elisions) |
 | `census/v7-pass/` | first v7 pass over iCal/TLS/QUIC: registration with the fired L2 downgrade and the re-derived zero bound, shipped scorer with 24-cell KAT, six blind passes, archived labels, grades of L1–L7 and rule 23 per corpus — both adjudications transmit, TLS's first fully clean sheet, and the three calibration convictions |
+| `census/locality/` | the locality study (§6.6): pre-registered formalization of rule 16's litmus as datum-locality at message/transcript granularity, the distinguishing-pair lemma, a 14-map agreement profiler with 19 known-answer tests, grader shipped before construction, 56 witness artifacts + 17 recorded construction failures — the four named exceptions realized exactly, two prediction failures of one shape, one FAILS record refuted and withdrawn at the gate |
