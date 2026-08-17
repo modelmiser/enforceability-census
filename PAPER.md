@@ -1,7 +1,7 @@
 # A Census of Enforceability: Measuring What Fraction of Stated Runtime Obligations a Type System Could Discharge
 
 **Repo-native paper · 2026-08-13, extended 2026-08-14 (v4 series, §6.1), 2026-08-15 (the
-non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obfuscation probe, limitation 6) · artifact of record: this repository.**
+non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obfuscation probe, limitation 6; second cross-family replication, §6.4) · artifact of record: this repository.**
 No venue submission is planned; the repository, its commit history, and the
 census artifacts it cites are the citable object.
 
@@ -75,7 +75,13 @@ pre-registered degradation model failed — one foreign rater agreed with a
 Claude rater *above* the intra-family agreement ranges, and all six
 core-CV sentences kept their CV label under every rater ever recorded —
 weakening the family-bias half of the rater-monoculture caveat while
-leaving its corpus-shared-prior half untouched (limitation 6). The
+leaving its corpus-shared-prior half untouched (limitation 6). A
+second replication (§6.4) later widened the panel to five foreign
+families — three more lineages landing inside the pre-registered
+band, the CV core fifteen-for-fifteen across six families — while
+finding the first replication's nine-item foreign consensus is not
+seat-general: one new family sides with the Claude anchor's archived
+reading, which is itself its own family's outlier on those items. The
 instrument itself was then repaired under pre-registration and the
 repair graded (§6.1): a v4 amendment wrote five rules at the series'
 measured edges, with itemized predictions V1–V8 committed before any v4
@@ -266,7 +272,8 @@ The codebook carries numbered rules; the load-bearing ones:
   pass report records the pack's git blob hash. §6 is the existence proof
   that a paraphrase of a definition is a different definition.
 - **Rules 15–19** (the v4 amendment — one pre-registered round written
-  after the five frozen-instrument censuses and the foreign replication,
+  after the five frozen-instrument censuses and the first foreign
+  replication (§6),
   graded in §6.1): capability-compatibility duties resolve to
   transcript-checkable *containment*; spec-fixed bounds on datum
   quantities are DOMAIN however the constant was chosen; rule 10's
@@ -374,8 +381,9 @@ fruitful the state-machine attack family (SMACK/FREAK) proved against TLS
 implementations.
 
 (This corpus was later re-rated blind by two foreign model families under
-the frozen instrument — the cross-family replication, §6 — and again by
-two blind raters under the repaired v4 instrument, §6.1.)
+the frozen instrument — the cross-family replication, §6 — again by
+two blind raters under the repaired v4 instrument, §6.1 — and later
+by three more foreign families in a second replication, §6.4.)
 
 ### 4.5 Cryptographic group protocol under the frozen instrument: RFC 9420 (MLS, n = 127)
 
@@ -809,9 +817,11 @@ What the eight passes measured:
    repository-wide record — since surpassed by the iCalendar pair's
    97.3%, §4.8, and again by its v6 pair's 98.7%, §6.3). MLS rose to 88.2% (v3: 85.0%). And both v4 TLS
    raters kept the CV class at exactly the same six items — the six CV
-   items have now drawn CV labels from twelve TLS raters, exactly six in
-   ten of them (G extends the class by three, §6; the v5 same-family
-   rater by one, torn, §6.2; both v6 raters exactly six, §6.3; B's exactness by
+   items have now drawn CV labels from fifteen TLS raters, exactly six
+   in eleven of them (G extends the class by three, §6; the v5
+   same-family rater by one, torn, §6.2; both v6 raters exactly six,
+   §6.3; the second replication's Gemini by one and Kimi by four,
+   GLM exactly six, §6.4; B's exactness by
    inference, limitation 7).
 2. **The rules generalize past their named items — one of the two
    reasons the no-regression clause failed everywhere.** V7's match-rate clause
@@ -1091,6 +1101,70 @@ strictest tolerance the series has ever registered, while the same
 machinery kept enough teeth to convict the author's calibration one
 corpus over.
 
+### 6.4 The panel widens: a second cross-family replication
+
+The first replication (§6) had excluded a third foreign family with a
+recorded reason — the serving subscription exposed only a flash-tier
+Gemini, and a weaker-tier rater confounds capability with prior
+divergence. On 2026-08-16 that reason measurably vanished (a pro-tier
+Gemini appeared in the transport's model list), and a second
+replication was registered the same day (`census/foreign2/`, pushed
+before any seated model had seen instrument or corpus): the TLS
+corpus, the same frozen v3 pass-4 pack, three new foreign families —
+Gemini 3.1 Pro (Google), Kimi K3 (Moonshot), GLM 5.2 (Zhipu) — with
+clauses F6–F10 continuing the first replication's namespace, each
+clause carrying a mutant-exhibited fail branch and F10's floor set
+at the smallest integer every measured fail branch fails,
+and a fourth candidate family (Cursor's in-house Composer) excluded
+with its own recorded reason: an unattributable base lineage is a
+confound for a family-bias measurement.
+
+Four of the five clauses passed in all three raters. The quotients —
+78.9%, 78.9%, 77.0% — landed inside the pre-registered 76–86% band,
+and the five foreign quotients measured under the frozen instrument
+now span 76.5–80.9%,
+four of the five below the lowest Claude quotient (79.9%): a
+family-level tendency toward slightly lower eliminable shares whose
+per-rater mechanism the report decomposes (non-eliminable-ward,
+PROCESS/U-dominated, for two
+raters; for Kimi, four of its nine departures
+from D-eliminable
+items are CV *extensions*, a class-boundary reading rather than a
+refusal). Agreement did not systematically degrade again:
+every one of the ten foreign–foreign pairs sits at 79.9–88.2% raw
+(four pairs below the 81–90% intra-family span's floor; none above
+its ceiling),
+and the existential band-reach clause — at least ONE of three
+families reaching the intra-family edge against rater D — passed
+universally (175, 184, 170 of 204), the second
+replication in which the author's pre-registered degradation model
+proved too pessimistic. The CV core went six-for-six in all three
+raters — fifteen raters across six model families have now kept all
+six (B's by inference, limitation 7), with the *penumbra*
+reproducing too: Kimi's four CV extensions
+{111, 181, 199, 203} are exactly the GPT rater's three plus
+Gemini's one, independent lineages extending the class at the same
+items and never shrinking it.
+
+The informative result is the clause that failed. F10 asked whether
+the first replication's nine-item foreign consensus — the
+negotiated-state cluster behind candidate rule 17 — is general:
+each new rater was predicted to read at least six of the nine
+TYPESTATE. Gemini (7/9) and GLM (7/9) did, with different
+departures; **Kimi read eight of the nine DOMAIN**, siding with
+rater D's archived reading against the G=X consensus. The failure
+grades the author's generality model, per the registration, and the
+seat tally is the finding: four of five foreign seats side with the
+TYPESTATE consensus, one with D — and D is the Anthropic archive's
+own outlier on this cluster (its other archived same-family
+readings run 7–9 of 9 TYPESTATE). The rule-17 boundary is real,
+contested across seats and within the one archive deep enough to
+show internal disagreement, and owned by no side — the docket entry
+for any future instrument version inherits that structure. One
+transport protocol event (a single item emitted twice with the same
+label, deduplicated) is disclosed in the report; no number from
+either replication joins any census series.
+
 ## 7. Related work
 
 FSM-*extraction* from RFCs is a mature genre — RFCNLP / attack synthesis
@@ -1191,7 +1265,8 @@ not a proof of novelty.
    fresh same-family instance and one foreign instance, no author
    rater — continue that discipline, which v5's rule 24 makes
    mandatory for every future registration, as do the v6 pass's six
-   raters (§6.3). RFC 9002 has
+   raters (§6.3) and the second replication's three fresh foreign
+   instances, one per new family (§6.4). RFC 9002 has
    NO author rater — its intended author pass was abandoned after the
    author saw the first blind rater's labels (deviation disclosed in its
    report) — so its two raters are both blind same-family instances and
@@ -1203,7 +1278,13 @@ not a proof of novelty.
    blind under the frozen instrument, landed at 76.5%/80.9% eliminable
    with agreement that did not systematically degrade (X above the
    intra-family ranges; G at or just below the raw floor) and every
-   CV-set item keeping its CV label in both. The *corpus-shared-prior* half — every frontier LLM
+   CV-set item keeping its CV label in both — then further weakened
+   by the second replication (`census/foreign2/`, §6.4): Gemini 3.1
+   Pro, Kimi K3, and GLM 5.2, three more lineages, landed at
+   77.0–78.9% inside the pre-registered band with all ten
+   foreign–foreign pairs at 79.9–88.2% raw and the CV core
+   fifteen-for-fifteen across six families (one nine-item cluster
+   reads seat-dependently — §6.4). The *corpus-shared-prior* half — every frontier LLM
    trained on these RFCs and on prose about them — is unaddressable by
    any LLM replication from any family: a shared reading learned from the
    corpus would reproduce these same agreements. That unaddressability
@@ -1252,17 +1333,21 @@ policy thresholds and structurally cannot contain typestate; a windowing
 protocol whose client-facing declared errors are 87.6% type-eliminable in
 shape; a cryptographic handshake whose normative surface is 80–83%
 type-eliminable, with a secret-dependent core of 2.9% that every
-same-family rater's recorded labels agree on item-for-item (all five
-foreign raters ever run on that corpus kept the six CV items; one
-extends the class by three, and the v5 same-family rater by one,
-torn; both v6 raters kept exactly the six — §6, §6.1, §6.2, §6.3); a cryptographic group protocol at
+same-family rater's recorded labels agree on item-for-item (all eight
+foreign raters ever run on that corpus kept the six CV items —
+fifteen raters in all, across six model families; one foreign rater
+extends the class by three, another by exactly those three plus the
+one a third adds, and the v5 same-family rater by one,
+torn; both v6 raters kept exactly the six — §6, §6.1, §6.2, §6.3,
+§6.4); a cryptographic group protocol at
 ≈57%; a transport protocol at ≈67–69%; that transport protocol's two
 sibling documents at 54–67% and 23.3%; and a calendar data format at
 88.0–88.4% — above every frozen-instrument protocol span, its
 ordering class all but empty (§4.8) — six spans rated under the TLS
 study's frozen instrument (which also supplied TLS's own final rater),
-and the TLS span additionally re-rated by two foreign model families
-with no systematic degradation in agreement (§6). The instrument's
+and the TLS span additionally re-rated by five foreign model
+families across two replications
+with no systematic degradation in agreement (§6, §6.4). The instrument's
 measured edges were then repaired as v4 and graded under
 pre-registration (§6.1): the repair transmitted best exactly where its
 new discriminator was crispest (RFC 9001, 76.8% → 94.2% cross-family,
@@ -1364,3 +1449,4 @@ crisply, you will re-litigate at runtime.
 | `codebook/rater-pack-v6.md` | the verbatim v6 rating instrument (blob `f4f9e0b…` — v5 pack + rule 25, seven disclosed elisions) |
 | `census/v6-pass/` | first v6 pass over iCal/TLS/QUIC: registration with the verbatim trigger-(c) ruling and the zero-departure iCalendar bound, six blind passes, archived labels, grades of J1–J6 and rule 23 per corpus — the zero-departure conviction-corpus sheet, the 98.7% record pair, and the two standing failures |
 | `census/obfuscation/` | registered probe of limitation 6's memorization component: seeded reversible obfuscation of the iCalendar corpus (shipped script + full map), two-arm manipulation check FAILED — RFC 5545 identified at 95/98% from what obfuscation left — clauses O2–O4 with both raters' archived labels — the measurement behind limitation 6's only-a-non-LLM-rater sentence |
+| `census/foreign2/` | second cross-family replication of the TLS corpus (three new families: Gemini 3.1 Pro, Kimi K3, GLM 5.2): registration F6–F10 with mutant-exhibited fail branches, shipped scorer, three blind passes with archived labels — F6–F9 pass ×3, F10's informative failure (the rule-17 cluster is seat-dependent; the Claude anchor is its own family's outlier) |
