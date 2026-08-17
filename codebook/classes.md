@@ -1521,3 +1521,259 @@ direction disclosure above; J5 and J6 bound the leakage the
 adjudications must not cause; everything else is rule 23's per-pass
 territory. Movement beyond these statements is instrument mis-design
 — that verdict, not a new headline, would again be the result.
+
+---
+
+# CODEBOOK v7 AMENDMENTS — 2026-08-16 (cut from two measured docket edges of the v6 pass; NO rating pass has yet run under v7)
+
+**Appended, never edited in place** — the v2–v6 discipline unchanged.
+Every number in this repository was measured under the instrument
+version its report names and REMAINS the quoted number for its corpus
+and series; a v7 result never replaces any earlier series' figure,
+and any cross-version comparison must say it is one. The rater pack
+is NOT updated by this section: a v7 pack is a new blob, cut only
+when a v7 pass is actually commissioned (rule 14 applies verbatim to
+it, and rule 24 governs its registration).
+
+**Motivation — two measured docket edges, and no conviction.** Stated
+plainly first: unlike v6, this amendment repairs no conviction. The
+v6 pass's one conviction (its TLS finding 3) is a calibration failure
+of the author's registered churn model, which no rule text can
+repair. What v7 settles are the two edges the v6 report explicitly
+recorded for a future version — one as a docket entry (finding 2),
+one as "an observation for any v7, not a grade" (finding 4)
+(`census/v6-pass/rfc-v6-pass.md`):
+
+1. **J4's precision half.** The v6 registration's trigger-(c) ruling
+   judged rule 25's phrase "a stated bound" sufficient to settle both
+   iCal items 62 and 150 as DOMAIN; both raters then read 62 DOMAIN
+   and 150 PROCESS. The report's docket entry: "A future v7 owes
+   either a narrower unit-local list (dropping the claim to precision
+   triggers) or an argument for DOMAIN on 150 that transmits." The
+   archived record sides with the narrower list — see the readings
+   below — and this amendment cuts it as rule 26.
+2. **The mode-conditioned pair.** TLS 64 and QUIC 232 — the two
+   items rule 25's scope wall describes generically ("a stateless
+   operating mode, a disabled feature") and declines — reverted from
+   the v5 anchors' DOMAIN side to PROCESS in all four v6 readings,
+   cross-family, budget-charged as registered. The report recorded
+   the consistency as "an observation for any v7, not a grade." The
+   evidence is no longer thin; this amendment decides the shape as
+   rule 27.
+
+**The archived readings, re-verified mechanically from the label
+archives for this cut** (every count below re-derived from the
+archived label blocks, not quoted from reports):
+
+- **iCal 150** ("accept values of a stated precision, truncation of
+  greater precision licensed"): PROCESS in six of eight archived
+  readings — all four pre-v5 raters (Ai, Xi, Av4i, Xv4i) and both v6
+  raters — DOMAIN only in the convicted v5 pair (Av5, Xv5). The
+  obfuscation probe reproduced the PROCESS reading under nonces in
+  both its raters (`census/obfuscation/` — quoted as context only;
+  probe numbers join no series).
+- **iCal 62** ("ignore RECUR rule parts violating a stated
+  requirement"): PROCESS in the four pre-v5 raters, DOMAIN in the
+  four most recent readings (Av5, Xv5, Av6, Xv6). The measured
+  boundary runs BETWEEN these two items: raters transmit
+  validity-triggered suppression as parsing contract and refuse
+  precision-acceptance as one, even when a served rule text claims
+  both.
+- **TLS 64** (a suppression duty conditioned on stateless
+  operation): PROCESS in nine of fourteen archived readings — D,
+  G, X, Av4, Av6 (torn), Xv6, and all three of the second
+  replication's raters (M, K, Z) — against DOMAIN in rater A
+  (per-class roster), rater B (agreement derivable: 64 is not
+  among B's 20 recorded disagreements, the repo's standing
+  inference), and the v5 pair (Av5 torn), and TYPESTATE in
+  Xv4. The invalidated pass-3 rater C is excluded per its report's
+  status; its reading (PROCESS) would strengthen the majority and
+  is not counted.
+- **QUIC 232** (a suppression duty conditioned on a disabled
+  optional signal): PROCESS in six of ten archived readings — A″,
+  Av4, Xv4, Xq, Av6 (torn), Xv6 — against DOMAIN in B″, Aq, Aq5,
+  Xq5. The pre-v6 record was 4-vs-4; both v6 readings, taken after
+  rule 25 walled off rule 21's generalization pressure, landed
+  PROCESS.
+
+**The mechanism.** Rule 25 fixed rule 21's first branch with a
+locality litmus on the TRIGGER — and the litmus held: 62's
+validity trigger transmits as branch-1 DOMAIN in every reading since.
+What "a stated bound" smuggled in was a claim about a different
+DISPOSITION: item 150's sentence mandates acceptance, not
+suppression. Nothing is suppressed by its bound; the sentence forbids
+rejection over a representational property and licenses the receiver
+to degrade what it retains, which makes the preserved content
+receiver-relative by the license's own terms. Raters have refused to
+read that as a parsing contract in six of eight archived readings.
+Separately, a mode predicate — the receiver's own operating style or
+feature-enablement state — fails the same locality litmus a
+capability set fails: it is a property of the receiver, differing
+across compliant receivers by design, and the archived record on
+both known instances now sides with conduct.
+
+**Rule 26 — Rule 25's unit-local list governs suppression
+dispositions; an acceptance duty with a degradation license is
+conduct.** Rule 25's unit-local trigger list ("a stated bound" among
+its examples) decides duties whose mandated DISPOSITION suppresses
+the selected content — ignore it, skip it, treat it as
+absent. It does not extend to a duty whose mandated
+disposition is affirmative ACCEPTANCE of values at a stated
+representational precision, where the sentence or its immediate
+context licenses the receiver to degrade what it retains (truncate,
+round, coerce). There the bound is unit-locally checkable but
+suppresses nothing: the duty forbids rejection over a
+representational property, and what the receiver preserves is
+receiver-relative under the license's own terms — interoperability
+conduct, **PROCESS**, per rule 13. Three scope walls. (1)
+Suppression of content VIOLATING a stated bound remains rule 21/25
+branch-1 territory: the disposition, not the bound, is what this rule
+reads. (2) An acceptance duty with NO degradation license —
+accept-and-preserve — is not decided here. (3) Rule 20's
+error-reaction territory is untouched: a spec that mandates treating
+out-of-bound values as an error has closed the space, and rule 20
+governs.
+
+**Rule 27 — Mode-conditioned suppression is receiver-relative: the
+locality litmus applied to operating state.** A suppression duty
+whose trigger is the receiver's own operating mode or
+feature-enablement state — a deployment style that keeps no per-peer
+state, an optional signal the endpoint has turned off — fails rule
+16's locality litmus exactly as a capability set does: the mode is a
+property of the receiver, not a pure function of the designated
+serialization unit plus the spec's fixed text, and compliant
+receivers differ on it by design. The duty is conduct conditioned on
+configuration — **PROCESS**, per rule 13, whatever the mandated
+disposition. Where rule 25's decline list ("mode- and
+state-conditioned suppression") and this rule disagree, this rule
+governs: that decline is hereby decided, in the direction the
+archived readings settled. Three scope walls. (1) If the condition is
+decidable from the designated unit itself — a field value, a version,
+a flag carried in the unit — the trigger is unit-local and this rule
+does not apply; spec-designated-field value-ignores remain UNDECIDED
+(their archived evidence is mixed). (2) History-conditioned
+suppression — a predicate over the prior transcript — remains
+undecided by this rule; its archived evidence points TYPESTATE-ward,
+a different shape. (3) Triggers CONJOINING a unit-local predicate
+with a mode or capability predicate remain declined, as in rule 25.
+
+**Declined, with reasons on the record:** the spec-designated-field
+value-ignores — TLS 60 is PROCESS in every archived reading
+(fourteen, C excluded), while QUIC 203/214 sit at 4-vs-6 after the
+v6 pair, their four most recent readings all DOMAIN. Stated
+plainly: 203/214 now match the four-most-recent-readings settlement
+pattern this amendment cites for iCal 62, and the decline
+nonetheless stands, on the cross-corpus conflict — the same shape
+is unanimous the other way on TLS, so a rule cut from either
+corpus's record would falsify the other's; unsettled. Also
+declined: the
+history-conditioned quartet and its siblings (TYPESTATE-stable in
+four consecutive raters — no repair owed); QUIC 32's conjoined
+trigger (five classes in ten readings — no rule should claim it);
+TLS 54's subordinate clause (compound-sentence territory); the
+rule-17 negotiated-state cluster (the second replication measured
+its reading as SEAT-dependent — one foreign family sides with the
+Claude anchor, four with the foreign consensus, and the anchor is
+its own family's outlier; evidence that no rewrite would transmit
+uniformly, so rule 17 stands unedited with the split on its docket).
+
+**Direction-of-effect disclosure, stated before any v7 rater exists
+(movement counted relative to each archived reading a prediction
+contradicts).** Out of the eliminable family: L1 moves iCal 150
+against the two v5 readings only (≈ −0.4 points on n = 225 relative
+to each; the other six archived readings already sit where L1
+predicts). L3 moves TLS 64 against rater A's roster reading, rater
+B's derivable one, and both
+v5 readings (≈ −0.5 on n = 204 each) and against Xv4's TYPESTATE
+reading (also out-of-eliminable); it moves nothing relative to the
+nine archived PROCESS readings. L4 moves QUIC 232 against four
+archived DOMAIN readings (≈ −0.4 on n = 281 each). Into the
+eliminable family: L2 confirms iCal 62's four most recent readings
+against the four pre-v5 PROCESS readings (≈ +0.4 relative to those
+four) — the amendment's ONLY licensed eliminable-ward movement, and
+it moves nothing relative to any reading since v5. Rule-level reach
+on corpora this cut did not re-examine (MLS, RFC 9001, RFC 9002,
+Wayland): rule 26 moves precision-acceptance-with-license duties and
+rule 27 moves mode-conditioned suppression duties out of the
+eliminable family wherever raters find them; neither rule licenses
+eliminable-ward reach anywhere. Share movement in a v7 pass beyond
+these statements is evidence of instrument mis-design, not a new
+result. Rules 23 and 24 govern every v7 pass registration verbatim
+(rule 23's anchor default resolving, per corpus, to the most recent
+archived full pair — for the three corpora this cut names, the
+v6-series raters).
+
+## Pre-registered v7 resolution predictions (committed before any v7 pack or rater exists)
+
+Graded at the first commissioned v7 pass for the relevant corpus;
+later v7 passes report concordance but do not regrade. Numbering
+namespace L1–L7. Settlement disclosure at cut time, per rule 24's
+standard: rules 26 and 27 were written to decide exactly the shapes
+L1, L3, and L4 name, so those three are comprehension checks BY
+CONSTRUCTION — they test whether the adjudication transmits, not
+whether raters independently discover it (the J2 lesson, stated at
+cut rather than discovered at registration). L2 is the amendment's
+non-overreach test: rule 26 must narrow WITHOUT disturbing the
+validity half it preserves. L2's discriminating status is PENDING
+rule 24's registration audit, with the candidate pre-flagged here:
+the served rule-25 phrase "Grammar-invalidity" was already ruled to
+settle item 62 (the v6 registration's trigger-(c) ruling), and rule
+26's wall (1) settles it in the added text as well — if the audit
+fires, L2 downgrades to a comprehension check and the
+discriminating load falls entirely to L6, L7, and rule 23's
+per-pass clauses; otherwise it falls on L2 and those. L5 is a
+stability restatement adjudicated by rule 25's unchanged served
+text and carries no discriminating load. A
+cut-time normalized-4-gram check of both rule bodies against the
+four named items' corpus texts found no hit, and a full-corpus
+sweep of both bodies against all six corpora likewise found zero
+hits (self-tested on a planted gram); disclosed per the
+trigger-(b) precedent: rule 26's body necessarily carries item
+150's characteristic tokens "precision" and "truncate" below the
+4-gram threshold — the adjudication is made of them. The
+registration's mechanical audit re-runs the sweep.
+
+- **L1 (rule 26, iCal):** item 150 lands PROCESS in every v7 rater —
+  siding with six of eight archived readings, against the convicted
+  v5 pair's two.
+- **L2 (rule 26's non-reach, iCal):** item 62 lands DOMAIN in every
+  v7 rater — siding with the four most recent archived readings
+  against the four pre-v5; an L2 failure convicts rule 26 of
+  overreach into the validity half rule 25 settled.
+- **L3 (rule 27, TLS):** item 64 lands PROCESS in every v7 rater.
+- **L4 (rule 27, QUIC):** item 232 lands PROCESS in every v7 rater.
+- **L5 (rule 25 stability under the narrowing, iCal):** items 13,
+  16, 22, 25, 27, 28, 91, 146, and 210 land PROCESS in every v7
+  rater — rule 26 narrows rule 25's unit-local list and must not
+  loosen its recognition boundary (comprehension-check disclosure as
+  for J2: rule 25's body is served unchanged).
+- **L6 (iCal DOMAIN-mass stability — leakage, integer form):** of
+  the 194 items both v4-ical anchors labeled DOMAIN (J5's set,
+  containing neither 62 nor 150, re-enumerated mechanically at
+  registration), at least 193 land DOMAIN in each v7 rater. The
+  bound of 1 is the largest measured non-DOMAIN count among the six
+  archived non-anchor raters with full iCal maps (Ai 1, Xi 1, Av5 0,
+  Xv5 1, Av6 1, Xv6 1 — the v6 counts verified at registration).
+- **L7 (TLS DOMAIN-mass stability — leakage, integer form):** of the
+  56 items both v4 TLS anchors labeled DOMAIN (J6's set, not
+  containing 64, re-enumerated at registration), at least **52** land
+  DOMAIN in each v7 rater. The bound of 4 is the largest measured
+  non-DOMAIN count among the eleven archived non-anchor raters with
+  full TLS maps, re-derived for this cut over the enlarged archive:
+  A 3, D 1, G 2, X 1, Av5 2, Xv5 2, Av6 1, Xv6 0, M 2, K 2, and
+  **Z 4** ({27, 48, 51, 188}) — Z's is the largest; C excluded per
+  its report's status, B has no full map. The v6 floor was 53
+  (bound 3, rater A's); the floor moves because the archive grew,
+  not because the derivation changed.
+
+**Failure interpretation, pre-committed:** these predictions grade
+rules 26 and 27's texts and the author's model of their reach,
+nothing else. A failed prediction licenses NO re-rating under
+reworded rules within v7, NO retroactive relabeling of any archived
+pass, and NO substitution of a v7 number for any earlier series'
+figure. Predicted headline drift attributable to the named items is
+restated in the direction disclosure above; L6 and L7 bound the
+leakage the adjudications must not cause; everything else is rule
+23's per-pass territory. Movement beyond these statements is
+instrument mis-design — that verdict, not a new headline, would
+again be the result.
