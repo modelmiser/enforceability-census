@@ -202,7 +202,7 @@ vendored:
    `census/foreign2/` — Gemini/Kimi/GLM; F10's informative failure
    feeds the rule-17 docket); the V7 SERIES is CUT, REGISTERED, and
    GRADED (2026-08-16, `census/v7-pass/` — rules 26/27 transmit,
-   three calibration tripwires fire; paper integration pending); the
+   three calibration tripwires fire; PAPER §6.5 integrated); the
    v4-ical null test
    is DONE (THRESHOLD stayed exactly 0 under v4; rule 18's churn did
    not travel) — the genre-vs-model question (properly genre-vs-roster-bundle) about

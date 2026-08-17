@@ -1,7 +1,7 @@
 # A Census of Enforceability: Measuring What Fraction of Stated Runtime Obligations a Type System Could Discharge
 
 **Repo-native paper · 2026-08-13, extended 2026-08-14 (v4 series, §6.1), 2026-08-15 (the
-non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obfuscation probe, limitation 6; second cross-family replication, §6.4) · artifact of record: this repository.**
+non-protocol corpus, §4.8), and 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obfuscation probe, limitation 6; second cross-family replication, §6.4; v7 series, §6.5) · artifact of record: this repository.**
 No venue submission is planned; the repository, its commit history, and the
 census artifacts it cites are the citable object.
 
@@ -81,7 +81,12 @@ families — three more lineages landing inside the pre-registered
 band, the CV core fifteen-for-fifteen across six families — while
 finding the first replication's nine-item foreign consensus is not
 seat-general: one new family sides with the Claude anchor's archived
-reading, which is itself its own family's outlier on those items. The
+reading, which is itself its own family's outlier on those items. A
+v7 amendment then settled the v6 pass's two docket edges (§6.5) —
+both adjudications transmitted in both families, TLS posted the
+series' first fully clean no-regression sheet — while the leakage
+and churn tripwires convicted the author's calibration for a second
+consecutive release, on items no rule version has claimed. The
 instrument itself was then repaired under pre-registration and the
 repair graded (§6.1): a v4 amendment wrote five rules at the series'
 measured edges, with itemized predictions V1–V8 committed before any v4
@@ -817,11 +822,12 @@ What the eight passes measured:
    repository-wide record — since surpassed by the iCalendar pair's
    97.3%, §4.8, and again by its v6 pair's 98.7%, §6.3). MLS rose to 88.2% (v3: 85.0%). And both v4 TLS
    raters kept the CV class at exactly the same six items — the six CV
-   items have now drawn CV labels from fifteen TLS raters, exactly six
-   in eleven of them (G extends the class by three, §6; the v5
+   items have now drawn CV labels from seventeen TLS raters, exactly
+   six in thirteen of them (G extends the class by three, §6; the v5
    same-family rater by one, torn, §6.2; both v6 raters exactly six,
    §6.3; the second replication's Gemini by one and Kimi by four,
-   GLM exactly six, §6.4; B's exactness by
+   GLM exactly six, §6.4; both v7 raters exactly six, §6.5; B's
+   exactness by
    inference, limitation 7).
 2. **The rules generalize past their named items — one of the two
    reasons the no-regression clause failed everywhere.** V7's match-rate clause
@@ -1069,7 +1075,8 @@ Three results carry the section:
    held that the served text *settles* the item, and the item
    declined to be settled. Registration-time rulings about what an
    instrument's text settles are themselves falsifiable predictions;
-   this pass graded one. A v7 owes the precision-trigger wording.
+   this pass graded one. A v7 owes the precision-trigger wording
+   *(delivered — rule 26, §6.5)*.
 3. **The no-regression machinery convicted the author again — this
    time on calibration, in the thesis-unfriendly direction.** The
    TLS cell failed both clauses in the foreign rater (match 132
@@ -1084,7 +1091,8 @@ Three results carry the section:
    interpretation, is the author's registered model of cross-family
    churn; it stands as graded.
 
-The steer ledger settled with one finding the v7 docket inherits: the
+The steer ledger settled with one finding the v7 docket inherits
+*(decided — rule 27, §6.5)*: the
 two mode-conditioned duties (TLS 64, QUIC 232) reverted PROCESS-ward
 in all four v6 readings — consistent, cross-family movement on
 exactly the shape rule 25 declined, budget-charged as registered. The
@@ -1139,8 +1147,9 @@ families reaching the intra-family edge against rater D — passed
 universally (175, 184, 170 of 204), the second
 replication in which the author's pre-registered degradation model
 proved too pessimistic. The CV core went six-for-six in all three
-raters — fifteen raters across six model families have now kept all
-six (B's by inference, limitation 7), with the *penumbra*
+raters — fifteen raters across six model families had then kept all
+six (B's by inference, limitation 7; seventeen since, §6.5), with
+the *penumbra*
 reproducing too: Kimi's four CV extensions
 {111, 181, 199, 203} are exactly the GPT rater's three plus
 Gemini's one, independent lineages extending the class at the same
@@ -1164,6 +1173,57 @@ for any future instrument version inherits that structure. One
 transport protocol event (a single item emitted twice with the same
 label, deduplicated) is disclosed in the report; no number from
 either replication joins any census series.
+
+### 6.5 Two docket edges settled: the v7 amendment and its first pass
+
+The v6 report left two entries for a future version — the
+precision-trigger wording its J4 grade owed, and the mode-conditioned
+pair's consistent PROCESS-ward reversion. A v7 amendment cut both
+(rules 26 and 27), stated plainly at cut: unlike v6, it repairs no
+conviction — cut from the v6 pass's two measured docket
+edges. Rule 26 narrows rule
+25's unit-local list to suppression dispositions (an acceptance duty
+with a degradation license is conduct — siding with six of eight
+archived readings on the precision item while preserving the validity
+half), and rule 27 applies the locality litmus to operating state,
+deciding the decline rule 25 had recorded. The registration's audit
+fired the amendment's own pre-flagged downgrade — the served text
+settles the validity item twice over, so its prediction graded as a
+comprehension check — leaving the discriminating load entirely on the
+leakage and churn tripwires; the iCal zero bound re-derived (achieved
+by three archived raters this time), and the TLS leakage floor moved
+one item looser because the archive had grown, not because the
+derivation changed.
+
+Six blind passes, zero protocol events, and the sheet splits exactly
+along the registered load line. Everything the amendment adjudicated
+transmitted in both families: the precision item PROCESS in both
+raters (eight of its ten archived readings; only the convicted v5
+pair ever read DOMAIN), the validity item DOMAIN in six
+consecutive readings since v5, both mode-conditioned items PROCESS in all four
+v7 readings (four consecutive each since the wall), the recognition
+nine at 18/18. TLS posted the series' first fully clean sheet — in
+the corpus that had convicted v6's calibration — with the CV core
+reaching seventeen consecutive raters across six families (one by
+inference, limitation 7). And the
+tripwires convicted the author three ways: the iCal leakage clause
+failed in the foreign seat (191 against 193 — the set's two
+perennial flicker sites plus its first-ever third leak), the iCal
+zero bound convicted both raters on one item each (77 and 79, the
+series' perennial U-boundary flickers, neither carrying the new
+rules'
+vocabulary), and the QUIC churn budget broke in both seats (11 and
+15 against 7), the foreign rater moving three history-conditioned
+items PROCESS-ward — breaking a four-rater TYPESTATE streak on
+exactly the shape rule 27's wall declined to claim, with two
+unlicensed thesis-ward departures stated on the error-sign sheet.
+The v7 shares (a fifth version-labeled series, never mixed):
+iCalendar 88.4%/87.6%, TLS 80.9%/80.9%, QUIC 63.0%/63.3% — every
+one at or below its v6 counterpart. The loop's fourth turn reads
+cleanly: the adjudications transmit where the rules aim, and the
+residual drift lives where it has always lived — on U-boundary,
+class-boundary, and
+history-conditioned shapes no instrument version has claimed.
 
 ## 7. Related work
 
@@ -1238,7 +1298,8 @@ not a proof of novelty.
    later rater models, sits at 97.3% — §4.8; the v5-series pairs at
    QUIC 89.7%, TLS 93.6%, RFC 9001 95.7%, iCalendar 96.9% — §6.2;
    the v6-series pairs at iCalendar 98.7%, TLS 93.1%, QUIC 89.3% —
-   §6.3;
+   §6.3; the v7-series pairs at iCalendar 97.8%, TLS 92.2%, QUIC
+   86.5% — §6.5;
    the two-variables caveat against the v3 pairs applies except on
    iCalendar, whose v3 pair already used these rater models), 15 TLS items
    with fresh-rater consensus against the original labels, guard-boundary
@@ -1265,8 +1326,9 @@ not a proof of novelty.
    fresh same-family instance and one foreign instance, no author
    rater — continue that discipline, which v5's rule 24 makes
    mandatory for every future registration, as do the v6 pass's six
-   raters (§6.3) and the second replication's three fresh foreign
-   instances, one per new family (§6.4). RFC 9002 has
+   raters (§6.3), the second replication's three fresh foreign
+   instances, one per new family (§6.4), and the v7 pass's six
+   (§6.5). RFC 9002 has
    NO author rater — its intended author pass was abandoned after the
    author saw the first blind rater's labels (deviation disclosed in its
    report) — so its two raters are both blind same-family instances and
@@ -1283,7 +1345,8 @@ not a proof of novelty.
    Pro, Kimi K3, and GLM 5.2, three more lineages, landed at
    77.0–78.9% inside the pre-registered band with all ten
    foreign–foreign pairs at 79.9–88.2% raw and the CV core
-   fifteen-for-fifteen across six families (one nine-item cluster
+   fifteen-for-fifteen across six families, seventeen since the v7
+   pass (§6.5; one nine-item cluster
    reads seat-dependently — §6.4). The *corpus-shared-prior* half — every frontier LLM
    trained on these RFCs and on prose about them — is unaddressable by
    any LLM replication from any family: a shared reading learned from the
@@ -1333,13 +1396,14 @@ policy thresholds and structurally cannot contain typestate; a windowing
 protocol whose client-facing declared errors are 87.6% type-eliminable in
 shape; a cryptographic handshake whose normative surface is 80–83%
 type-eliminable, with a secret-dependent core of 2.9% that every
-same-family rater's recorded labels agree on item-for-item (all eight
+same-family rater's recorded labels agree on item-for-item (all nine
 foreign raters ever run on that corpus kept the six CV items —
-fifteen raters in all, across six model families; one foreign rater
+seventeen raters in all, across six model families; one foreign rater
 extends the class by three, another by exactly those three plus the
 one a third adds, and the v5 same-family rater by one,
-torn; both v6 raters kept exactly the six — §6, §6.1, §6.2, §6.3,
-§6.4); a cryptographic group protocol at
+torn; both v6 raters and both v7 raters kept exactly the six — §6,
+§6.1, §6.2, §6.3,
+§6.4, §6.5); a cryptographic group protocol at
 ≈57%; a transport protocol at ≈67–69%; that transport protocol's two
 sibling documents at 54–67% and 23.3%; and a calendar data format at
 88.0–88.4% — above every frozen-instrument protocol span, its
@@ -1369,7 +1433,12 @@ clause at a zero-departure budget with the repository's record
 agreement, one adjudication half failed to transmit in both raters —
 mapping a validity-versus-precision boundary sharper than the rule
 that drew it — and the no-regression machinery convicted the
-author's churn calibration on a neighboring corpus; the loop's third
+author's churn calibration on a neighboring corpus. The v7 amendment
+then settled both of that pass's docket edges (§6.5): the settled
+adjudications transmitted in both families, the convicting corpus
+posted the series' first fully clean sheet — and the tripwires
+convicted the author's calibration again, on the shapes no version
+has claimed; the loop's fourth
 full turn, each closed by machinery written before its evidence.
 We still resist summing these into one cross-corpus law: the first three
 corpora were classified by different methods (rule 8 makes such
@@ -1422,7 +1491,7 @@ crisply, you will re-litigate at runtime.
 
 | artifact | contents |
 |---|---|
-| `codebook/classes.md` | taxonomy, honesty rules 1–25, retraction + addendum, v2/v3/v4/v5/v6 amendments (v4 carries pre-registered predictions V1–V8; v5 carries Z1–Z7; v6 carries J1–J6), graduation record |
+| `codebook/classes.md` | taxonomy, honesty rules 1–27, retraction + addendum, v2/v3/v4/v5/v6/v7 amendments (v4 carries pre-registered predictions V1–V8; v5 carries Z1–Z7; v6 carries J1–J6; v7 carries L1–L7), graduation record |
 | `codebook/rater-pack.md` | the verbatim v3 rating instrument (pass-4 instrument = blob `a08febba…`; later reformatted for rendering, rule content unchanged) |
 | `codebook/rater-pack-v4.md` | the verbatim v4 rating instrument (blob `4891605…` — v3 pack + rules 15–19, one disclosed elision) |
 | `census/promql/promql-classifier.py` | n=1155 classifier, rule-9 hardened |
@@ -1450,3 +1519,5 @@ crisply, you will re-litigate at runtime.
 | `census/v6-pass/` | first v6 pass over iCal/TLS/QUIC: registration with the verbatim trigger-(c) ruling and the zero-departure iCalendar bound, six blind passes, archived labels, grades of J1–J6 and rule 23 per corpus — the zero-departure conviction-corpus sheet, the 98.7% record pair, and the two standing failures |
 | `census/obfuscation/` | registered probe of limitation 6's memorization component: seeded reversible obfuscation of the iCalendar corpus (shipped script + full map), two-arm manipulation check FAILED — RFC 5545 identified at 95/98% from what obfuscation left — clauses O2–O4 with both raters' archived labels — the measurement behind limitation 6's only-a-non-LLM-rater sentence |
 | `census/foreign2/` | second cross-family replication of the TLS corpus (three new families: Gemini 3.1 Pro, Kimi K3, GLM 5.2): registration F6–F10 with mutant-exhibited fail branches, shipped scorer, three blind passes with archived labels — F6–F9 pass ×3, F10's informative failure (the rule-17 cluster is seat-dependent; the Claude anchor is its own family's outlier) |
+| `codebook/rater-pack-v7.md` | the verbatim v7 rating instrument (blob `a6f4321…` — v6 pack + rules 26–27, three disclosed elisions) |
+| `census/v7-pass/` | first v7 pass over iCal/TLS/QUIC: registration with the fired L2 downgrade and the re-derived zero bound, shipped scorer with 24-cell KAT, six blind passes, archived labels, grades of L1–L7 and rule 23 per corpus — both adjudications transmit, TLS's first fully clean sheet, and the three calibration convictions |
