@@ -695,3 +695,31 @@ bought with separately pushed commits — and applies it to a minor claim while 
 load-bearing premise is bought with nothing. **A dated, pushed "no rater has been
 served as of <commit>" attestation costs one line and would convert an assertion into
 a witnessed one. It was not made, and should be, before any serving.**
+
+
+### [NO-SERVE ATTESTATION SLOT — added 2026-08-20, UNSIGNED]
+
+Round-3 adversarial review established that the load-bearing premise of this
+registration — *no rater has ever been served* — **cannot be established from the
+artifact**. There is no serving log, no recruit register, and no dated attestation;
+the repository would look bit-identical whether or not a packet had been served. This
+repo buys lesser temporal claims with separately pushed commits and buys this one with
+nothing.
+
+**What the repository can witness, verified:** no attestation addendum, no labels
+file, and no report artifact exists anywhere under this directory, across all history.
+That is consistent with no serving and does not establish it.
+
+**What only the owner can supply, and has not:** an affirmative, dated statement,
+pushed as its own commit, that no rater has been served as of that commit. It costs
+one line and converts an assertion into a witnessed one.
+
+> ```
+> NO-SERVE ATTESTATION — unsigned
+> As of commit ________, no rater has been served any packet from this
+> registration. Signed: ____________________  Date: __________
+> ```
+
+**This slot is deliberately left blank.** It is not the assistant's to sign — only the
+owner knows what did or did not happen. **Sign it, in its own pushed commit, before
+serving anything.**

@@ -4,6 +4,10 @@
 system have discharged?** This repository measures that question — the
 *enforceability-class mix* of real obligation corpora — instead of arguing it.
 
+> ### 👉 **[CLAIMS.md](CLAIMS.md) — what this repository currently claims**
+> One page: the live claims with their binding caveats, and what has been withdrawn
+> or superseded. Everything else here is provenance. **Start there.**
+
 > **The paper: [PAPER.md](PAPER.md)** — the repo-native consolidation of the
 > codebook, the censuses, and the inter-rater studies. This repository
 > is the artifact of record; no venue submission is planned. The censuses were
