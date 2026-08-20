@@ -148,9 +148,22 @@ def self_test():
     # AND must fire on a synthetic packet carrying a registered item number.
     live = answer_leaks()
     assert not live, "answer-shaped leak in packet-hl1.md: %r" % (live,)
-    probe = "format: `NUMBER:YES` (e.g. `13:NO`) and `62:YES?`\n\n[1] first item\n"
+    # The probe must name REGISTERED items (that is what the guard checks) while
+    # carrying answers that are WRONG, so this file never contains a grading key.
+    # Fixed 2026-08-20 (round 3): the first version paired item 13 with its
+    # registered CORRECT answer -- the grading key itself, written into the guard
+    # that exists to forbid that shape on that item set. The token is described
+    # here rather than reproduced, for the same reason.
+    probe_items = (13, 62)
+    wrong = {i: ("YES" if not L[i] else "NO") for i in probe_items}
+    for i in probe_items:
+        assert (wrong[i] == "YES") != bool(L[i]), \
+            "probe answer for item %d is the CORRECT one -- that is a grading key" % i
+    probe = ("format: `NUMBER:YES` (e.g. `%d:%s`) and `%d:%s?`\n\n[1] first item\n"
+             % (probe_items[0], wrong[probe_items[0]],
+                probe_items[1], wrong[probe_items[1]]))
     fired = answer_leaks_in(probe)
-    assert {n for n, _ in fired} == {13, 62}, \
+    assert {n for n, _ in fired} == set(probe_items), \
         "negative control did not fire correctly: %r" % (fired,)
     # a number OUTSIDE the registered set must NOT fire (HL1 permits arbitrary numbers)
     assert not answer_leaks_in("e.g. `8:NO` … `104:YES?`\n\n[1] first item\n"), \

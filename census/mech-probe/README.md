@@ -3,9 +3,16 @@
 > **[STATUS BANNER added 2026-08-20 (round-2 review) — marked insertion; no original
 > wording below is altered or removed.]**
 >
-> ⚠️ **THE SECTIONS BELOW, UP TO "[CORRECTION 2026-08-20]", CONTAIN WITHDRAWN CLAIMS.**
-> They are kept as legible error, not as findings. Do not quote from them without the
-> corrections.
+> ⚠️ **THE SECTIONS BELOW, UP TO "[CORRECTION 2026-08-20]", MIX LIVE FACTS WITH
+> WITHDRAWN CLAIMS.** *[scope corrected round 3 — the first version said the region
+> "contains withdrawn claims… do not quote", which wrongly disowned the region that
+> also holds the still-true facts.]*
+>
+> **Still true there:** the result table's coverage figure (56/127 = 44.1%), the
+> per-item margins, and **"MLS is SPENT as a probe corpus"** — a standing constraint
+> that `census/mls/SPENT.md` points back to.
+> **Withdrawn there:** the causal claim, the margin range, the RFC number, "structure
+> alone", and the verdict. Each is named below.
 >
 > Withdrawn or corrected: the causal claim that the errors are "exactly decision rule 1"
 > and "not a regex-quality problem" (**one** of eleven is decision rule 1); the margin
@@ -17,7 +24,7 @@
 > **C7 (round 2)**, which corrects the round-1 correction. The sections between are
 > provenance.
 
-**2026-08-20 · Feasibility probe, NOT a registered pass. Negative. Arc closed.**
+**2026-08-20 · Feasibility probe, NOT a registered pass.** *[dateline corrected 2026-08-20 round 3: originally read "Negative. Arc closed." — withdrawn in C7.4 and resolved in C8. Current status: **PLAN.md cannot adjudicate this run**; see C8.]*
 **MLS (RFC 9420 §5–15) is SPENT as a probe corpus by this run.**
 
 ## Why this exists
@@ -102,6 +109,9 @@ independence is the measurement.**
    author's framing — addresses **author mediation only**, not the shared prior.
 
 ## Files
+
+> ⚠️ **This is NOT the end of the document.** Roughly 300 lines of corrections
+> follow, including the two that withdraw this record's causal claim and its verdict.
 
 `PLAN.md` (protocol, frozen first) · `mech1.py` (the classifier, frozen second)
 · `pred.txt` (the one run's predictions) · this record.
@@ -417,3 +427,99 @@ sweep initially got a large false overlap and traced it to their own bounds erro
 On the shuffle seed: the published pair (14, 12) arises in only ~1.3% of seeds, which
 is good evidence the shipped procedure is the original one rather than a seed fitted
 to the answer.
+
+---
+
+## [C8 — ROUND-3 CORRECTION 2026-08-20. Corrects C7, which corrected the correction.]
+
+A third review round ran an **adversarial** lens — told to refute rather than verify,
+and to default to REFUTED when uncertain — plus a fresh audit of C7 itself. C7 was
+wrong in the direction opposite to C1: where the original record overstated its
+result, **C7 overstated its own retreat, and did so using a number it had just
+disowned.**
+
+### C8.1 — The shuffle baseline was a single draw at the 0.5th percentile
+
+C7.4 argued the downgrade on "26.8% vs 12.6% at the declared seed", disclosing the
+~21% mean in the same sentence and then reasoning with the 12.6%.
+
+Measured over 20,000 seeds: **P(whole-corpus shuffle ≤ 16) = 0.53%**, and in ~7% of
+seeds the classifier would print BELOW on *both* degenerates. The seed is not low
+because it had to reproduce the covered-item pair (14, 12): of the 89 seeds in 6,000
+that reproduce that pair, **zero** give a whole-corpus shuffle ≤ 16.
+
+**The honest baseline is the distribution, not a draw.** `score_mech1.py` now computes
+and asserts the 2,000-seed mean (**21.4% / 21.3%**) and prints the declared seed only
+as a labelled outlier. Whole-corpus margin over the shuffle is **~5.5 points**, not 14.
+
+### C8.2 — The verdict, resolved: PLAN.md cannot adjudicate this run
+
+Three readings, and the pre-registration does not choose between them:
+
+| reading | result | branch |
+|---|---|---|
+| covered items only (the classifier's 56) | beats both degenerates by 17.9–32.1 | **1 — arc live** |
+| whole corpus, shuffle at declared seed | beats one by 14, loses one by 4–6 | ambiguous 2/3 |
+| whole corpus, shuffle at distribution mean | beats one by ~5.5, loses one by 3.9–6.3 | **2 — at or near degenerate** |
+
+`PLAN.md` step 5 says "report degenerate baselines on the **SAME items**". **That
+phrase was never interpreted, by C2, by C7, or anywhere else** — and read naturally as
+"the items the classifier was scored on" it selects row 1. The whole-corpus convention
+that drives the entire C2→C7 cascade was introduced after the result and never argued.
+
+**Standing verdict, replacing both "Negative. Arc closed." (original) and
+"branch 3 — INCONCLUSIVE" (C7.4): the pre-registration was UNDERSPECIFIED, and which
+branch fires depends on a scoring choice PLAN.md does not make.** On the two readings
+that use the whole corpus with an honest baseline, the classifier is at or near the
+degenerate. The author's decision not to pursue stands, but it rests on the design
+argument and on that reading, not on a branch the plan selected.
+
+C7.4 convicted C2 of post-hoc adjudication and then adjudicated post hoc itself,
+toward the reading that left the arc nominally open. Recorded as the same error in the
+opposite direction.
+
+### C8.3 — C7's exoneration of the seed is logically invalid
+
+C7 filed this under "confirmed sound": "the published pair (14, 12) arises in only
+~1.3% of seeds, which is good evidence the shipped procedure is the original one
+rather than a seed fitted to the answer."
+
+The frequency is right (measured 255/20,000 = 1.27%). **The inference is not.** A
+1.3% hit rate means a fitted search succeeds in ~70 expected trials — P(success in 100
+tries) ≈ 76%. Rarity under a *random draw* discriminates against coincidence, not
+against *deliberate search*, and search is the hypothesis it was invoked to exclude.
+C5 records that no procedure was written down either, so a reconstruction searched
+over procedures as well as seeds.
+
+No claim is made that fitting occurred. The correct statement is that **the artifact
+cannot discriminate**, and per C4 cannot — one commit, hash published with the file it
+hashes. A check that ran and measured something adjacent to its claim, filed as
+confirmation. Withdrawn.
+
+### C8.4 — Item 104's bucketing was asserted, not shown
+
+C7.3 put item 104 in the over-breadth bucket to make "7 are ordinary pattern
+over-breadth" add up. Examined: `before` fires at offset 151 in *"…matches the
+tree_hash of the GroupContext **before using the tree** for MLS operations"* — a real
+temporal marker in a genuinely sequenced duty (verify, then use). That is categorically
+unlike item 18, where the pattern hit a noun phrase.
+
+So the split is not 4 structural / 7 over-breadth. At least one of the seven is a
+defensible temporal match, and the honest statement is **"a majority are over-breadth;
+the exact split depends on judgement calls this record should not have presented as
+counted."** C7.2 convicted C1 of overstating a self-accusation; C8.4 records C7
+understating one to prop up a count. Both are the same defect.
+
+### C8.5 — What survived a genuine attempt to break it
+
+Recorded because the attempt was real. **The defect arithmetic survives every link**:
+floor 6 (`score()` implements `h2 >= 6`); Xv5 is the largest measured failing branch
+(archived H2: 9,9,9,9,0,**5**,9,9; mutants 1 and 0); item 13 is one of Xv5's misses
+`[13, 91, 146, 210]`; 5+1 = 6 = PASS. **The floor rule survives** an attack as a
+self-serving tiebreak — floors of 7 or 8 were equally consistent and would have made
+the leak harmless, but "smallest integer every fail branch fails" is applied
+identically to H1 (floor 25 against a shuffle at 24, the same one-item margin), and
+including Xv5 is the *conservative* direction, since excluding it would drop the floor
+from 6 to 2. **The contamination sweep survives and understates itself** — 0 overlap
+at 11, 60 and 225 items. **`pred.txt` regenerates byte-identically** from the frozen
+classifier, now asserted rather than asserted-about.

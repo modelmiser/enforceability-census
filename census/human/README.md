@@ -597,3 +597,101 @@ Consequences, checked rather than assumed:
   anchored regex in the grader would not have caught.
 
 All four graders pass unchanged.
+
+### [H1-R2 addendum, 2026-08-20 — ROUND-3 corrections. An adversarial lens broke six things.]
+
+Round 3 ran a reviewer told to **refute rather than verify**, defaulting to REFUTED
+when uncertain. It succeeded six times. Nothing above is altered.
+
+**E1 — A claim about a check, written without running it. Again.** The round-2
+addendum says the banner "deliberately contains no answer-shaped token, because
+`verify_no_answer_leak`'s KAT asserts exact-set equality; a banner quoting them would
+have failed the check." **Executed: false.** The assertion compares *sets*, so a
+banner quoting this packet's own two known leaks collapses into the existing set and
+**passes**. Only a *different* token fails. The sentence credited the guard with a
+property it lacks and credited the author with a constraint that was never binding —
+the same failure mode as C7.1, one level further up, and again in the flattering
+direction.
+
+**E2 — The severity analysis missed a channel, and both earlier rounds accepted the
+framing.** The analysis treats the leak as item-level and concludes item 62 "touches
+a reported quantity and the torn count, **not a clause**." True item-wise, **false
+channel-wise.** Of ten enumerated labels the packet exhibits exactly two worked
+instances — `PROCESS` and `DOMAIN` — which are the classes H2 and H1 respectively turn
+on. H1 is "≥25/29 DOMAIN", and this registration already discloses that a
+constant-DOMAIN rater passes H1 by construction. Priming toward DOMAIN pushes toward
+the degenerate the registration itself names. **The superseded instrument's severity
+was understated, and the framing that hid it — "the leak's scope is the items it
+names" — was supplied by the author and accepted by two review rounds.**
+
+H1-R2 removes all class tokens, so it closes this channel; the fix is better than the
+argument given for it. But **both leak guards are blind to this by construction**:
+they fire only on tokens naming registered items, and `answer_leaks_in`'s third
+control positively *asserts* that arbitrary-number examples must not fire — so a
+packet whose examples were `8:NO` and `104:NO` would pass while shifting the base rate
+for an 11-item NO-floor clause. D8's scope note lists prose and in-list leaks; it does
+not list example *balance*. It should.
+
+**E3 — "Mechanically" was doing a measurement's work, with an error-sign
+asymmetry.** Only `5 + 1 = 6` is mechanical. That a rater *writes* the leaked label
+because the format example shows it is **behavioural and unmeasured**. Three sentences
+later the identical assumption at n=3 is correctly hedged ("whether a human carries it
+remains unmeasured"). Same assumption, labelled *mechanical* at n=1 and *unmeasured*
+at n=3, differing only by count. And the mirror: H1-R2's "this loses the rater
+nothing" is equally unmeasured and accepted **without hedge**, because it points
+toward the fix. Adoption-from-example was assumed strong when it condemned the old
+packet and nil when it would have cost the new one.
+
+**E4 — A usability cost the certification never asked about.** Executed: an Av6
+return with three ordinary formatting slips out of 60 ("Item 7: PROCESS",
+"16 - DOMAIN", "23: DOMAIN (unsure)") parses 57 of 60 and raises, making an entire
+~90-minute sitting unscoreable, with no partial path and no documented protocol event.
+`verify_serving_path`'s negative control asserts that rejection is *correct*; it never
+asked about recovery. D1 surfaced a third device — HL1's arbitrary-plus-disclaimed
+numbers — that keeps a worked example and leaks nothing; this addendum called going
+further "defensible" and never weighed it against this cost. **Recorded, not
+resolved: the protocol has no partial-return path, and that is an owner decision.**
+
+**E5 — FIXED: the serving path corrupted silently.** `parse_labels` built a dict, so
+duplicate item numbers were last-wins. A rater appending a corrected line for an item
+— an ordinary thing to do on paper — was scored on the last occurrence with no warning
+(measured: 61 lines → 60 entries, H2 moved to 8/9). **Duplicates now raise as a
+protocol event, and the KAT asserts both that and that no conforming line is silently
+dropped.** A silent wrong answer is worse than every loud failure the guard covered.
+
+**E6 — FIXED: the HL1 leak guard contained the grading key.** The negative-control
+probe added in D9 paired item 13 with its registered **correct** answer for graded
+clause HL1b — the key itself, written into the function whose purpose is to forbid
+that shape on that item set, and frozen by an exact-set assertion. By this
+registration's own severity standard that is a stronger object than the H1 leak, which
+was only the modal rater label. Live severity was low (the served surface is
+`packet-hl1.md`, which is clean), but two review rounds read that line and asked only
+whether the tokens falsified an unrelated claim. **The probe now derives answers that
+are wrong by construction and asserts that property, and the disclosure describes the
+token rather than reproducing it.**
+
+**E7 — D4's evidence block names a command that no longer reproduces.** It quotes
+`diff packet-h1.md packet-h1r2.md → 27,30c27,30`; the shipped files now give
+`3,18d2` and `43,46c27,30` at 581 vs 565 lines, because the banner landed in the same
+commit. The quoted content and the four-line count are correct **of the packet body**
+(`sed '3,18d'` reproduces the named output exactly). Read D4 as a claim about the
+body. Relatedly, the banner's own line "retained unchanged as the superseded
+instrument of record" is asserted inside the insertion that changed the file — read it
+as *the packet body is unchanged*.
+
+**E8 — An in-place edit inside an append-only block, now disclosed.** D1's "appear"
+was changed to "appeared" when its bracket was added. The substance was disclosed; the
+tense edit was not. It is now.
+
+**E9 — The supersession's premise is unwitnessed, and this repo witnesses lesser
+claims.** "No rater has ever been served" is the sole justification for editing a
+pushed pre-registration, and **it cannot be established from the artifact** — there is
+no serving log, no recruit register, no dated attestation, and the repository would
+look bit-identical either way. Two things push back and are recorded because they are
+real: the revision's direction is *against* interest (it makes the clause the author
+wants to pass strictly harder), and no floor, sample, clause or scoring rule moved
+(verified mechanically). But D10 states this repo's own standard — temporal claims are
+bought with separately pushed commits — and applies it to a minor claim while the
+load-bearing premise is bought with nothing. **A dated, pushed "no rater has been
+served as of <commit>" attestation costs one line and would convert an assertion into
+a witnessed one. It was not made, and should be, before any serving.**

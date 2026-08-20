@@ -19,7 +19,8 @@ CENSUS = 'census/mls/rfc9420-census.md'
 PRED   = 'census/mech-probe/pred.txt'
 CLF    = 'census/mech-probe/mech1.py'
 CLF_MD5 = 'b8739771e855ade2acc6829d9f867614'
-SEED   = 20260820           # the shuffle seed, recorded here because it was not before
+SEED   = 20260820
+N_SEEDS = 2000          # the shuffle baseline is a DISTRIBUTION, not one draw           # the shuffle seed, recorded here because it was not before
 ALIAS  = {'UNCLASSIFIED': 'U', 'NEGOTIATION': 'NEG', 'CRYPTO-VERIFY': 'CV'}
 
 def predictions():
@@ -46,7 +47,15 @@ def score(pred, R, covered_only):
     truth = [R[i] for i in keys]
     sh = truth[:]; random.Random(SEED).shuffle(sh)
     shuf = sum(1 for a, b in zip(truth, sh) if a == b)
-    return dict(n=len(keys), agree=agree, const=mode, shuffle=shuf)
+    # A single draw is not a baseline. Added 2026-08-20 (round 3): the declared seed
+    # sits in the bottom half-percentile of the whole-corpus shuffle distribution, and
+    # that flattering figure was the one that propagated to the summary surfaces.
+    tot = 0
+    for sd in range(N_SEEDS):
+        t2 = truth[:]; random.Random(sd).shuffle(t2)
+        tot += sum(1 for a, b in zip(truth, t2) if a == b)
+    return dict(n=len(keys), agree=agree, const=mode, shuffle=shuf,
+                shuffle_mean=tot / N_SEEDS)
 
 def kat():
     got = hashlib.md5(open(CLF, 'rb').read()).hexdigest()
@@ -74,6 +83,10 @@ def kat():
         assert (c['agree'], c['const'][1], c['shuffle']) == ec, c
         w = score(pred, R, covered_only=False)
         assert (w['agree'], w['const'][1]) == ew, w
+        # whole-corpus shuffle was previously printed but never asserted, while the
+        # standing verdict leaned on it -- pin the MEAN, which is the stable quantity
+        assert 26.0 <= w['shuffle_mean'] <= 28.5, w['shuffle_mean']
+        assert w['agree'] < w['const'][1], (w['agree'], w['const'][1])
     print('KAT: md5 exact; 56/127 coverage; covered agree 26/30, const 16/17, '
           'shuffle 14/12; whole-corpus agree 34/34 vs const 39/42. VALIDATED.')
 
@@ -87,8 +100,10 @@ if __name__ == '__main__':
               f"   const-{c['const'][0]} {c['const'][1]/c['n']:.1%}   shuffle {c['shuffle']/c['n']:.1%}")
         print(f"  WHOLE CORPUS  n={w['n']:3}  classifier {w['agree']}/{w['n']} = {w['agree']/w['n']:.1%}"
               f"   const-{w['const'][0]} {w['const'][1]/w['n']:.1%}"
-              f"   shuffle {w['shuffle']/w['n']:.1%}")
+              f"   shuffle {w['shuffle_mean']/w['n']:.1%} (mean of {N_SEEDS} seeds; "
+              f"the single declared seed gives {w['shuffle']/w['n']:.1%} — an outlier)")
         print(f"                vs const-{w['const'][0]}: "
-              f"{'BELOW' if w['agree'] < w['const'][1] else 'ABOVE'}    "
-              f"vs shuffle: {'BELOW' if w['agree'] < w['shuffle'] else 'ABOVE'}"
+              f"{'BELOW' if w['agree'] < w['const'][1] else 'ABOVE'}"
+              f"    vs shuffle-mean: {'BELOW' if w['agree'] < w['shuffle_mean'] else 'ABOVE'}"
+              f" by {abs(w['agree']-w['shuffle_mean'])/w['n']:.1%}"
               "   (PLAN.md step 5: must beat BOTH)")

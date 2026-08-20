@@ -92,12 +92,23 @@ def verify_no_answer_leak(path='census/human/packet-h1r2.md'):
 
 
 def parse_labels(lines):
-    """The serving path's parser. Factored out so the KAT exercises the same code."""
+    """The serving path's parser. Factored out so the KAT exercises the same code.
+
+    Duplicate item numbers are a HARD ERROR, not last-wins. Added 2026-08-20
+    (round 3): a rater who revises an answer by appending a corrected line -- an
+    ordinary thing to do on paper or in a text file -- was previously scored
+    silently on the last occurrence, with no warning and no protocol event. A
+    silent wrong answer is worse than a loud rejection.
+    """
     lab = {}
     for ln in lines:
         m = re.match(r'\s*(\d+)\s*:\s*([A-Za-z?-]+)\s*$', ln)
         if m:
-            lab[int(m.group(1))] = m.group(2).upper()
+            n = int(m.group(1))
+            assert n not in lab, (
+                "item %d answered more than once (%r then %r) -- a protocol event; "
+                "resolve with the rater, do not guess" % (n, lab[n], m.group(2).upper()))
+            lab[n] = m.group(2).upper()
     return lab
 
 def verify_serving_path():
@@ -130,6 +141,15 @@ def verify_serving_path():
     # negative control: the parser must REJECT malformed returns
     for bad in ['12 DOMAIN', 'twelve:DOMAIN', '12:DOM AIN', '']:
         assert not parse_labels([bad]), f'parser wrongly accepted {bad!r}'
+    # negative control: a duplicated item must RAISE, not silently last-wins
+    try:
+        parse_labels(['13:PROCESS', '13:DOMAIN'])
+        raise SystemExit('duplicate-item guard did not fire')
+    except AssertionError:
+        pass
+    # every conforming line must survive parsing -- no silent drops
+    ok = [f'{i}:DOMAIN' for i in sorted(SAMPLE)]
+    assert len(parse_labels(ok)) == len(ok) == 60
     # the packet's own label list must match VALID token-for-token
     head = open('census/human/packet-h1r2.md').read().split('<!-- PACK-BEGIN -->')[0]
     listed = {x.strip().rstrip('.') for x in

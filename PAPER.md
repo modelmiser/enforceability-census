@@ -5,6 +5,29 @@ non-protocol corpus, §4.8), 2026-08-16 (v5 series, §6.2; v6 series, §6.3; obf
 No venue submission is planned; the repository, its commit history, and the
 census artifacts it cites are the citable object.
 
+> **⚠️ CURRENCY NOTE (added 2026-08-20).** This paper does **not** cover four
+> artifacts that exist in the repository as of this date, and a reader treating it as
+> the complete artifact of record will get a stale picture of them:
+>
+> - `census/human/` — the human-rater pass **H1 was superseded by H1-R2 on 2026-08-20**
+>   after a disclosed defect in its packet (format examples leaked real archive labels
+>   on graded items; one leak lifts the largest measured failing branch to a PASS at
+>   the H2 floor). **Limitation 6's description of "the parked human replication" does
+>   not reflect this.** Neither pass has been run.
+> - `census/human-locality/` — the binary human pass **HL1**, registered 2026-08-17,
+>   also unrun.
+> - `census/mech-probe/` — **MECH-PROBE-1**, a non-LLM rule-based classifier probe
+>   whose pre-registration turned out unable to adjudicate the result. It carries
+>   three rounds of corrections, including withdrawal of its original causal claim and
+>   of its original verdict.
+> - `census/mls/SPENT.md` — **MLS is spent as a probe corpus.** The MLS *census* and
+>   every figure quoted from it are unaffected; future instrument probes against MLS
+>   are foreclosed.
+>
+> No number in this paper changes as a result. Limitation 6 stands as written — the
+> shared-prior confound remains unaddressed, and both instruments built to address it
+> are unrun.
+
 ## Abstract
 
 Debates about how much verification "could catch" are usually conducted by
