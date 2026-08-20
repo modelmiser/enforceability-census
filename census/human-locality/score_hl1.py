@@ -108,7 +108,54 @@ def grade(ans):
     return results, report, agree, len(graded21)
 
 
+
+# ---- answer-leak guard (added 2026-08-20, after the H1 defect) ----
+
+def answer_leaks_in(text):
+    """Answer-shaped NUMBER:YES/NO tokens before the item list naming a REGISTERED item.
+
+    H1's packet stated its return format with `13:PROCESS` and `62:DOMAIN?` — real
+    graded items carrying the archive's own labels. Item 13 sat in H1's H2 clause
+    and was one of the largest measured FAILING branch's misses, so that single
+    token converted that branch into a PASS at the floor
+    (see census/human/README.md, addenda of 2026-08-20).
+
+    HL1 was never defective: its examples are 8 and 104, absent from the registered
+    set. But its protection was a PROSE disclaimer — "Numbers in these two examples
+    are arbitrary and do not appear below" — and prose is not a guard. This makes it
+    mechanical.
+
+    HL1's rule differs deliberately from H1-R2's. H1-R2 removed numbers and class
+    tokens entirely; HL1 permits arbitrary numbers under its explicit disclaimer, so
+    this guard fires only on a number IN the registered set.
+
+    Scope, stated so this is not mistaken for full coverage: it sees only the
+    NUMBER:ANSWER shape, only before the item list. A prose leak ("item 13 is not
+    locally checkable"), or a leak inside the item list, passes silently.
+    """
+    head = re.split(r'(?m)^\[\d+\]', text)[0]
+    return [(int(n), w.upper()) for n, w in
+            re.findall(r'\b(\d+)\s*:\s*(YES|NO|Y|N)\b', head, re.I)
+            if int(n) in ITEMS]
+
+
+def answer_leaks(path=None):
+    return answer_leaks_in((path or (HERE / "packet-hl1.md")).read_text())
+
+
 def self_test():
+    # Answer-leak guard, negative-controlled: it must be clean on the real packet
+    # AND must fire on a synthetic packet carrying a registered item number.
+    live = answer_leaks()
+    assert not live, "answer-shaped leak in packet-hl1.md: %r" % (live,)
+    probe = "format: `NUMBER:YES` (e.g. `13:NO`) and `62:YES?`\n\n[1] first item\n"
+    fired = answer_leaks_in(probe)
+    assert {n for n, _ in fired} == {13, 62}, \
+        "negative control did not fire correctly: %r" % (fired,)
+    # a number OUTSIDE the registered set must NOT fire (HL1 permits arbitrary numbers)
+    assert not answer_leaks_in("e.g. `8:NO` … `104:YES?`\n\n[1] first item\n"), \
+        "guard wrongly fires on HL1's own arbitrary example numbers"
+
     # Drift check against the witness artifacts — unconditional.
     derived = derive_l()
     assert derived == L, (

@@ -191,6 +191,8 @@ round-trip parsed before push.
 
 ## [ADDENDUM 2026-08-20 — instrument defect disclosed at the artifact. Append-only; nothing above is altered.]
 
+*[Navigation, added 2026-08-20: this addendum ends by leaving three paths open. The next section takes path 3. A reader who only needs the outcome can skip to **H1-R2 — superseding registration** below; this block is kept for provenance, not for its open question.]*
+
 Recorded here rather than deferred to H1's eventual report, because H1 is
 paused indefinitely and a contingent report is not a disclosure vehicle. No
 rater has seen this packet; nothing below is result-contingent, because there
@@ -205,7 +207,7 @@ preserved:
 >   (e.g. `13:PROCESS`). If you are genuinely torn between two
 >   … (e.g. `62:DOMAIN?`).
 
-**Measured, not asserted.** Against the eight archived iCalendar raters
+**Against the eight archived iCalendar raters
 (`score_h1.archived()`, run 2026-08-20):
 
 | item | archived labels | in sample | graded under |
@@ -218,7 +220,7 @@ So `13:PROCESS` is the modal archived label for a graded item, and
 torn marker the archive's 4–4 split would justify. Neither example is
 arbitrary; both name the archive's own answers.
 
-**Severity, stated plainly and not minimized.**
+**Severity.**
 
 1. **Item 13 is one of H2's nine.** H2 requires ≥6 of 9 landing PROCESS. The
    packet supplies one of those six before the rater begins. H2 is the clause
@@ -304,7 +306,7 @@ this one preserved verbatim, no rater ever served) is the only one that
 recovers a clause capable of failing. Still owner's decision; still not taken
 here.
 
-**Not affected, verified rather than assumed:** `score_h1.py` self-test run
+**Scorer self-test after this addendum:** `score_h1.py` run
 after this addendum — 8 archived scores exact, both fail branches exhibited,
 packet pack section byte-identical, SCORER VALIDATED. No published figure,
 witness artifact, or archived label depends on this packet.
@@ -360,7 +362,7 @@ archived rater scores exactly and exhibits both fail branches, identical to
 `score_h1.py` — `Ai/Xi/Av4i/Xv4i` 9/9 on H2, `Av5` 0/9 and `Xv5` 5/9 FAIL,
 shuffle mutant 1/9, constant-DOMAIN 0/9.
 
-## The contamination surface was audited, not spot-fixed
+## The contamination surface, swept both ways
 
 The defect was found in two known places; the fix is bounded because the whole
 surface was swept, 2026-08-20:
@@ -516,3 +518,40 @@ logic changed — the eight archived KAT scores and both fail branches are
 unchanged and still exact. Legitimate for the same reason the supersession is:
 **no rater has been served, so nothing here is result-contingent.** Stated
 rather than left for a reader to diff.
+
+### [H1-R2 addendum, 2026-08-20 — round-1 editorial and scope fixes]
+
+**D7 — Editorial edits made, disclosed.** Four self-narrating labels were cut
+("stated plainly and not minimized", "Measured, not asserted", "Not affected,
+verified rather than assumed", "audited, not spot-fixed"); a navigation pointer
+was added at the head of the first addendum. **No claim, number, finding or
+quotation was altered** — a reviewer's point was that four such labels in one
+file read as protesting, and a disclosure that announces it is not minimising
+invites the reader to check whether it is.
+
+**D8 — The guard's scope, so it is not mistaken for coverage.**
+`verify_no_answer_leak()` sees only the `NUMBER:CLASS` shape and only before the
+item list. **A prose leak ("item 13 is a process obligation"), or any leak
+inside the item list, passes silently.** The 4-gram sweep covers part of the
+prose channel but is a one-off audit, not a standing check. The same limit, and
+HL1's deliberately different rule, are documented in `score_hl1.py`.
+
+**D9 — HL1's guard now exists.** D1 noted `score_hl1.py` had no mechanical
+equivalent. It does now, negative-controlled three ways: clean on the real
+packet; fires on a synthetic header carrying registered items {13, 62}; and
+does **not** fire on HL1's own arbitrary example numbers (8, 104), because HL1
+permits arbitrary numbers under an explicit non-membership disclaimer where
+H1-R2 removed numbers entirely. Neither packet was modified.
+
+**D10 — "The inference-then-measurement order stays visible" is
+author-reconstructed, not commit-witnessed.** The hedged block and its
+supersession were added in the same commit (`991a0c4`). Nothing is hidden and
+the reading is honest, but this repository elsewhere buys temporal claims with
+separately pushed commits. Read that ordering as the author's account of how the
+work went, not as evidence from the commit graph.
+
+**Pointers for the rules cited across these addenda:** rule 3 and rules 1/2/6 —
+[`codebook/classes.md`](../../codebook/classes.md); decision rule 1, rule 22 and
+the ten class definitions — [`codebook/rater-pack-v6.md`](../../codebook/rater-pack-v6.md);
+Limitation 6 — [`PAPER.md`](../../PAPER.md) §8; the O1 check —
+[`census/obfuscation/`](../obfuscation); §6.6/§6.7 — [`PAPER.md`](../../PAPER.md).

@@ -248,3 +248,21 @@ of the evidence it was drawn from.
 Recorded because the correction inherited the reviewer's number without checking
 it, and checking it moved the figure **against** the original claim rather than
 toward it. A correction accepted unverified is the same defect in a new coat.
+
+### C6. Why `mech1.py`'s docstring is NOT corrected
+
+C3 records that the docstring overstates: the patterns did not come from the two
+cited sources "ALONE" (four are author-supplied protocol vocabulary), and "every
+pattern cites the definition phrase it derives from" describes 9 comments over
+~80 patterns. **The file is deliberately left unchanged.** Its md5 is the
+artifact freezing this probe, quoted in this record and asserted by
+`score_mech1.py`'s KAT; editing it would break the freeze and silently rewrite
+the thing the hash exists to pin. The correction lives here, where it can be
+read against the frozen file — which is what a correction to a frozen artifact
+is supposed to look like.
+
+**Pointers:** rule 3 and rules 1/2/6 — [`codebook/classes.md`](../../codebook/classes.md);
+decision rule 1 and the class definitions — [`codebook/rater-pack-v6.md`](../../codebook/rater-pack-v6.md);
+Limitation 6 — [`PAPER.md`](../../PAPER.md) §8; O1 — [`census/obfuscation/`](../obfuscation);
+the corpus and its two archived raters — [`census/mls/`](../mls), and
+[`census/mls/SPENT.md`](../mls/SPENT.md) for what this run forecloses.
