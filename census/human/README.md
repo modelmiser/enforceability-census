@@ -1,5 +1,20 @@
 # Human-rater pass H1 — registration (PUSHED BEFORE ANY RATER RATES)
 
+> **[STATUS BANNER added 2026-08-20 — marked insertion; no original wording is
+> altered or removed. Placed at the top because the operative instruction was
+> otherwise 390 lines below, where a reader entering here would not reach it.]**
+>
+> ⛔ **THIS REGISTRATION IS SUPERSEDED.** `packet-h1.md` carries a disclosed
+> defect: its format examples leaked real archive labels on graded items, and
+> one of them converts the largest measured FAILING branch into a PASS at the
+> H2 floor. **Serve `packet-h1r2.md`. NEVER serve `packet-h1.md`.**
+>
+> Read in this order: this registration (below, unaltered) → the defect
+> disclosure and its measurement → **H1-R2, the live superseding registration**
+> → the cold-review corrections. `score_h1.py` still validates `packet-h1.md`
+> and will grade against the compromised instrument without complaint; use
+> `score_h1r2.py`.
+
 **What this is, and is not.** The first non-LLM rating pass in this
 repository — the probe of limitation 6's *corpus-shared-prior*
 confound (every frontier LLM trained on these RFCs; a shared reading
@@ -431,3 +446,73 @@ Verified 2026-08-20, after registration and before any serving:
 
 No defect found; nothing changed as a result. Recorded because "the serving path
 works" was an assumption in both registrations until it was run.
+
+### [H1-R2 addendum, 2026-08-20 — cold-review corrections. Append-only; nothing above is altered.]
+
+Three blind cold-review lenses read the H1 addenda and the H1-R2 registration
+before push. The supersession itself was checked hard and held — every
+supporting number reproduced, no floor moved, no sample changed, no frozen
+artifact touched. The following are the errors they found in the surrounding
+text. Original wording stands above.
+
+**D1 — The HL1 comparison is WRONG, and its quoted evidence is unrecoverable.**
+The addendum says HL1's gate "caught the same defect shape (`13:NO`,
+`62:YES?`)" and that "HL1's examples are drawn from a deliberately foreign
+domain for this reason." Both parts fail:
+- Those two tokens appear **nowhere in this repository except that sentence**.
+  `packet-hl1.md` has a single commit, so no pre-fix state exists in git. The
+  claimed gate finding came from the author's working notes and **cannot be
+  checked against the artifact**. It should not have been stated as though it
+  could.
+- HL1's actual fix was **not** foreign-domain examples. Its format spec uses
+  arbitrary numbers plus an explicit non-membership disclaimer: "(Numbers in
+  these two examples are arbitrary and do not appear below.)" The
+  foreign-domain pair (book chapters; dictionary consultation) is a *separate*
+  device — the two worked YES/NO instances — with a different stated rationale.
+  Conflating them invents a third option this addendum never considered:
+  **arbitrary-and-disclaimed numbers.** H1-R2 went further (no number, no class
+  token), which is defensible, but the record should not misdescribe the sibling.
+- Consequence worth stating so nobody copies the wrong template: **HL1 is not
+  protected by absence.** Its examples are still number-shaped; its protection
+  is not-in-set plus a disclaimer. Verified by hand that 8 and 104 are genuinely
+  absent from HL1's 23 items, so there is no live defect — but `score_hl1.py`
+  has no mechanical equivalent of `verify_no_answer_leak()`.
+
+**D2 — Item 62 is "milder" for the wrong reason.** The addendum calls
+`62:DOMAIN?` "one side of a genuinely contested item," on a 4–4 raw split. The
+split is **temporal, not live**: all four early raters say PROCESS, all four
+later ones DOMAIN — and the report-only quantity it feeds is *match-vs-either-v6*,
+where **both v6 raters label 62 DOMAIN**. Against the actual scoring reference
+`62:DOMAIN` is the unambiguously correct answer, not a contested one. "Milder
+because report-only" stands; "genuinely contested" is withdrawn.
+
+**D3 — Two mis-citations.** The pack's iCalendar datum designation is **rule 22**
+("The datum's boundary is the designated serialization unit"), which serves
+rules 10/16/17 — not "rule 16/17" as written. And rule 3's main body is anchored
+on corpus 2 (awesome-prometheus-alerts); only its exception clause is Wayland.
+
+**D4 — The quoted diff shows three lines while claiming four.** The count of
+four is correct (`diff` reports `27,30c27,30`); the displayed hunk omits the
+line-27 change on both sides. The evidence block understates its own claim.
+
+**D5 — "names exactly" described a membership assertion.** The KAT asserted
+`('13','PROCESS') in v1 and ('62','DOMAIN') in v1`, which a third leak would
+have passed. **Fixed rather than reworded:** the assertion is now exact-set
+equality, and `answer_leaks` now matches case-insensitively and tolerates
+whitespace around the colon (`13 : process` previously passed silently).
+
+**D6 — "Verified end to end" was true but unshipped; now mechanized.** The three
+serving-path checks were real (a reviewer reproduced all three independently)
+but lived nowhere in the repository, so re-running the KAT gave no coverage of
+the human-answer path — the path this registration exists to certify. That is
+precisely what "a guard never seen failing is not a guard" forbids.
+`score_h1r2.py`'s KAT now exercises the serving parser directly: the Av6 round
+trip, all thirteen alias/case forms, **four malformed returns that must be
+rejected**, and the packet's label list against VALID.
+
+**Grader change disclosed.** `score_h1r2.py` was strengthened after its
+registration section was written (D5, D6). No sample, clause, floor, or scoring
+logic changed — the eight archived KAT scores and both fail branches are
+unchanged and still exact. Legitimate for the same reason the supersession is:
+**no rater has been served, so nothing here is result-contingent.** Stated
+rather than left for a reader to diff.

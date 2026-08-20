@@ -88,3 +88,137 @@ independence is the measurement.**
 
 `PLAN.md` (protocol, frozen first) · `mech1.py` (the classifier, frozen second)
 · `pred.txt` (the one run's predictions) · this record.
+
+---
+
+## [CORRECTION 2026-08-20 — cold review. Append-only; nothing above is altered.]
+
+Three blind cold-review lenses read this record before it was pushed. They were
+right about a great deal. **The conclusion (arc closed) survives, but neither
+the route this record took to it nor the explanation it gave was correct.**
+Original wording is left standing above so the error is legible.
+
+### C1. The central causal claim is WRONG — withdrawn
+
+Above, this record says the DOMAIN↔TYPESTATE errors are "exactly decision
+rule 1" and, in bold, "**it is not a regex-quality problem**."
+
+**That is false, and the majority of the cited errors refute it.** Dumping every
+DOMAIN↔TYPESTATE error with the pattern that fired and the substring it matched:
+
+| item | fired | matched | what it actually is |
+|---|---|---|---|
+| 18 | `\bre-?use` | `reuse` | inside the FIELD NAME `reuse_guard` |
+| 101 | `after` | `after` | "blank nodes after the last non-blank node" — spatial |
+| 102 | `until` | `until` | loop terminator, not an ordering duty |
+| 70, 78 | `valid\w*` | `valid` | "verify that the list … is valid" |
+| 72 | `present` | `present` | guard clause |
+
+Of 11 errors against rater 1, **at most 4 (36, 45, 54, 82) fit the
+message-boundary story; 7 are ordinary pattern over-breadth.** Item 18 is the
+sharpest refutation available: matching inside a field name is exactly what the
+served pack's first instruction forbids ("never on names, labels, or alert
+words") and exactly what codebook rule 2 exists to catch. **The dominant error
+mechanism is the regex-quality defect this record claimed it was not.**
+
+This is a one-cause story told over a multi-cause result — the author had a
+thesis (shape is structural, therefore lexically unreachable), saw the modal
+confusion cell, and did not check what fired. "The errors are not scattered" is
+also wrong: 37% and 31% spread over 8+ confusion cells is a modal cell, not a
+concentration.
+
+**What survives:** that predicate shape is not cheaply recoverable by THIS
+instrument. **What does not:** the claim that it is unreachable in principle by
+any lexical instrument. A better-engineered classifier might do better — and
+that possibility is now live, not excluded.
+
+### C2. The verdict was reached by a criterion PLAN.md did not pre-commit
+
+`PLAN.md` froze: "Beats both degenerates by a clear margin → feasibility
+established; the arc is live." The measured margins do that (see C3). This
+record nonetheless headlines "Negative. Arc closed," bridging the gap with a
+**coverage** criterion that appears nowhere in the pre-committed reading.
+Introducing an adjudication axis after seeing the result is structurally the
+cardinal sin here, even pointing the conservative way, and **`PLAN.md` was
+underspecified — it did not anticipate coverage as a failure mode.** Disclosed
+as a protocol event, per the standard the sibling registration sets.
+
+**The pre-committed criterion was in fact satisfied, and this record failed to
+compute it.** Scoring all 127 items with UNCLASSIFIED as the real bucket
+codebook rule 2 insists it is — not as an abstention:
+
+| | rater 1 (A′) | rater 2 (B′) |
+|---|---|---|
+| classifier, all 127 | 34/127 = **26.8%** | 34/127 = **26.8%** |
+| const-DOMAIN, all 127 | 39/127 = 30.7% | 42/127 = 33.1% |
+
+**The classifier is BELOW the constant baseline on the whole corpus.** PLAN.md
+branch 2 ("at or near degenerate → arc closes") fires cleanly, with no coverage
+argument needed. The right answer was reachable from data already in hand.
+
+Consequently the rule-3 invocation above is downgraded: rule 3 names one
+anecdote, it does not set a coverage floor. The *a fortiori* argument at 55.9%
+is fair, but it is an argument, not a pre-existing rule being applied.
+
+### C3. Corrected numbers and identities
+
+- **"beat both degenerates by 16–23 points" is WRONG at both ends.** True
+  margins: 17.9, 21.4, 23.2, 32.1. The 16 came from crossing rater 1's
+  agreement against rater 2's baseline; the 23 silently dropped the shuffle
+  baseline. Range is **17.9–32.1**, on covered items only.
+- **"rater 1"/"rater 2" are A′ and B′**, as `PLAN.md` step 4 required and this
+  record failed to state. A′ is the non-blind author rater (46.4%); B′ is blind
+  (53.6%). **The classifier agrees more with the blind rater** — visible only
+  once the mapping is given.
+- **"cannot hold a prior about RFC 5545 — a regex has no training data"**
+  overstates, and names the wrong document. The probe ran on MLS (**RFC 9420**).
+  The regex has no training data; **its author does**, and it shows: four
+  patterns (`confirmation tag`, `membership tag`, `psk binder`,
+  `transcript hash`) appear in neither cited source and are author-supplied
+  protocol vocabulary. `mech1.py`'s docstring claim that the patterns come from
+  those sources "ALONE," and that "every pattern cites the definition phrase it
+  derives from" (9 comments for ~80 patterns), are both **overstated**. All four
+  stray patterns are dead — zero matches — so the result is unaffected.
+- **"identified from structure alone"** drops the caveat its source carries. The
+  obfuscation registration discloses retained lexical residuals (sibling-RFC
+  citations, "rule part(s)", "observance"/"onset", the fold vocabulary) and its
+  finding 1 names a lexical route. Correct form, already used elsewhere in this
+  repo: **"from structure and disclosed residuals."** Also, O1 measured that the
+  identification channel survives obfuscation — an unaddressability result — not
+  that the prior is demonstrably operative.
+- **Rule 3's main body is anchored on corpus 2 (awesome-prometheus-alerts)**,
+  not Wayland; only its exception clause — the 29.1% one invoked here — is
+  corpus 3a. "Rule 3 was written for the Wayland corpus of declared error names"
+  is imprecise.
+
+### C4. The ordering claim is self-report, not witnessed
+
+`PLAN.md`, `mech1.py`, `pred.txt` and this record all landed in ONE commit, and
+the md5 was published simultaneously with the file it hashes, so it freezes
+nothing. Everywhere else this repo buys ordering with separately pushed commits
+(`0cf32a7` before any rater; `c500361` before any agent; `8821bce` before
+`6ba6f9a`). **This probe does not meet that standard and should not be read as
+if it does.**
+
+Offered as circumstantial only, and constructed by a reviewer rather than the
+author: 55 of the classifier's ~82 patterns match zero MLS sentences, including
+four whose terms appear nowhere in the corpus — not what someone writes with the
+labelled corpus in front of them. `pred.txt` regenerates byte-identically from
+the frozen `mech1.py`, so it was not hand-edited. Neither fact establishes
+ordering.
+
+### C5. The shuffle baseline is now reproducible
+
+It was not: no seed and no procedure was recorded, while `PLAN.md` step 5 made
+it load-bearing. `score_mech1.py` now ships and re-derives every cell including
+the shuffle (seed `20260820`).
+
+### What the review confirmed sound
+
+Every archived measurement, `pred.txt`'s byte-identical regeneration, the md5,
+coverage, both covered-item agreements, both const-DOMAIN baselines, the
+11/30 and 8/26 counts, and every verbatim quotation of rule 3, decision rule 1
+and Limitation 6. The 4-gram contamination sweep is *narrower than the truth* —
+overlap is 0/60 and 0/225, not merely 0/11. A reviewer also checked whether the
+MLS labels' pack version mismatched `rater-pack-v6.md` and found the `## Classes`
+sections **byte-identical**, so there is no instrument-version confound.

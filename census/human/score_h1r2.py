@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Scorer for the human-rater pass H1 (census/human/).
+"""Scorer for the human-rater pass H1-R2 (census/human/).
 
 Run from the repository root:
-    python3 census/human/score_h1.py            # KAT self-test (no rater needed)
-    python3 census/human/score_h1.py labels.txt # score a 60-line label file
+    python3 census/human/score_h1r2.py            # KAT self-test (no rater needed)
+    python3 census/human/score_h1r2.py labels.txt # score a 60-line label file
 
 The KAT re-derives the frozen sample from its seed and the J5 set, verifies
 the packet's embedded pack section is byte-identical to the frozen v6 pack,
@@ -84,11 +84,58 @@ def answer_leaks(path):
     (6/9). This function is that check, made mechanical.
     """
     head = open(path).read().split('## The items')[0]
-    return re.findall(r'\b(\d+):(' + CLASS_TOKENS + r')\b', head)
+    return re.findall(r'\b(\d+)\s*:\s*(' + CLASS_TOKENS + r')\b', head, re.I)
 
 def verify_no_answer_leak(path='census/human/packet-h1r2.md'):
     leaks = answer_leaks(path)
     assert not leaks, f"answer-shaped token(s) before the item list: {leaks}"
+
+
+def parse_labels(lines):
+    """The serving path's parser. Factored out so the KAT exercises the same code."""
+    lab = {}
+    for ln in lines:
+        m = re.match(r'\s*(\d+)\s*:\s*([A-Za-z?-]+)\s*$', ln)
+        if m:
+            lab[int(m.group(1))] = m.group(2).upper()
+    return lab
+
+def verify_serving_path():
+    """Exercise the path a human's returned lines actually travel.
+
+    Added 2026-08-20 after cold review: the KAT exercised archived label MAPS and
+    never the label-FILE parser, which is the path the registration exists to
+    certify. Asserted-once verification is what this registration's own lesson
+    ("a guard never seen failing is not a guard") rules out.
+    """
+    inv = {v: k for k, v in ALIAS.items()}
+    av6 = dict(archived()[6][1])
+    lines = []
+    for n, i in enumerate(sorted(SAMPLE)):
+        lab = av6[i].rstrip('?')
+        lab = inv.get(lab, lab)                    # full names, as the packet lists them
+        lines.append(f'{i}:{lab}' + ('?' if n % 7 == 0 else ''))
+    got = score(parse_labels(lines))
+    assert got['H1'] == (29, True) and got['H2'] == (9, True) \
+        and got['match_v6_of_60'] == 60 and got['torn'] == 9, got
+    # every alias and case form a rater could plausibly return
+    forms = ['12:CRYPTO-VERIFY', '12:CRYPTO-VERIFY?', '12:NEGOTIATION', '12:NEGOTIATION?',
+             '12:UNCLASSIFIED', '12:CV', '12:NEG', '12:U', '12:U?', ' 12 : DOMAIN ',
+             '12:domain', '12:META', '12:POLICY']
+    for f in forms:
+        p = parse_labels([f])
+        assert p, f'serving parser rejected {f!r}'
+        raw = p[12].rstrip('?')
+        assert ALIAS.get(raw, raw) in VALID, f'{f!r} -> {raw} not in VALID'
+    # negative control: the parser must REJECT malformed returns
+    for bad in ['12 DOMAIN', 'twelve:DOMAIN', '12:DOM AIN', '']:
+        assert not parse_labels([bad]), f'parser wrongly accepted {bad!r}'
+    # the packet's own label list must match VALID token-for-token
+    head = open('census/human/packet-h1r2.md').read().split('<!-- PACK-BEGIN -->')[0]
+    listed = {x.strip().rstrip('.') for x in
+              re.split(r'[,\n]', re.search(r'Valid labels:(.*?)\n\n', head, re.S).group(1))
+              if x.strip().rstrip('.').isupper() and len(x.strip()) > 1}
+    assert {ALIAS.get(x, x) for x in listed} == set(VALID), listed
 
 
 def score(lab):
@@ -181,22 +228,21 @@ def kat():
     verify_no_answer_leak()
     v1 = answer_leaks('census/human/packet-h1.md')
     assert v1, "negative control did not fire: v1 packet should leak"
-    assert ('13', 'PROCESS') in v1 and ('62', 'DOMAIN') in v1, v1
+    assert {(a, b.upper()) for a, b in v1} == {('13', 'PROCESS'), ('62', 'DOMAIN')}, v1
     print(f"leak guard: r2 packet clean; fires on v1 packet -> {v1}")
+    verify_serving_path()
+    print("serving path: Av6 round-trip identical; 13 alias/case forms parse; "
+          "4 malformed returns rejected; packet label list == VALID.")
     print("KAT: 8 archived scores exact; H1/H2 fail branches exhibited; "
           "packet pack section byte-identical; answer-leak guard clean "
-          "and negative-controlled. SCORER VALIDATED.")
+          "and negative-controlled; serving path exercised. SCORER VALIDATED.")
     return rows, sm
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         kat()
     else:
-        lab = {}
-        for ln in open(sys.argv[1]):
-            m = re.match(r'\s*(\d+)\s*:\s*([A-Za-z?-]+)\s*$', ln)
-            if m:
-                lab[int(m.group(1))] = m.group(2).upper()
+        lab = parse_labels(open(sys.argv[1]))
         rederive_sample(); verify_packet(); verify_no_answer_leak()
         s = score(lab)
         for k, v in s.items():
