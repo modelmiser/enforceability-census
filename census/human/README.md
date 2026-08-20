@@ -293,3 +293,113 @@ here.
 after this addendum — 8 archived scores exact, both fail branches exhibited,
 packet pack section byte-identical, SCORER VALIDATED. No published figure,
 witness artifact, or archived label depends on this packet.
+
+---
+
+# H1-R2 — superseding registration (2026-08-20)
+
+**Pre-registered before any rater sees any packet. H1 above is superseded, not
+amended: its registration text, packet, sample, clauses, floors and grader all
+stand exactly as written and remain in the repository as the superseded
+instrument.** This section is append-only from here.
+
+## Why supersede
+
+The addendum above discloses, and measures, a defect in `packet-h1.md`: its
+return-format examples were `13:PROCESS` and `62:DOMAIN?` — real graded item
+numbers carrying the archive's own labels. Item 13 is one of H2's nine and one
+of Xv5's four H2 misses `[13, 91, 146, 210]`. H2's floor is 6/9 and the largest
+measured FAILING branch is Xv5 at 5/9, so that single token converts the
+archive's recorded fail branch into a PASS at the floor. H2 as frozen could not
+refute what H2 exists to refute.
+
+**Superseding is legitimate here for one reason, stated plainly: no rater has
+ever been served.** The append-only discipline guards against *result-contingent*
+revision. There is no result. Nothing below is chosen with knowledge of any
+human's answers, because no human has answered.
+
+## What changed — exactly four lines, and nothing else
+
+`packet-h1r2.md` is byte-identical to `packet-h1.md` except lines 27–30.
+Original wording preserved above and in the superseded packet:
+
+```
+-  (e.g. `13:PROCESS`). If you are genuinely torn between two
+-  classes, give your best single label with a trailing `?`
+-  (e.g. `62:DOMAIN?`).
++  number, a colon, then exactly one label from the list above. If you
++  are genuinely torn between two classes, give your best single label
++  with a trailing `?` — the number, a colon, your label, then `?`.
+```
+
+No item number and no class token appears. This loses the rater nothing: the
+packet already enumerates all ten valid labels in the bullet immediately above,
+and the pack's own Output section repeats them. The examples were redundant
+with an unbiased enumeration sitting four lines higher.
+
+**Unchanged, and verified rather than asserted:** the 60-item sample and its
+three strata; the seeded S-J5 draw; both clause definitions; both floors; the
+embedded rater pack (byte-identical to `codebook/rater-pack-v6.md`); every item
+text; and all scoring logic. Evidence: `score_h1r2.py` reproduces all eight
+archived rater scores exactly and exhibits both fail branches, identical to
+`score_h1.py` — `Ai/Xi/Av4i/Xv4i` 9/9 on H2, `Av5` 0/9 and `Xv5` 5/9 FAIL,
+shuffle mutant 1/9, constant-DOMAIN 0/9.
+
+## The contamination surface was audited, not spot-fixed
+
+The defect was found in two known places; the fix is bounded because the whole
+surface was swept, 2026-08-20:
+
+- **Number-shaped:** the only `NUMBER:CLASS` tokens anywhere in the instrument
+  outside the item list were lines 28 and 30. Zero others.
+- **Text-shaped:** zero 4-gram overlap between any of the eleven S-FAM item
+  texts and the embedded rater pack (0/11).
+- The pack's single iCalendar mention is rule 16/17's per-corpus datum
+  designation ("iCalendar at the transmitted calendar object") — instrument
+  content the rater legitimately needs, uniform across all items, not targeted
+  at any graded one. Left as is.
+
+## New mechanical guard, negative-controlled
+
+`score_h1r2.py` adds `verify_no_answer_leak()`: no answer-shaped
+`NUMBER:CLASS` token may appear before the item list. **Watched to fail on
+purpose** — the KAT asserts the guard fires on the superseded packet and names
+exactly `[('13','PROCESS'), ('62','DOMAIN')]`, then asserts it is clean on the
+R2 packet. A guard never seen failing is not a guard.
+
+Stated for future registrations: **byte-identity checks freeze content; they
+cannot see that the content is an answer key.** The v1 grader verified packet
+byte-identity, re-derived the seeded draw, exhibited both fail branches and
+fired grading mutants — and passed cleanly with the leak in place, because the
+leak lived in the instructions rather than the data.
+
+## Disclosed, and deliberately NOT fixed: H2 has zero margin by construction
+
+H2's floor was set by a principled rule — the smallest integer that every
+measured fail branch fails. That is why the gap between the worst failing
+branch (Xv5, 5/9) and a PASS is exactly one item. The floor is **not** changed
+here. Changing a floor after analysing its fragility would be exactly the
+result-contingent revision this discipline forbids, and the rule that produced
+6 still produces 6.
+
+What follows from it is a reading instruction, not a new number: **H2 is
+maximally sensitive to any single contamination**, so an H2 PASS should be read
+as evidence only in company with the audit above. Minimum-floor discipline and
+leak-tolerance are in direct tension; this registration accepts the former and
+discloses the latter.
+
+## Inherited unchanged
+
+The rater seat decision (recorded 2026-08-16), the sample, both clauses, all
+report-only quantities, the protocol (one sitting ~90 min, packet only, no
+lookups, no AI assistance, no discussion until answers are returned; deviations
+are protocol events disclosed as such; no re-serve to the same rater), and the
+pre-committed interpretation. Serve `packet-h1r2.md`, never `packet-h1.md`.
+Seat requirements also inherit HL1's constraint: an H1-R2 rater must not be an
+HL1 rater.
+
+## Grading
+
+`python3 census/human/score_h1r2.py labels.txt`. Bare invocation runs the
+known-answer test: eight archived scores exact, both fail branches exhibited,
+pack section byte-identical, answer-leak guard clean and negative-controlled.
