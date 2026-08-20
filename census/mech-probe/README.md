@@ -1,5 +1,22 @@
 # MECH-PROBE-1 — can a non-LLM classifier recover predicate shape from RFC prose?
 
+> **[STATUS BANNER added 2026-08-20 (round-2 review) — marked insertion; no original
+> wording below is altered or removed.]**
+>
+> ⚠️ **THE SECTIONS BELOW, UP TO "[CORRECTION 2026-08-20]", CONTAIN WITHDRAWN CLAIMS.**
+> They are kept as legible error, not as findings. Do not quote from them without the
+> corrections.
+>
+> Withdrawn or corrected: the causal claim that the errors are "exactly decision rule 1"
+> and "not a regex-quality problem" (**one** of eleven is decision rule 1); the margin
+> "16–23 points" (**17.9–32.1**); "a prior about RFC 5545" (the probe ran on **RFC 9420**);
+> "identified from structure alone"; and the headline verdict itself, **downgraded in C7
+> from "Negative. Arc closed." to inconclusive on the pre-committed reading.**
+>
+> **Reading order:** this banner → **[CORRECTION 2026-08-20]** (round 1) →
+> **C7 (round 2)**, which corrects the round-1 correction. The sections between are
+> provenance.
+
 **2026-08-20 · Feasibility probe, NOT a registered pass. Negative. Arc closed.**
 **MLS (RFC 9420 §5–15) is SPENT as a probe corpus by this run.**
 
@@ -266,3 +283,137 @@ decision rule 1 and the class definitions — [`codebook/rater-pack-v6.md`](../.
 Limitation 6 — [`PAPER.md`](../../PAPER.md) §8; O1 — [`census/obfuscation/`](../obfuscation);
 the corpus and its two archived raters — [`census/mls/`](../mls), and
 [`census/mls/SPENT.md`](../mls/SPENT.md) for what this run forecloses.
+
+---
+
+## [C7 — ROUND-2 CORRECTION 2026-08-20. Corrects the correction above.]
+
+A second cold-review round audited the round-1 corrections. It found that **the
+correction repeated the defect it named.** C1a's own closing line — "a correction
+accepted unverified is the same defect in a new coat" — describes what happened
+eighty lines above it. Nothing here is altered; this block corrects it.
+
+### C7.1 — "All four stray patterns are dead — zero matches — so the result is unaffected" is FALSE
+
+Both clauses fail, and both fail in the flattering direction.
+
+- **`membership tag` is not dead.** It fires on item 13 (`norm()` rewrites
+  `membership_tag` → `membership tag`) and is the **deciding** pattern, returning
+  **CV — correctly**, since both A′ and B′ label item 13 CV.
+- **The result is affected.** Removing the four strays: covered **26→25** (A′) and
+  **30→29** (B′); whole-corpus **34→33** for both.
+- **`psk binder` is not stray at all.** `rater-pack-v6.md` lines 27 and 48 read
+  "PSK-binder verification" and "MAC/signature/PSK-binder". It comes from a cited
+  source. Only **three** patterns are author-supplied, not four.
+
+So author-supplied protocol vocabulary earns this probe a measurable point, on an
+instrument whose premise is that the author's protocol prior is not in it. The
+dismissal was written without running it.
+
+### C7.2 — Item 18's diagnosis was an OVERSHOOT, and is withdrawn
+
+C1 called item 18 "the sharpest refutation available: matching inside a field name."
+**It did not match inside a field name.** `\bre-?use` fires at offset **28**, in the
+ordinary prose "include the reuse guard in the"; the field-name occurrence is at
+offset 47 and never fires, because `re.search` returns the first match. After
+`norm()` collapses `_` the two are textually indistinguishable, so the claim is not
+even demonstrable from the artifact. The independent instance (item 59) also fires on
+prose: "To avoid key reuse".
+
+The defect is real — the pattern is over-broad, and the item stays in the
+over-breadth bucket, so no count moves. **What is withdrawn is the dramatization.**
+An overstated self-accusation is still an inaccuracy.
+
+Mis-citation attached: C1 says name-matching is "exactly what codebook rule 2 exists
+to catch." Rule 2 is the UNCLASSIFIED-bucket rule. The on-point rule is **rule 8** —
+"classify on the predicate, never the identifier." The sibling correction D3 fixes
+exactly this genre of error; the standard existed and was not applied here.
+
+### C7.3 — "Dumping every DOMAIN↔TYPESTATE error" omitted two
+
+A′'s eleven are `[18, 36, 45, 54, 70, 72, 78, 82, 101, 102, 104]`. **Item 104**
+(`before`, in "before using the tree") appears nowhere in this file. B′'s **item 59**
+(`reuse`) likewise. Both are over-breadth, so the count "7 are ordinary pattern
+over-breadth" is right — but it is right only if 104 is silently counted, and a
+correction whose method is "dump the evidence rather than tell a story about it" has
+to dump all of it.
+
+### C7.4 — The verdict is DOWNGRADED: inconclusive, not clean
+
+C2 declared "branch 2 fires cleanly, with no coverage argument needed." That
+overstates. On the whole corpus the classifier is **below** the constant degenerate
+(26.8% vs 30.7%/33.1%) but **above** the shuffle (26.8% vs 12.6% at the declared
+seed, ~21% at a 2000-seed mean). `PLAN.md` step 5 requires beating **both**.
+
+Failing one rules out branch 1. It does **not** cleanly select branch 2
+("at or near degenerate") over branch 3 ("anything in between → inconclusive"). A
+result that beats one degenerate by 14 points and loses the other by 4–6 is the
+textbook in-between. **Choosing branch 2 was itself a post-hoc adjudication — the
+same move C2 convicts the original record of, pointing the same conservative way.**
+
+**Revised standing verdict:** on the pre-committed reading this probe is
+**branch 3 — INCONCLUSIVE**. The author's decision not to pursue rests on the design
+finding (the repair path is self-defeating), which C1 already re-scoped and which is
+weaker than first stated: once most errors are ordinary over-breadth, narrowing a
+pattern is a precision fix derivable from the pack's own rule 8, not an act of baking
+in label knowledge. **"Negative. Arc closed." is withdrawn in favour of "inconclusive;
+not pursued, for a stated and contestable reason."**
+
+Also corrected: C2's sentence "The pre-committed criterion was in fact satisfied"
+reads as branch 1 while the table below it fires branch 2. Read "decisive", not
+"satisfied".
+
+### C7.5 — `UNCLASSIFIED` is not the pack's `U`, and the equation is unstated
+
+The whole-corpus figure equates them. They are different objects: the classifier's
+`UNCLASSIFIED` means **no pattern fired** — an abstention — while the pack's `U` is a
+substantive class, "no per-instance predicate exists even in principle". **8 of A′'s
+34 and 4 of B′'s 34** whole-corpus agreements are that coincidence: a silent regex
+failure credited as a correct call of "unverifiable in principle".
+
+Codebook rule 2 says report the bucket; it does not license scoring it as a class
+prediction, and C2's appeal to it is a mis-citation. The convention is **generous to
+the classifier**. Scoring abstentions as misses instead gives **26/127 = 20.5%** and
+**30/127 = 23.6%** — still below both constant baselines, so the direction survives,
+but the headline 34 is inflated by an equation that was never stated.
+
+### C7.6 — C4 and C6 reconciled
+
+C4 says the md5 "freezes nothing"; C6 rests on the md5 "freezing this probe". Both
+are true of different properties and neither said so: **the md5 establishes no
+temporal ordering** (it was published with the file it hashes — C4's point) **but
+does pin content identity going forward** (C6's point). C6 is also oversold: git
+already provides an immutable blob, so editing `mech1.py` would not destroy the
+record, only desynchronise the hash quoted here and asserted by the KAT. The choice
+to leave it stands; the argument for it is narrower than stated.
+
+### C7.7 — "Structure alone" — the attribution was wrong, and the source is now fixed
+
+C3 said the phrase "drops the caveat its source carries". It does not: the source
+itself, `census/obfuscation/rfc5545-obf-probe.md` finding 4, said "identification
+precedes rating through structure alone", unqualified. This record inherited it
+faithfully. C3's substance was right (finding 1 does name a lexical route, and the
+residual list is real); its blame was misplaced. The primary artifact has now been
+corrected in place with a marked note, so the claim no longer stands anywhere.
+
+### C7.8 — Grader scope, and two hardenings
+
+`score_mech1.py`'s docstring claimed to "re-derive every number in README.md". It
+derives every **table cell**; it does not derive the error counts, the dead-pattern
+count, or the per-item table. Docstring corrected. The grader now also (a) asserts
+`pred.txt` regenerates from the frozen classifier — C4 leaned on that as
+circumstantial evidence and it is now a standing check — and (b) prints the
+whole-corpus **shuffle** alongside the constant baseline, since C3 faulted the
+original for reporting one degenerate and the whole-corpus line was doing the same.
+
+### What round 2 confirmed sound
+
+Every archived measurement; the whole-corpus table; all four margins and the
+reconstruction of the original "16"; rater identities (A′ non-blind, B′ blind, and
+the classifier does agree more with the blind rater); 11/30 and 8/26; "55 of 82
+patterns dead"; `pred.txt`'s byte-identical regeneration; the rule-3 anchoring; and
+the 4-gram sweep at **0/11, 0/60, 0/225**. Both reviewers who re-implemented that
+sweep initially got a large false overlap and traced it to their own bounds error.
+On the shuffle seed: the published pair (14, 12) arises in only ~1.3% of seeds, which
+is good evidence the shipped procedure is the original one rather than a seed fitted
+to the answer.

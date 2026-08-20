@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""MECH-PROBE-1 grader. Re-derives every number in README.md from shipped artifacts.
+"""MECH-PROBE-1 grader. Re-derives every TABLE CELL in README.md from shipped artifacts.
+
+Scope, corrected 2026-08-20 (round-2 review): this derives coverage, both covered
+agreements, both constant baselines, both shuffles, and the whole-corpus cells. It does
+NOT derive the error counts (11/30, 8/26), the dead-pattern count, or the per-item
+pattern table -- those are stated in README.md and checked by hand.
 
 Bare invocation runs the known-answer test. Added 2026-08-20 by the cold-review
 correction (C5): the shuffle baseline was previously unreproducible -- no seed,
@@ -48,6 +53,17 @@ def kat():
     assert got == CLF_MD5, f'classifier md5 drift: {got}'
     pred = predictions()
     assert len(pred) == 127, len(pred)
+    # (H, round 2) pred.txt must regenerate from the frozen classifier -- C4 leans on this
+    # as circumstantial evidence; it is one assert away from being a standing check.
+    import importlib.util
+    sp = importlib.util.spec_from_file_location('_m', CLF)
+    _m = importlib.util.module_from_spec(sp); sp.loader.exec_module(_m)
+    regen = {}
+    for ln in open(CORPUS):
+        g = re.match(r'\[(\d+)\]\s*(.+)', ln.strip())
+        if g:
+            regen[int(g.group(1))] = _m.classify(g.group(2))[0]
+    assert regen == pred, 'pred.txt does not regenerate from mech1.py'
     cov = [i for i in pred if pred[i] != 'UNCLASSIFIED']
     assert len(cov) == 56, len(cov)          # README: 56/127 = 44.1%
     A, B = archived()
@@ -71,4 +87,8 @@ if __name__ == '__main__':
               f"   const-{c['const'][0]} {c['const'][1]/c['n']:.1%}   shuffle {c['shuffle']/c['n']:.1%}")
         print(f"  WHOLE CORPUS  n={w['n']:3}  classifier {w['agree']}/{w['n']} = {w['agree']/w['n']:.1%}"
               f"   const-{w['const'][0]} {w['const'][1]/w['n']:.1%}"
-              f"   -> {'BELOW' if w['agree'] < w['const'][1] else 'above'} baseline")
+              f"   shuffle {w['shuffle']/w['n']:.1%}")
+        print(f"                vs const-{w['const'][0]}: "
+              f"{'BELOW' if w['agree'] < w['const'][1] else 'ABOVE'}    "
+              f"vs shuffle: {'BELOW' if w['agree'] < w['shuffle'] else 'ABOVE'}"
+              "   (PLAN.md step 5: must beat BOTH)")

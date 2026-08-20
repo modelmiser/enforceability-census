@@ -191,3 +191,29 @@ ships frozen with this registration; its self-test verifies the
 embedded L table against the witness artifacts, exercises the parse
 rejections, re-measures the degenerate strategies, and fires
 per-clause grading mutants on every run.
+
+### [ADDENDUM 2026-08-20 — mechanical answer-leak guard added to the grader]
+
+Append-only; the registration, packet, item set, clauses and floors above are
+unchanged, and `packet-hl1.md` is byte-untouched.
+
+The sibling registration H1 was found to carry a defect this packet does not: its
+return-format examples named real graded items and gave each the archive's own
+label (see `census/human/README.md`). **HL1 was never defective** — its examples use
+8 and 104, which are genuinely outside this registration's 23 registered items, and
+the packet states so explicitly ("Numbers in these two examples are arbitrary and do
+not appear below").
+
+But that protection was **prose**, and prose is not a guard. `score_hl1.py` now
+carries `answer_leaks_in()`, checked in the self-test and negative-controlled three
+ways: clean on the real packet; **fires** on a synthetic header carrying registered
+items; and does **not** fire on this packet's own arbitrary example numbers.
+
+The rule here differs from H1-R2's deliberately. H1-R2 removed numbers and class
+tokens from its format spec entirely; HL1 keeps arbitrary numbers under its explicit
+non-membership disclaimer. So this guard enforces **non-membership**, not absence —
+copying H1-R2's rule here would fail on HL1's own compliant examples.
+
+Scope, so it is not mistaken for coverage: it sees only the `NUMBER:YES/NO` shape,
+and only before the item list. A prose leak, or a leak inside the item list, passes
+silently.

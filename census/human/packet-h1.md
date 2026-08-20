@@ -1,5 +1,21 @@
 # Rater packet H1 — human rater, iCalendar sample (n = 60)
 
+> **[STATUS BANNER added 2026-08-20 — marked insertion above the packet body. No
+> original wording is altered or removed, and nothing inside the embedded rater-pack
+> delimiters is touched, so the pack byte-identity assertion and the four-line packet
+> diff both still hold against the body below.]**
+>
+> ⛔ **DO NOT SERVE THIS PACKET TO A RATER. IT IS SUPERSEDED.**
+>
+> Its return-format examples name two real graded items and give each the archive's
+> own label. One of them sits in the H2 clause and is a miss of the largest measured
+> failing branch, so that example alone lifts that branch to a PASS at the floor —
+> the clause cannot refute what it exists to refute.
+>
+> **Serve `packet-h1r2.md` instead, and grade with `score_h1r2.py`.** Full
+> disclosure, measurement and the superseding registration: `README.md` in this
+> directory. This file is retained unchanged as the superseded instrument of record.
+
 You are a rater in an inter-rater reliability study. This packet is
 everything you may use. Ground rules:
 

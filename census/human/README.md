@@ -207,7 +207,7 @@ preserved:
 >   (e.g. `13:PROCESS`). If you are genuinely torn between two
 >   … (e.g. `62:DOMAIN?`).
 
-**Against the eight archived iCalendar raters
+**Against the eight archived iCalendar raters** *[label removed 2026-08-20 — see D7]*
 (`score_h1.archived()`, run 2026-08-20):
 
 | item | archived labels | in sample | graded under |
@@ -220,7 +220,7 @@ So `13:PROCESS` is the modal archived label for a graded item, and
 torn marker the archive's 4–4 split would justify. Neither example is
 arbitrary; both name the archive's own answers.
 
-**Severity.**
+**Severity.** *[label shortened 2026-08-20 — see D7]*
 
 1. **Item 13 is one of H2's nine.** H2 requires ≥6 of 9 landing PROCESS. The
    packet supplies one of those six before the rater begins. H2 is the clause
@@ -306,7 +306,7 @@ this one preserved verbatim, no rater ever served) is the only one that
 recovers a clause capable of failing. Still owner's decision; still not taken
 here.
 
-**Scorer self-test after this addendum:** `score_h1.py` run
+**Scorer self-test after this addendum:** *[label changed 2026-08-20 — see D7]* `score_h1.py` run
 after this addendum — 8 archived scores exact, both fail branches exhibited,
 packet pack section byte-identical, SCORER VALIDATED. No published figure,
 witness artifact, or archived label depends on this packet.
@@ -362,7 +362,7 @@ archived rater scores exactly and exhibits both fail branches, identical to
 `score_h1.py` — `Ai/Xi/Av4i/Xv4i` 9/9 on H2, `Av5` 0/9 and `Xv5` 5/9 FAIL,
 shuffle mutant 1/9, constant-DOMAIN 0/9.
 
-## The contamination surface, swept both ways
+## The contamination surface, swept both ways *[heading changed 2026-08-20 — see D7]*
 
 The defect was found in two known places; the fix is bounded because the whole
 surface was swept, 2026-08-20:
@@ -461,7 +461,7 @@ text. Original wording stands above.
 The addendum says HL1's gate "caught the same defect shape (`13:NO`,
 `62:YES?`)" and that "HL1's examples are drawn from a deliberately foreign
 domain for this reason." Both parts fail:
-- Those two tokens appear **nowhere in this repository except that sentence**.
+- Those two tokens appeared **nowhere in this repository except that sentence** *[qualified 2026-08-20 (round 2): true when written, and SELF-FALSIFIED two commits later — the D9 fix wrote both tokens into `census/human-locality/score_hl1.py` as the leak guard's negative-control probe. The substantive point stands: the gate finding is not recoverable from `packet-hl1.md`, which has a single commit.]*
   `packet-hl1.md` has a single commit, so no pre-fix state exists in git. The
   claimed gate finding came from the author's working notes and **cannot be
   checked against the artifact**. It should not have been stated as though it
@@ -493,7 +493,23 @@ because report-only" stands; "genuinely contested" is withdrawn.
 rules 10/16/17 — not "rule 16/17" as written. And rule 3's main body is anchored
 on corpus 2 (awesome-prometheus-alerts); only its exception clause is Wayland.
 
-**D4 — The quoted diff shows three lines while claiming four.** The count of
+**D4 — The quoted diff shows three lines while claiming four.** *[completed
+2026-08-20 (round 2): narrating a defective evidence block is not fixing it. The
+complete hunk, `diff packet-h1.md packet-h1r2.md` → `27,30c27,30`:*
+
+```
+- - Return one line per item, in the form `NUMBER:LABEL`
+-   (e.g. `13:PROCESS`). If you are genuinely torn between two
+-   classes, give your best single label with a trailing `?`
+-   (e.g. `62:DOMAIN?`).
++ - Return one line per item, in the form `NUMBER:LABEL` — the item's
++   number, a colon, then exactly one label from the list above. If you
++   are genuinely torn between two classes, give your best single label
++   with a trailing `?` — the number, a colon, your label, then `?`.
+```
+*Four lines each side; the files are otherwise byte-identical at 565 lines.]*
+
+The count of
 four is correct (`diff` reports `27,30c27,30`); the displayed hunk omits the
 line-27 change on both sides. The evidence block understates its own claim.
 
@@ -555,3 +571,29 @@ work went, not as evidence from the commit graph.
 the ten class definitions — [`codebook/rater-pack-v6.md`](../../codebook/rater-pack-v6.md);
 Limitation 6 — [`PAPER.md`](../../PAPER.md) §8; the O1 check —
 [`census/obfuscation/`](../obfuscation); §6.6/§6.7 — [`PAPER.md`](../../PAPER.md).
+
+### [H1-R2 addendum, 2026-08-20 — round 2: `packet-h1.md` is no longer byte-untouched]
+
+Earlier blocks above, and the commits that carried them, state that `packet-h1.md`
+is byte-untouched. **That is no longer true and the change is disclosed here rather
+than left for a reader to diff.**
+
+A marked status banner has been inserted above its title, because round-2 review
+observed that every layer *around* the packet warned about it while the artifact
+actually handed to a rater — the realistic serving path is a direct file link — read
+as a clean, authoritative instrument. Nothing else in the file changed: no original
+wording altered or removed, and nothing inside the embedded rater-pack delimiters
+touched.
+
+Consequences, checked rather than assumed:
+- **"byte-identical to `packet-h1.md` except lines 27–30"** in the H1-R2 registration
+  is now a claim about the packet **body**. Verified: the pack sections of the two
+  packets remain byte-identical, and `verify_packet()` still passes.
+- The banner deliberately contains **no answer-shaped token**, because
+  `verify_no_answer_leak`'s KAT asserts exact-set equality on this packet's two known
+  leaks; a banner quoting them would have failed the check.
+- It also deliberately avoids reproducing the literal pack delimiter strings — a first
+  draft included them and broke naive range-extraction over the file, which the
+  anchored regex in the grader would not have caught.
+
+All four graders pass unchanged.

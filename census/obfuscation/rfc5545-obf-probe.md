@@ -85,7 +85,7 @@ only and join no series.
    evidenced.** The probe was registered as reaching only the
    memorization component; the measured result is that even that
    component cannot be isolated from an LLM seat, because
-   identification precedes rating through structure alone. The
+   identification precedes rating through structure and disclosed residuals. *[corrected 2026-08-20: originally "through structure alone" — overstated against this probe's own finding 1, which names a lexical route (the sibling-citation set RFC 2368/2045/3986), and against the retained-residual list in README.md. The citing texts inherited this phrasing; they have been corrected too.]* The
    parked human-rater replication remains the only probe that
    reaches the shared-prior confound — a statement limitation 6 made
    on argument and this probe now makes on measurement.
