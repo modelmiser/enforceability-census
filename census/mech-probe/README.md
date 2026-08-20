@@ -222,3 +222,29 @@ and Limitation 6. The 4-gram contamination sweep is *narrower than the truth* �
 overlap is 0/60 and 0/225, not merely 0/11. A reviewer also checked whether the
 MLS labels' pack version mismatched `rater-pack-v6.md` and found the `## Classes`
 sections **byte-identical**, so there is no instrument-version confound.
+
+### C1a. Precision on C1 — the structural story is weaker still
+
+C1 above says "at most 4 (36, 45, 54, 82) fit the message-boundary story." That
+figure was adopted from a reviewer and is itself generous. Checked item by item:
+
+- **[54]** "fields of the GroupContext object **in the Welcome message** MUST be
+  the same as the corresponding fields in the …" — unambiguously cross-message.
+  Decision rule 1 exactly. **1 item.**
+- **[82]** order of `psks` must match order in the `proposals` vector — a
+  consistency duty between two parts of one structure; reads intra-message,
+  which the codebook calls DOMAIN. Debatable.
+- **[45]** `init_key` must be "unique among the set of KeyPackages created" — a
+  uniqueness duty over a set across time. Structure the regex cannot see, but
+  not decision rule 1's boundary.
+- **[36]** length must equal "the length of the resolution of the copath node" —
+  depends on tree state; structural, again not cross-message.
+
+So of 11 errors, **exactly one is decision rule 1**; three more involve
+structure a lexical instrument cannot see, of differing kinds; seven are pattern
+over-breadth. The original record's "exactly decision rule 1" describes **1/11**
+of the evidence it was drawn from.
+
+Recorded because the correction inherited the reviewer's number without checking
+it, and checking it moved the figure **against** the original claim rather than
+toward it. A correction accepted unverified is the same defect in a new coat.
