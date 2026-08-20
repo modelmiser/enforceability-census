@@ -403,3 +403,31 @@ HL1 rater.
 `python3 census/human/score_h1r2.py labels.txt`. Bare invocation runs the
 known-answer test: eight archived scores exact, both fail branches exhibited,
 pack section byte-identical, answer-leak guard clean and negative-controlled.
+
+### [H1-R2 addendum, 2026-08-20 — serving path verified end to end]
+
+Recorded because it had never been done, on H1 or H1-R2: the known-answer test
+exercises *archived rater* label maps, not a human's returned lines. The path a
+recruit's answers actually travel was unverified in both registrations.
+
+Verified 2026-08-20, after registration and before any serving:
+
+- **Round trip.** An archived rater (Av6) re-expressed exactly as this packet
+  instructs a human to write — full names where the packet lists them
+  (`UNCLASSIFIED` rather than `U`), torn `?` markers on every seventh line —
+  scores **identically** to its archived form: H1 29/29 PASS, H2 9/9 PASS,
+  match 60/60, torn 9, all report-only quantities produced.
+- **Every alias and case form.** The serving parser plus normalisation was
+  exercised on all thirteen forms a rater could plausibly return:
+  `CRYPTO-VERIFY`, `CRYPTO-VERIFY?`, `NEGOTIATION`, `NEGOTIATION?`,
+  `UNCLASSIFIED`, `CV`, `NEG`, `U`, `U?`, surrounding whitespace, lowercase,
+  `META`, `POLICY`. All parse and normalise into the scorer's VALID set.
+  *Disclosed: the round-trip above alone would NOT have shown this — Av6's
+  labels on this sample contain no CV or NEG item, so two of the three aliases
+  were unexercised until tested directly.*
+- **Label list consistency.** The packet's "Valid labels" bullet holds exactly
+  ten tokens, and normalises token-for-token onto the scorer's VALID set
+  (checked mechanically, not by reading).
+
+No defect found; nothing changed as a result. Recorded because "the serving path
+works" was an assumption in both registrations until it was run.
