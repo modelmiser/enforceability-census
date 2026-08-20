@@ -171,3 +171,125 @@ perturbed KAT expectation fails at the perturbed rater, and a
 one-byte packet perturbation fails the byte-identity assert. The
 rater's labels will be archived verbatim in the report and
 round-trip parsed before push.
+
+---
+
+## [ADDENDUM 2026-08-20 — instrument defect disclosed at the artifact. Append-only; nothing above is altered.]
+
+Recorded here rather than deferred to H1's eventual report, because H1 is
+paused indefinitely and a contingent report is not a disclosure vehicle. No
+rater has seen this packet; nothing below is result-contingent, because there
+is no result.
+
+**The defect.** `packet-h1.md` states its return format with two worked
+examples that use REAL graded item numbers carrying REAL archive labels.
+Quoted verbatim from the frozen packet (lines 27–30), original wording
+preserved:
+
+> - Return one line per item, in the form `NUMBER:LABEL`
+>   (e.g. `13:PROCESS`). If you are genuinely torn between two
+>   … (e.g. `62:DOMAIN?`).
+
+**Measured, not asserted.** Against the eight archived iCalendar raters
+(`score_h1.archived()`, run 2026-08-20):
+
+| item | archived labels | in sample | graded under |
+|---|---|---|---|
+| 13 | PROCESS ×6, DOMAIN ×2 (v5 pair) | S-FAM recognition family | **H2 (graded)** |
+| 62 | PROCESS ×4, DOMAIN ×4 | S-FAM, J4 pair | report-only |
+
+So `13:PROCESS` is the modal archived label for a graded item, and
+`62:DOMAIN?` is one side of a genuinely contested item presented WITH the
+torn marker the archive's 4–4 split would justify. Neither example is
+arbitrary; both name the archive's own answers.
+
+**Severity, stated plainly and not minimized.**
+
+1. **Item 13 is one of H2's nine.** H2 requires ≥6 of 9 landing PROCESS. The
+   packet supplies one of those six before the rater begins. H2 is the clause
+   that carries the instrument: this registration already discloses that a
+   constant-DOMAIN rater passes H1 by construction and that only the H1+H2
+   pair refutes both degenerates. The leak is on the discriminating half.
+2. **Cluster amplification — a stated risk, not a measurement.** This
+   registration discloses that the nine are two near-duplicate textual
+   clusters, one being the three "MUST ignore" items **13, 91, 210**. A rater
+   who takes the cue from 13 has a template for its two near-identical
+   siblings. That is a route to 3 of 9 against a floor of 6, where the
+   largest measured FAILING branch (Xv5) scored 5. Whether a human would in
+   fact carry the cue across the cluster is unmeasured and unmeasurable
+   without serving the packet.
+3. **Item 62 is milder.** The J4 pair is report-only, never graded. The leak
+   there touches a reported quantity and the torn count, not a clause.
+
+**What this does NOT do.** It does not amend the packet, the sample, the
+clauses, or the floors — all stay frozen exactly as registered. It does not
+affect HL1, whose gate caught the same defect shape (`13:NO`, `62:YES?`)
+before registration and fixed it; HL1's examples are drawn from a
+deliberately foreign domain for this reason. It does not touch any archived
+label, any witness artifact, or any census figure — no published number
+depends on this packet, which has never been served.
+
+**Open, and owner's to decide — recorded, not resolved here.** H1 as frozen
+should not be served on H2 without this defect being carried into any
+resulting report as a first-class caveat on that clause. Three paths, none
+taken as of this addendum:
+
+- serve as frozen and report H2 as compromised at the floor (the number would
+  be hard to interpret, which is itself an honest outcome);
+- demote H2 to report-only for this pass and grade H1 alone — but the
+  registration's own analysis says H1 alone refutes neither degenerate, so
+  this yields little;
+- supersede with a fresh registration carrying a corrected packet
+  (foreign-domain examples, per HL1's fix), preserving this one verbatim as
+  the superseded instrument. Legitimate precisely because no rater has been
+  served: the append-only rule guards against result-contingent revision, and
+  there is no result to be contingent on.
+
+Discovered 2026-08-20 while auditing what obligations survive the human-pass
+decision. The prior record of this defect lived only in the workspace TODO as
+a disclosure owed to a report that might never be written; that is why it is
+now stated at the artifact.
+
+### [ADDENDUM 2026-08-20, continued — severity point 2 upgraded from inference to measurement]
+
+The block above recorded cluster amplification as "a stated risk, not a
+measurement." That hedge is **superseded**; the original wording is left
+standing above so the inference-then-measurement order stays visible. What
+follows was measured with `score_h1.archived()` on 2026-08-20, and it is
+stronger than the risk it replaces.
+
+**The leak is exactly the size of the entire discriminating margin.**
+
+- H2's floor is **6** of 9.
+- The largest measured FAILING branch is **Xv5 at 5/9** — the registration
+  says so, and the scorer's own run reproduces it. The floor was set as "the
+  smallest integer that every measured fail branch fails," so the gap between
+  the archive's worst failing rater and a PASS is **exactly one item**.
+- The packet leaks **exactly one answer**: `13:PROCESS`.
+- **Item 13 is one of Xv5's four misses.** Xv5's H2 misses are precisely
+  `[13, 91, 146, 210]` (Xv5 labels 13 as DOMAIN).
+
+Therefore, mechanically: **a rater reproducing Xv5's convicted DOMAIN drift,
+handed this packet, scores 6/9 and PASSES H2 at the floor.** The format
+example converts the archive's own recorded fail branch into a pass. H2 as
+frozen does not refute the thing H2 was built to refute.
+
+Sharper still: three of Xv5's four misses — 13, 91, 210 — are exactly the
+three "MUST ignore" near-duplicate items this registration already names as a
+correlated cluster, and the leaked example is a member of that cluster. If
+the cue carries across the cluster, Xv5's branch reaches 8/9. Whether a human
+carries it remains unmeasured; that a single-item cue alone already flips the
+branch does not.
+
+**Consequence for the three paths above.** Path 1 (serve as frozen, report H2
+as compromised) is now the weakest of the three, not the most conservative:
+it would produce a number that provably cannot separate a genuine pass from
+the archive's convicted drift. Path 3 (supersede with a corrected packet,
+this one preserved verbatim, no rater ever served) is the only one that
+recovers a clause capable of failing. Still owner's decision; still not taken
+here.
+
+**Not affected, verified rather than assumed:** `score_h1.py` self-test run
+after this addendum — 8 archived scores exact, both fail branches exhibited,
+packet pack section byte-identical, SCORER VALIDATED. No published figure,
+witness artifact, or archived label depends on this packet.
