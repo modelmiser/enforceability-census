@@ -245,3 +245,33 @@ one line and converts an assertion into a witnessed one.
 **This slot is deliberately left blank.** It is not the assistant's to sign — only the
 owner knows what did or did not happen. **Sign it, in its own pushed commit, before
 serving anything.**
+
+
+#### Machine-verifiable half — SIGNED (assistant), 1dd2b39
+
+The affirmative statement above stays blank. What a repository *can* witness has been
+verified across **all history**, and this half is signed:
+
+> **As of commit `1dd2b39`, no serving artifact exists anywhere in this repository's
+> history under `census/human/` or `census/human-locality/`.** Every file ever added
+> to those paths, in any commit, is a registration document, a packet, or a grader:
+>
+> | commit | files added |
+> |---|---|
+> | `0cf32a7` | `census/human/{README.md, packet-h1.md, score_h1.py}` |
+> | `8eed8ff` | `census/human-locality/{README.md, packet-hl1.md, score_hl1.py}` |
+> | `1f4ca00` | `census/human/{packet-h1r2.md, score_h1r2.py}` |
+>
+> No labels file, no attestation addendum, no report, no rating record, no recruit
+> register — zero matching paths for each, across all commits.
+>
+> — verified by Claude Opus 5, 1dd2b39. Re-runnable:
+> `git log --all --diff-filter=A --name-only -- census/human census/human-locality`
+
+**What this does and does not establish.** It establishes that the repository contains
+no trace of a serving. **It does not establish that no serving occurred** — a serving
+that produced no committed artifact is invisible to this check, which is precisely why
+the affirmative statement above needs a human signature and cannot be supplied by an
+assistant. An assistant signing "no rater has been served" would be asserting a fact
+about the world it has no way to know, which is the defect class this registration's
+own addenda exist to document.

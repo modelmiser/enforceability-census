@@ -29,7 +29,7 @@ not outside them.
 | QUIC transport — **≈67–69%** ([`census/quic/`](census/quic)) | 281 | TYPESTATE is the largest class here (~46%) |
 | MLS — **≈57%** ([`census/mls/`](census/mls)) | 127 | ~25 points below TLS under the *same* instrument |
 | QUIC recovery — **23.3%** ([`census/quic-recovery/`](census/quic-recovery)) | 30 | small n; ~60% PROCESS |
-| Wayland — **87.6%** ([`census/wayland/`](census/wayland)) | 172 | ⚠️ **the corpus behind this figure is not regenerable** (checkout never pinned); re-running the shipped pipeline gives **79.0%** |
+| Wayland — **87.6%** ([`census/wayland/`](census/wayland)) | 172 | ⚠️ **the corpus behind this figure is not regenerable** — the census-era checkout was never pinned, so it is preserved as reported numbers, not as a rebuildable artifact. The superset re-run (79.0% of 214) **carries no headline** — 11.1% unclassified, unresolved DISAGREE bucket — and is cited only to show the fitted-vocabulary sensitivity is real, *not* as a corrected figure |
 | PromQL — **78.1% THRESHOLD, 0 TYPESTATE** ([`census/promql/`](census/promql)) | 1 155 | the 0 is a *language invariant*, not a measurement — the query language cannot express ordering |
 | **Document role varies the share more than domain does.** Within one protocol family the span is 23%→69% ([`census/quic-family.md`](census/quic-family.md)) | 380 | pooled family figure carries its own caveat in-file |
 | **Classes transmit as well as their discriminators are crisp.** CRYPTO-VERIFY is item-identical across 17 raters and 6 model families; disagreement concentrates at fuzzy boundaries | — | the discriminator is the secret material, never the word "crypto" |

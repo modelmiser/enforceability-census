@@ -46,7 +46,9 @@ corpus (1,155 Prometheus alert rules) is 78% threshold, in a query
 language whose grammar cannot express typestate — its TYPESTATE count of 0
 is a design invariant of PromQL, not a census measurement (§4.1); Wayland's declared protocol errors are
 87.6% type-eliminable in shape (149 of the 170 client-facing errors among
-172 declared; classifier vocabulary fitted to that corpus — §4.2); and the
+172 declared; classifier vocabulary fitted to that corpus, **and — uniquely
+among these corpora — the census-era checkout was never pinned, so this figure is
+preserved as reported numbers rather than as a regenerable artifact** — §4.2); and the
 normative surface of RFC 8446 §4 (TLS 1.3 handshake,
 204 MUST/SHALL sentences) is **80–83% type-eliminable in shape** (three-rater range),
 with a secret-dependent cryptographic core of **exactly 6/204 (2.9%) — the
